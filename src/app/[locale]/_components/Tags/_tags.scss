@@ -1,0 +1,44 @@
+#tags {
+    display: flex;
+    width: 100%;
+    overflow: auto;
+    flex-wrap: wrap;
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        margin-right: .8rem;
+        margin-bottom: .8rem;
+        margin-top: .8rem;
+
+        @media all and (max-width: 576px) {
+            width: 100%;
+        }
+
+        a {
+            width: 100%;
+            border-radius: 2rem;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 12px 10px;
+
+            text-transform: uppercase;
+            color: var(--text-color);
+            letter-spacing: 1.6px;
+            @include adjust-font(11px, false);
+
+            &:hover {
+                background: linear-gradient(
+                    262deg,
+                    rgba(172, 131, 109, 1) 28%,
+                    rgba(240, 202, 178, 1) 70%
+                );
+                color: #000;
+            }
+        }
+    }
+}

@@ -1,0 +1,168 @@
+#offplanInfoPage{
+    div.spotlight{
+        width: 100%;
+        div.imageContainer{
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            height: 900px;
+            z-index: 2;
+
+            /* Vertical side gradients for smooth blend */
+            div.gradient-left,
+            div.gradient-right {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 50px;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            /* Left side fade */
+            div.gradient-left {
+            left: 0;
+            background: linear-gradient(
+                to right,
+                var(--secondary-bg-color) 0%,
+                rgba(18, 24, 35, 0) 100%
+            );
+            }
+
+            /* Right side fade */
+            div.gradient-right {
+            right: 0;
+            background: linear-gradient(
+                to left,
+                var(--secondary-bg-color) 0%,
+                rgba(18, 24, 35, 0) 100%
+            );
+            }
+            @media all and (max-width: 1200px) {
+                div.gradient-right, div.gradient-left {
+                    display: none;
+                }
+            }
+            @media all and (max-width: 1200px) {
+                width: 100%;
+                margin: auto;
+                height: 733px;
+               }
+               @media all and (max-width: 1300px) {
+                height: 608px;
+               }
+            @media all and (max-width: 980px) {
+               height: 600px;
+              }
+            img{
+                object-fit: cover;
+            }
+            div.gradient {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                  360deg,
+                  var(--secondary-bg-color) 30%,
+                  rgba(18, 24, 35, 0) 100%
+                );
+                height: 400px;
+                z-index: 1;
+                @media all and (max-width: 980px) {
+                    height: 600px;
+                  }
+                  @media all and (max-width: 640px) {
+                  bottom: 200px;
+                  }
+              }
+            div.info{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                @media all and (max-width: 980px) {
+                    bottom: -176px;
+                  }
+                  @media all and (max-width: 640px) {
+                    bottom: -376px;
+                  }
+                div.wrapper{
+                    z-index: 9;
+                    position: relative;
+                    h1.mainHeading{
+                        color: var(--text-color);
+                        margin-bottom: 30px;
+                        line-height: 2rem;
+                    }
+                    div.gradientLine{
+                        height: 1px;
+                        position: relative;
+                        width: 60%;
+                        margin:  0 auto 30px;
+                        img{
+
+                        }
+                    }
+                    ul.list{
+                        display: flex;
+                        flex-wrap: wrap;
+                        @media all and (max-width:1050px){
+                            justify-content: space-between;
+                        }
+                        li.item{
+                            width: 25%;
+                            display: flex;
+                            justify-content: center;
+                            @media all and (max-width:1050px){
+                                width: 49%;
+                                margin-bottom: 30px;
+                                justify-content: left;
+                                &.ar {
+                                    justify-content: right;
+                                }
+                                &:nth-child(2),&:nth-child(4){
+                                    justify-content: flex-start;
+                                }
+                            }
+                            @media all and (max-width: 980px) {
+                               border-bottom: 1px solid var(--border-color);
+                               padding-bottom: 10px;
+                               width: 46%;
+                              }
+                              @media all and (max-width: 640px) {
+                                width: 100%;
+                              }
+                            div.left{
+                                margin-right: 15px;
+                                &.ar {
+                                    margin-right: unset;
+                                    margin-left: 15px;
+                                }
+                                span.icon{
+                                    display: block;
+                                    margin-top: 5px;
+                                    svg{
+                                        width: 20px !important;
+                                    }
+                                }
+                            }
+                            div.right{
+                                span.value{
+                                    color: var(--text-color);
+                                    @include adjust-font(18px, false);
+                                    font-weight: 500;
+                                    display: block;
+                                }
+                                span.label{
+                                    @include adjust-font(14px, false);
+                                    color: var(--light-text-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,89 @@
+#commonCarousel {
+    padding-bottom: 60px;
+    div.gallery {
+      margin: 30px auto 0;
+      width: 100%;
+  
+      div.propertyItem {
+        width: 30%;
+        filter: blur(3px);
+        &.active {
+          filter: none;
+        }
+      }
+    }
+    div.slick-slider {
+      // width: 80%;
+      // margin: 0 auto;
+      div.slick-slide {
+        padding-right: 30px;
+        transform: scale(0.7);
+        // filter: blur(3px);
+        @media all and (max-width: 1400px) {
+          padding-right: 0;
+        }
+        @media all and (max-width: 1050px) {
+          transform: scale(1);
+          filter: none;
+          padding-right: 30px;
+        }
+        @media all and (max-width: 480px) {
+         
+          padding-right: 10px;
+        }
+      }
+      div.slick-list {
+        @media all and (max-width: 980px) {
+          overflow: visible !important;
+        }
+      }
+      div.arrow-left {
+        position: absolute;
+        bottom: -20px;
+        left: 250px !important;
+        @include adjust-font(35px, false);
+        cursor: pointer;
+        z-index: 9;
+        top: unset !important;
+        @media all and (max-width: 1050px) {
+          bottom: -50px;
+        }
+        @media all and (max-width: 980px) {
+          display: none;
+        }
+      }
+      div.arrow-right {
+        position: absolute;
+        bottom: -20px !important;
+        right: 250px !important;
+        @include adjust-font(35px, false);
+        cursor: pointer;
+        top: unset !important;
+        @media all and (max-width: 1050px) {
+          bottom: -50px !important;
+        }
+        @media all and (max-width: 980px) {
+          display: none;
+        }
+      }
+      div.propertyItem {
+          @media all and (max-width: 1200px) {
+             width: 19rem !important;
+            }
+            @media all and (max-width: 1050px) {
+             width: 100% !important;
+             }
+        }
+      div.slick-center {
+        &.slick-slide {
+          filter: none !important;
+          transform: scale(1) !important;
+          transition: 0.4s;
+        }
+        div.propertyItem {
+          z-index: 999;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,275 @@
+.chatbotContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    .chatWindow {
+        width: 448px;
+        height: 80dvh;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    /* Fullscreen on mobile */
+    @media (max-width: 768px) {
+        .chatWindow {
+            width: 100%;
+            height: 100vh;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+        }
+        
+        .chatHeader, .inputContainer {
+            padding: 10px;
+        }
+
+        .chatHeader {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+    
+    .chatHeader {
+        padding: 10px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.02) 0.44%, rgba(0, 0, 0, 0) 49.5%), #ffffff;
+        color: black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding: 1.25rem;
+        border-bottom: 1px solid rgb(229, 231, 235);
+        
+        div {
+            display: flex;
+            align-items: center;
+            width: 50%;
+
+            .agentName {
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                color: rgb(63, 63, 70);
+                @include adjust-font(0.875rem, false);
+                font-weight: 700;
+                margin-left: .5rem;
+                letter-spacing: 1px;
+                text-transform: unset;
+            }
+        }
+    }
+    
+    .chatBody {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+    }
+    
+    .messagesContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: .5rem;
+        padding-bottom: 1.25rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .scrollButtonContainer {
+        position: absolute;
+        bottom: 100px;
+        right: 2rem;
+        .scrollButton {
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid rgb(212 212 216);
+            background-color: rgb(250 250 250);
+            width: 2.5rem;
+            height: 2.5rem;
+            img {
+                margin-top: 4px;
+                opacity: .7;
+            }
+        }
+    }
+    
+    .messageContainer {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .userMessageContainer {
+        justify-content: flex-end;
+    }
+
+    .botMessageContainer {
+        justify-content: flex-start;
+    }
+
+    .botAvatar {
+        margin-right: .5rem;
+        align-self: flex-end;
+        padding-bottom: .5rem;
+    }
+
+    .message {
+        margin-top: calc(1.25rem / 2);
+        margin-bottom: calc(1.25rem / 2);
+        padding: 8px;
+        border-radius: 8px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+
+    .inputContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: .5rem;
+        border-top: 1px solid rgb(228 228 231/1);
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        
+        .input {
+            margin-right: 1.25rem;
+            border: none;
+            width: 100%;
+            height: 4rem;
+            @include adjust-font(0.875rem, false);
+            line-height: 1.25rem;
+        }
+        
+        .sendButton {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .sendImage {
+                opacity: .8;
+            }
+
+            &:disabled {
+                opacity: .8;
+                cursor: not-allowed;
+            }
+        }
+    }
+    
+    .openButton {
+        border: 0px;
+        bottom: 1rem;
+        right: unset;
+        left: unset;
+        width: 55px;
+        height: 55px;
+        border-radius: 27.5px;
+        background-color: rgb(32, 117, 188);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;
+        cursor: pointer;
+        z-index: 2147483645;
+        transition: 0.2s ease-in-out;
+        left: 1rem;
+        transform: scale(1);
+
+        &:hover {
+            transform: scale(1.1);   
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    .closeButton {
+        background-color: transparent;
+        border: none;
+        color: gray;
+        @include adjust-font(16px, false);
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform .3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .userMessage {
+        align-self: flex-end;
+        background-color: rgb(32, 117, 188);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: #fff;
+        @include adjust-font(.875rem, false);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        line-height: 1.25rem;
+        border-radius: 20px;
+        border-bottom-right-radius: .25rem;
+        letter-spacing: 1px;
+        font-weight: 400;
+    }
+    
+    .botMessage {
+        align-self: flex-start;
+        background-color: rgba(228, 228, 231, 0.5);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: rgb(63, 63, 70);
+        @include adjust-font(.875rem, false);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        line-height: 1.25rem;
+        border-radius: 20px;
+        border-bottom-left-radius: .25rem;
+        letter-spacing: 1px;
+        font-weight: 400;
+
+        position: relative;
+    }
+}
+
+.copyButton {
+    background-color: transparent;
+    border: none;
+    color: #007bff; /* Button text color */
+    cursor: pointer;
+    @include adjust-font(12px, false);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    position: absolute;
+    bottom: .75rem;
+    right: 1rem;
+
+  }
+  
+  .messageContainer:hover .copyButton {
+    opacity: 1; /* Button becomes visible when hovering over the message */
+  }
+  
+  .copyButton:hover {
+    color: rgb(32, 117, 188); /* Darken color when hovering over the button */
+  }

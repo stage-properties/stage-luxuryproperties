@@ -1,0 +1,47 @@
+/* Styles for input fields with errors */
+#formComponent {
+  input.error,
+  textarea.error {
+    border-color: red;
+  }
+
+  /* Wrapper for positioning */
+  .input-wrapper {
+    position: relative;
+  }
+
+  /* Tooltip styles */
+  .input-wrapper input.error:hover::after,
+  .input-wrapper textarea.error:hover::after,
+  .input-wrapper input.error:focus::after,
+  .input-wrapper textarea.error:focus::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    transform: translateY(-100%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    @include adjust-font(0.9em, false);
+    z-index: 10;
+  }
+
+  /* Tooltip arrow */
+  .input-wrapper input.error:hover::before,
+  .input-wrapper textarea.error:hover::before,
+  .input-wrapper input.error:focus::before,
+  .input-wrapper textarea.error:focus::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background-color: #f44336;
+    z-index: 9;
+  }
+}

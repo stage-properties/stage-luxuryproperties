@@ -1,0 +1,89 @@
+div.contactBtns{
+    border: 1px solid var(--border-color);
+    padding: 6px;
+    margin-bottom: 15px;
+    background-color: var(--primary-bg-color);
+    z-index: 9;
+    div.top{
+        h1.price, h2.price{
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: unset !important;
+        }
+    }
+    div.bottom{
+        div.buttonContainer{
+            display: flex;
+            @media all and (max-width:1200px){
+               justify-content: space-between;
+                }
+                @media all and (max-width:320px){
+                  flex-wrap: wrap;
+                  justify-content: center;
+                }
+            a.gradientBorder{
+                display: flex;
+                margin-right: 10px;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 8px;
+                width: 32%;
+                @media all and (max-width:320px){
+                    width: 47%;
+                    margin-bottom: 10px;
+                  }
+                span.icon{
+                    line-height: 0;
+                    &.ar {
+                        margin-left: 0.5rem;
+                    }
+                    svg{
+                        width: 15px !important;
+                        height: 15px !important;
+                    }
+                }
+                span.text{
+                    color: var(--light-text-color);
+                    display: block;
+                    margin-left: 6px;
+                    @include adjust-font(12px, false);
+                    font-family: var(--lato-font-family);
+                }
+            }  
+            button{
+                background-color: transparent;
+                // border: 1px solid var(--border-color);
+                padding: 6px 8px;
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                width: 32%;
+                justify-content: center;
+                cursor: pointer;
+                @media all and (max-width:320px){
+                    width: 47%;
+                    margin-bottom: 10px;
+                  }
+                &.whatsapp{
+                    margin-right: 0;
+                    display: block;
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+                span.icon{
+                    &.ar {
+                        margin-left: 0.5rem;
+                    }
+                    line-height: 0;
+                }
+                span.text{
+                    color: var(--light-text-color);
+                    display: block;
+                    margin-left: 6px;
+                    font-family: var(--lato-font-family);
+                }
+            }
+        }
+    }
+}

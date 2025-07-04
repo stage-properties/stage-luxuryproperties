@@ -1,0 +1,85 @@
+#offplanInfoPage{
+    div.aboutDeveloper{
+        border-left: none;
+        border-right: none;
+        border-width: 5px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        div.wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media all and (max-width: 1200px) {
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+            }
+            .parent {
+                width: 50%;
+                @media all and (max-width: 1200px) {
+                    width: 100%;
+                }
+                h2.mainHeading{
+                    text-align: left;
+                    @include adjust-font(1.5rem, false);
+                    margin-bottom: 1rem;
+                    color: var(--text-color);
+                    font-weight: 700;
+                    letter-spacing: 1.92px;
+                    text-transform: uppercase;
+                    &.ar {
+                        text-align: right;
+                    }
+                    @media all and (max-width: 1200px) {
+                        text-align: center;
+                    }
+                    @media all and (max-width: 992px) {
+                        @include adjust-font(1.25rem, false);
+                        letter-spacing: 1.6px;
+                        line-height: 2rem;
+                    }
+                }
+                .developer_description {
+                    width: 500px;
+                    color: #FFF;
+                    @include adjust-font(1.25rem, false);
+                    font-weight: 300;
+                    line-height: 31.768px; /* 158.839% */
+                    letter-spacing: 0.4px;
+                    text-transform: unset;
+                    width: 100%;
+                }
+                .developer_image {
+                    width: 500px;
+                    background-color: white;
+                    padding: 1rem;
+                    @media all and (max-width: 992px) {
+                        width: 50%;
+                    }
+                }
+                &.imageParent {
+                    display: flex;
+                    justify-content: center;
+                    @media all and (max-width: 1200px) {
+                        justify-content: center;
+                        margin-bottom: 3rem;
+                    }
+                    @media all and (max-width: 992px) {
+                        margin-bottom: 2rem;
+                    }
+                }
+                .generalButton {
+                    width: fit-content;
+                    display: block;
+                    text-align: center;
+                    margin-top: 2rem;
+                    letter-spacing: 1.6px;
+                    @media all and (max-width: 576px) {
+                        letter-spacing: 0;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

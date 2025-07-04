@@ -1,0 +1,124 @@
+div.landscapeTeamCard {
+  display: flex;
+  min-height: 200px;
+  @media all and (min-width: 1700px) {
+    min-height: 250px;
+  }
+  @media all and (max-width: 980px) {
+    min-height: 273px;
+  }
+  @media all and (max-width: 768px) {
+    min-height: 240px;
+  }
+  @media all and (max-width: 640px) {
+    flex-direction: column;
+    min-height: 584px;
+  }
+  @media all and (max-width: 480px) {
+    min-height: 450px;
+  }
+
+  div.left {
+    width: 40%;
+    @media all and (max-width: 640px) {
+      width: 100%;
+    }
+    div.imageContainer {
+      width: 100%;
+      position: relative;
+      height: 100%;
+      @media all and (max-width: 1200px) {
+        height: 247px;
+      }
+      @media all and (max-width: 980px) {
+        height: 348px;
+      }
+      @media all and (max-width: 768px) {
+        height: 250px;
+      }
+      @media all and (max-width: 640px) {
+        height: 434px;
+      }
+      @media all and (max-width: 480px) {
+        height: 298px;
+      }
+      @media all and (max-width: 416px) {
+        height: 270px;
+      }
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  div.right {
+    width: 60%;
+    padding: 15px 0 15px 15px;
+    color: var(--text-color);
+    &.ar {
+      margin-right: 1rem;
+    }
+    @media all and (max-width: 640px) {
+      width: 100%;
+      height: 180px;
+    }
+    h3.name {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 300;
+      @include adjust-font(18px, false);
+      @media all and (max-width: 1400px) {
+        @include adjust-font(14px, false);
+      }
+    }
+    span {
+      text-transform: capitalize;
+      font-weight: 300;
+      @include adjust-font(14px, false);
+      margin-bottom: 6px;
+      display: block;
+      &.language {
+        margin-bottom: 20px;
+        text-transform: capitalize;
+      }
+      @media all and (max-width: 1400px) {
+        @include adjust-font(12px, false);
+      }
+      @media all and (max-width: 640px) {
+        @include adjust-font(10px, false);
+      }
+    }
+    
+    .langHead {
+      text-transform: capitalize;
+      font-weight: 300;
+      @include adjust-font(14px, false);
+      margin-bottom: 6px;
+      display: block;
+      margin-top: 10px;
+      
+      @media all and (max-width: 1400px) {
+        @include adjust-font(12px, false);
+      }
+      @media all and (max-width: 640px) {
+        @include adjust-font(10px, false);
+      }
+    }
+
+    p.description {
+      text-transform: uppercase;
+      color: var(--light-text-color);
+      font-weight: 300;
+      @include adjust-font(12px, false);
+      margin-bottom: 10px;
+    }
+    a.icon {
+      position: relative;
+      z-index: 9;
+      svg {
+        width: 25px !important;
+        height: 25px !important;
+      }
+    }
+  }
+}

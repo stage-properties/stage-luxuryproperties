@@ -1,0 +1,171 @@
+div.similiarPropertyComponent {
+  // margin-top: 280px;
+  h2.mainHeading {
+    color: var(--text-color);
+    @include adjust-font(1.25rem, false);
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  div.carouselSection {
+    padding-bottom: 80px;
+    div#carouselComponent {
+      // div.item{
+      //     width: 33% !important;
+      // }
+      &.leftAlign{
+        div.slick-track {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+      &.hideCarousel {
+        div.listItems {
+          display: flex;
+        }
+       
+      }
+      &.visibleCarousel{
+        @media all and (max-width:1400px){
+            div.listItems {
+                display: none;
+              }
+        }
+      }
+      div.listItems {
+        display: none;
+      }
+      div.slick-slide {
+        padding: 0 5px;
+      }
+      div#offplanPropertyCard {
+        width: 100%;
+        margin: 0 auto;
+        @media all and (max-width: 1200px) {
+          div.detailsContainer {
+            div.extraInfo {
+              div.bottom {
+                h6.text {
+                  @include adjust-font(9px, false);
+                }
+                div.contactInfo{
+                    a{
+                        &:nth-child(2){
+                            padding: 0 50px;
+                        }
+                    }
+                }
+              }
+            }
+          }
+        }
+        @media all and (max-width: 980px) {
+            div.detailsContainer {
+              div.extraInfo {
+                div.bottom {
+                  div.contactInfo{
+                      a{
+                          &:nth-child(2){
+                              padding: 0 30px;
+                          }
+                      }
+                  }
+                }
+              }
+            }
+          }
+          @media all and (max-width: 768px) {
+            div.detailsContainer {
+              div.extraInfo {
+                div.bottom {
+                  div.contactInfo{
+                      a{
+                          &:nth-child(2){
+                            padding: 0 100px;
+                            margin: 0 0;
+                          }
+                      }
+                  }
+                }
+              }
+            }
+          }
+          @media all and (max-width: 640px) {
+            div.detailsContainer {
+              div.extraInfo {
+                div.bottom {
+                  div.contactInfo{
+                      a{
+                          &:nth-child(2){
+                            padding: 0 60px;
+                            margin: 0 0;
+                          }
+                      }
+                  }
+                }
+              }
+            }
+          }
+      }
+
+      div.arrow-left {
+        position: absolute;
+        left: 50%;
+        bottom: -60px;
+        @include adjust-font(30px, false);
+        cursor: pointer;
+        top: unset;
+        @media all and (max-width: 768px) {
+          left: 40%;
+        }
+      }
+      div.arrow-right {
+        position: absolute;
+        right: 40%;
+        bottom: -60px;
+        @include adjust-font(30px, false);
+        cursor: pointer;
+        top: unset;
+      }
+
+      div.listItems {
+        display: flex;
+        @media all and (max-width: 1400px) {
+          flex-wrap: wrap;
+        }
+        div.item {
+          width: 30%;
+          margin-right: 30px;
+          @media all and (max-width: 1400px) {
+            width: 40%;
+            margin-bottom: 30px;
+            &:nth-child(2n) {
+              margin-right: 0;
+            }
+          }
+          @media all and (max-width: 1200px) {
+            width: 50%;
+            
+          }
+          @media all and (max-width: 980px) {
+            width: 60%;
+            
+          }
+          @media all and (max-width: 768px) {
+            width: 70%;
+            
+          }
+          @media all and (max-width: 768px) {
+            width: 100%;
+            
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          div#offplanPropertyCard {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

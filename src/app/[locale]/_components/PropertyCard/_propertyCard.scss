@@ -1,0 +1,291 @@
+div#propertyCard{
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent; /* Set the border width and make it transparent */
+          border-image: radial-gradient(
+            circle,
+            rgba(255, 236, 224, 1) 0%,
+            rgba(240, 202, 178, 1) 35%,
+            rgba(172, 131, 109, 1) 100%
+          );
+          border-image-slice: 1;
+          background-color: var(--primary-bg-color);
+          cursor: pointer;
+          &:hover{
+            div.imageContainer{
+                img{
+                    transform: scale(1.2);
+                }
+            }
+          }
+    div.imageContainer{
+        width: 100%;
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        img{
+            transition: 0.3s ease-in-out;
+            object-fit: cover;
+        }
+        div.stickers{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            z-index: 9;
+            div.sticker{
+                margin-right: 10px;
+                &.ar {
+                    margin-right: unset;
+                    margin-left: 10px;
+                }
+                 background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+                 padding: 3px 10px;
+                 z-index: 9;
+                 &.propertyType{
+                    background: var(--secondary-bg-color);
+                    span.text{
+                        color: var(--text-color);
+                    }
+                 }
+                 &:last-child{
+                     margin-right: 0;
+                 }
+                 span.text{
+                    @include adjust-font(11px, false);
+                     color:var(--primary-bg-color);
+                     line-height: 0;
+                     text-transform: uppercase;
+                 }
+             }
+        }
+        div.loadingImage{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: var(--secondary-bg-color);
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div.image{
+                width: 130px;
+                height: 50px;
+                position: relative;
+                img{
+
+                }
+            }
+        }
+       
+    }
+    div.detailsContainer{
+        padding: 20px 20px 0;
+        span.price{
+                color: var(--text-color);
+                display: block;
+                font-weight: 300;
+                @include adjust-font(16px, false);
+                margin-bottom: 15px;
+                font-weight: 600;
+        }
+        h3.title{
+            // text-transform: uppercase;
+            font-weight: 300;
+            color: var(--text-color);
+            @include adjust-font(15px, false);
+            min-height: 50px;
+        }
+        span.location{
+            @include adjust-font(15px, false);
+            color: var(--light-text-color);
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            margin-left: -6px;
+            min-height: 42px;
+
+            span.icon{
+                line-height: 0;
+                svg{
+                    width: 20px !important;
+                    g{
+                        stroke: var(--light-text-color) !important;
+                    }
+                }
+
+            }
+
+        }
+        div.extraInfo{
+            div.top{
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid var(--light-text-color);
+                padding-bottom: 15px;
+                span.bed{
+                    display: flex;
+                    align-items: center;
+                    span.icon{
+                        line-height: 0;
+                        margin-right: 6px;
+                        &.ar {
+                            margin-left: 6px;
+                        }
+                        svg{
+                            g{
+                                stroke: var(--light-text-color) !important;
+                            }
+                        }
+
+                    }
+                    span.text{
+                        color: var(--light-text-color);
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        margin-left: 6px;
+                        padding-right: 10px;
+                        border-right: 1px solid #fff;
+                        @include adjust-font(13px, false);
+
+                        &.ar {
+                            margin-left: unset;
+                            margin-right: 6px;
+                        }
+                    }
+                }
+                span.bathroom{
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                    &.ar {
+                        margin-left: unset;
+                        margin-right: 10px;
+                    }
+                    span.icon{
+                        line-height: 0;
+                        svg{
+                            g{
+                                stroke: var(--light-text-color) !important;
+                            }
+                        }
+
+                    }
+                    span.text{
+                        color: var(--light-text-color);
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        margin-left: 6px;
+                        border-right: 1px solid #fff;
+                        padding-right: 10px;
+                        @include adjust-font(13px, false);
+
+                        &.ar {
+                            margin-left: unset;
+                            margin-right: 6px;
+                        }
+                    }
+                }
+                span.area{
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                    &.ar {
+                        margin-left: unset;
+                        margin-right: 10px;
+                    }
+                    span.icon{
+                        line-height: 0;
+                        &.ar {
+                            margin-left: .3rem;
+                        }
+                        svg{
+                            g{
+                                stroke: var(--light-text-color) !important;
+                            }
+                        }
+
+                    }
+                    span.text{
+                        color: var(--light-text-color);
+                        font-weight: 300;
+                        margin-left: 6px;
+                        text-transform: lowercase;
+                        @include adjust-font(13px, false);
+                    }
+                }
+            }
+           
+        }
+        
+    }
+    div.bottom{
+        padding: 12px 0;
+        @media all and (max-width:320px){
+            padding: 12px 0;
+        }
+        div.contactInfo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            a{
+                &:nth-child(2){
+                    span.icon{
+                        width: 10rem;
+                        border-right: 1px solid #fff;
+                        border-left: 1px solid #fff;
+                        @media all and (max-width:1400px){
+                            width: 8rem;
+                        }
+                        @media all and (max-width:980px){
+                            width: 8rem;
+                        }
+                        @media all and (max-width:640px){
+                            width: 8rem;
+                        }
+                    }
+                 
+
+                }
+                &:first-child{
+                    span.icon{
+                        padding-left: 0;
+
+                    }
+                }
+                &:last-child{
+                    span.icon{
+                    border-right: none;
+                    padding-right: 0;
+                    @media all and (max-width:640px){
+                        width: 5rem;
+                    }
+                    }
+                }
+               
+            }
+            span.icon{
+                padding: 0 10px;
+                cursor: pointer;
+                display: block;
+                width: 6rem;
+                text-align: center;
+                @media all and (max-width:980px){
+                    width: 5rem;
+                }
+                 @media all and (max-width:320px){
+           width: 4rem;
+        }
+                svg{
+                    width: 13px !important;
+                    height: 13px !important;
+                }
+                
+            }
+        }
+    }
+
+}

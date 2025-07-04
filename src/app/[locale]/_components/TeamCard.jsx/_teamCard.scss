@@ -1,0 +1,46 @@
+div.teamCard{
+    width: 100%;
+    // filter: blur(5px);
+    margin: 0 0 0 auto;
+    &.active{
+        filter: none;
+        // width: 100%;
+    //   div.imageContainer{
+    //     height: 190px;
+    //   }
+    }
+    div.imageContainer{
+        height: 218px;
+        position: relative;
+        width: 100%;
+        img{
+            object-fit: cover;
+        }
+        div.info{
+            background: rgba(20, 27, 39, 0.90);
+            backdrop-filter: blur(5px);
+            padding: 15px 15px;
+            display: none;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            h3.name{
+                text-transform: uppercase;
+                @include adjust-font(15px, false);
+                color: var(--text-color);
+                font-weight: 300;
+                margin-bottom: 10px;
+            }
+            h6{
+                text-transform: uppercase;
+                @include adjust-font(14px, false);
+                color: var(--text-color);
+                font-weight: 300;
+                &.title{
+                    margin-bottom: 6px;
+                }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,42 @@
+div.paginationContainer{
+    width: 50%;
+    margin: 30px auto 0;
+    ul{
+      display: flex;
+      justify-content: center;
+      li{
+        a{
+            display: inline-block;
+            padding: 10px 15px;
+            cursor: pointer;
+            svg{
+                stroke: var(--text-color);
+            }
+        }
+        border: 1px solid var(--border-color);
+        &.disabled{
+            a{
+                color: var(--border-color);
+                cursor: not-allowed;
+                svg{
+                    opacity: 0.2;
+                }
+            }
+        }
+        &.selected{
+          background: linear-gradient(
+            262deg,
+            rgba(172, 131, 109, 1) 28%,
+            rgba(240, 202, 178, 1) 70%
+          );
+          a{
+            color: #000;
+          }
+        }
+        span{
+          font-weight: 500;
+          color: var(--text-color);
+        }
+      }
+    }
+  }

@@ -1,0 +1,160 @@
+
+.community {
+  ._title {
+    color: white;
+    padding-bottom: 3rem;
+    @include adjust-font(24px, false);
+    line-height: 32px;
+  }
+}
+._imageContainer {
+  position: relative;
+  width: 100%;
+  height: 750px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  .__title {
+    color: #FFF;
+    text-align: center;
+    font-family: var(--audrey-font-family);
+    @include adjust-font(30px, false);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45.654px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+  }
+}
+
+._titleContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(1turn, #121823, rgba(18, 24, 35, 0));
+  height: 400px;
+  z-index: 0;
+}
+
+.__subtitle {
+  color: #FFF;
+  text-align: center;
+  font-family: var(--lato-font-family);
+  @include adjust-font(16px, false);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  width: 90%;
+}
+
+.__gradientLine {
+  margin: 5rem 0rem 0rem 0rem;
+  position: relative;
+  z-index: -1;
+}
+
+.community {
+  .__top {
+    color: white;
+    margin-bottom: 3rem;
+
+    .splitDiv {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      .left {
+        width: 100%;
+        @media all and (min-width: 1200px) {
+          margin-right: 15px;
+          width: 67%;
+        }
+      }
+      .right {
+        position: sticky;
+        top: 105px;
+        align-self: flex-start;
+        height: calc(100vh - 100px);
+      }
+
+    }
+  }
+}
+
+.similarPropertyComponentHeading {
+  margin: 0 0 1rem 0 !important;
+  text-align: center !important;
+  @include adjust-font(1.5rem, true);
+  line-height: 2rem !important;
+}
+
+.similarPropertyComponentSubheading {
+  margin: 0 0 3rem 0 !important;
+  text-align: center !important;
+  @include adjust-font(1rem, true);
+  line-height: 1.5rem !important;
+}
+
+@media (max-width: 1200px) {
+  ._imageContainer {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .__title {
+      text-align: left;
+      width: 85%;
+      margin: 0 auto;
+      max-width: 1600px;
+      &.ar {
+        text-align: right;
+      }
+    }
+  }
+
+  .__subtitle {
+    width: 100%;
+    line-height: 2.5rem;
+    text-align: left;
+    &.ar {
+      text-align: right;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+
+  .similarPropertyComponentHeading {
+    text-align: left !important;
+    &.ar {
+      text-align: right !important;
+    }
+  }
+  
+  .similarPropertyComponentSubheading {
+    text-align: left !important;
+    &.ar {
+      text-align: right !important;
+    }
+  }
+
+  .__subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .__subtitle {
+    width: 100%;
+    @include adjust-font(14px, false);
+    line-height: 2rem;
+    text-align: left;
+  }
+}
+

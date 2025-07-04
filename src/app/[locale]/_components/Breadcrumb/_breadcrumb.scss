@@ -1,0 +1,26 @@
+.breadcrumb-container {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(18, 24, 35, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    padding: 10px 50px;
+    white-space: nowrap;
+    @media all and (max-width: 980px) {
+      padding: 10px 20px;
+      overflow-y: scroll;
+    }
+  }
+
+ol {
+  @media all and (max-width: 980px) {
+    flex-wrap: unset !important;
+    overflow-y: scroll !important;
+    padding-bottom: .2rem !important;
+    overflow-y: hidden !important;
+    // scrollbar-width: none;
+  }
+}

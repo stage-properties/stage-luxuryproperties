@@ -1,0 +1,131 @@
+._developerCard {
+    width: 31.5%;
+    display: flex;
+
+    ._left {
+        background-color: white;
+        width: 151.6px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+
+        ._logo {
+            width: 150.7558px;
+            max-height: 150px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            @media all and (max-width: 576px) {
+                width: 145.988px;
+            }
+        }
+        @media all and (max-width: 576px) {
+            width: 145.988px;
+        }
+    }
+
+    ._right {
+        margin-left: 1.5rem;
+        margin-right: 1rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media all and (max-width: 576px) {
+            margin-left: 1rem;
+        }
+
+        ._content {
+            margin-top: 3rem;
+            ._title {
+                color: #FFF;
+                font-family: var(--lato-font-family);
+                @include adjust-font(19px, false);
+                font-weight: 400;
+                letter-spacing: 1.92px;
+                text-transform: uppercase;
+                display: block;
+                margin-bottom: .3rem;
+                @media all and (max-width: 576px) {
+                    font-size: 15.787px;
+                    letter-spacing: 1.263px;
+                }
+            }
+            ._projects {
+                margin-bottom: 1.2rem;
+                color: #FFF;
+                font-family: var(--lato-font-family);
+                @include adjust-font(18px, false);
+                font-weight: 300;
+                letter-spacing: 1.6px;
+                text-transform: uppercase;
+                display: block;
+                @media all and (max-width: 576px) {
+                    font-size: 13.035px;
+                }
+
+                ._image {
+                    width: 17.3115px;
+                    height: 14.1642px;
+                    margin-right: .5rem;
+                }
+            }
+            ._description {
+                color: #FFF;
+                margin-top: 1rem;
+                font-family: var(--lato-font-family);
+                @include adjust-font(14.4px, false);
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+
+        ._view_more {
+            width: 100%;
+            text-align: right;
+            padding-right: 1.5rem;
+            margin-bottom: 2rem;
+
+            @media all and (max-width: 576px) {
+                padding-right: unset;;
+            }
+            ._view_all_projects {
+                color: #FFF;
+
+                text-align: center;
+                font-family: var(--lato-font-family);
+                @include adjust-font(12.4px, false);
+                font-style: normal;
+                font-weight: 400;
+                letter-spacing: 0.16px;
+                text-transform: uppercase;
+                display: flex;
+                @media all and (max-width: 576px) {
+                    @include adjust-font(10.428px, false);
+                }
+            }
+
+            ._view_all_projects_image {
+                margin-left: .3rem;
+                &.ar {
+                    margin-left: unset;
+                    margin-right: .3rem;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1350px) {
+    ._developerCard {
+        width: 49%;
+    }
+}
+
+@media all and (max-width: 992px) {
+    ._developerCard {
+        width: 100%;
+    }
+}

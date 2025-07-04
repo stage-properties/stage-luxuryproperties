@@ -1,0 +1,77 @@
+#propertyPrice {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-top: unset;
+    border-right: unset;
+    border-left: unset;
+    border-width: 5px;
+    .wrapper{
+        .mainHeading{
+            text-align: left;  
+            @include adjust-font(1.25rem, false);
+            color: var(--text-color);
+            margin-bottom: 20px;
+            letter-spacing: 1.6px;
+            line-height: 2rem;
+            &.ar {
+                text-align: right;
+            }
+        }
+        .priceContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 3rem;
+            margin-top: 3rem;
+            @media all and (max-width: 992px){
+                flex-direction: column;
+                row-gap: unset;
+            }
+
+            .item {
+                text-align: center;
+                color: white;
+                @media all and (max-width: 1200px) {
+                    width: 50%;
+                    text-align: left;
+                    &.ar {
+                        text-align: right;
+                    };
+                }
+                @media all and (max-width: 992px) {
+                    width: 100%;
+                    padding: 1.5rem 0rem;
+                    border-bottom: 1px solid var(--border-color);
+                    &:first-child {
+                        padding: 0rem;
+                        padding-bottom: 1.5rem;
+                    }
+                }
+                .price {
+                    @include adjust-font(1.875rem, false);
+                    font-weight: 700;
+                    letter-spacing: 2.4px;
+
+                    @media all and (max-width: 1200px) {
+                        @include adjust-font(1.5rem, false);
+                    }
+                    @media all and (max-width: 992px) {
+                        @include adjust-font(1.25rem, false);
+                    }
+                }
+                .text {
+                    @include adjust-font(1.2rem, false);
+                    font-weight: 300;
+                    letter-spacing: 1.92px;
+                }
+            }
+        }
+
+        .cryptoContainer {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,0 +1,202 @@
+.communitiesAndAreasCard {
+    width: 49%;
+
+    ._top {
+        background-color: white;
+        background-image: url('/stage-default.png');
+        background-size: cover; /* Ensure the image covers the entire container */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 100%;
+
+        ._logo {
+            width: 100%;
+            height: 355px;
+            object-fit: cover; /* Ensures the image covers the container */
+            object-position: center;
+        }
+    }
+
+    ._bottom {
+        margin-left: 1.5rem;
+        margin-right: 1rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        ._content {
+            margin-top: 3rem;
+            ._title {
+                color: #FFF;
+                font-family: var(--lato-font-family);
+                @include adjust-font(19px, false);
+                font-weight: 400;
+                letter-spacing: 1.92px;
+                text-transform: uppercase;
+                display: block;
+                margin-bottom: .3rem;
+            }
+            ._description {
+                margin-bottom: 1rem;
+                line-height: 1.2rem;
+            }
+            ._projects {
+                margin-bottom: 1.2rem;
+                color: #FFF;
+                font-family: var(--lato-font-family);
+                @include adjust-font(18px, false);
+                font-weight: 300;
+                letter-spacing: 1.6px;
+                text-transform: uppercase;
+                display: block;
+
+                ._image {
+                    width: 17.3115px;
+                    height: 14.1642px;
+                    margin-right: .5rem;
+                    &.ar {
+                        margin-right: unset;
+                        margin-left: .5rem;
+                    }
+                }
+            }
+            ._description {
+                color: #FFF;
+                margin-top: 1rem;
+                font-family: var(--lato-font-family);
+                @include adjust-font(14.4px, false);
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+
+        ._view_more {
+            width: 100%;
+            text-align: right;
+            padding-right: 1.5rem;
+            margin-bottom: 2rem;
+
+            ._view_all_projects {
+                color: #FFF;
+
+                text-align: center;
+                font-family: var(--lato-font-family);
+                @include adjust-font(12.4px, false);
+                font-style: normal;
+                font-weight: 400;
+                letter-spacing: 0.16px;
+                text-transform: uppercase;
+                display: flex;
+            }
+
+            ._view_all_projects_image {
+                margin-left: .3rem;
+                &.ar {
+                    margin-left: unset;
+                    margin-right: .3rem;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .communitiesAndAreasCard {
+        ._top {
+            ._logo {
+                height: 165.036px;
+            }
+        }
+    
+        ._bottom {
+            margin-left: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+    
+            ._content {
+                margin-top: 1.5rem;
+                ._title {
+                    color: #FFF;
+                    font-family: var(--lato-font-family);
+                    @include adjust-font(16.463px, false);
+                    font-weight: 400;
+                    letter-spacing: 1.92px;
+                    text-transform: uppercase;
+                    display: block;
+                    margin-bottom: .3rem;
+                }
+                ._projects {
+                    margin-bottom: .5rem;
+                    color: #FFF;
+                    font-family: var(--lato-font-family);
+                    @include adjust-font(13.719px, false);
+                    font-weight: 300;
+                    letter-spacing: 1.6px;
+                    text-transform: uppercase;
+                    display: block;
+    
+                    ._image {
+                        width: 13.8492px;
+                        height: 11.33136px;
+                        margin-right: 0.4rem;
+                    }
+                }
+                ._description {
+                    color: #FFF;
+                    margin-top: 0.8rem;
+                    font-family: var(--lato-font-family);
+                    @include adjust-font(10.975px, false);
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+            }
+    
+            ._view_more {
+                width: 100%;
+                text-align: right;
+                padding-right: 1.2rem;
+                margin-bottom: 1rem;
+    
+                ._view_all_projects {
+                    color: #FFF;
+    
+                    text-align: center;
+                    font-family: var(--lato-font-family);
+                    @include adjust-font(11.52px, false);
+                    font-style: normal;
+                    font-weight: 400;
+                    letter-spacing: 0.16px;
+                    text-transform: uppercase;
+                    
+                }
+    
+                ._view_all_projects_image {
+                    margin-left: 0.24rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .communitiesAndAreasCard {
+        width: 48.5%;
+    }
+}
+
+@media (max-width: 576px) AND (orientation: portrait) {
+    .communitiesAndAreasCard {
+        width: 100%;
+    }
+}

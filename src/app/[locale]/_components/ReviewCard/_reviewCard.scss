@@ -1,0 +1,29 @@
+div.reviewCard{
+    padding: 20px;
+    h1.name{
+        text-transform: uppercase;
+        color: var(--text-color);
+        font-weight: 300;
+        margin-bottom: 15px;
+        @include adjust-font(20px, false);
+    }
+    p.description{
+        text-transform: uppercase;
+        color: var(--light-text-color);
+        font-weight: 300;
+        margin-bottom: 20px;
+        @include adjust-font(14px, false);
+        line-height: 1.5em;
+    }
+    div.stars{
+        display: flex;
+        span.icon{
+            display: inline-block;
+            margin-right: 6px;
+            svg{
+                width: 15px !important;
+                height: 15px !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+div.ldr {
+    position: relative;
+    cursor: pointer;
+    
+    /* Hide the banner on screens 768px or above */
+    @media all and (min-width: 768px) {
+        display: block;
+    }
+
+    @media all and (max-width: 768px) {
+        display: none;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .ldrButton {
+        cursor: pointer;
+        position: absolute;
+        right: 2vw;
+        bottom: 0%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        font-size: 1.125rem;
+        letter-spacing: 0.1rem;
+        width: 17vw;
+
+        font-style: normal;
+        font-weight: 500;
+        border-radius: 0.3rem;
+        padding: 5px 10px;
+        font-size: .8vw;
+        flex-shrink: 0;
+    }
+
+    .adImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        margin: 10px;
+        width: 50px;
+        height: auto;
+    }
+}

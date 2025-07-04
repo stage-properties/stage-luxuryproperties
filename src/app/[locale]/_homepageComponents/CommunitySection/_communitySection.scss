@@ -1,0 +1,100 @@
+#homePage {
+  div.communitySection {
+    padding: 120px 0;
+    background-color: var(--secondary-bg-color);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-width: 6px;
+    margin-top: -10px;
+    @media all and (max-width: 768px) {
+      padding: 10px 0 90px;
+    }
+    h2.mainHeading {
+    }
+    h3.mainHeading {
+      margin-top: 10px;
+      -webkit-text-fill-color: #FDFDFD;
+      @include adjust-font(17px, false);
+      margin-bottom: 40px;
+      @media all and (max-width: 480px) {
+        @include adjust-font(14px, false);
+      }
+    }
+    p.tagline {
+      color: var(--light-text-color);
+      @include adjust-font(14px, false);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    div.slick-slide {
+      @media all and (min-width: 1200px) {
+        transform: scale(0.7) !important;
+      }
+      @media all and (min-width: 1050px) and (max-width: 1200px) {
+        transform: scale(0.6) !important; 
+      }
+      @media all and (min-width: 768px) {
+        :nth-child(odd){
+          .communityCard {
+              margin-right: 10px;
+          }
+        }
+        transform: scale(1);
+        filter: none;
+      }
+    }
+    div.arrow-left {
+        scale: 1.2;
+        position: absolute;
+        right: calc(40% - 10px);
+        left: calc(40% - 10px);
+        top: 105%;
+        @media all and (min-width: 1050px) {
+          right: calc(17% - 10px);
+          left: calc(17% - 10px);
+          top: 100%;
+        }
+    }
+    div.arrow-right {
+        scale: 1.2;
+        position: absolute;
+        right: 55%;
+        left: 55%;
+        top: 105%;
+        @media all and (min-width: 1050px) {
+          right: 80%;
+          left: 80%;
+          top: 100%;
+        }
+    }
+    div.slick-center {
+      &.slick-slide {
+        filter: none !important;
+        transform: scale(1) !important;
+        transition: 0.4s ease-in;
+      }
+      div.propertyItem {
+        z-index: 999;
+      }
+    }
+    div.communityListingContainer {
+      div.communityListItem {
+        width: 30%;
+        filter: blur(6px);
+        &.active {
+          filter: none;
+        }
+      }
+    }
+  }
+  ._buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    @media all and (max-width: 992px) {
+      margin-top: 120px;
+    }
+  }
+}

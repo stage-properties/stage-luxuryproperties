@@ -1,0 +1,45 @@
+#homePage{
+    div.reviewSection{
+        background-color: var(--secondary-bg-color);
+        padding-bottom: 130px;
+   
+        h1.mainHeading{
+            margin-bottom: 40px;
+        }
+        div.reviews{
+            display: flex;
+            justify-content: space-between;
+            width: 75%;
+            margin: 0 auto;
+            div.reviewCard{
+                width: 92%;
+                margin:  0 auto;
+            }
+            .slick-next::before{
+               content: '';
+            }
+            div.arrow-left{
+                position: absolute;
+                left: -70px;
+                top: 50%;
+                @include adjust-font(30px, false);
+                cursor: pointer;
+    
+            }
+            div.arrow-right{
+                position: absolute;
+                right:  -70px;
+                @include adjust-font(30px, true);
+                cursor: pointer;
+                top: 50%;
+                &.slick-disabled{
+                    opacity: 0.3;
+                }
+    
+            }
+            div.reviewItem{
+                width: 31%;
+            }
+        }
+    }
+}

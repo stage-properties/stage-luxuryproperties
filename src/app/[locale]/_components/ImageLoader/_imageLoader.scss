@@ -1,0 +1,23 @@
+#loadingImage{
+    div.loadingImage{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: var(--secondary-bg-color);
+        z-index: 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        div.image{
+            width: 130px;
+            height: 50px;
+            position: relative;
+            img{
+    
+            }
+        }
+    }
+}

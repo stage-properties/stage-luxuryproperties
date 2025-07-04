@@ -1,0 +1,167 @@
+/* Existing styles */
+.langCurrSwitcher {
+  z-index: 100;
+  position: fixed;
+  right: 1rem;
+  overflow: hidden;
+  top: 4rem;
+  &.ar {
+    right: unset;
+    left: 1rem;
+  }
+  @media all and (max-width: 992px){
+    left: unset;
+    &.ar {
+      right: unset;
+    }
+  }
+  .container {
+    .dropdown-button {
+      cursor: pointer;
+      padding: 0px 20px;
+      color: #FFF;
+      text-align: center;
+      font-family: var(--lato-font-family);
+      @include adjust-font(15px, false);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 45.654px; /* 304.36% */
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      background-color: #111823;
+      border: 1px solid #CFAF9B;
+      @media all and (max-width: 992px){
+        border-radius: 150px 0px 0px 150px;
+        padding: 10px 10px 10px 10px; 
+        border-right: unset;
+        &.ar {
+          border-radius: 0px 150px 150px 0px;
+          padding: 10px 10px 10px 10px; 
+          border-left: unset;
+        }
+      }
+      .icon {
+        margin-left: .5rem;
+        &.ar {
+          margin-left: unset;
+          margin-right: .5rem;
+        }
+        @media all and (max-width: 992px) {
+          display: none;
+          margin-left: unset;
+        }
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        @media all and (max-width: 992px) {
+          display: none;
+        }
+        .flag {
+          margin-right: .5rem;
+          &.ar {
+            margin-right: unset;
+            margin-left: .5rem;
+          }
+        }
+      }
+
+      .flagMobile {
+        display: none;
+        @media all and (max-width: 992px){
+          display: inline;
+          margin-left: 15px;
+          &.ar {
+            margin-left: unset;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+    .dropDown {
+      background-color: #111823;
+      color: white;
+      border: 1px solid #CFAF9B;
+      &.show {
+        display: flex;
+        flex-direction: column;
+      }
+      .listDropdownitemsParent{
+        display: flex;
+        @media all and (max-width: 992px) and (orientation: landscape) {
+          height: calc(100vh - 10rem);
+          overflow-y: scroll;
+        }
+        .listDropdownitems {
+          padding-right: 1rem;
+          padding-left: 1rem;
+          &.ar {
+            text-align: right;
+          }
+          .dropdown-item {
+            &.ar {
+              text-align: right;
+            }
+            .text {
+              cursor: pointer;
+              font-family: var(--lato-font-family);
+              @include adjust-font(16px, false);
+              font-style: normal;
+              font-weight: 300;
+              line-height: 300%; /* 41.92px */
+              letter-spacing: 1.6px;
+              .ar {
+                font-family: 'Cairo';
+                letter-spacing: normal;
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .separator {
+    width: 1px;
+    height: 107px;
+    background-color: rgba(207, 175, 155, .2);
+    margin: 1rem 0;
+  }
+
+  .show {
+    display: flex;
+  }
+  .hide {
+    display: none;
+  }
+}
+
+.areaUnitSwitcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; // Adjust spacing between buttons as needed
+  margin: 0.5rem auto;
+  border: 1px solid #CFAF9B;
+  padding: .25rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.areaUnitButton {
+  background-color: transparent;
+  // border: 1px solid #CFAF9B;
+  padding: 5px 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  font-family: var(--lato-font-family);
+}
+
+.areaUnitButton.active {
+  background-color: #CFAF9B;
+  color: #111823;
+}

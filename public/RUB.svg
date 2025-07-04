@@ -1,0 +1,10 @@
+<svg width="18" height="12" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
+  <!-- White Stripe -->
+  <rect width="18" height="4" y="0" fill="#FFFFFF"/>
+  
+  <!-- Blue Stripe -->
+  <rect width="18" height="4" y="4" fill="#0033A0"/>
+  
+  <!-- Red Stripe -->
+  <rect width="18" height="4" y="8" fill="#D52B1E"/>
+</svg>

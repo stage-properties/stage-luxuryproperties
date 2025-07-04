@@ -1,0 +1,321 @@
+div.mortgageCalculator {
+  h2.heading {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    @include adjust-font(18px, false);
+    font-weight: 400;
+    line-height: 2em;
+    max-width: 90%;
+    margin: 0 auto 20px;
+    @media all and (max-width: 980px) {
+      max-width: 100%;
+    }
+  }
+
+  div.calculatorContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: var(--dark-blue);
+    @media all and (max-width: 980px) {
+      flex-direction: column;
+    }
+    @media all and (max-width: 640px) {
+      padding: 20px;
+    }
+    div.leftcontainer {
+      width: 45%;
+      @media all and (max-width: 1200px) {
+        width: 50%;
+      }
+      @media all and (max-width: 980px) {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .rangeslider__fill {
+        background: linear-gradient(
+          262deg,
+          rgba(172, 131, 109, 1) 28%,
+          rgba(240, 202, 178, 1) 70%
+        ) !important;
+      }
+      div.inputContainer {
+        margin-bottom: 20px;
+        div.label {
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          position: relative;
+          width: 40%;
+          @media all and (max-width:768px){
+            width: 100%;
+          }
+          div.react-tooltip{
+            z-index: 9;
+          }
+          label {
+            @include adjust-font(13px, false);
+            color: var(--light-text-color);
+            font-weight: 300;
+          }
+          span.icon {
+            display: inline-block;
+            margin-left: 6px;
+            line-height: 0;
+            svg {
+              width: 20px !important;
+              height: 20px !important;
+            }
+          }
+        }
+
+        div.fields {
+          display: flex;
+          &.oneByTwo {
+            // margin-right: 20px;
+            display: flex;
+            // justify-content: space-between;
+            &:last-child {
+              margin-right: 0;
+              div.inputField {
+                width: 48%;
+              }
+            }
+          }
+          div.inputField {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            display: flex;
+            position: relative;
+            &.doubleField {
+              width: 93%;
+            }
+            &.downPayment {
+              width: 42% !important;
+              margin-right: 15px;
+            }
+            input {
+              width: 100%;
+              background-color: transparent;
+              color: var(--text-color);
+              @include adjust-font(14px, false);
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+
+            /* Firefox */
+            input[type="number"] {
+              -moz-appearance: textfield;
+            }
+          }
+          div.aedSign,
+          div.sign {
+            background-color: var(--border-color);
+            padding: 10px;
+            span {
+              @include adjust-font(14px, false);
+              color: var(--text-color);
+            }
+          }
+          div.percentageSign {
+            width: 10%;
+            background-color: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            @media all and (max-width: 1200px) {
+              width: 20%;
+            }
+            @media all and (max-width: 980px) {
+              width: 12%;
+            }
+            @media all and (max-width: 640px) {
+              width: 23%;
+            }
+            span {
+              @include adjust-font(14px, false);
+              color: var(--text-color);
+            }
+          }
+        }
+        span.error{
+            @include adjust-font(12px, false);
+            color: var(--error-color);
+        }
+      }
+      div.rangeContainer {
+        div.head {
+          display: flex;
+          justify-content: space-between;
+          color: var(--light-text-color);
+          font-weight: 300;
+          @include adjust-font(13px, false);
+        }
+      }
+    }
+
+    div.rightContainer {
+      width: 45%;
+      @media all and (max-width: 980px) {
+        width: 100%;
+      }
+      div.resultContainer {
+        background-color: var(--secondary-bg-color);
+        padding: 30px;
+        border-radius: 10px;
+        div.top {
+          padding-bottom: 20px;
+          border-bottom: 1px solid var(--border-color);
+          div.resultSection {
+            // display: flex;
+            // align-items: flex-end;
+
+            h3.result {
+              color: var(--text-color);
+              margin-right: 6px;
+              margin-bottom: 10px;
+              @include adjust-font(2rem, false);
+              display: inline-block;
+              @media all and (max-width: 480px) {
+                @include adjust-font(25px, false);
+              }
+              @media all and (max-width: 480px) {
+                @include adjust-font(20px, false);
+              }
+            }
+
+            span.sub {
+              @include adjust-font(12px, false);
+              color: var(--light-text-color);
+            }
+          }
+
+          p {
+            @include adjust-font(12px, false);
+            text-transform: none;
+          }
+        }
+
+        div.center {
+          margin: 30px 0;
+          div.oneLine {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            @media all and (max-width: 480px) {
+                flex-wrap: wrap;
+              }
+            span {
+              color: var(--light-text-color);
+              font-weight: 300;
+              @include adjust-font(14px, false);
+              display: block;
+              @media all and (max-width: 480px) {
+                @include adjust-font(14px, false);
+              }
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          div.buttonContainer {
+            button.globalBtn {
+                @media all and (max-width: 480px) {
+                 width: 100%;
+                 padding: 10px 15px;
+                @include adjust-font(13px, false);
+                  }
+            }
+          }
+        }
+
+        div.bottom {
+          p {
+            text-transform: none;
+            @media all and (max-width: 480px) {
+              @include adjust-font(13px, false);
+              &.ar {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 4rem;
+    @include adjust-font(40px, false);
+    @media all and (max-width:768px){
+      margin-bottom: 2rem;
+      @include adjust-font(30px, false);
+    }
+  }
+
+  h2 {
+    @media all and (max-width:768px){
+      text-align: left;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: .3rem;
+      &.ar {
+        text-align: right;
+      }
+    }
+  }
+
+  h3 {
+    @include adjust-font(16.53px, false);
+    @media all and (max-width:768px){
+      text-align: left;
+      margin-left: 20px;
+      margin-right: 20px;
+      &.ar {
+        text-align: right;
+      }
+    }
+  }
+
+  .paragraphContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media all and (max-width:768px){
+      width: 100%;
+      p {
+        &.ar {
+          text-align: right;
+        }
+      }
+    }
+    
+    div {
+      margin: 1rem 0rem 1.2rem 0rem;
+      text-align: center;
+      line-height: 1.3rem; 
+      width: 50%;
+      @media all and (max-width:768px){
+        width: 100%;
+        text-align: left;
+        margin-right: 20px;
+        margin-left: 20px;
+        &.ar {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

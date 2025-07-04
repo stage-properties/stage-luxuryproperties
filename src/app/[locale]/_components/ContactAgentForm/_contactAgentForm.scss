@@ -1,0 +1,207 @@
+div.contactAgentForm {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-blue);
+  @media all and (max-width: 1200px) {
+    flex-direction: column;
+    padding: 30px;
+  }
+  div.leftContainer {
+    width: 26%;
+    @media all and (max-width: 1200px) {
+      width: 100%;
+      margin-bottom: 30px;
+      display: none;
+    }
+    div.imageContainer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      img {
+        object-fit: cover;
+        position: unset !important;
+        display: block;
+        width: 100%;
+        height: unset !important;
+      }
+    }
+  }
+
+  div.rightContainer {
+    width: 100%;
+    // padding: 30px 60px 30px 20px;
+    @media all and (max-width: 1200px) {
+      width: 100%;
+      padding: 0;
+    }
+    h2.mainHeading {
+      color: var(--text-color);
+      @include adjust-font(1.375rem, false);
+      text-align: center !important;
+      margin-bottom: 50px;
+      line-height: 2rem;
+    }
+
+    div.form {
+      form {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        @media all and (max-width: 992px) {
+          padding: unset;
+        }
+        div.inputFields {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding-bottom: 2rem;
+          @media all and (max-width: 992px) {
+            flex-direction: column;
+            padding-bottom: unset;
+          }
+          .languageDropdown {
+            justify-content: space-between;
+          }
+          div.inputContainer {
+            width: 48%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--link-color);
+            padding-bottom: 8px;
+            position: relative;
+            @media all and (max-width: 992px) {
+              width: 100%;
+            }
+          &.noPadding{
+            padding-bottom:0 ;
+          }
+          select{
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            color: var(--text-color);
+            @include adjust-font(16px, false);
+          }
+          &.error{
+            border-color: var(--error-color);
+          }
+
+            // @media all and (max-width: 640px) {
+            //   width: 100%;
+            // }
+            &:nth-child(2n) {
+              margin-right: 0;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+            span.label {
+              color: var(--placeholder-color);
+              @include adjust-font(14px, false);
+              text-transform: uppercase;
+            }
+            span.errorIcon{
+                position: absolute;
+                right: 0;
+                transform: translateX(0);
+                animation: zoomIn 0.6s ease-in-out;
+                svg{
+                  width: 20px !important;
+                  height: 20px !important;
+                }
+              }
+            span.icon {
+              display: inline-block;
+              margin-left: 10px;
+              svg {
+                width: 10px !important;
+                height: 10px !important;
+                path {
+                  stroke: var(--placeholder-color);
+                }
+              }
+            }
+            div.dropDown {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              background-color: #fff;
+              top: 30px;
+              border-radius: 6px;
+              z-index: 9;
+              max-height: 400px;
+              overflow-y: scroll;
+              // @media all and (max-width: 768px) {
+              //   width: 100%;
+              //   left: 0;
+              // }
+              // @media all and (max-width: 640px) {
+              //   left: revert;
+              //   right: 0;
+              // }
+
+              ul.listDropdownitems {
+                padding-top: 10px;
+                li {
+                  text-align: center;
+                  padding: 10px 20px;
+                  transition: 0.2s ease-in-out;
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  &:hover {
+                    background-color: var(--secondary-bg-color);
+                    color: var(--text-color);
+                    border-left: 1px solid var(--border-color);
+                    border-right: 1px solid var(--border-color);
+                  }
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+
+            input {
+            }
+          }
+          input {
+            width: 100%;
+            display: block;
+            background-color: transparent;
+
+            caret-color: #fff;
+            color: var(--text-color);
+            @include adjust-font(16px, false);
+            &::placeholder {
+              letter-spacing: 1.6px;
+              @include adjust-font(14px, false);
+              text-transform: uppercase;
+              font-family: var(--lato-font-family);
+            }
+            &.ar {
+              &::placeholder {
+                letter-spacing: normal
+              }
+            }
+          }
+        }
+
+        div.buttonContainer {
+          text-align: center;
+          button.globalBtn {
+            width: 100%;
+            margin: 0 auto;
+            // @media all and (max-width: 640px) {
+            //   width: 100%;
+            // }
+          }
+        }
+      }
+    }
+  }
+}

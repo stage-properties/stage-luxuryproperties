@@ -1,0 +1,132 @@
+div.secondarySearchFields {
+		div._allFields {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		
+			flex-direction: column;
+			gap: 1rem;
+			.sortOrder {
+				width: fit-content !important;
+				margin-left: auto !important;
+				margin-right: 2.4% !important;
+				border: 1px solid transparent !important;
+				border-image: radial-gradient(
+					circle,
+					rgba(255, 236, 224, 1) 0%,
+					rgba(240, 202, 178, 1) 35%,
+					rgba(172, 131, 109, 1) 100%
+				) !important;
+				border-image-slice: 1 !important;
+				padding: 0px !important;
+				@media all and (max-width:1400px){
+					margin-right: 1.2% !important;  
+				}
+				@media all and (max-width: 768px) {
+					margin-right: unset;
+				}
+			}
+			div.inputField {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 0;
+				div.selectedValue{
+					color: var(--text-color);
+					&.desktopSort {
+						padding-left: 13px;
+						padding-right: 20px;
+					}
+					&.ar {
+						margin-right: unset;
+						margin-left: 2rem;
+						min-width: 250px
+					}
+					span{
+						@include adjust-font(15px, false);
+						color: var(--text-color);
+						font-weight: 300;
+					}
+				}
+				div.icon {
+					display: flex;
+					align-items: center;
+					background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+					padding: 7px 12px 7px 13px;
+					width: 45px;
+					height: 29px;
+						svg {
+							width: 20px !important;
+							height: 15px !important;
+						}
+				}
+				ul.dropDown {
+					position: absolute;
+					top: 60px;
+					left: 0;
+					right: 0;
+					width: 100%;
+					z-index: 1;
+					background-color: var(--primary-bg-color);
+					z-index: 999;
+					max-height: 200px;
+					overflow-y: scroll;
+					&.desktopSort {
+						top: 40px;
+					}
+					li {
+						text-align: left;
+						padding: 15px 20px;
+						transition: 0.2s ease-in-out;
+						cursor: pointer;
+						border-left: 1px solid transparent;
+						border-right: 1px solid transparent;
+						border-bottom: 1px solid var(--border-color);
+						@include adjust-font(16px, false);
+						text-transform: capitalize;
+						&.ar {
+							text-align: start;
+						}
+						span{
+							color: var(--text-color);
+							@include adjust-font(14px, false);
+							font-weight: 300;
+						}
+						&:hover {
+							background-color: var(--secondary-bg-color);
+							color: var(--text-color);
+							border-left: 1px solid var(--border-color);
+							border-right: 1px solid var(--border-color);
+						}
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+			div._commonContainer{
+				width: 15%;
+				margin-right: 20px;
+				padding: 15px 8px;
+				border: 1px solid var(--border-color);
+				position: relative;
+				cursor: pointer;
+				&.ar {
+					margin-right: unset;
+					margin-left: 20px;
+				}
+				@media all and (max-width:1600px){
+					margin-right: 10px;
+					width: 18%;
+				}
+				@media all and (max-width:768px){
+					width: 100% !important;
+					margin-bottom: 15px;
+					margin-right: 0;
+					&.ar {
+						margin-left: unset;
+					}
+				}
+			}
+	}
+}

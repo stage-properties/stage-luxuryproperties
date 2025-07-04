@@ -1,0 +1,59 @@
+div.communityCard { 
+    text-align: center;
+    cursor: pointer;
+	div.imageContainer { 
+        position: relative;
+        height: 500px;
+        width: 100%;
+        margin-bottom: 15px;
+        @media all and (max-width:768px){
+           height: 700px;
+           }
+		img { 
+            object-fit: cover;
+		}
+	}
+
+	h3.name { 
+        @include adjust-font(15px, false);
+        font-weight: 300;
+        color: var(--text-color);
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        line-height: 0;
+	}
+
+	span.guide { 
+        @include adjust-font(14px, false);
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 10px;
+        display: inline-block;
+        text-transform: uppercase;
+
+	}
+
+    div.contactInfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            padding: 0 10px;
+            border-right: 1px solid #fff;
+            cursor: pointer;
+            &:first-child{
+                padding-left: 0;
+            }
+            &:last-child{
+                border-right: none;
+            }
+        }
+        span.icon{
+            cursor: pointer;
+            svg{
+                width: 13px !important;
+                height: 13px !important;
+            }
+        }
+    }
+}

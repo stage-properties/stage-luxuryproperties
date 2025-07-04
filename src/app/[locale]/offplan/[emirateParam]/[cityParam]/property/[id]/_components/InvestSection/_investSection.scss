@@ -1,0 +1,113 @@
+#offplanInfoPage{
+    div.investSection{
+        border-left: none;
+        border-right: none;
+        border-width: 5px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        div.wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5rem;
+            @media all and (max-width: 1200px) {
+                flex-direction: column;
+            }
+            .parent {
+                width: 50%;
+                @media all and (max-width: 1200px) {
+                    width: 100%;
+                }
+                h2.mainHeading{
+                    text-align: left;
+                    @include adjust-font(1.5rem, false);
+                    margin-bottom: 1rem;
+                    color: var(--text-color);
+                    font-weight: 700;
+                    letter-spacing: 1.92px;
+                    text-transform: uppercase;
+                    &.ar {
+                        text-align: right;
+                    }
+                    @media all and (max-width: 992px) {
+                        @include adjust-font(1.25rem, false);
+                    }
+                }
+                .image-container {
+                    width: 100%;         /* Set the width of the container to 100% */
+                    position: relative;  /* Create a positioning context */
+                    padding-bottom: 100%; /* Create a square by making height equal to width using padding-bottom */
+                    overflow: hidden;    /* Hide overflow */
+                    @media all and (max-width: 1200px) {
+                        margin-bottom: 2rem;
+                    }
+                }
+                .investSection_image {
+                    margin-right: 7rem;
+                    @media all and (max-width: 1200px) {
+                        margin-right: unset;
+                        width: 100%;         /* Make the image take the full width of the container */
+                        height: 100%;        /* Set height to 100% of the container */
+                        object-fit: cover;   /* Ensures the image covers the container, maintaining aspect ratio */
+                        position: absolute;  /* Absolutely position the image within the container */
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                .investSection_title {
+                    color: #FFF;
+
+                    font-family: var(--audrey-font-family);
+                    @include adjust-font(24px, false);
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 2rem;
+                    letter-spacing: 1.92px;
+                    text-transform: uppercase;
+                }
+                .investSection_description {
+                    color: #FFF;
+                    @include adjust-font(1.125rem, false);
+                    font-weight: 500;
+                    line-height: 31.768px; /* 158.839% */
+                    letter-spacing: 0.4px;
+                    margin-bottom: 1.2rem;
+                    text-transform: unset;
+                }
+                ul {
+                    padding-left: 40px;
+                    li {
+                        list-style-type: disc;
+                        color: #FFF;
+                        font-family: var(--lato-font-family);
+                        @include adjust-font(1.125rem, false);
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: 31.768px;
+                        letter-spacing: 0.4px;
+                    }
+                }
+            }
+        }
+        .isDesktop {
+            @media all and (max-width: 1200px) {
+                display: none;
+            }
+        }
+
+        .isMobile {
+            @media all and (min-width: 1201px) {
+                display: none;
+            }
+        }
+
+        .generalButton {
+            width: fit-content;
+            letter-spacing: 1.6px;
+            @media all and (max-width: 576px){
+                letter-spacing: 0;
+                width: 100%;
+            }
+        }
+    }
+}

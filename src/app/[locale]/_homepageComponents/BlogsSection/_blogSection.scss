@@ -1,0 +1,172 @@
+#homePage{
+    div.blogSection{
+        div.imageContainer {
+              div.contentContainer {
+                position: relative;
+                .wrapper {
+                    padding-top: 80px;
+                    padding-bottom: 80px;
+                h2.mainHeading{
+                    font-family: var(--audrey-font-family);
+                }
+                h3.mainHeading{
+                    -webkit-text-fill-color: #FDFDFD;
+                    margin-bottom: 40px;
+                    margin-top: 10px;
+                    @include adjust-font(17px, false);
+                    font-family: var(--audrey-font-family);
+                    @media all and (max-width: 480px) {
+                        @include adjust-font(14px, false);
+                    }
+                }
+                div.containers{
+                    display: flex;
+                    justify-content: space-between;
+                    @media all and (max-width:768px){
+                        flex-direction: column;
+                    }
+                    div.left{
+                        width: 75%;
+                        @media all and (max-width:768px){
+                            width: 100%;
+                        }
+                        div.imageContainer{
+                            position: relative;
+                            width: 100%;
+                            height: unset;
+                           
+                            img{
+                                position: static !important;
+                                display: block;
+                                width: 100%;
+                                // object-fit: cover;
+    
+                            }
+                        }
+                        div.buttonContainer{
+                            margin-top: 20px;
+                            button{
+                                display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @media all and (max-width:768px){
+                                display: none;
+                            }
+                            span.icon{
+                                margin-left: 10px;
+                                svg{
+                                    width: 20px !important;
+                                    height: 20px !important;
+                                }
+                            }
+                            }
+                        }
+                    }
+                    div.right{
+                        width: 20%;
+                        @media all and (max-width:768px){
+                         display: flex;
+                         width: 100%;
+                         margin-top: .5rem;
+                        }
+                        @media all and (max-width:768px){
+                          flex-wrap: wrap;
+                          justify-content: space-between;
+                             }
+                        a{
+                            margin-bottom: 30px;
+                            display: block;
+                            &:last-child{
+                                margin-bottom: 0;
+                                @media all and (max-width:768px){
+                                    div.imageContainer{
+                                        margin-right: 0;
+                                    }
+                                }
+                            }
+                           
+                            @media all and (max-width:768px){
+                                &:nth-child(3){
+                                    display: none;
+                                }
+                               width: 49%;
+                                   }
+                        }
+                        div.imageContainer{
+                            position: relative;
+                            width: 100%;
+                            height: unset;
+                            @media all and (max-width:768px){
+                             width: 90%;
+                            }
+                            @media all and (max-width:768px){
+                                width: 100%;
+                                height: 95%;
+                                   }
+                            img{
+                                position: static !important;
+                            object-fit: cover;
+                            display: block;
+                            width: 100%;
+    
+                            }
+                        }
+                        div.buttonContainer{
+                            display: none;
+                            @media all and (max-width:768px){
+                             display: block;
+                             button{
+                                width: 9rem;
+                                @include adjust-font(11px, false);
+                                svg{
+                                    display: none;
+                                }
+                                @media all and (max-width:768px){
+                                   width: 100%;
+                                       }
+                             }
+                            }
+                        }
+                    }
+                }
+            }
+              }
+
+
+        }
+    }
+    .desktop-only {
+        display: block;
+        @media all and (max-width: 768px) {
+            display: none;
+        }
+    }
+    .mobile-only {
+        display: none;
+        @media all and (max-width: 768px) {
+            display: block;
+        }
+    }
+    .blog_title {
+        padding-top: 0.4rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &.flexible_front {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-bottom: 3rem;
+            font-size: 22px;
+            @media all and (max-width: 768px) {
+                font-size: 17px;
+                padding-bottom: unset;
+            }
+        }
+    }
+}

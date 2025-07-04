@@ -1,0 +1,93 @@
+#offplanInfoPage {
+  div.descriptionContainer {
+    padding-bottom: 70px;
+    div.wrapper {
+      text-align: center;
+      @media all and (max-width: 992px) {
+        text-align: left;
+        &.ar {
+          text-align: right;
+        }
+      }
+
+      .brochureImage {
+        width: 60%;
+        margin-top: 70px;
+        @media all and (max-width: 1400px) {
+          display: flex;
+          margin: 35px auto;
+          width: 60%;
+        }
+        @media all and (max-width: 992px) {
+          display: unset;
+          width: 100%;
+        }
+      }
+
+      h2.mainHeading {
+        color: var(--text-color);
+        line-height: 2rem;
+        @include adjust-font(1.25rem, false);
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        @media all and (max-width: 992px) {
+          text-align: left;
+          &.ar {
+            text-align: right;
+          }
+        }
+      }
+      p {
+        text-transform: none;
+        margin: revert;
+        font-size:revert;
+        @include adjust-font(15px, false);
+        line-height: 1.6rem;
+        strong{
+          span{
+            font-weight: 900;
+          }
+        }
+      }
+      ul {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @media all and (max-width: 1200px) {
+          align-items: start;
+          margin-left: 1rem;
+        }
+      }
+      li{
+        line-height: 2em;
+        font-weight: 300;
+        list-style-type: disc;
+        color: var(--light-text-color);
+        @include adjust-font(15px, false);
+      }
+      span{
+        @include adjust-font(1em, false);
+        color:var(--light-text-color);
+        font-weight: 300;
+
+      }
+      div.buttonContainer {
+        margin-top: 20px;
+        button {
+          @include adjust-font(14px, false);
+          text-transform: capitalize;
+          width: 12rem;
+          padding: 17px 15px;
+        }
+      }
+    }
+
+    .fullWidth {
+      width: fit-content;
+      @media all and (max-width: 576px) {
+        width: 100%;
+      }
+    }
+  }
+}

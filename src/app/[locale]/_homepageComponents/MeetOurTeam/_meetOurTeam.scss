@@ -1,0 +1,418 @@
+div.meetOurTeamSection {
+  overflow: hidden;
+  div.imageContainerBg {
+    height: 750px;
+    width: 100%;
+    position: relative;
+    @media all and (max-width:1200px){
+     height: 800px;
+      }
+    img {
+      object-fit: cover;
+      z-index: -1;
+    }
+    div.gradient {
+      position: absolute;
+      background: linear-gradient(
+        360deg,
+        rgba(20, 27, 39, 1) 15%,
+        rgba(20, 27, 39, 0.8758096988795518) 100%
+      );
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(4px);
+    }
+    div.contentContainer {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      div.wrapper{
+        @media all and (max-width:1199px){
+          display: flex;
+          flex-direction: column;
+        }
+        div.leftContainer {
+          @media all and (max-width:1199px){
+            width: 100%;
+            margin-bottom: 70px;
+          }
+          @media all and (max-width: 980px) {
+            margin-bottom: 20px;
+          }
+          width: 48%;
+          h2.mainHeading {
+            text-align: left;
+            margin-bottom: 20px;
+            &.ar {
+              text-align: right;
+            }
+            @media all and (max-width: 980px) {
+              text-align: center;
+            }
+          }
+          p.description {
+            color: var(--text-color);
+            text-transform: uppercase;
+            @include adjust-font(14px, false);
+            line-height: 2em;
+            font-weight: 300;
+            padding-bottom: 15px;
+            max-width: 85%;
+            &.ar {
+              max-width: 100%;
+              text-align: right;
+              margin-bottom: 1rem;
+            }
+            @media all and (max-width:1200px){
+            max-width: 100%;
+            }
+            @media all and (max-width: 980px) {
+              text-align: center;
+            }
+          }
+          div.actionControllers{
+            &.ar {
+              
+            }
+            &.hideOnResponsive{
+              @media all and (max-width: 980px) {
+               display: none;
+              }
+            }
+            display: flex;
+            div.selectContainer {
+              display: flex;
+              border: 1px solid var(--secondary-border-color);
+              width: 70%;
+              padding: 20px 20px;
+              margin-bottom: 10px;
+              justify-content: space-between;
+              @media all and (max-width:1199px){
+                width: 45%;
+              }
+              @media all and (min-width:1200px){
+                width: 79%;
+              }
+              span.text {
+                color: var(--text-color);
+                text-transform: uppercase;
+                @include adjust-font(14px, false);
+                margin-right: 20px;
+              }
+              span.icon {
+                svg {
+                  width: 10px !important;
+                  height: 10px !important;
+                }
+              }
+              div.specializationContainer {
+                border-right: 1px solid #fff;
+                padding-right: 23px;
+                cursor: pointer;
+                position: relative;
+                width: 52%;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                div.dropDown {
+                  width: 100%;
+                  background-color: #fff;
+                  border-radius: 5px;
+                  position: absolute;
+                  top: 50px;
+                  z-index: 1;
+                  left: 0;
+                  right: 0;
+                  ul.lists {
+                    li {
+                      padding: 10px;
+                      transition: 0.2s ease-in-out;
+                      text-align: center;
+                      &:hover {
+                        background-color: var(--primary-bg-color);
+                        color: var(--text-color);
+                      }
+                      span {
+                      }
+                    }
+                  }
+                }
+              }
+              div.languageContainer {
+                cursor: pointer;
+                position: relative;
+                width: 40%;
+                display: flex;
+                justify-content: space-between;
+                div.dropDown {
+                  width: 100%;
+                  background-color: #fff;
+                  border-radius: 5px;
+                  position: absolute;
+                  top: 50px;
+                  z-index: 1;
+                  left: 0;
+                  right: 0;
+                  ul.lists {
+                    li {
+                      padding: 10px;
+                      transition: 0.2s ease-in-out;
+                      text-align: center;
+                      &:hover {
+                        background-color: var(--primary-bg-color);
+                        color: var(--text-color);
+                      }
+                      span {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            div.buttonContainer {
+              @media all and (min-width:1200px){
+                width: 40%;
+              }
+              @media all and (max-width:1199px){
+                width: 45%;
+              }
+              button {
+                width: 100%;
+                display: block;
+              }
+            }
+          }
+        }
+        div.rightContainer {
+          width: 56%;
+          position: absolute;
+          right: 70px;
+          display: flex;
+          justify-content: right;
+          top: 0;
+          @media all and (max-width:1199px){
+            width: 100%;
+            position: static;
+            flex-direction: column;
+          }
+          @media all and (min-width:1200px){
+            width:60%;
+            right: 70px;
+          }
+          @media all and (min-width:1500px){
+            width: 57%;
+          }
+          @media all and (min-width:1600px){
+            width: 50%;
+            right: 130px;
+          }
+          @media all and (min-width:1768px){
+            width: 45%;
+           
+          }
+          @media all and (min-width:1980px){
+            width: 40%;
+            right: 100px;
+           
+          }
+          @media all and (min-width:2200px){
+            width: 37%;
+          }
+          @media all and (min-width:2500px){
+            width: 29%;
+            right: 250px;
+          }
+          @media all and (min-width:2768px){
+            width: 25%;
+          }
+          div.slick-slider{
+              transform: rotate(90deg);
+              width: 90%;
+              @media all and (max-width:1199px){
+                transform: rotate(0);
+                width: 100%;
+              }
+          }
+          div.slick-slide {
+            transform: scale(0.7) !important;
+            filter: blur(3px);
+            @media all and (max-width: 980px) {
+             transform: scale(1) !important;
+             padding: 0 20px;
+            }
+            @media all and (max-width: 768px) {
+             filter: none;
+             padding: 0 0 0 20px;
+            }
+            div.teamItem{
+              @media all and (max-width: 980px) {
+                width: 15rem !important;
+                margin: unset;
+              }
+              @media all and (max-width: 768px) {
+                width: 100% !important;
+                // margin: unset
+              }
+              // @media all and (max-width: 980px) {
+              //   width: 15rem !important;
+              //   margin: 0 -30px;
+              // }
+            }
+            div.teamCard{
+  
+                transform: rotate(-90deg);
+                // transition: 0.3s ease-in-out;
+                @media all and (max-width:1199px){
+                  transform: rotate(0);
+                }
+                @media all and (max-width: 980px) {
+                  border: 1px solid transparent;
+                  div.info {
+                    display: block;
+                  }
+                  div.imageContainer{
+                    height: 324px;
+                  }
+                }
+            }
+          }
+          div.arrow-right{
+              position: absolute;
+              right: 220px !important;
+              top: -172px !important;
+              @include adjust-font(35px, false);
+              cursor:  pointer;
+              display: none;
+
+              transform: unset !important;
+              @media all and (max-width:1199px){
+                top: unset !important;
+                bottom: -30px !important;
+                right: 100px !important;
+              }
+          }
+          div.arrow-left{
+              position: absolute;
+              left: 240px !important;
+              top: -172px !important;
+              @include adjust-font(35px, false);
+              cursor:  pointer;
+              transform: unset !important;
+              display: none;
+              @media all and (max-width:1199px){
+                top: unset !important;
+                bottom: -30px !important;
+                left: 100px !important;
+              }
+  
+          }
+          div.slick-list{
+            padding: 0 0 !important;
+            @media all and (max-width: 980px) {
+            //  margin: 0 50px;
+             padding: 0 20px !important;
+            }
+          }
+
+          div.slick-center {
+              
+            &.slick-slide {
+              filter: none !important;
+              transition: 0.4s;
+              transform: scale(1) !important;
+              position: relative;
+              z-index: 1;
+              div.teamItem{
+                @media all and (max-width: 1400px) {
+                  width: 15rem !important;
+                  margin: 0 -30px;
+                }
+                @media all and (max-width: 980px) {
+                  width: 15rem !important;
+                  margin: unset
+                }
+                @media all and (max-width: 768px) {
+                  width: 100% !important;
+                  // margin: unset
+                }
+              }
+              div.teamCard {
+                width: 100%;
+                border: 1px solid transparent; /* Set the border width and make it transparent */
+                border-image: radial-gradient(
+                  circle,
+                  rgba(255, 236, 224, 1) 0%,
+                  rgba(240, 202, 178, 1) 35%,
+                  rgba(172, 131, 109, 1) 100%
+                );
+                border-image-slice: 1;
+                
+                div.imageContainer{
+                  height: 331px;
+                  
+                }
+                div.info {
+                  display: block;
+                }
+              }
+            }
+          }
+          
+          div.teamContainer {
+            div.teamItem {
+              width: 50%;
+            }
+          }
+          div.navController {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: rotate(90deg);
+            display: flex;
+            align-items: center;
+            display: none;
+            @media all and (max-width:1199px){
+              transform: rotate(0);
+              position: relative;
+              display: none;
+            }
+            @media all and (min-width:1200px){
+              right: 20px;
+            }
+            span.icon {
+              svg {
+                width: 40px !important;
+                height: 40px !important;
+              }
+            }
+            div.previousNav {
+              margin-right: 20px;
+            }
+  
+            h6 {
+              @include adjust-font(20px, false);
+              font-family: var(--audrey-font-family);
+              color: var(--text-color);
+              font-weight: 400;
+              text-transform: uppercase;
+            }
+  
+            div.nextNav {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

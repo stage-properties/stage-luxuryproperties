@@ -1,0 +1,94 @@
+div.listingProperties{
+    padding:100px 0;
+    border-left: none;
+    border-right: none;
+    border-width: 5px;
+    overflow-x: hidden;
+    div.headingSection{
+        margin-bottom: 50px;
+        padding: 0 80px;
+        @media all and (max-width:1200px){
+            padding: 0;
+        }
+        @media all and (max-width:768px){
+          justify-content: center;
+
+         }
+        h2.mainHeading{
+            @include adjust-font(25px, false);
+            margin-bottom: 10px;
+            @media all and (max-width:768px){
+                @include adjust-font(25px, false);
+            }
+            @media all and (max-width:480px){
+                @include adjust-font(20px, false);
+              }
+           
+        }
+        h3.mainHeading{
+            @include adjust-font(17px, false);
+            -webkit-text-fill-color: #FDFDFD;
+            @media all and (max-width:768px){
+                @include adjust-font(14px, false);
+            }
+           
+        }
+        div.buttonContainer{
+            text-align: center;
+            @media all and (max-width:768px){
+               display: none;
+
+            }
+            button.showMoreBtn{
+                display: block;
+                background-color: transparent;
+                color: var(--text-color);
+                padding: 15px 10px;
+                margin-bottom: 0;
+                transition: 0.3s ease-in-out;
+                &:hover{
+                    background-color: var(--tertiary-color);
+                    color: #000;
+                }
+                @media all and (max-width:768px){
+                @include adjust-font(14px, false);
+                padding: 12px 10px;
+                
+
+            }
+            @media all and (max-width:640px){
+                width: 8rem;
+                padding: 10px 10px;
+                @include adjust-font(13px, false);
+
+
+            }
+            }
+        }
+    }
+    div.buttonContainer{
+        display: flex;
+        justify-content: center;
+        &.responsive{
+            display: none;
+            text-align: center;
+            @media all and (max-width:768px){
+                display: block;
+ 
+             }
+            button{
+                padding: 10px 10px;
+            }
+
+        }
+    }
+    div#propertyCard{
+        div.detailsContainer{
+            h1.title{
+                @include adjust-font(15px, false);
+            }
+        }
+    }
+    
+    
+}

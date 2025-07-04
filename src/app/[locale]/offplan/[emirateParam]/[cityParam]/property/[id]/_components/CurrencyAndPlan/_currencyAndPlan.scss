@@ -1,0 +1,160 @@
+#offplanInfoPage {
+  div.currencyAndPlan {
+    div.wrapper {
+      h2.mainHeading {
+        text-align: left;
+        color: var(--text-color);
+        @include adjust-font(1.375rem, false);
+        @media all and (max-width: 992px) {
+          @include adjust-font(1.125rem, false);
+        }
+        margin-bottom: 50px;
+      }
+
+      ul.currencies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        li.item {
+          h1 {
+            @include adjust-font(18px, false);
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 5px;
+          }
+          span.label {
+            color: var(--light-text-color);
+            @include adjust-font(14px, false);
+            font-weight: 300;
+          }
+        }
+      }
+
+      div.crypto {
+        display: flex;
+        align-items: center;
+        padding: 25px 20px;
+        background-color: var(--dark-blue);
+        margin-bottom: 60px;
+        div.icons {
+          display: flex;
+          align-items: center;
+          margin-right: 30px;
+          span.icon {
+            display: block;
+            margin-right: 15px;
+            &:last-child {
+              margin-right: 0;
+            }
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+        span.text {
+          color: var(--light-text-color);
+          font-weight: 300;
+        }
+      }
+      div.paymentPlan {
+        h2.mainHeading {
+          margin-bottom: 15px;
+          @include adjust-font(1.25rem, false);
+          &.ar {
+            text-align: right;
+          }
+          @media all and (max-width: 992px) {
+            margin-bottom: 2rem;
+          }
+        }
+        div.payment{
+            margin-bottom: 40px;
+            ul.listPlans {
+
+              &.isDesktop {
+                  @media all and (max-width: 992px) {
+                      display: none;
+                  }
+              }
+      
+              &.isMobile {
+                  @media all and (min-width: 993px) {
+                      display: none;
+                  }
+              }
+              display: flex;
+              text-align: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              padding: 30px 30px;
+
+              @media all and (max-width: 992px) {
+                padding: unset;
+                flex-direction: column;
+              }
+
+              margin-bottom: 20px;
+              &:last-child{
+                margin-bottom: 0;
+              }
+              li.item {
+                // width: 32%;
+                margin-right: 10px;
+                margin-bottom: 25px;
+                &.ar {
+                  text-align: right;
+                }
+                &:nth-child(3n) {
+                  margin-right: 0;
+                }
+                @media all and (max-width: 1200px) {
+                  text-align: left;
+                }
+
+                @media all and (max-width: 992px) {
+                  width: 100%;
+                  margin-bottom: unset;
+                  border-bottom: 1px solid var(--border-color);
+                  padding: 1.5rem 0rem;
+                  margin-right: unset;
+                  &:first-child {
+                    padding: 0rem;
+                    padding-bottom: 1.5rem;
+                  }
+                }
+
+                span.value {
+                  display: block;
+                  font-weight: 300;
+                  letter-spacing: 4px;
+                  @include adjust-font(3.125rem, false);
+                  color: var(--text-color);
+                  @media all and (max-width: 1200px) {
+                    @include adjust-font(2.5rem, false);
+                  }
+                }
+                span.label {
+                  display: block;
+                  @include adjust-font(1.2rem, false);
+                  text-transform: uppercase;
+                  color: var(--light-text-color);
+                  font-weight: 300;
+                  color: #FFF;
+                  letter-spacing: 1.92px;
+                }
+              }
+            }
+        }
+      }
+
+      div.gradientLine{
+        width: 90%;
+        height: 1px;
+        margin: 3rem 0 3rem 0;
+        position: relative;
+      }
+    }
+  }
+}

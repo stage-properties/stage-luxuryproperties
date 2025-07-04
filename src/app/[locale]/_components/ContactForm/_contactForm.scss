@@ -1,0 +1,203 @@
+#contactForm {
+  z-index: 9999;
+  position: absolute;
+ 
+  div.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  div.closeIcon {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 999;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease-in-out;
+
+    svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  div.content {
+    z-index: 9999;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    // right: 0;
+    top: 50%;
+    // bottom: 0;
+    transform: translate(-50%, -50%);
+    background-color: var(--dark-blue);
+    width: 50%;
+    margin: 0 auto;
+    padding: 60px 60px 60px;
+    border-radius: 6px;
+    animation: fadeIn 0.3s ease-in-out;
+    @media all and (max-width: 1200px) {
+      width: 70%;
+    }
+    @media all and (max-width: 640px) {
+      width: 95%;
+      padding: 60px 30px 30px;
+    }
+    h1.mainHeading {
+      text-align: center !important;
+      @include adjust-font(20px, true);
+      @media all and (max-width: 1200px) {
+        margin-bottom: 20px;
+      }
+      @media all and (max-width: 640px) {
+        margin-bottom: 30px;
+      }
+    }
+
+    div.formContainer {
+      width: 100%;
+      div.inputContainer {
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        &:nth-child(5){
+          border: none;
+        }
+        &.error {
+          border-color: var(--error-color);
+        }
+        span.label {
+          color: var(--placeholder-color);
+          @include adjust-font(14px, false);
+          text-transform: uppercase;
+          padding-bottom: 10px;
+        }
+        input {
+          width: 100%;
+          background-color: transparent;
+          padding-bottom: 10px;
+          color: var(--text-color);
+          @include adjust-font(14px, false);
+          &::placeholder {
+            letter-spacing: 1.6px;
+          }
+          &.error {
+            border-color: var(--error-color);
+          }
+        }
+        span.errorIcon {
+          position: absolute;
+          right: 0;
+          transform: translateX(0);
+          animation: zoomIn 0.6s ease-in-out;
+          svg {
+            width: 20px !important;
+            height: 20px !important;
+          }
+        }
+        div.textArea{
+          width: 100%;
+          margin-bottom: 10px;
+          label{
+            display: block;
+            text-align: left;
+            @include adjust-font(14px, false);
+            color: var(--placeholder-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+          }
+          textarea{
+            background-color: transparent;
+            width: 100%;
+            color: var(--text-color);
+            resize: none;
+            padding: 6px;
+          }
+        }
+      }
+      div.dropDown {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        top: 30px;
+        border-radius: 6px;
+        z-index: 9;
+        max-height: 400px;
+        overflow-y: scroll;
+        @media all and (max-width: 768px) {
+          width: 100%;
+          left: 0;
+        }
+        @media all and (max-width: 640px) {
+          left: revert;
+          right: 0;
+        }
+
+        ul.listDropdownitems {
+          padding-top: 10px;
+          li {
+            text-align: center;
+            padding: 10px 20px;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span.text{
+              color: #000;
+            }
+            &:hover {
+              background-color: var(--secondary-bg-color);
+              color: var(--text-color);
+              border-left: 1px solid var(--border-color);
+              border-right: 1px solid var(--border-color);
+              span{
+                color: var(--text-color);
+              }
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      div.buttonContainer {
+        button.globalBtn {
+          @media all and (max-width: 640px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .PhoneInputCountryIcon {
+    padding-bottom: 10px;
+    height: unset;
+    box-shadow: unset;
+  }
+}
+div.swal2-container{
+  z-index: 99999 !important;
+}

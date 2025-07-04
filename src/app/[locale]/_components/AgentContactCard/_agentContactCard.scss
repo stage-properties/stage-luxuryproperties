@@ -1,0 +1,84 @@
+div.agentContactCard{
+    padding: 20px 10px 20px 10px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    background-color: var(--primary-bg-color);
+   
+    div.top{
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        div.left{
+            width: 70%;
+            margin:0 auto;
+            div.imageContainer{
+                position: relative;
+                width: 100%;
+                // height: 200px;
+                img{
+                    object-fit: cover;
+                    position: static !important;
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    div.bottom{
+        .contactTitle{
+            display: block;
+            text-align: center;
+            @include adjust-font(14px, false);
+            font-weight: 300;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+       }
+        div.buttons{
+            // display: flex;
+            width: 100%;
+        }
+        div.buttonContainer{
+            width: 100%;
+            // display: flex;
+            // justify-content: center;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            button{
+              
+                padding: 13px 15px;
+                border: 1px solid var(--border-color);
+                background-color: transparent;
+                color: var(--text-color);
+                width: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               
+                @media all and (max-width:1400px){
+                    padding: 13px 8px;
+                }
+                span.icon{
+                    display: block;
+                    margin-right: 5px;
+                    line-height: 0;
+                    svg{
+                        width: 12px !important;
+                        height: 12px !important;
+                        stroke: var(--text-color);
+                    }
+                }
+                span.text{
+                    @include adjust-font(10px, false);
+                    font-weight: 300;
+                    line-height: 0;
+                    letter-spacing: 1.6px;
+                }
+            }
+        }
+    }
+}

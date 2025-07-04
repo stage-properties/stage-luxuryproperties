@@ -1,0 +1,96 @@
+div#blogCard{
+    width: 100%;
+    border: 1px solid transparent; /* Set the border width and make it transparent */
+          border-image: radial-gradient(
+            circle,
+            rgba(255, 236, 224, 1) 0%,
+            rgba(240, 202, 178, 1) 35%,
+            rgba(172, 131, 109, 1) 100%
+          );
+          border-image-slice: 1;
+          background-color: var(--primary-bg-color);
+    div.imageContainer{
+        width: 100%;
+        position: relative;
+        // height: 220px;
+        img{
+            position: static !important;
+            display: block;
+            width: 100%;
+        }
+        // @media all and (max-width: 1400px) {
+        //     height: 170px;
+        //      }
+    }
+    div.detailsContainer{
+        padding: 20px 20px 15px;
+        h1.title, h2.title {
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--text-color);
+            @include adjust-font(15px, false);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            min-height: 38px;
+            &.ar {
+                text-align: right;
+            }
+        }
+        div.extraInfo{
+            div.top{
+               
+                border-bottom: 1px solid var(--light-text-color);
+                padding-bottom: 20px;
+                span.date{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    span.icon{
+                        line-height: 0;
+                        svg{
+                            g{
+                                stroke: var(--light-text-color) !important;
+                            }
+                        }
+
+                    }
+                    span.text{
+                        color: var(--light-text-color);
+                        font-weight: 300;
+                        margin-left: 6px;
+                        @include adjust-font(13px, false);
+                    }
+                }
+            }
+            div.bottom{
+               
+                padding: 22px 0 12px;
+                display: flex;
+                justify-content: flex-end;
+                div.oneLine{
+                    h6.text{
+                        color: var(--text-color);
+                        font-weight: 500;
+                        @include adjust-font(13px, false);
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        span.icon{
+                            display: block;
+                            margin-left: 10px;
+                            line-height: 0;
+                            svg{
+                                width: 20px;
+                                stroke: var(--text-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

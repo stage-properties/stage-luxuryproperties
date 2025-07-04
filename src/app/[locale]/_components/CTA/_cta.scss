@@ -1,0 +1,39 @@
+#cta {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
+    padding: 2rem 1rem;
+    font-family: var(--audrey-font-family);
+
+    .heading {
+        @include adjust-font(2rem, false);
+        text-transform: uppercase;
+    }
+
+    .subheading {
+        @include adjust-font(1.1rem, false);
+        font-family: var(--lato-font-family);
+        margin-bottom: .5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}
+
+@media all and (max-width: 1400px) {
+    #cta {
+        width: 85%;
+        .heading {
+            @include adjust-font(20px, false);
+            text-align: center !important;
+        }
+    
+        .subheading {
+            @include adjust-font(16px, false);
+            line-height: 1.5rem;
+            text-align: center !important;
+        }
+    }
+}

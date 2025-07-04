@@ -1,0 +1,149 @@
+#floorplans {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-top: unset;
+    border-right: unset;
+    border-left: unset;
+    border-width: 5px;
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        @media all and (max-width: 1200px) {
+            flex-direction: column;
+        }
+        .mainHeading{
+            text-align: left;  
+            @include adjust-font(1.25rem, false);
+            color: var(--text-color);
+            margin-bottom: 20px;
+            letter-spacing: 1.6px;
+            &.ar {
+                text-align: right;
+            }
+            @media all and (max-width: 992px) {
+                line-height: 2rem;
+            }
+        }
+        .bedrooms {
+            display: flex;
+            margin-top: 2rem;
+            .item {
+                margin-right: 50px;
+                color: white;
+                cursor: pointer;
+                &.ar {
+                    margin-right: unset;
+                    margin-left: 50px;
+                }
+                &.selected {
+                    text-decoration: underline;
+                    text-underline-offset: 10px;
+                }
+            }
+        }
+
+        
+
+        // list
+        ul.pInfo{
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            @media all and (max-width: 980px) {
+               margin-bottom: 0px;
+               margin-top: 30px;
+              }
+            li.list{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--border-color);
+                width: 80%;
+                margin-right: 40px;
+                padding: 15px 0;
+                &.ar {
+                    margin-right: unset;
+                }
+                @media all and (max-width: 1200px) {
+                    width: 100%;
+                    margin-right: unset;
+                }
+                @media all and (max-width: 480px) {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
+                div.left{
+                    width: 30%;
+                    @media all and (max-width:1400px){
+                        width: 39%;
+                    }
+                    @media all and (max-width: 480px) {
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+                    span.label{
+                        color: var(--light-text-color);
+                        @include adjust-font(14px, false);
+                    }
+                }
+                div.right{
+                    width: 50%;
+                    @media all and (max-width: 480px) {
+                        width: 100%;
+                    }
+                    span.value{
+                        color: var(--text-color);
+                        @include adjust-font(14px, false);
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        ._left {
+            width: 100%;
+            @media all and (max-width: 1200px) {
+                order: 1;
+            }
+            .fullWidth {
+                width: fit-content;
+                @media all and (max-width: 992px){
+                    width: 100%;
+                }
+            }
+        }
+        
+        ._right {
+            width: 100%;
+            img {
+                height: 426.1px;
+                width: 643.527px;
+                border: 1px solid #FFECE0;
+                padding: 2rem;
+                box-sizing: border-box;
+                @media all and (max-width: 1200px) {
+                    margin-bottom: unset;
+                    margin-top: 3rem;
+                    width: 100%;
+                    height: auto;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    .isMobile {
+        display: none;
+        @media all and (max-width: 1200px) {
+            display: flex;
+        }
+    }
+
+    .isDesktop {
+        display: none;
+        @media all and (min-width: 1200px) {
+            display: flex;
+        }
+    }
+}

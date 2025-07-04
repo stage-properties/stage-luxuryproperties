@@ -1,0 +1,69 @@
+#blogInfo{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    padding-bottom: 100px;
+    h1,h2,h3,h4,h5,h6{
+        color: var(--text-color) !important;
+    }
+    a{
+        color: #a0d5fe !important;
+    }
+    img{
+        display: block;
+        width: 100%;
+    }
+    p{
+        text-transform: unset;
+        margin: revert;
+        @include adjust-font(17px, false);
+        line-height: 2em;
+        strong{
+            color: var(--text-color) !important;
+            @include adjust-font(18px, true);
+        }
+       
+    }
+    li{
+        line-height: 2em;
+        color: var(--light-text-color) !important;
+        @include adjust-font(17px, false);
+        font-weight: 300;
+        strong{
+            color: var(--text-color) !important;
+        }
+    }
+    ol{
+        li{
+            color: var(--light-text-color) !important;
+            @include adjust-font(17px, false);
+            line-height: 2em;
+            strong{
+                color: var(--text-color) !important;
+                @include adjust-font(17px, true);
+            }
+        }
+    }
+    div.nextSection{
+        margin-top: 70px;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 1rem;
+        color: white
+    }
+
+    .imageBannerClass {
+        height: calc(100vh - 100px);
+        width: auto;
+    }
+}
+
+#chatbot {
+    display: none;
+}

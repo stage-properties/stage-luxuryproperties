@@ -1,0 +1,16 @@
+div.arrow-right{
+    &.slick-next::before{
+        content: '';
+     }
+     &.slick-disabled{
+        opacity: 0.3;
+    }
+}
+div.arrow-left{
+    &.slick-prev::before{
+        content: '';
+     }
+     &.slick-disabled{
+        opacity: 0.3;
+    }
+}

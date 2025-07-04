@@ -1,0 +1,93 @@
+div.landing_aboutDeveloper{
+
+    max-width: 80rem;
+    width: 90%;
+    margin: auto;
+    margin: 5rem auto;
+    @media all and (max-width: 1024px){
+        margin: 3rem auto;
+    }
+    
+    div.landing_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media all and (max-width: 1024px) {
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
+        .landing_parent {
+            width: 50%;
+            @media all and (max-width: 1024px) {
+                width: 100%;
+            }
+            .landing_container {
+                width: 86%;
+                float: right;
+                @media all and (max-width: 1024px) {
+                    width: 100%;
+                    float: unset;
+                }
+            }
+            h2.landing_mainHeading{
+                text-align: left;
+                @include adjust-font(1.5rem, false);
+                margin-bottom: 1rem;
+                color: black;
+                font-weight: 700;
+                letter-spacing: 1.92px;
+                text-transform: uppercase;
+                @media all and (max-width: 1024px) {
+                    @include adjust-font(1.25rem, false);
+                    letter-spacing: 1.6px;
+                    line-height: 2rem;
+                }
+            }
+            .landing_developer_description {
+                text-align: left;
+                width: 500px;
+                color: black;
+                @include adjust-font(1.25rem, false);
+                font-weight: 300;
+                line-height: 31.768px; /* 158.839% */
+                letter-spacing: 0.4px;
+                text-transform: unset;
+                width: 100%;
+            }
+            .landing_developer_image {
+                width: 250px;
+                @media all and (max-width: 1024px) {
+                    width: 40%;
+                }
+                @media all and (max-width: 576px){
+                    width: 30%;
+                }
+            }
+            &.landing_imageParent {
+                display: flex;
+                justify-content: center;
+                @media all and (max-width: 1024px) {
+                    justify-content: start;
+                    margin-bottom: 3rem;
+                }
+                @media all and (max-width: 1024px) {
+                    margin-bottom: 2rem;
+                }
+            }
+            .generalButton {
+                width: fit-content;
+                display: block;
+                text-align: center;
+                margin-top: 2rem;
+                letter-spacing: 1.6px;
+                color: black;
+
+                @media all and (max-width: 576px) {
+                    letter-spacing: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

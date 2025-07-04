@@ -1,0 +1,305 @@
+#homePage {
+  div.ourServicesSection {
+    background-color: var(--primary-bg-color);
+    padding-bottom: 120px;
+    padding-left: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    position: relative;
+    @media all and (max-width: 980px) {
+      background-color: var(--secondary-bg-color);
+      border-top: inset;
+      border-top-width: 6px;
+      padding: 100px 0 50px 0;
+    }
+    h2.mainHeading {
+      margin-top: 80px;
+      margin-bottom: 10px;
+      &.ar{
+        text-align: right;
+      }
+      @media all and (max-width: 980px) {
+        margin-bottom: 10px;
+        margin-top: 0px;
+      }
+    }
+    h3.mainHeading {
+      -webkit-text-fill-color: #FDFDFD;
+      margin-bottom: 20px;
+      margin-bottom: 70px;
+      @include adjust-font(17px, false);
+      &.ar{
+        text-align: right;
+      }
+      @media all and (max-width: 980px) {
+        margin-bottom: 30px;
+      }
+      @media all and (max-width:768px){
+        @include adjust-font(14px, false);
+      }
+    }
+    p.tagline {
+      color: var(--light-text-color);
+      @include adjust-font(14px, false);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 70px;
+      &.ar {
+        @include adjust-font(16px, false);
+      }
+      @media all and (max-width: 980px) {
+        margin-bottom: 30px;
+      }
+    }
+    div.serviceList {
+      position: relative;
+      @media all and (max-width: 1200px) {
+        margin-bottom: 60px;
+      }
+      @media all and (max-width: 980px) {
+        margin-bottom: 50px;
+      }
+      div.addtionalInformation {
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        width: 30%;
+        @media all and (max-width: 1200px) {
+          width: 85%;
+          margin: 0 auto;
+          max-width: 1600px;
+          position: static;
+        }
+        ul {
+          li {
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            padding: 25px 0;
+            &:last-child {
+              border-bottom: 1px solid transparent; /* Set the border width and make it transparent */
+              border-image: radial-gradient(
+                circle,
+                rgba(255, 236, 224, 1) 0%,
+                rgba(240, 202, 178, 1) 35%,
+                rgba(172, 131, 109, 1) 100%
+              );
+              border-image-slice: 1;
+            }
+            span {
+              @include adjust-font(14px, false);
+              color: var(--text-color);
+            }
+          }
+        }
+      }
+    }
+    div.scrollContainer {
+      overflow: scroll;
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      overflow-y: scroll;
+      @media all and (max-width: 1200px) {
+        margin-bottom: 60px;
+      }
+      @media all and (max-width: 980px) {
+        margin-bottom: 40px;
+      }
+      &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+
+      div.servicesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        @media all and (max-width: 1056px) {
+          flex-wrap: nowrap;
+          overflow: scroll;
+          width: 1600px;
+        }
+        div.serviceItem {
+          width: 29%;
+          margin-right: 70px;
+          margin-bottom: 80px;
+          &.ar {
+            margin-right: unset;
+            margin-left: 70px;
+          }
+          &:nth-child(3n){
+            margin-right: 0;
+            &.ar {
+              margin-right: unset;
+              margin-left: 0;
+            }
+          }
+          @media all and (max-width: 1400px) {
+            width: 31%;
+            margin-right: 32px;
+
+            &.ar {
+              margin-left: 32px;
+              margin-bottom: 64px;
+            }
+
+            &:nth-child(3n){
+              &.ar {
+                margin-right: unset;
+                margin-left: unset;
+              }
+            }
+          }
+          @media all and (max-width: 1200px) {
+            margin-right: 30px;
+          }
+          @media all and (max-width: 1056px) {
+            width: 263px;
+            margin-right: 10px;
+            margin-bottom: 0;
+            &:nth-child(3n){
+              &.ar {
+                margin-right: unset;
+                margin-left: 30px;
+              }
+            }
+          }
+          @media all and (max-width: 980px) {
+            width: 263px;
+            margin-right: 18px;
+          }
+        }
+        div.addtionalInformation {
+          position: absolute;
+          right: -100px;
+          bottom: 50px;
+          width: 40%;
+
+          ul {
+            li {
+              border-left: none;
+              border-right: none;
+              border-bottom: none;
+              padding: 25px 0;
+              &:last-child {
+                border-bottom: 1px solid transparent; /* Set the border width and make it transparent */
+                border-image: radial-gradient(
+                  circle,
+                  rgba(255, 236, 224, 1) 0%,
+                  rgba(240, 202, 178, 1) 35%,
+                  rgba(172, 131, 109, 1) 100%
+                );
+                border-image-slice: 1;
+              }
+              span {
+                @include adjust-font(14px, false);
+                color: var(--text-color);
+              }
+            }
+          }
+        }
+      }
+    }
+    div.line {
+      display: block;
+      width: 50%;
+      margin: 30px auto;
+      height: 1px;
+      position: relative;
+      @media all and (max-width: 1200px) {
+        display: none;
+      }
+    }
+    div.mortgageCalculatorFormContainer {
+      h1.heading {
+        font-weight: 700;
+        @include adjust-font(14px, false);
+        text-align: center;
+        color: var(--text-color);
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      div.calculatorForm {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 90px 40px 80px;
+        align-items: flex-end;
+        margin: 0 auto;
+        @media all and (max-width: 1200px) {
+          width: 100%;
+        }
+        @media all and (max-width: 980px) {
+            flex-direction: column;
+            background-color: var(--dark-blue);
+            padding: 30px 30px 30px;
+        }
+        input {
+          width: 23%;
+          display: block;
+          background-color: transparent;
+          border-bottom: 1px solid var(--link-color);
+          padding-bottom: 8px;
+          caret-color: #fff;
+          color: var(--text-color);
+          @include adjust-font(16px, false);
+          @media all and (max-width: 980px) {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+          &::placeholder {
+            letter-spacing: 1.6px;
+            @include adjust-font(14px, false);
+          }
+        }
+        button {
+          width: 11rem;
+          @media all and (max-width: 980px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .mortgageCalculator{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        @include adjust-font(16.53px, false);
+        text-align: center;
+        @media all and (max-width: 480px) {
+          @include adjust-font(14px, false);
+        }
+      }
+      h2 {
+        text-align: center;
+      }
+      button {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+button.showMoreBtn {
+  background-color: transparent;
+  color: var(--text-color);
+  transition: 0.3s ease-in-out;
+  &:hover{
+      background-color: var(--tertiary-color);
+      color: #000;
+  }
+  @media all and (max-width:768px){
+    @include adjust-font(14px, false);
+    padding: 12px 10px;
+    margin-bottom: 20px;
+  }
+  @media all and (max-width:640px){
+    width: 8rem;
+    padding: 10px 10px;
+    @include adjust-font(13px, false);
+    margin-bottom: 20px;
+  }
+}

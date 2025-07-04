@@ -1,0 +1,426 @@
+#searchForm {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  @media all and (max-width: 980px) {
+    border: 1px solid transparent; /* Set the border width and make it transparent */
+  border-image: radial-gradient(
+    circle,
+    rgba(255, 236, 224, 1) 0%,
+    rgba(240, 202, 178, 1) 35%,
+    rgba(172, 131, 109, 1) 100%
+  );
+  border-image-slice: 1;
+  padding: 20px;
+}
+  div.mainContainer {
+    display: flex;
+    justify-content: space-between;
+    @media all and (max-width: 1400px) {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    @media all and (max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    div.formContainer {
+      width: 80%;
+      display: flex;
+      &.ar {
+        justify-content: start;
+      }
+      @media all and (max-width: 1400px) {
+        width: 100%;
+        justify-content: space-between;
+      }
+      @media all and (max-width: 1200px) {
+        flex-wrap: wrap;
+        
+      }
+      @media all and (max-width: 980px) {
+        flex-direction: column;
+       width: 100%;
+    }
+      div.inputContainer {
+        width: 36%;
+        margin-right: 10px;
+        &.ar {
+          margin-right: unset;
+        }
+        border: 1px solid var(--border-color);
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+        @media all and (max-width: 1400px) {
+         width: 39%;
+         margin-right: 0;
+        }
+        @media all and (max-width: 1200px) {
+           width: 100%;
+           margin-bottom: 20px;
+        }
+        input {
+          width: 100%;
+          background-color: transparent;
+          @include adjust-font(12px, false);
+          caret-color: #fff;
+          color: #fff;
+          @include adjust-font(14px, false);
+          &::placeholder {
+            letter-spacing: 1.6px;
+            @include adjust-font(13px, false);
+            font-family: var(--lato-font-family);
+            @media all and (max-width: 576px){
+              @include adjust-font(12px, false);
+            }
+            @media all and (max-width: 425px){
+              @include adjust-font(11px, false);
+            }
+            @media all and (max-width: 375px){
+              @include adjust-font(10px, false);
+            }
+          }
+          &.ar {
+            &::placeholder {
+              letter-spacing: normal;
+            }
+          }
+        }
+        div.dropDown {
+          width: 100%;
+          background-color: #fff;
+          border-radius: 5px;
+          position: absolute;
+          top: 50px;
+          max-height: calc(1rem * 15);
+          overflow-y: scroll;
+          z-index: 1;
+          left: 0;
+          right: 0;
+          ul.lists {
+            li {
+              padding: 10px;
+              transition: 0.2s ease-in-out;
+              text-align: center;
+              &:hover {
+                background-color: var(--primary-bg-color);
+                color: var(--text-color);
+              }
+              span {
+                display: -webkit-box;
+                -webkit-line-clamp: 1; /* Number of lines to show */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+
+      div.selectContainer {
+        display: flex;
+        width: 60%;
+        @media all and (max-width: 1200px) {
+          width: 100%;
+       }
+        @media all and (max-width: 980px) {
+            width: 100%;
+            flex-direction: column;
+         }
+        div.field {
+          padding: 10px 12px;
+          border: 1px solid var(--border-color);
+          margin-right: 10px;
+          &.ar {
+            @media all and (max-width: 980px){
+              margin-right: unset;
+            }
+          }
+          width: 35%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          position: relative;
+          @media all and (max-width: 1400px) {
+            width: 43%;
+          }
+          @media all and (max-width: 1200px) {
+            width: 49%;
+          }
+          @media all and (max-width: 980px) {
+            width: 100%;
+            margin-bottom: 20px;
+         }
+          &:nth-child(3),&:nth-child(4) {
+            div.dropDown {
+              width: 15rem;
+              // display: flex;
+              // justify-content: space-between;
+              padding: 10px;
+              @media all and (max-width: 1400px) {
+                width: 10rem;
+              }
+              @media all and (max-width: 980px) {
+                width: 100%;
+              }
+              div.dropDownSelectContainer {
+                width: 100%;
+                margin-bottom: 20px;
+                .css-13cymwt-control {
+                  border: none;
+                }
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+            }
+          }
+          div.dropDown {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 5px;
+            position: absolute;
+            top: 50px;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            max-height: 400px;
+            overflow-y: scroll;
+            ul.lists {
+              li {
+                padding: 10px;
+                transition: 0.2s ease-in-out;
+                text-align: center;
+                &:hover {
+                  background-color: var(--primary-bg-color);
+                  color: var(--text-color);
+                }
+                span {
+                }
+              }
+            }
+          }
+          &:last-child {
+            &.ar {
+              margin-right: 10px;
+              @media all and (max-width: 980px) {
+                margin-right: unset;
+              }
+            }
+            margin-right: 0;
+            margin-bottom: 0;
+          }
+          &:nth-child(2n)
+           {
+            width: 25%;
+            @media all and (max-width: 1200px) {
+              width: 23%;
+            }
+            @media all and (max-width: 980px) {
+                width: 100%;
+             }
+          }
+          &:nth-child(3),&:nth-child(4){
+            width: 30%;
+            @media all and (max-width: 980px) {
+              width: 100%;
+           }
+          }
+          span.text {
+            color: var(--text-color);
+            text-transform: uppercase;
+            @include adjust-font(11px, false);
+          }
+
+          span.icon {
+            display: block;
+            margin-left: 5px;
+            svg {
+              width: 10px !important;
+              height: 10px !important;
+              path {
+                stroke: var(--placeholder-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div.buttonContainer {
+  width: 16%;
+  display: flex;
+  justify-content: flex-end;
+
+  &.resetButton {
+    &.ar {
+      margin-left: .5rem;
+    }
+    margin-right: 1rem;
+  }
+
+  @media all and (max-width: 1400px) {
+   margin-top: 30px;
+  }
+  @media all and (max-width: 1200px) {
+    width: 21%;
+    &.resetButton {
+      margin-right: unset;
+    }
+  }
+  @media all and (max-width: 980px) {
+    width: 100%;
+ }
+  button {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    padding: 12px 10px;
+    @media all and (max-width: 980px) {
+       padding: 12px 10px;
+       background: linear-gradient(
+        262deg,
+        rgba(172, 131, 109, 1) 28%,
+        rgba(240, 202, 178, 1) 70%
+      );
+      span.text {
+        color: #000;
+      }
+      span.icon {
+        svg {
+          stroke: #000;
+        }
+      }
+     }
+    &:hover {
+      background: linear-gradient(
+        262deg,
+        rgba(172, 131, 109, 1) 28%,
+        rgba(240, 202, 178, 1) 70%
+      );
+      span.text {
+        color: #000;
+      }
+      span.icon {
+        svg {
+          stroke: #000;
+        }
+      }
+    }
+    span.text {
+      text-transform: uppercase;
+      color: var(--text-color);
+      letter-spacing: 1.6px;
+      @include adjust-font(11px, false);
+      font-family: var(--lato-font-family);
+      // transition: 0.3s ease-in-out;
+    }
+
+    span.icon {
+      display: block;
+      margin-left: 10px;
+      svg {
+        width: 12px !important;
+        height: 12px !important;
+        stroke: var(--text-color);
+        // transition: 0.3s ease-in-out;
+      }
+      dropdownarrow {
+      }
+    }
+  }
+}
+
+.toggleRow {
+  display: flex;
+  justify-content: flex-end; // or flex-start, depending on your design
+  margin-top: 20px;
+}
+
+.toggleContainer {
+  width: calc(30% - 1rem) !important;
+  padding-top: 1rem !important;
+  margin: 0 0 0 auto !important;
+  
+  &.ar {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    align-items: center;
+  }
+
+  @media all and (max-width: 1200px) {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+  }
+}
+
+/* Basic toggle switch styling */
+/* Basic toggle switch styling with white background even when switched on */
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-left: 1rem;
+
+  &.ar {
+    margin-left: unset;
+    margin-right: 1rem;
+    align-items: center;
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: #ccc;
+  }
+
+  input:checked + .slider {
+    background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #F7F7F7;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+    @media all and (max-width: 1200px) {
+      transform: translateX(12px);
+    }
+    
+  }
+}
+
+.toggleLabel {
+  color: var(--text-color);
+  font-size: 0.9rem; // adjust as needed
+}

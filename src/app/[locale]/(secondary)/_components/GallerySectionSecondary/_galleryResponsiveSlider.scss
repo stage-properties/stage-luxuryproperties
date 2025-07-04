@@ -1,0 +1,36 @@
+div.gallerySliderResponsive{
+    margin-bottom: 1rem;
+    div.item{
+        div.imageContainer{
+            max-height: 230px;
+            // min-height: 230px;
+        }
+    }
+//    ul.slick-dots{
+//     bottom: 0;
+//     li{
+//         button{
+//             &::before{
+//                color: var(--tertiary-color) !important;
+
+//             }
+//         }
+//     }
+//     li.slick-active{
+//         button{
+//             &::before{
+//                color: var(--primary-bg-color) !important;
+
+//             }
+//         }
+//     }
+// }
+   .slick-next{
+    right: 0;
+   }
+   .slick-prev{
+    left: 0;
+    z-index: 1;
+   
+   }
+}

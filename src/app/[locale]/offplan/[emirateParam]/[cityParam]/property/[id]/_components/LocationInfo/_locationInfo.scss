@@ -1,0 +1,177 @@
+#offplanInfoPage{
+    div.locationInfo{
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-width: 5px;
+        padding-top: 80px;
+        margin-bottom: 80px;
+        @media all and (max-width: 992px) {
+            margin-bottom: unset;
+        }
+        div.wrapper{
+            h2.mainHeading{
+                text-align: left;
+                &.ar {
+                    text-align: right;
+                }
+                @include adjust-font(1.25rem, false);
+                margin-bottom: 1rem;
+                color: var(--text-color);
+                font-weight: 700;
+                letter-spacing: 1.92px;
+                text-transform: uppercase;
+            }
+            div.mapContainer{
+                width: 100%;
+                position: relative;
+                margin-bottom: 20px;
+                img{
+                    object-fit: cover;
+                }
+            }
+            div.content{
+                @include adjust-font(14px, false);
+                font-weight: 300;
+                color: var(--text-color);
+                margin-bottom: 60px;
+            }
+
+            .location_description {
+                color: #FFF;
+                @include adjust-font(1.25rem, false);
+                font-weight: 300;
+                line-height: 31.768px;
+                letter-spacing: 0.4px;
+                margin-bottom: 5rem;
+                text-transform: unset;
+                @media all and (max-width: 1200px) {
+                    margin-bottom: 3rem;
+                    
+                }
+            }
+            
+            .facilities_near_location {
+                color: #FFF;
+                @include adjust-font(1.25rem, false);
+                font-weight: 500;
+                letter-spacing: 0.4px;
+                text-transform: unset;
+                margin-bottom: 1rem;
+            }
+
+            .destinations_container {
+                display: flex;
+                justify-content: space-between;
+                @media all and (max-width: 992px) {
+                    flex-direction: column;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    min-height: 15rem;
+                    max-height: 20rem;
+                    padding-left: 1rem;
+                    width: fit-content;
+                    column-gap: 5rem;
+                    @media all and (max-width: 1200px) {
+                        max-height: fit-content;
+                    }
+                }
+                
+                li {
+                    list-style-image: url('/pin.svg');
+                    color: white;
+                    padding: 1rem;
+                    padding-bottom: .5rem;
+                    @include adjust-font(1rem, false);
+                }
+
+                .destinations {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 3rem;
+                    width: 35%;
+                    @media all and (max-width: 1200px) {
+                        width: 50%;
+                    }
+                    @media all and (max-width: 992px) {
+                        width: 100%;
+                        order: 0;
+                    }
+                    .parent {
+                        display: flex;
+                        align-items: baseline;
+                        width: 100%;
+
+                        .destinations_item {
+                            text-align: center;
+                            width: 50%;
+                            img {
+                                margin-bottom: 1rem;
+                            }
+
+                            .value {
+                                margin-bottom: .5rem;
+                                font-weight: 700;
+                                letter-spacing: 0.4px;
+                                @include adjust-font(1.25rem, false);
+                                @media all and (max-width: 1200px) {
+                                    @include adjust-font(0.94rem, false);
+                                }
+                            }
+                            .label {
+                                font-weight: 300;
+                                letter-spacing: 0.4px;
+                                @include adjust-font(1.25rem, false);
+                                @media all and (max-width: 1200px) {
+                                    @include adjust-font(0.94rem, false);
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .destinations_container_parent {
+                &.removeMarginTop {
+                    @media all and (max-width: 992px) {
+                        margin-top: 1rem;
+                    }
+                }
+
+                @media all and (max-width: 992px) {
+                    margin-top: 3rem;
+                }
+                @media all and (max-width: 992px) {
+                    order: 1;
+                }
+            }
+
+            .globalBtnContainer {
+                margin-top: 40px;
+                &.marginTop {
+                    @media all and (max-width: 992px) {
+                        margin-top: unset;
+                    }
+                    @media all and (max-width: 576px){
+
+                    }
+                }
+                .fullWidth {
+                    width: fit-content;
+                    @media all and (max-width: 992px) {
+                        margin-bottom: 5rem;
+                    }
+                    @media all and (max-width: 576px){
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

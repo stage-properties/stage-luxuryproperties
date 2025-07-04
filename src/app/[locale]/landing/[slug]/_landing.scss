@@ -1,0 +1,607 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.iframe {
+    width: 70%;
+    @media all and (max-width: 1024px) {
+        width: 90%;
+    }
+}
+
+.landing {
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: normal;
+
+    /* Wrapper */
+    .wrapper {
+        margin: 5rem auto;
+        max-width: 60rem;
+        width: 90%;
+
+        @media all and (max-width: 768px) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .gradient {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(360deg, var(--secondary-bg-color) 30%, rgba(18, 24, 35, 0) 100%);
+        height: 400px;
+        z-index: 1;
+    }
+
+    /* Sections */
+    .section_1,
+    .section_2,
+    .section_3,
+    .section_4,
+    .section_5 
+    {
+        margin-top: 4rem;
+        padding-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        @media all and (max-width: 1020px) {
+            height: 500px;
+        }
+    }
+
+    /* Developer and Project Logos */
+    .developer_logo {
+        width: 150px;
+        height: auto;
+        // padding: 1rem;
+        // background-color: white;
+    }
+
+    .project_logo {
+        width: 250px;
+        height: auto;
+        // padding: 1rem;
+        // background-color: white;
+    }
+
+    /* Handover Details Styles */
+    .handover-details {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 5rem auto 0;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .handover-item {
+        flex: 1;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .border-right {
+        border-right: 1px solid black;
+    }
+
+    .handover-title,
+    .handover-year,
+    .handover-subtitle {
+        font-family: Montserrat, sans-serif;
+    }
+
+    .handover-title,
+    .handover-subtitle {
+        font-weight: 400;
+        line-height: 1.2;
+        @include adjust-font(20px, false);
+        margin: 0.5rem 0;
+    }
+
+    .handover-year {
+        font-weight: 400;
+        line-height: 1.2;
+        @include adjust-font(30px, false);
+    }
+
+    /* Location Section Styles */
+    .location-container {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 3rem;
+        justify-content: center;
+        @media all and (max-width: 1024px) {
+            row-gap: unset;
+        }
+        margin-top: 5rem;
+    }
+
+    .location-item {
+        width: 30%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .location-time {
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        color: #0e76bc;
+        @include adjust-font(22px, false);
+        margin-bottom: 0.1rem;
+    }
+
+    .location-text {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        color: rgb(26, 28, 54);
+        @include adjust-font(13px, false);
+        line-height: 1.2;
+    }
+
+    /* Content Container */
+    .content-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Form Section Styles */
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(240, 247, 248);
+        padding: 5rem 0;
+        @media all and (max-width: 1024px) {
+            padding: unset;;
+            padding-top: 3rem;
+        }
+    }
+
+    .form-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        width: 80%;
+        max-width: 1200px;
+    }
+
+    .form-image {
+        flex: 1;
+        overflow: hidden;
+        min-width: 300px;
+    }
+
+    .form-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #A3BAC6;
+        padding: 0.35rem 0 0.5rem 0.35rem;
+        margin-left: 1px;
+    }
+
+    .form-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0 4rem;
+        @media all and (max-width: 1024px) {
+            padding: unset;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        min-width: 300px;
+    }
+
+    .form-container h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        color: rgb(0, 0, 1);
+        @include adjust-font(32px, false);
+        margin-bottom: 1rem;
+    }
+
+    .form-container p {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        color: rgb(0, 0, 0);
+        @include adjust-font(16px, false);
+        line-height: 1.5;
+        width: 65%;
+        margin: 0 auto 2rem;
+    }
+
+    .form-container form {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid black;
+        border-radius: 4px;
+        font-family: Montserrat, sans-serif;
+        @include adjust-font(1rem, false);
+        box-sizing: border-box;
+    }
+
+    .form-group textarea {
+        resize: none;
+        height: 100px;
+        margin-top: 0.75rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.75rem 1.5rem;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        color: white;
+        @include adjust-font(18px, false);
+        background-color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button[type="submit"]:hover {
+        background-color: rgb(20, 130, 170);
+    }
+
+    /* Sticky Footer Styles */
+    .sticky-footer {
+        position: fixed; /* Sticks to the viewport */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #0B1C26;
+        text-align: center;
+        padding: .5rem;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        font-family: Montserrat, sans-serif;
+        @include adjust-font(16px, false);
+        z-index: 1000; /* Ensures it appears above other elements */
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .sticky-footer img {
+        width: 100px;
+        height: auto;
+    }
+
+    .sticky-footer-logos {
+        display: flex;
+        flex-direction: column;
+        // background-color: white;
+        padding: 0.5rem;
+    }
+
+    .sticky-footer-text {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        color: rgb(255, 255, 255);
+        @include adjust-font(14px, false);
+        line-height: 17px;
+    }
+
+    /* Register Button Styles */
+    .register-button {
+        background: #FFFFFF;
+        color: #002E31;
+        @include adjust-font(1.2384rem, false);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        height: 3.625rem;
+        width: 13.1875rem;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    /* Responsive Styles */
+
+    /* Tablets and smaller devices */
+    @media (max-width: 1024px) {
+        .location-container {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .location-item {
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            width: 90%;
+            flex-direction: column;
+        }
+    }
+
+    /* Mobile devices */
+    @media (max-width: 768px) {
+
+        .handover-details {
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem auto 0;
+        }
+
+        .handover-item {
+            border-right: none;
+            border-bottom: 1px solid black;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .handover-item:last-child {
+            border-bottom: none;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+
+        .form-section {
+            flex-direction: column;
+            width: 100%;
+            padding: 2rem 0;
+            @media all and (max-width: 1024px) {
+                padding: unset;
+            }
+        }
+
+        .form-image,
+        .form-container {
+            width: 100%;
+        }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 576px) {
+        .developer_logo {
+            width: 100px;
+        }
+
+        .project_logo {
+            width: 150px;
+        }
+
+        .handover-title,
+        .handover-year,
+        .handover-subtitle {
+            @include adjust-font(18px, false);
+        }
+
+        .form-container h2 {
+            @include adjust-font(24px, false);
+        }
+
+        .form-container p {
+            @include adjust-font(14px, false);
+            width: 90%;
+        }
+
+        button[type="submit"] {
+            @include adjust-font(16px, false);
+        }
+
+        .sticky-footer {
+            @include adjust-font(14px, false);
+            padding: 0.75rem;
+        }
+    }
+
+    /* If the sticky footer overlaps content, add padding to the body or main container */
+    body {
+        padding-bottom: 80px; /* Adjust according to the sticky footer's height */
+    }
+
+    @media all and (max-width: 1024px) {
+        .sticky-footer {
+            gap: unset;
+            .sticky-footer-logos, .sticky-footer-text {
+                display: none;
+            }
+            .register-button {
+                width: 100%;
+                margin-right: 1rem;
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .error {
+        color: red;
+        @include adjust-font(0.9em, false);
+      }
+
+    #form-container {
+        scroll-margin-top: 80px; /* Adjust based on your footer's height */
+    }      
+
+    h1,h2,h3,h4,h5,h6,p{
+        font-family: "Playfair Display", serif;
+        color: black;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    h1 {
+        @include adjust-font(44px, false);
+        line-height: 52px;
+    }
+    h2 {
+        @include adjust-font(36px, false);
+        line-height: 44px;
+    }
+    h3 {
+        @include adjust-font(30px, false);
+        line-height: 38px;
+    }
+    h4 {
+        @include adjust-font(24px, false);
+        line-height: 32px;
+    }
+    h5 {
+        @include adjust-font(20px, false);
+        line-height: 28px;
+    }
+    h6 {
+        @include adjust-font(16px, false);
+        line-height: 24px;
+    }
+
+    /* Tablet devices */
+@media (max-width: 768px) {
+
+    .content-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        @include adjust-font(36px, false);
+        line-height: 44px;
+    }
+    h2 {
+        @include adjust-font(30px, false);
+        line-height: 38px;
+    }
+    h3 {
+        @include adjust-font(26px, false);
+        line-height: 34px;
+    }
+    h4 {
+        @include adjust-font(22px, false);
+        line-height: 30px;
+    }
+    h5 {
+        @include adjust-font(18px, false);
+        line-height: 26px;
+    }
+    h6 {
+        @include adjust-font(16px, false);
+        line-height: 24px;
+    }
+
+    p, li, ol li {
+        @include adjust-font(16px, false);
+        line-height: 26px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+    h1 {
+        @include adjust-font(32px, false);
+        line-height: 40px;
+    }
+    h2 {
+        @include adjust-font(28px, false);
+        line-height: 36px;
+    }
+    h3 {
+        @include adjust-font(24px, false);
+        line-height: 32px;
+    }
+    h4 {
+        @include adjust-font(20px, false);
+        line-height: 28px;
+    }
+    h5 {
+        @include adjust-font(18px, false);
+        line-height: 26px;
+    }
+    h6 {
+        @include adjust-font(16px, false);
+        line-height: 24px;
+    }
+
+    p, li, ol li {
+        @include adjust-font(15px, false);
+        line-height: 24px;
+    }
+}
+
+    img{
+        display: block;
+        width: 100%;
+    }
+    p{
+        color: black;
+        text-transform: unset;
+        margin: revert;
+        @include adjust-font(17px, false);
+        line-height: 28px;
+        margin: revert;
+        font-family: Montserrat, sans-serif;
+
+        strong{
+            color: var(--text-color) !important;
+            @include adjust-font(18px, true);
+            color: black !important;
+        }
+       
+    }
+    li{
+        list-style-type: disc;
+        list-style-position: inside;
+        line-height: 2em;
+        font-family: Montserrat, sans-serif;
+        @include adjust-font(17px, false);
+        font-weight: 300;
+        strong{
+            @include adjust-font(18px, true);
+        }
+    }
+    ol{
+        li{
+            @include adjust-font(17px, false);
+            line-height: 2em;
+            strong{
+                @include adjust-font(17px, true);
+            }
+        }
+    }
+    ul {
+        margin-bottom: 2em;
+    }
+    div.nextSection{
+        margin-top: 70px;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,50 @@
+.BlogContent {
+    // Example global styling and media query
+    @media all and (min-width: 1200px) {
+        margin-right: 1rem;
+        width: 75%;
+    }
+
+  /* RTL support */
+    .ar {
+        direction: rtl;
+    }
+    .nextSection {
+    // Additional styling if needed for the nextSection container
+    }
+    .faq-section {
+        margin: 7rem 0;
+    }
+    .cta-wrapper {
+        margin-bottom: 5rem;
+        width: 100%;
+    }
+    .banner-wrapper {
+        margin-bottom: 1rem;
+    }
+
+    .you-may-also-like-title {
+        margin-bottom: 2rem;
+    }
+
+  /* Responsive blog cards container */
+    .blog-cards-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 70px;
+    /* Apply the dynamic width passed via CSS variable */
+    width: var(--container-width);
+    transition: width 0.3s ease;
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        width: 100% !important;
+    }
+    }
+
+.contact-agent-wrapper {
+    margin-bottom: 5rem;
+    width: 100%;
+}
+}

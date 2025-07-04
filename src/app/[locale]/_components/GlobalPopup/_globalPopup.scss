@@ -1,0 +1,111 @@
+.popup-landing-background {
+    height: 720px;
+    width: 720px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    @media all and (max-width: 1200px){
+        @media all and (orientation: landscape) {
+            width: 480px;
+            height: 480px;
+        }
+    }
+
+    @media all and (max-width: 992px) {
+        @media all and (orientation: landscape) {
+            width: 360px;
+            height: 360px;
+        }
+    }
+
+    @media all and (max-width: 576px){
+        width: 360px;
+        height: 360px;
+    }
+}
+
+.popup-content {
+    border: unset !important;
+    background-color: unset !important;
+    width: unset !important;
+    @media all and (max-width: 768px) {
+        width: 100% !important;
+    }
+}
+
+.popup-landing-button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--btn-text-color);
+    letter-spacing: 1.6px;
+    cursor: pointer;
+    width: 300px;
+    background: var(--tertiary-color);
+    color: black;
+    @media all and (max-width: 576px) {
+        @media all and (orientation: landscape) {
+            font-size: 14px;
+            bottom: 100px;
+        }
+    }
+}
+
+.globalPopup-close-button {
+    display: flex;
+    justify-content: end;
+    padding: 2rem;
+
+    @media all and (max-width: 1200px){
+        @media all and (orientation: landscape) {
+            padding: 1rem;
+        }
+    }
+
+    @media all and (max-width: 992px) {
+        @media all and (orientation: landscape) {
+            padding: 1rem;
+        }
+    }
+
+    @media all and (max-width: 576px) {
+        padding: 1rem;
+    }
+    svg {
+        width: 32px;
+        height: 32px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 50%;
+        padding: 8px;
+
+        @media all and (max-width: 1200px){
+            @media all and (orientation: landscape) {
+                width: 24px;
+                height: 24px;
+                padding: 4px;
+            }
+        }
+
+        @media all and (max-width: 992px) {
+            @media all and (orientation: landscape) {
+                width: 24px;
+                height: 24px;
+                padding: 4px;
+            }
+        }
+
+        @media all and (max-width: 576px) {
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+        }
+    }
+}

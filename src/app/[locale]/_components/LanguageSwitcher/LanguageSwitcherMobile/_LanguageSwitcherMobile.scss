@@ -1,0 +1,76 @@
+.language-switcher-mobile {
+  width: 100%;
+  margin-right: 1rem;
+  &.ar {
+    margin-right: unset;
+    margin-left: 1rem;
+  }
+  .switcher-button {
+    display: flex;
+    background: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    .icon {
+      margin-left: 5px;
+      &.ar {
+        margin-left: unset;
+        margin-right: 5px;
+      }
+    }
+    .flag {
+      margin-right: 5px;
+      padding-bottom: 2px;
+      &.ar {
+        margin-right: unset;
+        margin-left: 5px;
+      }
+    }
+    .text {
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      font-family: var(--audrey-font-family);
+      text-transform: uppercase;
+    }
+  }
+  .switcher-dropdown {
+    position: absolute;
+    top: 3rem;
+    background-color: var(--primary-bg-color);
+
+    .switcher-option {
+      text-align: center;
+      @include adjust-font(12px, false);
+      padding: 1rem 1.5rem;
+      &:nth-of-type(1) {
+        border-bottom: unset;
+      }
+      &:nth-of-type(2) {
+      }
+      &.ar {
+        text-align: right;
+      }
+      font-family: var(--lato-font-family);
+      cursor: pointer;
+      color: var(--text-color);
+      display: block;
+      width: 100%;
+      letter-spacing: 2px;
+      font-weight: 400;
+      &:hover {
+        background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+        color: white;
+      }
+    }
+  }
+}
+  
+/* RTL Adjustments */
+[dir="rtl"] .language-switcher-mobile {
+  .switcher-dropdown {
+    right: auto;
+  }
+}

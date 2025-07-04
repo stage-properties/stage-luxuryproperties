@@ -1,0 +1,89 @@
+#contactUsPage {
+  div.ourOffice {
+    div.wrapper {
+      div.gallery {
+        display: flex;
+        justify-content: space-between;
+        img {
+          object-fit: cover;
+        }
+        div.item {
+          position: relative;
+          height: 250px;
+          width: 100%;
+          margin-bottom: 100px;
+        }
+        div.leftContainer {
+          width: 20%;
+          @media all and (max-width: 1200px) {
+            display: none;
+          }
+          div.item {
+            &:nth-child(1) {
+              animation: fadeIn 2.6s infinite alternate;
+            }
+            &:nth-child(2) {
+              animation: fadeIn 2s infinite alternate;
+            }
+            &:nth-child(3) {
+              animation: fadeIn 2.4s infinite alternate;
+            }
+          }
+        }
+        div.centerContainer {
+          width: 40%;
+          @media all and (max-width: 1200px) {
+            margin: 0 auto;
+            width: 62%;
+          }
+          @media all and (max-width: 768px) {
+            width: 70%;
+          }
+          @media all and (max-width: 640px) {
+            width: 100%;
+           }
+          span.pointerIcon {
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+            svg {
+              width: 20px;
+              height: 200px;
+              g {
+                stroke-width: 2px;
+              }
+            }
+          }
+          div.centerImage {
+            position: relative;
+            height: 700px;
+            width: 100%;
+            @media all and (max-width: 768px) {
+              height: 500px;
+            }
+          }
+        }
+        div.rightContainer {
+          width: 20%;
+          @media all and (max-width: 1200px) {
+            display: none;
+          }
+          div.item {
+            &:nth-child(1) {
+              animation: fadeIn 2s infinite alternate;
+            }
+            &:nth-child(2) {
+              animation: fadeIn 2.5s infinite alternate;
+            }
+            &:nth-child(3) {
+              animation: fadeIn 2.6s infinite alternate;
+            }
+            &:first-child {
+              height: 180px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

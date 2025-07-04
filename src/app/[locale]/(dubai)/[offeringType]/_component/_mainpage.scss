@@ -1,0 +1,26 @@
+.subheading {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: white;
+    @include adjust-font(18px, false);
+    font-family: var(--lato-font-family);
+    font-weight: 300;
+    line-height: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media all and (max-width: 576px) {
+    .subheading {
+        @include adjust-font(18px, false);
+        text-align: left;
+        margin-bottom: 2rem;
+        &.ar {
+            text-align: right;
+        }
+    }
+
+    .heading {
+        // text-align: left !important;
+    }
+}

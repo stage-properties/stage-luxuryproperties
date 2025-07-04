@@ -1,0 +1,30 @@
+.dubailandTransactionsTable {
+    border: 0px;
+    .paginationContainer {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .paginationButton {
+        background-color: #0070f3;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+    .paginationButton:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    .paginationButton:hover:not(:disabled) {
+        background-color: #005bb5;
+    }
+    .paginationInfo {
+        margin: 0 10px;
+        font-size: 14px;
+        vertical-align: middle;
+      }
+}

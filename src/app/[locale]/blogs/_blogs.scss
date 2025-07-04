@@ -1,0 +1,136 @@
+#blogsListing {
+  background-color: var(--secondary-bg-color);
+  padding-bottom: 100px;
+  padding-top: 100px;
+  div.blogSpotlight {
+    width: 100%;
+    div.imageContainer {
+      position: relative;
+      width: 100%;
+      height: 750px;
+      z-index: 2;
+      @media all and (max-width:1400px){
+        height: 582px;
+      }
+      img {
+        object-fit: cover;
+      }
+      div.gradient {
+        position: absolute;
+        background: linear-gradient(
+          360deg,
+          rgb(20, 27, 39) 15%,
+          rgba(20, 27, 39, 0.5758096989) 100%
+        );
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+      }
+      div.info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        div.wrapper {
+          z-index: 9;
+          position: relative;
+          h1.mainHeading {
+            color: var(--text-color);
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+  div.wrapper {
+    margin-top: 60px;
+
+    .mainHeading {
+      @media all and (max-width: 1200px) {
+        text-align: left;
+        &.ar {
+          text-align: right;
+        }
+      }
+    }
+
+    #gradientLine {
+      @media all and (max-width: 1200px) {
+        display: none !important;
+      }
+    }
+
+    .description {
+      text-align: center;
+      color: var(--text-color);
+      text-transform: uppercase;
+      font-weight: 300;
+      @include adjust-font(14px, false);
+      margin: 0 auto 50px;
+      line-height: 2em;
+      margin-top: 1rem;
+      width: 95%;
+
+      &.ar {
+        @include adjust-font(16px, false);
+      }
+
+      @media all and (max-width: 1200px) {
+        text-align: left;
+        width: 100%;
+        &.ar {
+          text-align: right;
+        }
+      }
+
+      @media all and (max-width: 640px) {
+        @include adjust-font(12px, false);      
+        &.ar {
+          @include adjust-font(14px, false);
+        }
+      }
+    }
+
+    div.itemListing {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      justify-content: center;
+
+      div.item {
+        width: 30%;
+        margin-right: 35px;
+        margin-bottom: 40px;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+        @media all and (max-width: 980px) {
+          width: 48%;
+          margin-right: 15px;
+          &:nth-child(2n) {
+            margin-right: 0;
+          }
+          &:nth-child(3n) {
+            margin-right: 15px;
+          }
+        }
+
+        @media all and (max-width: 640px) {
+          width: 100%;
+          &:nth-child(2n) {
+            margin-right: 0;
+          }
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+          margin-right: 0;
+        }
+      }
+    }
+    div#gradientLine {
+      margin-bottom: 50px;
+    }
+  }
+}

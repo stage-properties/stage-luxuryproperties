@@ -1,0 +1,197 @@
+.developer {
+  margin-bottom: 100px !important;
+  margin-top: 150px !important;
+
+  .___title {
+    margin-bottom: 3rem;
+    @include adjust-font(32px, false);
+  }
+
+  .mobileLogo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-width: 3px;
+    justify-self: center;
+    width: 150px;
+  }
+
+  .isMobile{
+    display: none;
+  }
+
+  ._container {
+    display: flex;
+    flex-flow: wrap;
+    column-gap: 15px;
+    row-gap: 35px;
+    justify-content: center;
+
+    @media (max-width: 576px) {
+      margin-top: 2.5rem;
+    }
+  }
+
+  .responsive {
+    width: 31.5%;
+    @media (max-width: 1500px) {
+      width: 45.5%;
+    }
+
+    @media (max-width: 980px) {
+      width: 48%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .__top {
+    margin-top: 50px;
+    color: white;
+    margin-bottom: 3rem;
+
+    .seperator {
+      height: 1px;
+      margin-top: 1rem;
+      border: 1px solid #4D5462;
+    }
+
+    .__title {
+      color: #FFF;
+      text-align: center;
+      font-family: var(--audrey-font-family);
+      @include adjust-font(30px, false);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 45.654px;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .__subtitle {
+      color: #FFF;
+      text-align: center;
+      font-family: var(--lato-font-family);
+      @include adjust-font(20px, false);
+      font-style: normal;
+      font-weight: 300;
+      line-height: 30px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+      width: 80%;
+    }
+    .__topProjects {
+      margin-top: 5rem;
+      padding-bottom: 3rem;
+      color: white;
+      text-align: center;
+
+      @media all and (max-width: 576px) {
+        margin-top: 3rem;
+        text-align: left;
+      }
+    }
+
+    .splitDiv {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      .left {
+        width: 100%;
+        @media all and (min-width: 1200px) {
+          margin-right: 15px;
+          width: 67%;
+        }
+      }
+      .right {
+        position: sticky;
+        top: 105px;
+        align-self: flex-start;
+        height: calc(100vh - 100px);
+      }
+
+    }
+    
+    .ctaBtnParent {
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      @media all and (max-width: 768px) {
+        margin-top: 3rem;
+      }
+      .ctaBtn {
+        width: fit-content;
+        @media all and (max-width: 768px) {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .developer {
+    .isDesktop {
+      display: none;
+    }
+    .isMobile{
+      display: grid;
+    }
+    .__top {
+      .__seperator {
+        display: none;
+      }
+      .__subtitle {
+        line-height: 25px;
+        letter-spacing: 1.28px;
+        margin-bottom: 3rem;
+        @include adjust-font(16px, false);
+        margin-bottom: unset;
+        width: 100%;
+        width: calc(91% + 15px);
+        text-align: center;
+      }
+      .container {
+        .sectionTitle {
+          width: 100% !important;
+        }
+        .parent {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .developer {  
+    .__top {
+      .__title {
+        // display: contents;
+        // text-align: left;
+        @include adjust-font(24px, false);
+        letter-spacing: 1.28px;
+        line-height: 20px;
+      }
+      .__subtitle {
+        line-height: 30px;
+        @include adjust-font(16px, false);
+        letter-spacing: 1.28px;
+        margin-bottom: unset;
+        text-align: left;
+        width: unset;
+        margin-top: 1rem;
+        &.ar {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

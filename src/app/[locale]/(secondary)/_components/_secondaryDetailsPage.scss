@@ -1,0 +1,60 @@
+#secondaryDetailsPage{
+    padding: 100px 0;
+    @media all and (max-width:480px){
+       padding: 70px 0;
+    }
+    div.wrapper{
+        width: 96%;
+        display: flex;
+        justify-content: space-between;
+        &:first-child{
+            display: block;
+        }
+        @media all and (max-width:1200px){
+           flex-direction: column;
+          }
+        div.leftContainer{
+            width: 73%;
+            @media all and (max-width:1400px){
+                width: 70%;
+            }
+            @media all and (max-width:1200px){
+               width: 100%;
+               }
+        }
+        div.rightContainer{
+            width: 25%;
+            @media all and (max-width:1400px){
+              width: 28%;
+            }
+            @media all and (max-width:1200px){
+                width: 100%;
+                }
+        }
+    }
+
+    div._wrapper {
+        width: 80%;
+        margin: 0 auto;
+        @media all and (max-width: 992px) {
+            width: 96%;
+        }
+    }
+    div.wrapper2{
+        width: 90%;
+        margin: 0 auto;
+        max-width: 1600px;
+        div.propertyContactForm{
+            div.rightContainer{
+                h1.mainHeading{
+                    color: var(--text-color);
+                    @include adjust-font(16px, false);
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+    div.popupFormContainer{
+        // display: none;
+    }
+}

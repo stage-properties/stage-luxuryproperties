@@ -1,0 +1,61 @@
+div.overviewCard { 
+
+	div.top { 
+        padding: 20px 15px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        @media all and (max-width:1600px){
+            min-height: 108px;
+            align-items: center;
+        }
+        h3 { 
+            @include adjust-font(20px, false);
+            color: var(--text-color);
+            font-weight: 400;
+        }
+
+        span { 
+            color: var(--light-text-color);
+            text-transform: uppercase;
+            @include adjust-font(12px, false);
+            @media all and (max-width:1200px){
+                @include adjust-font(11px, false);
+            }
+        }
+		div.left { 
+            padding-right: 20px;
+            border-right: 1px solid #fff;
+            width: 50%;
+		}
+
+		div.right { 
+            width: 50%;
+            text-align: right;
+
+			h6.value { 
+
+			}
+
+			span.text { 
+
+			}
+		}
+	}
+
+	div.bottom { 
+        padding: 20px 15px;
+        @include adjust-font(14px, false);
+		span { 
+            color: var(--light-text-color);
+            text-transform: uppercase;
+            font-weight: 300;
+		}
+
+		span.price { 
+            font-weight: 700;
+            margin-left: 6px;
+            color: var(--text-color);
+		}
+	}
+}

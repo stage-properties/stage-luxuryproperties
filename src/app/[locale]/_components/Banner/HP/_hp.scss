@@ -1,0 +1,56 @@
+div.hp {
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 1 / 2;
+    width: 100%;
+    max-width: 31.5vw;
+    height: 100%;
+
+    /* Hide banner image on screens 1200px or below */
+    @media all and (max-width: 1400px) {
+        display: none;
+    }
+    /* On screens wider than 1200px, position the banner image in column 3 spanning two rows */
+    @media all and (min-width: 1401px) {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+    }
+    @media all and (min-width: 1800px) {
+        max-width: 510px;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .hpButton {
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: var(--btn-text-color);
+        letter-spacing: 1.6px;
+        width: 300px;
+        background: var(--tertiary-color);
+        color: black;
+        @media all and (max-height: 768px) {
+            font-size: .7vw;
+            width: 80%;
+        }
+    }
+
+    .adImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2; /* ensures it sits above the main image */
+        margin: 10px; /* adjust spacing as needed */
+        /* Optionally set width/height for the "add" image */
+        width: 50px; /* or your desired width */
+        height: auto;
+    }
+}

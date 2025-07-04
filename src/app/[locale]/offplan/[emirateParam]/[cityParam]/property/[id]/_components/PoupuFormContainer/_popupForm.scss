@@ -1,0 +1,28 @@
+div.popupFormContainer{
+    div.formButton{
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        z-index: 99;
+        @media all and (max-width:640px){
+            right: 15px;
+            bottom: 15px;
+        }
+        button{
+            // padding: 20px;
+            background-color:var(--dark-blue);
+            border :1px solid #ac836d;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                width:23px !important;
+                height:23px !important;
+            }
+        }
+    }
+}

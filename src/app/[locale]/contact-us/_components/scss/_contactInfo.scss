@@ -1,0 +1,110 @@
+#contactUsPage {
+  div.contactInfo {
+    margin-top: 60px;
+    div.wrapper {
+      div.infoContainer {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        @media all and (max-width: 980px) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        @media all and (max-width: 640px) {
+           justify-content: center;
+           }
+        div.item {
+          width: 30%;
+          margin-bottom: 20px;
+          @media all and (max-width: 1200px) {
+            width: 48%;
+          }
+          @media all and (max-width: 980px) {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+          @media all and (max-width: 640px) {
+           width: 100%;
+           text-align: center;
+          }
+          div.top {
+            margin-bottom: 8px;
+
+            &.multiple {
+              display: flex;
+              justify-content: center;
+              @media all and (max-width: 980px) {
+                justify-content: center;
+              }
+              @media all and (max-width: 640px) {
+               justify-content: center;
+               }
+              span.icon {
+                &:first-child {
+                  display: block;
+                  padding-right: 15px;
+                  border-right: 1px solid var(--border-color);
+                  margin-right: 15px;
+                }
+              }
+            }
+            span.icon {
+              svg {
+                width: 22px;
+                height: 22px;
+              }
+              mobileicon {
+              }
+            }
+          }
+
+          div.bottom {
+            @media all and (max-width: 980px) {
+              text-align: center;
+            }
+            @media all and (max-width: 640px) {
+             text-align: center;
+                }
+            a {
+              font-weight: 400;
+              strong{
+                color: var(--light-text-color);
+                font-weight: 700;
+              }
+            }
+            p {
+              color: var(--text-color);
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      div.social {
+        display: flex;
+        margin-bottom: 90px;
+        justify-content: center;
+        @media all and (max-width: 980px) {
+          justify-content: center;
+        }
+        @media all and (max-width: 640px) {
+            justify-content: center;
+            }
+        span.icon {
+          display: block;
+          margin-right: 15px;
+          svg {
+            width: 25px !important;
+            height: 25px !important;
+          }
+        }
+      }
+    }
+  }
+}

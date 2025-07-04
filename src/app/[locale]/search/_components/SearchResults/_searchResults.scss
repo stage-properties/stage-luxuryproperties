@@ -1,0 +1,81 @@
+div.searchResults {
+  // padding-top: 3rem;
+
+  div.mainHeadingDiv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* Ensure space between heading and sort dropdown */
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+
+    @media all and (max-width: 992px) {
+      flex-direction: column;
+    }
+
+    h2.mainHeading {
+      text-align: left;
+      color: var(--text-color);
+
+      @media all and (max-width: 992px) {
+        margin-bottom: 1rem;
+      }
+
+      &.ar {
+        text-align: right;
+      }
+    }
+  }
+
+  div.mainContainer {
+    display: grid;
+    grid-template-columns: 100%;
+
+    @media all and (max-width: 1200px) {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    /* Left container will occupy the first grid cell */
+    div.leftContainer {
+      div.listings {
+        display: grid;
+        gap: 15px; /* Consistent spacing between grid items */
+        grid-template-columns: repeat(2, 1fr); /* 3 items per row on large screens */
+
+        &.grid-three {
+          grid-template-columns: repeat(3, 1fr); /* Use 2 columns if class applied */
+        }
+
+        @media all and (max-width: 1200px) {
+          grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
+        }
+
+        @media all and (max-width: 768px) {
+          grid-template-columns: 1fr; /* 1 item per row on small screens */
+        }
+      }
+    }
+
+    /* Right container remains unchanged */
+    div.rightContainer {
+      position: relative;
+
+      @media all and (max-width: 1200px) {
+        display: none;
+      }
+
+      div.stickyContainer {
+        position: sticky;
+        top: 70px;
+        padding-top: 60px;
+
+        h1.heading {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 300;
+          color: var(--text-color);
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}

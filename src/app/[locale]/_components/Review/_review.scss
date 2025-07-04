@@ -1,0 +1,164 @@
+#review-container {
+    padding: 2rem;
+    display: flex;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    justify-content: center;
+    // background-color: green;
+
+    .review-content {
+        display: flex;
+        flex-direction: row;
+        padding: 5rem 6rem 5rem 6rem;
+        // background-color: red;
+    }
+    
+    .review-box {
+        display: flex;
+        padding: 1.6rem 2.401rem;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+        border-top: none;
+        border-bottom: none;
+        border-left: none;
+        &.ar {
+            border-right: unset;
+            border-left: inherit;
+        }
+    }
+    
+    .google-logo {
+        width: 6.25rem;
+    }
+    
+    .review-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .google-rating {
+        color: #FFF;
+        @include adjust-font(1.6rem, false);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.6rem;
+    }
+    
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+    }
+    
+    .rating-value {
+        text-align: center;
+        @include adjust-font(2.401rem, false);
+        font-style: normal;
+        font-weight: 800;
+    }
+    
+    .reviews-link {
+        color: #868686;
+        text-align: center;
+        @include adjust-font(1.2rem, false);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .reviews-link:hover {
+        text-decoration: underline;
+    }
+    
+    .agency-message {
+        padding-left: 3rem;
+        display: flex;
+        align-items: center;
+        // background-color: blue;
+        max-width: 40rem;
+        &.ar {
+            padding-left: unset;
+            padding-right: 3rem;
+        }
+    }
+    
+    .title {
+        text-align: left;
+        @include adjust-font(2rem, false);
+    }
+}
+
+@media all and (max-width: 1065px) {
+    #review-container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        .review-content {
+            flex-direction: column;
+            border: none;
+            padding: 0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .review-box {
+            border-right: none;
+            padding: unset;
+            order: 2;
+            margin-top: 1rem;
+        }
+
+        .google-logo {
+            width: 67.75px;
+            height: 67.75px;
+        }
+
+        .google-rating {
+            @include adjust-font(17.344px, false);
+            line-height: 17.344px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10.344px;
+        }
+
+        .rating-value {
+            @include adjust-font(26.016px, false);
+            line-height: 26.016px;
+        }
+
+        .review-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8.672px;
+        }
+
+        .reviews-link {
+            @include adjust-font(13.008px, false);
+        }
+
+        .title {
+            text-align: center;
+            font-family: var(--audrey-font-family);
+            @include adjust-font(20px, false);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 29px; /* 181.25% */
+            letter-spacing: 1.28px;
+            text-transform: uppercase;
+        }
+
+        .agency-message {
+            padding-left: unset;
+            order: 1;
+            &.ar {
+                padding-right: unset;
+            }
+        }
+    }
+}

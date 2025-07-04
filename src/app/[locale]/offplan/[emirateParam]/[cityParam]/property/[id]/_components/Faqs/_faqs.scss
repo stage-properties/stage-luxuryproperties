@@ -1,0 +1,60 @@
+#offplanInfoPage{
+    div.faqsSection{
+        margin-top: 60px;
+        .ReactCollapse--collapse {
+            transition: height 200ms;
+          }
+        div.wrapper{
+            h1.mainHeading{
+                text-align: left;
+                color: var(--text-color);
+                @include adjust-font(16px, false);
+                margin-bottom: 40px;
+            }
+            div.accordionContainer{
+                margin-bottom: 80px;
+                div.accordionItem{
+                    display: flex;
+                    align-items: center;
+                    border-top: 1px solid var(--border-color);
+                    padding: 20px 10px;
+                    justify-content: space-between;
+                    &:last-child{
+                        border-bottom: 1px solid var(--border-color);
+                    }
+                    div.leftContainer{
+                        width: 90%;
+                        h1.question{
+                            color: var(--text-color);
+                            @include adjust-font(16px, false);
+                            margin-bottom: 10px;
+                            font-weight: 500;
+                        }
+                        p.answer{
+                            font-weight: 300;
+                            @include adjust-font(14px, false);
+                            color: var(--light-text-color);
+                            text-transform: unset;
+                        }
+                    }
+                    div.rightContainer{
+                        width: 8%;
+                        h1{
+                            @include adjust-font(25px, false);
+                            color: var(--text-color);
+                            text-align: right;
+                    cursor: pointer;
+    
+    
+                        }
+                    }
+    
+                }
+               
+            }
+            div#gradientLine{
+                margin-bottom: 80px;
+            }
+        }
+    }
+}

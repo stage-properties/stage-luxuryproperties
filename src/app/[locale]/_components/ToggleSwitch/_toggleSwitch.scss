@@ -1,0 +1,107 @@
+/* Container holding the switch (no labels on sides) */
+.toggle-switch-container {
+  display: inline-flex;
+  align-items: center;
+
+  /* The switch container */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;    /* Adjust width if desired */
+    height: 1.5rem; /* Adjust height if desired */
+  }
+
+  /* Hide the default checkbox */
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  /* The slider background (off state) */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background-color: #ccc;
+    // transition: 0.4s;
+  }
+
+  /* The circle inside the slider */
+  .slider::before {
+    content: "";
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    left: 0.15rem;
+    bottom: 0.15rem;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  /* Change background color when toggled on */
+  input:checked + .slider {
+    background-color: #4caf50;  /* ON state color */
+  }
+
+  /* Slide the circle to the right when toggled on */
+  input:checked + .slider::before {
+    transform: translateX(1.5rem);
+  }
+
+  /* Round style for the slider */
+  .round {
+    border-radius: 1rem;
+  }
+
+  /* Text "AR" inside the slider */
+  .slider-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-left: .5rem;
+    line-height: 1.5rem; /* Matches .toggle-switch height */
+    color: #fff;
+    @include adjust-font(0.8rem, false);
+    pointer-events: none; /* Allows clicks to pass through */
+  }
+
+  /* RESPONSIVENESS */
+  @media (max-width: 1200px) {
+    .toggle-switch {
+      width: 2.75rem;
+      height: 1.125rem;
+    }
+
+    .slider::before {
+      height: 0.875rem;
+      width: 0.875rem;
+      left: 0.125rem;
+      bottom: 0.125rem;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(1.625rem);
+    }
+
+    .slider-text {
+      line-height: 1rem;
+      @include adjust-font(0.65rem, false);
+    }
+  }
+}
+/* RTL support: reverse the flex direction if needed */
+[dir='rtl'] .toggle-switch-container {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .slider-text {
+  text-align: left;
+}

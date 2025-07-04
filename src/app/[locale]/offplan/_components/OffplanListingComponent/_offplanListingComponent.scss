@@ -1,0 +1,42 @@
+#offplanListingPage {
+  div.offplanListingComponent {
+    background-color: var(--primary-bg-color);
+    div.mainContainer {
+      div.listings {
+        display: flex;
+        flex-wrap: wrap;
+        div.item {
+          width: 30%;
+          margin-right: 32px;
+          margin-bottom: 35px;
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+          @media all and (max-width: 1200px) {
+            width: 32%;
+            margin-right: 10px;
+          }
+          @media all and (max-width: 980px) {
+            width: 49%;
+            &:nth-child(3n) {
+                margin-right: 10px;
+              }
+              &:nth-child(2n) {
+                margin-right: 0;
+              }
+          }
+          @media all and (max-width: 640px) {
+           width: 100%;
+           &:nth-child(2n) {
+            margin-right: 0;
+          }
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+          margin-right: 0;
+             }
+        }
+      }
+    }
+  }
+}

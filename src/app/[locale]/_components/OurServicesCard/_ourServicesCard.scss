@@ -1,0 +1,45 @@
+div.ourServicesCard{
+    padding: 10px 20px;
+    min-height: 220px;
+    background-color: var(--dark-blue);
+    @media all and (max-width:1200px){
+        min-height: 292px;
+    }
+    @media all and (max-width:768px){
+       min-height: 300px;
+        }
+    span.icon{
+        display: inline-block;
+        margin-bottom: 10px;
+
+        svg{
+            width: 38px !important;
+            height: 38px !important;
+        }
+    }
+    h3.title{
+        font-weight: 700;
+        @include adjust-font(14px, false);
+        text-transform: uppercase;
+        color: var(--text-color);
+        margin-bottom: 15px;
+    }
+    p.description{
+        @include adjust-font(14px, false);
+        font-weight: 300;
+        color: var(--light-text-color);
+        margin-bottom: 15px;
+        text-transform:none;
+    }
+    button.learnMore{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: transparent;
+        padding-bottom: 8px;
+        color: var(--link-color);
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        border-width: 0.5px;
+    }
+}
