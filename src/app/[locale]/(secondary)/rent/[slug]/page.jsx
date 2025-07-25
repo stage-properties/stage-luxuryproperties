@@ -228,7 +228,7 @@ const page = async ({ params }) => {
                 "sameAs": [
                   "https://www.facebook.com/stageproperties/",
                   "https://x.com/stageproperties",
-                  "https://www.instagram.com/stagelux_properties/",
+                  "https://www.instagram.com/stagelux/",
                   "https://www.youtube.com/@stageproperties",
                   "https://www.linkedin.com/company/stage-properties-brokers-llc?originalSubdomain=ae",
                   "https://www.tiktok.com/@stageproperties"

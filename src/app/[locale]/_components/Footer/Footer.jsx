@@ -1,27 +1,25 @@
 import React from "react";
 import Image from "next/image";
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from "next-intl";
 
-import Facebook from "../../../../../assets/Icons/facebook.svg"
-import Twitter from "../../../../../assets/Icons/twitter.svg"
-import Instagram from "../../../../../assets/Icons/instagram.svg"
-import LinkedIn from "../../../../../assets/Icons/linkedin.svg"
-import Youtube from "../../../../../assets/Icons/youtube.svg"
-import Tiktok from "../../../../../assets/Icons/tiktok.svg"
+import Facebook from "../../../../../assets/Icons/facebook.svg";
+import Twitter from "../../../../../assets/Icons/twitter.svg";
+import Instagram from "../../../../../assets/Icons/instagram.svg";
+import LinkedIn from "../../../../../assets/Icons/linkedin.svg";
+import Youtube from "../../../../../assets/Icons/youtube.svg";
+import Tiktok from "../../../../../assets/Icons/tiktok.svg";
 
 import ListLink from "../Header/ListLink";
 import Script from "next/script";
 
 const Footer = () => {
-
-  const locale = useLocale()
-  const isRTL = locale === 'ar'
-  const direction = isRTL ? 'rtl' : 'ltr'
-  const t = useTranslations('footer')
+  const locale = useLocale();
+  const isRTL = locale === "ar";
+  const direction = isRTL ? "rtl" : "ltr";
+  const t = useTranslations("footer");
 
   return (
     <div id="footer" dir={direction}>
-     
       {/* <Script id="google-tag-manager" strategy="afterInteractive">
         {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -61,9 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </span>
             <span
               className="icon"
-              onClick={() =>
-                window.open("https://www.instagram.com/stageproperties/")
-              }
+              onClick={() => window.open("https://www.instagram.com/stagelux/")}
             >
               <Instagram />
             </span>
@@ -94,18 +90,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <Tiktok />
             </span>
           </div>
-          <div className="links">
-          </div>
-          <span className="copyWright">
-            {t('copyright')}
-          </span>
+          <div className="links"></div>
+          <span className="copyWright">{t("copyright")}</span>
         </div>
         <div className="right">
           <div className="linkItem">
             <ul>
               <ListLink
                 path={"/buy/residential/properties-for-sale"}
-                label={t('residential_for_sale')}
+                label={t("residential_for_sale")}
               />
               <ListLink
                 path={"/rent/residential/properties-for-rent"}
@@ -115,22 +108,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <ListLink path={"/blogs"} label={t("blogs")} />
               <ListLink
                 path={"/buy/commercial/properties-for-sale"}
-                label={t('commercial_for_sale')}
+                label={t("commercial_for_sale")}
               />
               <ListLink
                 path={"/rent/commercial/properties-for-rent"}
-                label={t('commercial_for_rent')}
+                label={t("commercial_for_rent")}
               />
             </ul>
           </div>
           <div className="linkItem">
             <ul>
               <ListLink path={"/developers"} label={t("developers")} />
-              <ListLink path={"/areas-and-communities"} label={t("areas-and-communties")} />
-              <ListLink path={"/mortgage-calculator"} label={t("mortgage-calculator")} />
+              <ListLink
+                path={"/areas-and-communities"}
+                label={t("areas-and-communties")}
+              />
+              <ListLink
+                path={"/mortgage-calculator"}
+                label={t("mortgage-calculator")}
+              />
               <ListLink path={"/our-team"} label={t("meet_our_team")} />
               <ListLink path={"/privacy-policy"} label={t("privacy_policy")} />
-              <ListLink path={"/contact-us"} label={t('contact_us')} />
+              <ListLink path={"/contact-us"} label={t("contact_us")} />
             </ul>
           </div>
         </div>

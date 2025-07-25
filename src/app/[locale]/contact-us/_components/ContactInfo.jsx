@@ -117,10 +117,7 @@ const ContactInfo = async ({ locale }) => {
             </span>
           </a>
 
-          <a
-            href="https://www.instagram.com/stagelux_properties/"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/stagelux/" target="_blank">
             <span className="icon">
               <Instagram />
             </span>
