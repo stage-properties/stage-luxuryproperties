@@ -230,7 +230,7 @@ const Page = async ({ params, searchParams }) => {
       />
       <CTAContainer style={{ marginBottom: "7rem" }} />
       <FaqSection style={{ marginBottom: "7rem" }} />
-      {isResidential && popular_searches && !isRTL && (
+      {/* {isResidential && popular_searches && !isRTL && (
         <div className="wrapper" style={{ marginBottom: "130px" }}>
           <h2
             className="mainHeading"
@@ -240,7 +240,7 @@ const Page = async ({ params, searchParams }) => {
           </h2>
           <Tags data={popular_searches} />
         </div>
-      )}
+      )} */}
     </>
   );
 };

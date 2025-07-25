@@ -97,7 +97,7 @@ export default async function RootLayout({ children, params: { locale } }) {
           <ReduxProvider>
             <GlobalPopup />
             {children}
-            <PopularSearchesSection />
+            {/* <PopularSearchesSection /> */}
           </ReduxProvider>
         </NextIntlClientProvider>
       </body>

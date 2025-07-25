@@ -101,7 +101,7 @@ const page = async ({ params, searchParams }) => {
       <CategoryWise params={params} searchParams={searchParams} />
       <CTAContainer style={{ marginBottom: "7rem" }} />
       <FaqSection />
-      {popularSearches && !isRTL && (
+      {/* {popularSearches && !isRTL && (
         <>
           <div className="wrapper" style={{ marginBottom: "130px" }}>
             <h2
@@ -117,7 +117,7 @@ const page = async ({ params, searchParams }) => {
             <Tags data={popularSearches} />
           </div>
         </>
-      )}
+      )} */}
     </>
   );
 };
