@@ -45,7 +45,7 @@ const page = () => {
   <p><span style="font-size:14px">Office: <a href="tel:800%2078243" rel="noreferrer noopener" target="_blank">+971 800-207-8243 (Free Number)</a>&nbsp;<br />
   WhatsApp: <a href="https://wa.me/80078243" rel="noreferrer noopener" target="_blank">+971 800-207-8243</a>&nbsp;</span></p>
   
-  <p><span style="font-size:14px">Email: <a href="mailto:hello@stageproperties.com" rel="noreferrer noopener" target="_blank">hello@stageproperties.com</a>&nbsp;</span></p>
+  <p><span style="font-size:14px">Email: <a href="mailto:info@stageproperties.com" rel="noreferrer noopener" target="_blank">info@stageproperties.com</a>&nbsp;</span></p>
   `;
   return (
     <div id="privacyPolicy">

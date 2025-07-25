@@ -236,7 +236,7 @@ const page = async ({ params }) => {
                 "logo": "${origin}/_next/image?url=%2FStage_Logo_White.png&w=828&q=75",
                 "image": "${origin}/_next/image?url=%2FStage_Logo_White.png&w=828&q=75",
                 "telephone": "+971 522 081 705",
-                "email": "info@stageproperties.com",
+                "email": "info@stage-luxuryproperties.com",
                 "founder": "Ghassan Saliba",
                 "foundingDate": "2020-01-01",
                 "award": [
@@ -261,7 +261,7 @@ const page = async ({ params }) => {
                   "@type": "ContactPoint",
                   "contactType": "sales",
                   "telephone": "+971 522 081 705",
-                  "email": "info@stageproperties.com",
+                  "email": "info@stage-luxuryproperties.com",
                   "areaServed": "AE",
                   "availableLanguage": [
                     "English",

@@ -11,15 +11,17 @@ import Youtube from "../../../../../assets/Icons/youtube.svg";
 import Tiktok from "../../../../../assets/Icons/tiktok.svg";
 import ContactForm from "@/app/[locale]/_components/ContactForm/ContactForm";
 import SubscribeNewsletter from "@/app/[locale]/_components/SubscribeNewsletter/SubscribeNewsletter";
-import { whatsappNumber, whatsappNumberText } from "@/app/[locale]/_utils/contants";
-import { getTranslations } from 'next-intl/server';
+import {
+  whatsappNumber,
+  whatsappNumberText,
+} from "@/app/[locale]/_utils/contants";
+import { getTranslations } from "next-intl/server";
 
 const ContactInfo = async ({ locale }) => {
+  const isRTL = locale === "ar";
+  const direction = isRTL ? "rtl" : "ltr";
 
-  const isRTL = locale === 'ar'
-  const direction = isRTL ? 'rtl' : 'ltr'
-
-  const t = await getTranslations({locale, namespace: 'contact_us'});
+  const t = await getTranslations({ locale, namespace: "contact_us" });
 
   const contactText = `Hi There, I am contacting through your website.`;
 
@@ -48,23 +50,32 @@ const ContactInfo = async ({ locale }) => {
                 <MobileIcon />
               </span>
             </div>
-            
+
             <div className="bottom">
-              <a href="tel:+971 800-207-8243"> <strong>{t("Toll free within UAE")} </strong>{t("800-207-8243")}</a>
-              <br/>
-              <a href="tel:+971 45-866-200"><strong>{t("Calls from outside UAE")} </strong>{t("+971 45 866 200")}</a>
+              <a href="tel:+971 800-207-8243">
+                {" "}
+                <strong>{t("Toll free within UAE")} </strong>
+                {t("800-207-8243")}
+              </a>
+              <br />
+              <a href="tel:+971 45-866-200">
+                <strong>{t("Calls from outside UAE")} </strong>
+                {t("+971 45 866 200")}
+              </a>
             </div>
           </div>
 
           <div className="item">
             <div className="top">
               <span className="icon">
-              <WhatsappIcon />
+                <WhatsappIcon />
               </span>
             </div>
-            
+
             <div className="bottom">
-              <a href={`https://wa.me/${whatsappNumber}`} target="_blank">{t(whatsappNumberText)}</a>
+              <a href={`https://wa.me/${whatsappNumber}`} target="_blank">
+                {t(whatsappNumberText)}
+              </a>
             </div>
           </div>
 
@@ -76,7 +87,8 @@ const ContactInfo = async ({ locale }) => {
             </div>
             <div className="bottom">
               <p>
-                {t("Office 106, Building 3, Dubai Hills")} <br /> {t("Business Park, Dubai Hills Estate")}
+                {t("Office 106, Building 3, Dubai Hills")} <br />{" "}
+                {t("Business Park, Dubai Hills Estate")}
               </p>
             </div>
           </div>
@@ -87,8 +99,8 @@ const ContactInfo = async ({ locale }) => {
               </span>
             </div>
             <div className="bottom">
-              <a href="mailto:info@stageproperties.com">
-                info@stageproperties.com
+              <a href="mailto:info@stage-luxuryproperties.com">
+                info@stage-luxuryproperties.com
               </a>
             </div>
           </div>
@@ -110,7 +122,10 @@ const ContactInfo = async ({ locale }) => {
               <Instagram />
             </span>
           </a>
-          <a href="https://ae.linkedin.com/company/stage-properties-brokers-llc" target="_blank">
+          <a
+            href="https://ae.linkedin.com/company/stage-properties-brokers-llc"
+            target="_blank"
+          >
             <span className="icon">
               <LinkedIn />
             </span>
@@ -129,7 +144,9 @@ const ContactInfo = async ({ locale }) => {
           </a>
         </div>
         <SubscribeNewsletter
-          title={t("or leave your contact information and we will get back to you at the earliest")}
+          title={t(
+            "or leave your contact information and we will get back to you at the earliest"
+          )}
           type="contact-form"
         />
       </div>
