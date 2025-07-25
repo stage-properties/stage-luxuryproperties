@@ -1,26 +1,14 @@
 {
-  "name": "stage-website-frontend",
+  "name": "stage-luxuryproperties",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "rm -rf ./.next && NODE_ENV=production next build",
     "build:analyze": "npm run build && source-map-explorer .next/static/**/*.js",
-    "start": "next start",
+    "dev": "next dev",
+    "find:unused": "next-unused",
     "lint": "next lint",
-    "find:unused": "next-unused"
-  },
-  "next-unused": {
-    "alias": {},
-    "include": [
-      "src",
-      "app"
-    ],
-    "exclude": [],
-    "entrypoints": [
-      "src",
-      "app"
-    ]
+    "start": "next start"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
@@ -62,5 +50,17 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "source-map-explorer": "^2.5.3"
+  },
+  "next-unused": {
+    "alias": {},
+    "include": [
+      "src",
+      "app"
+    ],
+    "exclude": [],
+    "entrypoints": [
+      "src",
+      "app"
+    ]
   }
 }
