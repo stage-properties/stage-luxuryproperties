@@ -8,6 +8,7 @@ export const useServerPathname = () => {
   // Retrieve the x-current-path header value
   const pathname = headerList.get("x-current-path");
   const fullURL = headerList.get("x-current-url");
+  const origin = headerList.get("x-current-origin");
 
-  return {pathname, fullURL};
+  return { pathname, fullURL, origin };
 };

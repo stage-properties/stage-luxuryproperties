@@ -1,26 +1,28 @@
 import { ReduxProvider } from "./redux/provider";
-import './globals.css'
-import './app.css'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import "./globals.css";
+import "./app.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useServerPathname } from "./_utils/useServerPathname";
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import GlobalPopup from "./_components/GlobalPopup/GlobalPopup";
 import PopularSearchesSection from "./_components/PopularSearches/PopularSearchesSection";
+import { serverPathname } from "@/app/[locale]/_utils/serverPathname";
 
-export default async function RootLayout({ children, params: {locale} }) {
-
+export default async function RootLayout({ children, params: { locale } }) {
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();
-  }  
+  }
 
-  const {pathname} = useServerPathname()
+  const { origin } = serverPathname();
 
-  const jsonData = `{"@context":"http://schema.org","@type":"Organization","name":"Stage Properties Brokers LLC","legalName":"Stage Properties Brokers LLC","alternateName":"Stage Properties Brokers LLC","url":"https://stageproperties.com/","description":"Discover prime investment opportunities with Stage Properties, Dubai's leading property broker. Your gateway to buying properties in Dubai.","sameAs":["https://www.facebook.com/stageproperties/","https://x.com/stageproperties","https://www.instagram.com/stageproperties/","https://www.youtube.com/@stageproperties","https://www.linkedin.com/company/stage-properties-brokers-llc?originalSubdomain=ae","https://www.tiktok.com/@stageproperties"],"logo":"https://stageproperties.com/_next/image?url=%2FStage_Logo_White.png&w=828&q=75","image":"https://stageproperties.com/_next/image?url=%2FStage_Logo_White.png&w=828&q=75","telephone":"+971 522 081 705","email":"info@stageproperties.com","founder":"Ghassan Saliba","foundingDate":"01-01-2020","award":["Alliance by EMAAR", "DAMAC Unity", "Rising Star Award by DAMAC", "Regalia Performance Award by DEYAAR Properties", "Rising Star Award by Jumierah Golf Estates", "Broker Award by Binghatti"],"foundingLocation":"Dubai","numberOfEmployees":"98","address":{"@type":"PostalAddress","streetAddress":"OFFICE 106, BUILDING 3","addressLocality":" DUBAI HILLS BUSINESS PARK","addressRegion":"DUBAI HILLS ESTATE","postalCode":"215088, Dubai, UAE","addressCountry":"AE"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+971 522 081 705","email":"info@stageproperties.com","areaServed":"AE","availableLanguage":["English","Turkish","Arabic","Spanish","French","German","Hindi","Punjabi","Pashto","Romanian","Russian","Turkish","Urdu"]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"79"}}`;
+  const { pathname } = useServerPathname();
+
+  const jsonData = `{"@context":"http://schema.org","@type":"Organization","name":"Stage Properties Brokers LLC","legalName":"Stage Properties Brokers LLC","alternateName":"Stage Properties Brokers LLC","url":"${origin}/","description":"Discover prime investment opportunities with Stage Properties, Dubai's leading property broker. Your gateway to buying properties in Dubai.","sameAs":["https://www.facebook.com/stageproperties/","https://x.com/stageproperties","https://www.instagram.com/stageproperties/","https://www.youtube.com/@stageproperties","https://www.linkedin.com/company/stage-properties-brokers-llc?originalSubdomain=ae","https://www.tiktok.com/@stageproperties"],"logo":"${origin}/_next/image?url=%2FStage_Logo_White.png&w=828&q=75","image":"${origin}/_next/image?url=%2FStage_Logo_White.png&w=828&q=75","telephone":"+971 522 081 705","email":"info@stageproperties.com","founder":"Ghassan Saliba","foundingDate":"01-01-2020","award":["Alliance by EMAAR", "DAMAC Unity", "Rising Star Award by DAMAC", "Regalia Performance Award by DEYAAR Properties", "Rising Star Award by Jumierah Golf Estates", "Broker Award by Binghatti"],"foundingLocation":"Dubai","numberOfEmployees":"98","address":{"@type":"PostalAddress","streetAddress":"OFFICE 106, BUILDING 3","addressLocality":" DUBAI HILLS BUSINESS PARK","addressRegion":"DUBAI HILLS ESTATE","postalCode":"215088, Dubai, UAE","addressCountry":"AE"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+971 522 081 705","email":"info@stageproperties.com","areaServed":"AE","availableLanguage":["English","Turkish","Arabic","Spanish","French","German","Hindi","Punjabi","Pashto","Romanian","Russian","Turkish","Urdu"]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"79"}}`;
 
   // Providing all messages to the client
   // side is the easiest way to get started
@@ -31,16 +33,16 @@ export default async function RootLayout({ children, params: {locale} }) {
       <link rel="icon preload" href="/favicon.ico" sizes="any" />
       {/* <meta name="google-site-verification" content="mhv9v3VuNgVQ3YpO9ijfvRlcUsd29_kGoEOBR3nteRc"></meta> */}
       <head>
-      {pathname === "/" && 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonData }}
+        {pathname === "/" && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: jsonData }}
           />
-      }
-      
-      <meta name="yandex-verification" content="1bc00c15b3a4cfce" />
-      <meta name="msvalidate.01" content="2F8C1B95FC778023AF724047A0471392" />
-      {/* <script
+        )}
+
+        <meta name="yandex-verification" content="1bc00c15b3a4cfce" />
+        <meta name="msvalidate.01" content="2F8C1B95FC778023AF724047A0471392" />
+        {/* <script
         dangerouslySetInnerHTML={{
           __html: `
           (function(c,l,a,r,i,t,y){
@@ -52,8 +54,8 @@ export default async function RootLayout({ children, params: {locale} }) {
         }}
       >
       </script> */}
-      {/* <!-- Google Tag Manager --> */}
-      {/* <script
+        {/* <!-- Google Tag Manager --> */}
+        {/* <script
         dangerouslySetInnerHTML={{
           __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -66,8 +68,8 @@ export default async function RootLayout({ children, params: {locale} }) {
         }}
       >
       </script> */}
-      {/* <script async src="https://www.googletagmanager.com/gtag/js?id=AW-449815056" /> */}
-      {/* <script
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=AW-449815056" /> */}
+        {/* <script
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -80,7 +82,7 @@ export default async function RootLayout({ children, params: {locale} }) {
       >
       </script> */}
 
-      {/* <!-- End Google Tag Manager --> */}
+        {/* <!-- End Google Tag Manager --> */}
       </head>
       <body>
         {/* <noscript>
@@ -92,7 +94,7 @@ export default async function RootLayout({ children, params: {locale} }) {
           />
         </noscript> */}
         <NextIntlClientProvider messages={messages}>
-          <ReduxProvider>          
+          <ReduxProvider>
             <GlobalPopup />
             {children}
             <PopularSearchesSection />

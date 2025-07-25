@@ -1,13 +1,14 @@
-import { NextResponse } from 'next/server';
-import { fetchCommunities } from './service';
+import { NextResponse } from "next/server";
+import { fetchCommunities } from "./service";
 
 export async function GET() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL || 'https://stageproperties.com';
+    const baseUrl =
+      process.env.NEXT_PUBLIC_WEBSITE_URL || "https://stageproperties.com";
 
     const communities = await fetchCommunities();
     // Extract all community slugs
-    const communitySlugs = communities.data.map(item => item.attributes.slug);
+    const communitySlugs = communities.data.map((item) => item.attributes.slug);
 
     let staticUrls = [
       `${baseUrl}/`,
@@ -58,12 +59,12 @@ export async function GET() {
       `${baseUrl}/rent/commercial/retail-for-rent`,
       `${baseUrl}/rent/commercial/shop-for-rent`,
       `${baseUrl}/rent/commercial/commercial-full-floor-for-rent`,
-      `${baseUrl}/rent/commercial/commercial-half-floor-for-rent`
+      `${baseUrl}/rent/commercial/commercial-half-floor-for-rent`,
     ];
 
     // Create dynamic URLs by appending each community slug to each property URL
-    const dynamicUrls = propertyUrls.flatMap(url =>
-      communitySlugs.map(slug => `${url}/in-${slug}`)
+    const dynamicUrls = propertyUrls.flatMap((url) =>
+      communitySlugs.map((slug) => `${url}/in-${slug}`)
     );
 
     // Merge dynamic URLs into your staticUrls array
@@ -73,12 +74,12 @@ export async function GET() {
     const staticEntries = staticUrls.map((entry) => {
       const _changeFrequency = (entry) => {
         if (entry === `${baseUrl}/our-team`) {
-          return 'monthly';
+          return "monthly";
         } else if (entry === `${baseUrl}/contact-us`) {
-          return 'yearly';
+          return "yearly";
         } else if (entry === `${baseUrl}/mortgage-calculator`) {
-          return 'never';
-        } else return 'daily';
+          return "never";
+        } else return "daily";
       };
 
       return {
@@ -96,12 +97,12 @@ export async function GET() {
 
     return new NextResponse(sitemapXml, {
       headers: {
-        'Content-Type': 'application/xml',
-        'Content-Length': Buffer.byteLength(sitemapXml).toString(),
+        "Content-Type": "application/xml",
+        "Content-Length": Buffer.byteLength(sitemapXml).toString(),
       },
     });
   } catch (error) {
-    console.error('Error generating sitemap:', error);
+    console.error("Error generating sitemap:", error);
     return NextResponse.error();
   }
 }
@@ -111,14 +112,14 @@ function buildSitemapXml(entries) {
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
   for (const entry of entries) {
-    xml += '<url>';
+    xml += "<url>";
     xml += `<loc>${entry.url}</loc>`;
     xml += `<lastmod>${entry.lastModified}</lastmod>`;
     xml += `<changefreq>${entry.changeFrequency}</changefreq>`;
     xml += `<priority>${entry.priority}</priority>`;
-    xml += '</url>';
+    xml += "</url>";
   }
 
-  xml += '</urlset>';
+  xml += "</urlset>";
   return xml;
 }

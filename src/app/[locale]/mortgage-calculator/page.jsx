@@ -1,98 +1,111 @@
-import React from 'react'
-import MortgageCalculator from '../_components/MortgageCalculator/MortgageCalculator';
-import dynamic from 'next/dynamic';
-import CTAContainer from '../_components/CTA/CtaContainer/CtaContainer';
-import FaqSection from '../_components/Faq/FaqSection';
-import { useServerPathname } from '../_utils/useServerPathname';
+import React from "react";
+import MortgageCalculator from "../_components/MortgageCalculator/MortgageCalculator";
+import dynamic from "next/dynamic";
+import CTAContainer from "../_components/CTA/CtaContainer/CtaContainer";
+import FaqSection from "../_components/Faq/FaqSection";
+import { useServerPathname } from "../_utils/useServerPathname";
 import { headers } from "next/headers";
-import { getTranslations } from 'next-intl/server';
-import { fetchAPI } from '../_utils/fetch';
+import { getTranslations } from "next-intl/server";
+import { fetchAPI } from "../_utils/fetch";
+import { serverPathname } from "@/app/[locale]/_utils/serverPathname";
 
 const Breadcrumb = dynamic(() =>
-  import('@/app/[locale]/_components/Breadcrumb/Breadcrumb')
-)
+  import("@/app/[locale]/_components/Breadcrumb/Breadcrumb")
+);
 
-export const generateMetadata = async ({params}) => {
+export const generateMetadata = async ({ params }) => {
+  const { origin } = serverPathname();
+  const { locale } = params;
 
-  const { locale } = params
+  const t_mortgage_calculator = await getTranslations({
+    locale,
+    namespace: "mortgage_calculator",
+  });
 
-  const t_mortgage_calculator = await getTranslations({locale, namespace: 'mortgage_calculator'});
-
-  const headerList = headers()
-  const fullURL = headerList.get('x-current-url').replace('ar/', '')
+  const headerList = headers();
+  const fullURL = headerList.get("x-current-url").replace("ar/", "");
 
   return {
-    metadataBase: new URL("https://stageproperties.com"),
+    metadataBase: new URL(origin),
     title: {
-      absolute: t_mortgage_calculator("Mortgage Calculator | Stage Properties")
+      absolute: t_mortgage_calculator("Mortgage Calculator | Stage Properties"),
     },
-    description: t_mortgage_calculator("Determine your affordability and look into bank loan choices"),
+    description: t_mortgage_calculator(
+      "Determine your affordability and look into bank loan choices"
+    ),
     alternates: {
       canonical: fullURL,
       languages: {
-        'en-gb': fullURL,
-        'en': fullURL,
-        'x-default': fullURL,
-        'ar': fullURL.replace('https://stageproperties.com', 'https://stageproperties.com/ar'),
+        "en-gb": fullURL,
+        en: fullURL,
+        "x-default": fullURL,
+        ar: fullURL.replace(origin, `${origin}/ar`),
       },
     },
     openGraph: {
       url: fullURL,
-      title: t_mortgage_calculator('Mortgage Calculator | Stage Properties'),
-      description: t_mortgage_calculator("Determine your affordability and look into bank loan choices"),
+      title: t_mortgage_calculator("Mortgage Calculator | Stage Properties"),
+      description: t_mortgage_calculator(
+        "Determine your affordability and look into bank loan choices"
+      ),
       images: [
         {
-          url: 'https://stageproperties.com/stage-default.png',
+          url: `${origin}/stage-default.png`,
           width: 1200,
           height: 630,
-          alt: 'Logo'
-        }
+          alt: "Logo",
+        },
       ],
-      type: 'website'
-    }}
-  ;
+      type: "website",
+    },
+  };
 };
-const page = async ({params}) => {
+const page = async ({ params }) => {
+  const { origin } = serverPathname();
+  const { locale } = params;
 
-  const { locale } = params
+  const t_mortgage_calculator = await getTranslations({
+    locale,
+    namespace: "mortgage_calculator",
+  });
+  const exchangeRates = await fetchAPI("configuration", "noCache");
 
-  const t_mortgage_calculator = await getTranslations({locale, namespace: 'mortgage_calculator'});
-  const exchangeRates = await fetchAPI('configuration', 'noCache')
-
-  const scriptJSON = 
-  `{
+  const scriptJSON = `{
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [{
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://stageproperties.com/"
+      "item": "${origin}/"
     },{
       "@type": "ListItem",
       "position": 2,
       "name": "Mortgage Calculator",
-      "item": "https://stageproperties.com/mortgage-calculator"
+      "item": "${origin}/mortgage-calculator"
     }]
-  }`
+  }`;
 
   const breadcrumbItems = [
     {
-      title: <p className='breadcrumb focus'>{t_mortgage_calculator('MORTGAGE CALCULATOR')}</p>
-    }
-  ]
+      title: (
+        <p className="breadcrumb focus">
+          {t_mortgage_calculator("MORTGAGE CALCULATOR")}
+        </p>
+      ),
+    },
+  ];
 
   return (
     <>
-      <Breadcrumb items={breadcrumbItems} scriptJSON={scriptJSON}/>
-      <div id='mortage-calculator'>
+      <Breadcrumb items={breadcrumbItems} scriptJSON={scriptJSON} />
+      <div id="mortage-calculator">
         <MortgageCalculator exchangeRates={exchangeRates} />
-        <CTAContainer style={{marginTop: '5rem'}}/>
-        <FaqSection classname='faqSection'/>
+        <CTAContainer style={{ marginTop: "5rem" }} />
+        <FaqSection classname="faqSection" />
       </div>
     </>
+  );
+};
 
-  )
-}
-
-export default page
+export default page;
