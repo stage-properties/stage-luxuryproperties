@@ -4,7 +4,7 @@ const page = () => {
   const htmlContent = `<p><span style="font-size:14px">At Stage Properties, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, share, and protect your information when you use our website.</span></p>
 
   <p><br />
-  <span style="font-size:14px">By accessing or using www.stageproperties.com, you agree to the practices described in this Privacy Policy. If you do not agree with our practices, please do not use our website.</span><br />
+  <span style="font-size:14px">By accessing or using www.stage-luxuryproperties.com, you agree to the practices described in this Privacy Policy. If you do not agree with our practices, please do not use our website.</span><br />
   <br />
   <span style="font-size:16px"><strong>1. INFORMATION WE COLLECT</strong></span><br />
   <span style="font-size:14px">1.1 Personal Information: We may collect personal information that you voluntarily provide to us, such as your name, email address, phone number, and other contact information.<br />
@@ -48,15 +48,13 @@ const page = () => {
   <p><span style="font-size:14px">Email: <a href="mailto:hello@stageproperties.com" rel="noreferrer noopener" target="_blank">hello@stageproperties.com</a>&nbsp;</span></p>
   `;
   return (
-  <div id="privacyPolicy">
-    <div className="wrapper">
-      <h1 className="mainHeading">PRIVACY POLICY</h1>
-      <p className="lastUpdated">LAST UPDATED: 29/11/23</p>
-      <div className="content">
-        {parse(htmlContent)}
+    <div id="privacyPolicy">
+      <div className="wrapper">
+        <h1 className="mainHeading">PRIVACY POLICY</h1>
+        <p className="lastUpdated">LAST UPDATED: 29/11/23</p>
+        <div className="content">{parse(htmlContent)}</div>
       </div>
     </div>
-  </div>
   );
 };
 

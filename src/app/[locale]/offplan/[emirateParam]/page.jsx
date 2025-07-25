@@ -61,6 +61,7 @@ const handle404Page = (str) => {
 };
 
 const page = async ({ params, searchParams }) => {
+  const { origin } = serverPathname();
   const { locale } = params;
 
   const t_offplan = await getTranslations({ locale, namespace: "offplan" });
@@ -80,12 +81,12 @@ const page = async ({ params, searchParams }) => {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://stageproperties.com/"
+      "item": "${origin}/"
     },{
       "@type": "ListItem",
       "position": 2,
       "name": "OFF PLAN",
-      "item": "https://stageproperties.com/offplan"
+      "item": "${origin}/offplan"
     }]
   }`;
 
