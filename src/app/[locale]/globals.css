@@ -9,6 +9,7 @@ html[lang="ar"] * {
   letter-spacing: normal !important;
   --lara-font-family: Cairo, system-ui, sans-serif;
   --audrey-font-family: Cairo, system-ui, sans-serif;
+  --migratory-font-family: Cairo, system-ui, sans-serif;
 }
 
 :root {
@@ -26,6 +27,7 @@ html[lang="ar"] * {
   /* font stacks */
   --lara-font-family: Lara, Helvetica, Arial, sans-serif;
   --audrey-font-family: Audrey, Helvetica, Arial, sans-serif;
+  --migratory-font-family: Migratory, Helvetica, Arial, sans-serif;
 
   --btn-text-color: #fff;
   --border-color: #4d5462;
@@ -92,7 +94,9 @@ input {
   font-display: swap;
 }
 
-/* AUDREY (unchanged) */
+/* =========================
+   AUDREY font
+========================= */
 @font-face {
   font-family: "Audrey";
   font-weight: 400;
@@ -110,13 +114,31 @@ input {
   font-display: swap;
 }
 
-/* Headings (Audrey) */
+/* =========================
+   MIGRATORY font
+========================= */
+@font-face {
+  font-family: "Migratory";
+  src: url("../../../assets/fonts/Migratory.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Migratory";
+  src: url("../../../assets/fonts/Migratory%202.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Headings (Migratory by default) */
 h1.mainHeading,
 h2.mainHeading,
 h3.mainHeading {
   color: var(--main-heading-color);
   font-size: 25px;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
@@ -129,7 +151,7 @@ h3.mainHeading {
   -webkit-text-fill-color: transparent;
 }
 
-/* Paragraphs (now Lara) */
+/* Paragraphs (Lara) */
 p {
   color: var(--light-text-color);
   font-weight: 300;
@@ -138,7 +160,7 @@ p {
   font-family: var(--lara-font-family);
 }
 
-/* Buttons (now Lara) */
+/* Buttons (Lara) */
 button.globalBtn,
 a.globalBtn {
   width: 13rem;
@@ -240,4 +262,15 @@ body {
 }
 .breadcrumb.focus {
   font-weight: 600;
+}
+
+/* Utilities */
+.use-lara {
+  font-family: var(--lara-font-family) !important;
+}
+.use-migratory {
+  font-family: var(--migratory-font-family) !important;
+}
+.use-audrey {
+  font-family: var(--audrey-font-family) !important;
 }

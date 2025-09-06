@@ -1,90 +1,87 @@
-div.marketOverviewSection { 
-    background-color: var(--primary-bg-color);
-    padding: 80px 0;
-    // background: url("../../../../assets/Images/");
-	div.wrapper { 
-        // width: 75%;
-		span.heading { 
-            color: var(--main-heading-color);
-            @include adjust-font(13px, false);
-            font-weight: 300;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 10px;
-            display: block;
-		}
+div.marketOverviewSection {
+  background-color: var(--primary-bg-color);
+  padding: 80px 0;
+  // background: url("../../../../assets/Images/");
+  div.wrapper {
+    // width: 75%;
+    span.heading {
+      color: var(--main-heading-color);
+      @include adjust-font(13px, false);
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+      display: block;
+    }
 
-		span.date { 
-            font-family: var(--audrey-font-family);
-            @include adjust-font(20px, false);
-            text-align: center;
-            color: var(--text-color);
-            display: block;
-            text-transform: uppercase;
-            font-weight: 400;
-		}
+    span.date {
+      font-family: var(--migratory-font-family);
+      @include adjust-font(20px, false);
+      text-align: center;
+      color: var(--text-color);
+      display: block;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
 
-		h2.totalCount { 
-            @include adjust-font(80px, false);
-            text-align: center;
-            color: var(--text-color);
-            font-weight: 400;
-		}
+    h2.totalCount {
+      @include adjust-font(80px, false);
+      text-align: center;
+      color: var(--text-color);
+      font-weight: 400;
+    }
 
-		span.subheading { 
-            @include adjust-font(14px, false);
-            text-align: center;
-            color: var(--light-text-color);
-            font-weight: 400;
-            display: block;
-            text-transform: uppercase;
-		}
+    span.subheading {
+      @include adjust-font(14px, false);
+      text-align: center;
+      color: var(--light-text-color);
+      font-weight: 400;
+      display: block;
+      text-transform: uppercase;
+    }
 
-		div.salesOverviewSection { 
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            @media all and (max-width:1200px){
-                justify-content: center;
-                 }
-			div.overviewCardItem { 
-                width: 32%;
-                // margin-right: 30px;
-               
-                @media all and (max-width:1200px){
-                    width: 47%;
-                    margin-bottom: 25px;
-                    margin-right: 25px;
-                    &:last-child{
-                        margin-right: 0;
-                        margin-bottom: 0;
-                    }
-                    &:nth-child(2n){
-                        margin-right: 0;
-                    }
-                     }
-                     @media all and (max-width:768px){
-                      width: 100%;
-                      margin-right: 0;
-                        }
-				overviewcard { 
+    div.salesOverviewSection {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media all and (max-width: 1200px) {
+        justify-content: center;
+      }
+      div.overviewCardItem {
+        width: 32%;
+        // margin-right: 30px;
 
-				}
-			}
-		}
-
-        div.line{
-            display: block;
-            width: 50%;
-            margin:  80px auto 40px;
-            height: 1px;
-            position: relative;
-            @media all and (max-width:1200px){
-                margin: 30px auto 30px;
-                 }
+        @media all and (max-width: 1200px) {
+          width: 47%;
+          margin-bottom: 25px;
+          margin-right: 25px;
+          &:last-child {
+            margin-right: 0;
+            margin-bottom: 0;
+          }
+          &:nth-child(2n) {
+            margin-right: 0;
+          }
         }
+        @media all and (max-width: 768px) {
+          width: 100%;
+          margin-right: 0;
+        }
+        overviewcard {
+        }
+      }
+    }
 
-		
-	}
+    div.line {
+      display: block;
+      width: 50%;
+      margin: 80px auto 40px;
+      height: 1px;
+      position: relative;
+      @media all and (max-width: 1200px) {
+        margin: 30px auto 30px;
+      }
+    }
+  }
 }

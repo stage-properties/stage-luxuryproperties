@@ -4,9 +4,9 @@ div.meetOurTeamSection {
     height: 750px;
     width: 100%;
     position: relative;
-    @media all and (max-width:1200px){
-     height: 800px;
-      }
+    @media all and (max-width: 1200px) {
+      height: 800px;
+    }
     img {
       object-fit: cover;
       z-index: -1;
@@ -35,13 +35,13 @@ div.meetOurTeamSection {
       justify-content: space-between;
       align-items: center;
       position: relative;
-      div.wrapper{
-        @media all and (max-width:1199px){
+      div.wrapper {
+        @media all and (max-width: 1199px) {
           display: flex;
           flex-direction: column;
         }
         div.leftContainer {
-          @media all and (max-width:1199px){
+          @media all and (max-width: 1199px) {
             width: 100%;
             margin-bottom: 70px;
           }
@@ -72,20 +72,19 @@ div.meetOurTeamSection {
               text-align: right;
               margin-bottom: 1rem;
             }
-            @media all and (max-width:1200px){
-            max-width: 100%;
+            @media all and (max-width: 1200px) {
+              max-width: 100%;
             }
             @media all and (max-width: 980px) {
               text-align: center;
             }
           }
-          div.actionControllers{
+          div.actionControllers {
             &.ar {
-              
             }
-            &.hideOnResponsive{
+            &.hideOnResponsive {
               @media all and (max-width: 980px) {
-               display: none;
+                display: none;
               }
             }
             display: flex;
@@ -96,10 +95,10 @@ div.meetOurTeamSection {
               padding: 20px 20px;
               margin-bottom: 10px;
               justify-content: space-between;
-              @media all and (max-width:1199px){
+              @media all and (max-width: 1199px) {
                 width: 45%;
               }
-              @media all and (min-width:1200px){
+              @media all and (min-width: 1200px) {
                 width: 79%;
               }
               span.text {
@@ -180,10 +179,10 @@ div.meetOurTeamSection {
               }
             }
             div.buttonContainer {
-              @media all and (min-width:1200px){
+              @media all and (min-width: 1200px) {
                 width: 40%;
               }
-              @media all and (max-width:1199px){
+              @media all and (max-width: 1199px) {
                 width: 45%;
               }
               button {
@@ -200,61 +199,59 @@ div.meetOurTeamSection {
           display: flex;
           justify-content: right;
           top: 0;
-          @media all and (max-width:1199px){
+          @media all and (max-width: 1199px) {
             width: 100%;
             position: static;
             flex-direction: column;
           }
-          @media all and (min-width:1200px){
-            width:60%;
+          @media all and (min-width: 1200px) {
+            width: 60%;
             right: 70px;
           }
-          @media all and (min-width:1500px){
+          @media all and (min-width: 1500px) {
             width: 57%;
           }
-          @media all and (min-width:1600px){
+          @media all and (min-width: 1600px) {
             width: 50%;
             right: 130px;
           }
-          @media all and (min-width:1768px){
+          @media all and (min-width: 1768px) {
             width: 45%;
-           
           }
-          @media all and (min-width:1980px){
+          @media all and (min-width: 1980px) {
             width: 40%;
             right: 100px;
-           
           }
-          @media all and (min-width:2200px){
+          @media all and (min-width: 2200px) {
             width: 37%;
           }
-          @media all and (min-width:2500px){
+          @media all and (min-width: 2500px) {
             width: 29%;
             right: 250px;
           }
-          @media all and (min-width:2768px){
+          @media all and (min-width: 2768px) {
             width: 25%;
           }
-          div.slick-slider{
-              transform: rotate(90deg);
-              width: 90%;
-              @media all and (max-width:1199px){
-                transform: rotate(0);
-                width: 100%;
-              }
+          div.slick-slider {
+            transform: rotate(90deg);
+            width: 90%;
+            @media all and (max-width: 1199px) {
+              transform: rotate(0);
+              width: 100%;
+            }
           }
           div.slick-slide {
             transform: scale(0.7) !important;
             filter: blur(3px);
             @media all and (max-width: 980px) {
-             transform: scale(1) !important;
-             padding: 0 20px;
+              transform: scale(1) !important;
+              padding: 0 20px;
             }
             @media all and (max-width: 768px) {
-             filter: none;
-             padding: 0 0 0 20px;
+              filter: none;
+              padding: 0 0 0 20px;
             }
-            div.teamItem{
+            div.teamItem {
               @media all and (max-width: 980px) {
                 width: 15rem !important;
                 margin: unset;
@@ -268,78 +265,75 @@ div.meetOurTeamSection {
               //   margin: 0 -30px;
               // }
             }
-            div.teamCard{
-  
-                transform: rotate(-90deg);
-                // transition: 0.3s ease-in-out;
-                @media all and (max-width:1199px){
-                  transform: rotate(0);
+            div.teamCard {
+              transform: rotate(-90deg);
+              // transition: 0.3s ease-in-out;
+              @media all and (max-width: 1199px) {
+                transform: rotate(0);
+              }
+              @media all and (max-width: 980px) {
+                border: 1px solid transparent;
+                div.info {
+                  display: block;
                 }
-                @media all and (max-width: 980px) {
-                  border: 1px solid transparent;
-                  div.info {
-                    display: block;
-                  }
-                  div.imageContainer{
-                    height: 324px;
-                  }
+                div.imageContainer {
+                  height: 324px;
                 }
+              }
             }
           }
-          div.arrow-right{
-              position: absolute;
-              right: 220px !important;
-              top: -172px !important;
-              @include adjust-font(35px, false);
-              cursor:  pointer;
-              display: none;
+          div.arrow-right {
+            position: absolute;
+            right: 220px !important;
+            top: -172px !important;
+            @include adjust-font(35px, false);
+            cursor: pointer;
+            display: none;
 
-              transform: unset !important;
-              @media all and (max-width:1199px){
-                top: unset !important;
-                bottom: -30px !important;
-                right: 100px !important;
-              }
+            transform: unset !important;
+            @media all and (max-width: 1199px) {
+              top: unset !important;
+              bottom: -30px !important;
+              right: 100px !important;
+            }
           }
-          div.arrow-left{
-              position: absolute;
-              left: 240px !important;
-              top: -172px !important;
-              @include adjust-font(35px, false);
-              cursor:  pointer;
-              transform: unset !important;
-              display: none;
-              @media all and (max-width:1199px){
-                top: unset !important;
-                bottom: -30px !important;
-                left: 100px !important;
-              }
-  
+          div.arrow-left {
+            position: absolute;
+            left: 240px !important;
+            top: -172px !important;
+            @include adjust-font(35px, false);
+            cursor: pointer;
+            transform: unset !important;
+            display: none;
+            @media all and (max-width: 1199px) {
+              top: unset !important;
+              bottom: -30px !important;
+              left: 100px !important;
+            }
           }
-          div.slick-list{
+          div.slick-list {
             padding: 0 0 !important;
             @media all and (max-width: 980px) {
-            //  margin: 0 50px;
-             padding: 0 20px !important;
+              //  margin: 0 50px;
+              padding: 0 20px !important;
             }
           }
 
           div.slick-center {
-              
             &.slick-slide {
               filter: none !important;
               transition: 0.4s;
               transform: scale(1) !important;
               position: relative;
               z-index: 1;
-              div.teamItem{
+              div.teamItem {
                 @media all and (max-width: 1400px) {
                   width: 15rem !important;
                   margin: 0 -30px;
                 }
                 @media all and (max-width: 980px) {
                   width: 15rem !important;
-                  margin: unset
+                  margin: unset;
                 }
                 @media all and (max-width: 768px) {
                   width: 100% !important;
@@ -356,10 +350,9 @@ div.meetOurTeamSection {
                   rgba(172, 131, 109, 1) 100%
                 );
                 border-image-slice: 1;
-                
-                div.imageContainer{
+
+                div.imageContainer {
                   height: 331px;
-                  
                 }
                 div.info {
                   display: block;
@@ -367,7 +360,7 @@ div.meetOurTeamSection {
               }
             }
           }
-          
+
           div.teamContainer {
             div.teamItem {
               width: 50%;
@@ -381,12 +374,12 @@ div.meetOurTeamSection {
             display: flex;
             align-items: center;
             display: none;
-            @media all and (max-width:1199px){
+            @media all and (max-width: 1199px) {
               transform: rotate(0);
               position: relative;
               display: none;
             }
-            @media all and (min-width:1200px){
+            @media all and (min-width: 1200px) {
               right: 20px;
             }
             span.icon {
@@ -398,15 +391,15 @@ div.meetOurTeamSection {
             div.previousNav {
               margin-right: 20px;
             }
-  
+
             h6 {
               @include adjust-font(20px, false);
-              font-family: var(--audrey-font-family);
+              font-family: var(--migratory-font-family);
               color: var(--text-color);
               font-weight: 400;
               text-transform: uppercase;
             }
-  
+
             div.nextNav {
               margin-left: 20px;
             }

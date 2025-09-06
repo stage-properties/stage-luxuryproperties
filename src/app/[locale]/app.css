@@ -38,7 +38,7 @@
 #header ul.links li.link {
   font-size: 14px;
   font-weight: 500;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   position: relative;
 }
 html[lang=ar] #header ul.links li.link {
@@ -1813,7 +1813,7 @@ html[lang=ar] #homePage div.ourStorySection div.ourStoryCarouselSection div.caro
 }
 #homePage div.ourStorySection div.ourStoryCarouselSection div.carouselMainContainer div.navController h2 {
   font-size: 20px;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   color: var(--text-color);
   font-weight: 400;
 }
@@ -2701,7 +2701,7 @@ div.meetOurTeamSection div.imageContainerBg div.contentContainer div.wrapper div
 }
 div.meetOurTeamSection div.imageContainerBg div.contentContainer div.wrapper div.rightContainer div.navController h6 {
   font-size: 20px;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   color: var(--text-color);
   font-weight: 400;
   text-transform: uppercase;
@@ -3091,7 +3091,7 @@ html[lang=ar] div.marketOverviewSection div.wrapper span.heading {
   font-size: calc(13px + 1px);
 }
 div.marketOverviewSection div.wrapper span.date {
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 20px;
   text-align: center;
   color: var(--text-color);
@@ -3249,13 +3249,13 @@ div.overviewCard div.bottom span.price {
   text-align: center;
 }
 #homePage .blogSection .wrapper h2.mainHeading {
-  font-family: var(--audrey-font-family, inherit);
+  font-family: var(--migratory-font-family, inherit);
 }
 #homePage .blogSection .wrapper h3.mainHeading {
   margin-top: 10px;
   margin-bottom: 40px;
   -webkit-text-fill-color: #fdfdfd;
-  font-family: var(--audrey-font-family, inherit);
+  font-family: var(--migratory-font-family, inherit);
 }
 #homePage .blogSection .blogsSliderContainer {
   position: relative;
@@ -3706,7 +3706,7 @@ html[lang=ar] #faq .container .sectionTitle {
   cursor: pointer;
   margin: 0;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -3726,7 +3726,7 @@ html[lang=ar] #faq .container .parent .item .question .title {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  color: #FFF;
+  color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 0.875rem;
   font-style: normal;
@@ -8436,7 +8436,7 @@ div.offplanListingSpotlight div.imageContainer h1.heroTitle {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 200;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
 }
 html[lang=ar] div.offplanListingSpotlight div.imageContainer h1.heroTitle {
   font-size: calc(37px + 1px);
@@ -11104,7 +11104,7 @@ html[lang=ar] #commonCarousel div.slick-slider div.arrow-right {
   gap: 0.8rem;
 }
 #review-container .google-rating {
-  color: #FFF;
+  color: #fff;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 700;
@@ -11214,7 +11214,7 @@ html[lang=ar] #review-container .title {
   }
   #review-container .title {
     text-align: center;
-    font-family: var(--audrey-font-family);
+    font-family: var(--migratory-font-family);
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -11418,7 +11418,7 @@ html[lang=ar] .noData .similar_interests {
 .developers .top .title {
   color: #fff;
   text-align: center;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -11873,7 +11873,7 @@ html[lang=ar] #tags .buttonContainer a {
 .areasAndCommunities .top .title {
   color: #fff;
   text-align: center;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -11998,7 +11998,7 @@ html[lang=ar] .community ._title {
 ._imageContainer .__title {
   color: #fff;
   text-align: center;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -13418,7 +13418,7 @@ html[lang=ar] #offplanInfoPage div.investSection div.wrapper .parent h2.mainHead
 }
 #offplanInfoPage div.investSection div.wrapper .parent .investSection_title {
   color: #fff;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -14638,7 +14638,7 @@ div.landing_aboutDeveloper div.landing_wrapper .landing_parent .generalButton {
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 500;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   text-transform: uppercase;
 }
 html[lang=ar] .language-switcher .switcher-button .text {
@@ -14724,7 +14724,7 @@ html[lang=ar] .language-switcher .switcher-dropdown .switcher-option {
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 500;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   text-transform: uppercase;
 }
 .language-switcher-mobile .switcher-dropdown {
@@ -14975,7 +14975,7 @@ html[lang=ar] .developer .___title {
 .developer .__top .__title {
   color: #fff;
   text-align: center;
-  font-family: var(--audrey-font-family);
+  font-family: var(--migratory-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -15714,7 +15714,7 @@ div.ldr .adImage {
 }
 .accordionSection .accordionHeader .title2 {
   font-size: 36px;
-  font-family: var(--audrey-font-family, cursive);
+  font-family: var(--migratory-font-family, cursive);
   font-weight: 400;
   color: var(--Gold-lux, #ffde9b);
   margin: 10px 0 0;
@@ -15783,7 +15783,7 @@ div.ldr .adImage {
   /* small white word to the right */
 }
 .differenceSection .ds-header .ds-title .ds-title-big {
-  font-family: var(--audrey-font-family, cursive);
+  font-family: var(--migratory-font-family, cursive);
   font-weight: 400;
   color: #ffdb9f;
   font-size: clamp(28px, 5vw, 56px);
@@ -15926,7 +15926,7 @@ div.ldr .adImage {
 }
 
 .signatureSection .sig-title1 {
-  font-family: var(--audrey-font-family, cursive);
+  font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
   font-size: clamp(28px, 4.6vw, 56px);
 }

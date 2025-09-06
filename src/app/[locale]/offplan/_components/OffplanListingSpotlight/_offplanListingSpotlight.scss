@@ -1,96 +1,94 @@
 // #offplanListingPage {
-  div.offplanListingSpotlight {
- 
+div.offplanListingSpotlight {
+  width: 100%;
+  div.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    z-index: 2;
+    @media all and (max-width: 1400px) {
+      height: 582px;
+    }
+    img {
+      object-fit: cover;
+    }
+    div.gradient {
+      position: absolute;
+      background: linear-gradient(
+        360deg,
+        var(--primary-bg-color) 15%,
+        rgba(20, 27, 39, 0.3758096989) 100%
+      );
+
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      // -webkit-backdrop-filter: blur(1px);
+      // backdrop-filter: blur(1px);
+    }
+    h1.heroTitle {
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      @include adjust-font(37px, false);
+      z-index: 9;
+      color: #fff;
       width: 100%;
-      div.imageContainer {
+      margin: 0 auto;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 200;
+      font-family: var(--migratory-font-family);
+      @media all and (min-width: 1980px) {
+        @include adjust-font(3em, false);
+      }
+      @media all and (max-width: 1979px) {
+        @include adjust-font(2em, false);
+      }
+      @media all and (max-width: 1400px) {
+        @include adjust-font(1.5em, false);
+      }
+      @media all and (max-width: 1400px) {
+        @include adjust-font(1.5em, false);
+      }
+      @media all and (max-width: 1200px) {
+        @include adjust-font(1.5em, false);
+      }
+      @media all and (max-width: 980px) {
+        @include adjust-font(1.6em, false);
+      }
+      @media all and (max-width: 768px) {
+        @include adjust-font(1.3em, false);
+        max-width: 80%;
+      }
+      @media all and (max-width: 640px) {
+        @include adjust-font(1.5em, false);
+        max-width: 85%;
+      }
+      @media all and (max-width: 480px) {
+        max-width: 95%;
+      }
+
+      @media all and (max-width: 360px) {
+        @include adjust-font(1em, false);
+      }
+    }
+    div.info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      div.wrapper {
+        z-index: 9;
         position: relative;
-        width: 100%;
-        height: 750px;
-        z-index: 2;
-        @media all and (max-width:1400px){
-          height: 582px;
-        }
-        img {
-          object-fit: cover;
-        }
-        div.gradient {
-          position: absolute;
-          background: linear-gradient(
-            360deg,
-            var(--primary-bg-color) 15%,
-            rgba(20, 27, 39, 0.3758096989) 100%
-          );
-          
-          left: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          // -webkit-backdrop-filter: blur(1px);
-          // backdrop-filter: blur(1px);
-        }
-        h1.heroTitle {
-          position: absolute;
-          top: 44%;
-          left: 50%;
-          transform: translate(-50%, -40%);
-          @include adjust-font(37px, false);
-          z-index: 9;
-          color: #fff;
-          width: 100%;
-          margin: 0 auto;
-          text-align: center;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          font-weight: 200;
-          font-family: var(--audrey-font-family);
-          @media all and (min-width: 1980px) {
-            @include adjust-font(3em, false);
-          }
-          @media all and (max-width: 1979px) {
-            @include adjust-font(2em, false);
-          }
-          @media all and (max-width: 1400px) {
-            @include adjust-font(1.5em, false);
-          }
-          @media all and (max-width: 1400px) {
-            @include adjust-font(1.5em, false);
-          }
-          @media all and (max-width: 1200px) {
-            @include adjust-font(1.5em, false);
-          }
-          @media all and (max-width: 980px) {
-            @include adjust-font(1.6em, false);
-          }
-          @media all and (max-width: 768px) {
-            @include adjust-font(1.3em, false);
-            max-width: 80%;
-          }
-          @media all and (max-width: 640px) {
-            @include adjust-font(1.5em, false);
-            max-width: 85%;
-          }
-          @media all and (max-width: 480px) {
-            max-width: 95%;
-          }
-          
-          @media all and (max-width: 360px) {
-            @include adjust-font(1em, false);
-          }
-        }
-        div.info {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          div.wrapper {
-            z-index: 9;
-            position: relative;
-            h1.mainHeading {
-              color: var(--text-color);
-              margin-bottom: 30px;
-            }
-          }
+        h1.mainHeading {
+          color: var(--text-color);
+          margin-bottom: 30px;
         }
       }
-   
+    }
   }
+}
 // }
