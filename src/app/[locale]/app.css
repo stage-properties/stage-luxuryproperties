@@ -15713,15 +15713,24 @@ div.ldr .adImage {
 .differenceSection {
   /* container card (soft glass + gold border) */
   --gold: rgba(255, 219, 159, 0.2);
+  --panel-anim: 1.8s ease; /* ← control how long the text takes to appear */
   position: relative;
-  padding: 52px 36px 44px;
+  padding: 100px 36px 100px;
   background: rgba(255, 255, 255, 0.03);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   border-radius: 44.081px;
   border: 1px solid #ffdb9f;
+  overflow: hidden; /* ensure bg + filters stay inside rounded corners */
+  /* background image */
+  background: url("/difference.jpg") center/cover no-repeat;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   /* subtle gold edge and glow, like your mock */
+  /* dark overlay filter */
+  /* gold edge */
+  /* make sure content is above overlays */
   /* ---- Titles ---- */
   /* ---- Tabs rail ---- */
   /* ---- Panel ---- */
@@ -15735,10 +15744,18 @@ div.ldr .adImage {
   pointer-events: none;
 }
 .differenceSection::before {
-  border: 1px solid rgba(255, 222, 155, 0.22);
+  background: rgba(0, 0, 0, 0.55); /* darken filter */
+  z-index: 0;
 }
 .differenceSection::after {
+  border: 1px solid rgba(255, 222, 155, 0.22);
   box-shadow: 0 0 0 1px rgba(255, 222, 155, 0.08) inset;
+  z-index: 1;
+}
+.differenceSection .ds-header,
+.differenceSection .ds-parent {
+  position: relative;
+  z-index: 2;
 }
 .differenceSection .ds-header {
   text-align: center;
@@ -15821,6 +15838,7 @@ div.ldr .adImage {
   text-align: center;
   animation: dsFadeSlide 220ms ease;
   text-align: left;
+  height: 50px;
 }
 .differenceSection .ds-panel p {
   margin: 0 auto;

@@ -42,7 +42,7 @@ const HomePageLazyLoad = async ({
         items={[
           {
             label: "Exclusive Access",
-            text: "Gain privileged entry to Dubai’s most anticipated luxury developments before they reach the open market through developer partnerships and insider connections...",
+            text: "Gain privileged entry to Dubai’s most anticipated luxury developments before they reach the open market. Through our developer partnerships and insider connections, Stage Lux ensures you’re always ahead — with first-look opportunities at limited-edition launches and rare investment gems.",
           },
           {
             label: "Tailored Service",
