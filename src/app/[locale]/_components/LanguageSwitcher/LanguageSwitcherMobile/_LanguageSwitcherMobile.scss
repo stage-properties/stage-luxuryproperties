@@ -53,7 +53,7 @@
       &.ar {
         text-align: right;
       }
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       cursor: pointer;
       color: var(--text-color);
       display: block;
@@ -61,13 +61,17 @@
       letter-spacing: 2px;
       font-weight: 400;
       &:hover {
-        background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+        background: linear-gradient(
+          262deg,
+          rgb(172, 131, 109) 28%,
+          rgb(240, 202, 178) 70%
+        );
         color: white;
       }
     }
   }
 }
-  
+
 /* RTL Adjustments */
 [dir="rtl"] .language-switcher-mobile {
   .switcher-dropdown {

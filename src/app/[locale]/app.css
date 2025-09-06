@@ -63,7 +63,7 @@ html[lang=ar] #header ul.links li.link {
   border-bottom: 1px solid var(--border-color);
   font-size: 14px;
   text-transform: capitalize;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] #header ul.links li.link ul.subLinks li {
   font-size: calc(14px + 1px);
@@ -120,7 +120,7 @@ html[lang=ar] #header ul.links li.link ul.subLinks li {
   padding: 6px 0;
 }
 #header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.link a {
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   color: var(--secondary-bg-color);
   letter-spacing: 1px;
   font-size: 16px;
@@ -589,7 +589,7 @@ html[lang=ar] #searchSection div.buttonDropDown button {
 #searchSection div.buttonDropDown button .text {
   color: var(--text-color);
   font-size: 14px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] #searchSection div.buttonDropDown button .text {
   font-size: calc(14px + 1px);
@@ -646,7 +646,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   color: #000;
 }
 #searchSection div.buttonContainer button.button span {
-  font-family: var(--lato-font-family) !important;
+  font-family: var(--lara-font-family) !important;
 }
 #searchSection div.searchContainer {
   background-color: rgba(18, 24, 35, 0.7);
@@ -832,7 +832,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
 #searchSection div.searchContainer div.left div.search-common div.list span {
   font-size: 14px;
   color: var(--btn-text-color);
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-weight: 400;
   letter-spacing: 1.6px;
 }
@@ -929,14 +929,14 @@ html[lang=ar] #searchSection .searchInput {
   color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 1.6px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 15px;
 }
 #searchSection .searchInput::placeholder {
   color: var(--placeholder-color);
   text-transform: uppercase;
   letter-spacing: 1.6px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 15px;
 }
 html[lang=ar] #searchSection .searchInput::-moz-placeholder {
@@ -1598,7 +1598,7 @@ html[lang=ar] #homePage div.ourStorySection div.imageContainer div.contentContai
   font-size: 14px;
   cursor: pointer;
   text-transform: uppercase;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 @media all and (max-width: 1200px) {
   #homePage div.ourStorySection div.imageContainer div.contentContainer div._wrapper div.rightContainer div.buttonContainer {
@@ -4607,12 +4607,12 @@ html[lang=ar] #searchForm div.mainContainer div.formContainer div.inputContainer
 #searchForm div.mainContainer div.formContainer div.inputContainer input::-moz-placeholder {
   letter-spacing: 1.6px;
   font-size: 13px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 #searchForm div.mainContainer div.formContainer div.inputContainer input::placeholder {
   letter-spacing: 1.6px;
   font-size: 13px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] #searchForm div.mainContainer div.formContainer div.inputContainer input::-moz-placeholder {
   font-size: calc(13px + 1px);
@@ -4906,7 +4906,7 @@ div.buttonContainer button span.text {
   color: var(--text-color);
   letter-spacing: 1.6px;
   font-size: 11px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.buttonContainer button span.text {
   font-size: calc(11px + 1px);
@@ -4974,7 +4974,7 @@ div.buttonContainer button span.icon svg {
   background-color: #ccc;
 }
 .toggleSwitch input:checked + .slider {
-  background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+  background: var(--gradient, linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%));
 }
 .toggleSwitch .slider:before {
   position: absolute;
@@ -4983,7 +4983,7 @@ div.buttonContainer button span.icon svg {
   width: 14px;
   left: 3px;
   bottom: 3px;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -5039,13 +5039,15 @@ div.agentContactCardV2 div.top div.left div.imageContainer img {
 div.agentContactCardV2 div.top div.right {
   width: 59%;
 }
-div.agentContactCardV2 div.top div.right h1.name, div.agentContactCardV2 div.top div.right h2.name {
+div.agentContactCardV2 div.top div.right h1.name,
+div.agentContactCardV2 div.top div.right h2.name {
   font-size: 14px;
   font-weight: 400;
   color: var(--text-color);
   text-transform: uppercase;
 }
-html[lang=ar] div.agentContactCardV2 div.top div.right h1.name, html[lang=ar] div.agentContactCardV2 div.top div.right h2.name {
+html[lang=ar] div.agentContactCardV2 div.top div.right h1.name,
+html[lang=ar] div.agentContactCardV2 div.top div.right h2.name {
   font-size: calc(14px + 1px);
 }
 div.agentContactCardV2 div.top div.right h6.title {
@@ -5056,14 +5058,16 @@ div.agentContactCardV2 div.top div.right h6.title {
 html[lang=ar] div.agentContactCardV2 div.top div.right h6.title {
   font-size: calc(12px + 1px);
 }
-div.agentContactCardV2 div.bottom h1, div.agentContactCardV2 div.bottom h2 {
+div.agentContactCardV2 div.bottom h1,
+div.agentContactCardV2 div.bottom h2 {
   text-align: center;
   font-size: 14px;
   font-weight: 300;
   color: var(--text-color);
   margin-bottom: 15px;
 }
-html[lang=ar] div.agentContactCardV2 div.bottom h1, html[lang=ar] div.agentContactCardV2 div.bottom h2 {
+html[lang=ar] div.agentContactCardV2 div.bottom h1,
+html[lang=ar] div.agentContactCardV2 div.bottom h2 {
   font-size: calc(14px + 1px);
 }
 div.agentContactCardV2 div.bottom div.buttons {
@@ -5091,7 +5095,7 @@ div.agentContactCardV2 div.bottom div.buttonContainer button {
   align-items: center;
   justify-content: center;
   transition: 0.2s ease-in-out;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.agentContactCardV2 div.bottom div.buttonContainer button:hover {
   background: var(--tertiary-color);
@@ -5135,7 +5139,7 @@ div.agentContactCardV2 div.bottom div.inputContainer input {
   width: 100%;
   padding: 10px;
   color: var(--text-color);
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.agentContactCardV2 div.bottom div.inputContainer input:focus {
   border: 1px solid var(--tertiary-color);
@@ -5149,7 +5153,7 @@ div.agentContactCardV2 div.bottom div.inputContainer textarea {
   resize: none;
   outline: none;
   border: none;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.agentContactCardV2 div.bottom div.inputContainer textarea:focus {
   border: 1px solid var(--tertiary-color);
@@ -5218,7 +5222,8 @@ div.contactBtns {
   background-color: var(--primary-bg-color);
   z-index: 9;
 }
-div.contactBtns div.top h1.price, div.contactBtns div.top h2.price {
+div.contactBtns div.top h1.price,
+div.contactBtns div.top h2.price {
   margin-bottom: 10px;
   text-align: center;
   font-family: unset !important;
@@ -5266,7 +5271,7 @@ div.contactBtns div.bottom div.buttonContainer a.gradientBorder span.text {
   display: block;
   margin-left: 6px;
   font-size: 12px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.contactBtns div.bottom div.buttonContainer a.gradientBorder span.text {
   font-size: calc(12px + 1px);
@@ -5304,7 +5309,7 @@ div.contactBtns div.bottom div.buttonContainer button span.text {
   color: var(--light-text-color);
   display: block;
   margin-left: 6px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 
 #searchPage {
@@ -8181,12 +8186,12 @@ div.subscribeContainer div.subscribeForm input.error {
 div.subscribeContainer div.subscribeForm input::-moz-placeholder {
   letter-spacing: 1.6px;
   font-size: 14px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.subscribeContainer div.subscribeForm input::placeholder {
   letter-spacing: 1.6px;
   font-size: 14px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.subscribeContainer div.subscribeForm input::-moz-placeholder {
   font-size: calc(14px + 1px);
@@ -9325,7 +9330,7 @@ div.secondarySearchFields div.inputField.applyFilters:hover .selectedValue .appl
   color: #fff !important;
 }
 div.secondarySearchFields .plainButton:hover {
-  background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%)) !important;
+  background: var(--gradient, linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%)) !important;
   border: 1px solid transparent !important;
   -o-border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%) !important;
      border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%) !important;
@@ -9336,10 +9341,10 @@ div.secondarySearchFields .plainButton {
   width: 14.4%;
   margin-right: 0.53%;
   padding: 15px 8px;
-  border: 1px solid #141C26;
-  color: #FFF;
+  border: 1px solid #141c26;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 14.648px;
   font-style: normal;
   line-height: normal;
@@ -9371,7 +9376,7 @@ div.secondarySearchFields .plainButton {
   }
 }
 div.secondarySearchFields .plainButton.Withbackground {
-  background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%)) !important;
+  background: var(--gradient, linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%)) !important;
   border: 1px solid transparent !important;
   -o-border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%) !important;
      border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%) !important;
@@ -9483,7 +9488,7 @@ div.secondarySearchFields div.allFields div.inputField {
 div.secondarySearchFields div.allFields div.inputField.applyFilters {
   cursor: pointer;
   width: 15.3%;
-  background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+  background: var(--gradient, linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%));
   border: 1px solid transparent;
   -o-border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%);
      border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%);
@@ -9519,7 +9524,7 @@ html[lang=ar] div.secondarySearchFields div.allFields div.inputField div.selecte
 }
 div.secondarySearchFields div.allFields div.inputField div.selectedValue .applyFilters {
   color: #000;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 14.648px;
   font-style: normal;
   line-height: normal;
@@ -9530,7 +9535,7 @@ div.secondarySearchFields div.allFields div.inputField div.selectedValue .applyF
 div.secondarySearchFields div.allFields div.inputField div.icon {
   display: flex;
   align-items: center;
-  background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+  background: var(--gradient, linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%));
   padding: 7px 12px 7px 13px;
   width: 45px;
   height: 29px;
@@ -9670,13 +9675,13 @@ div.secondarySearchFields div.allFields div.inputSection div.inputField input::-
   font-size: 15px;
   letter-spacing: 1.6px;
   font-weight: 300;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.secondarySearchFields div.allFields div.inputSection div.inputField input::placeholder {
   font-size: 15px;
   letter-spacing: 1.6px;
   font-weight: 300;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.secondarySearchFields div.allFields div.inputSection div.inputField input::-moz-placeholder {
   font-size: calc(15px + 1px);
@@ -9801,10 +9806,10 @@ div.secondarySearchFields div.allFields div.frame .plainButton {
   width: 14.4%;
   margin-right: 0.53%;
   padding: 15px 8px;
-  border: 1px solid #141C26;
-  color: #FFF;
+  border: 1px solid #141c26;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 14.648px;
   font-style: normal;
   line-height: normal;
@@ -10240,7 +10245,8 @@ html[lang=ar] #secondaryDetailsPage div.locationInfo div.content {
 #secondaryDetailsPage {
   color: var(--text-color);
 }
-#secondaryDetailsPage h1.heading, #secondaryDetailsPage h2.heading {
+#secondaryDetailsPage h1.heading,
+#secondaryDetailsPage h2.heading {
   color: var(--text-color);
   font-size: 20px;
   font-family: var(--audrey-font-family);
@@ -10248,14 +10254,17 @@ html[lang=ar] #secondaryDetailsPage div.locationInfo div.content {
   font-weight: 500;
   margin-bottom: 20px;
 }
-html[lang=ar] #secondaryDetailsPage h1.heading, html[lang=ar] #secondaryDetailsPage h2.heading {
+html[lang=ar] #secondaryDetailsPage h1.heading,
+html[lang=ar] #secondaryDetailsPage h2.heading {
   font-size: calc(20px + 1px);
 }
 @media all and (max-width: 480px) {
-  #secondaryDetailsPage h1.heading, #secondaryDetailsPage h2.heading {
+  #secondaryDetailsPage h1.heading,
+  #secondaryDetailsPage h2.heading {
     font-size: 18px;
   }
-  html[lang=ar] #secondaryDetailsPage h1.heading, html[lang=ar] #secondaryDetailsPage h2.heading {
+  html[lang=ar] #secondaryDetailsPage h1.heading,
+  html[lang=ar] #secondaryDetailsPage h2.heading {
     font-size: calc(18px + 1px);
   }
 }
@@ -10438,7 +10447,7 @@ html[lang=ar] #secondaryDetailsPage div.description div.content p {
   border-right: none;
 }
 #secondaryDetailsPage div.description div.content div.moreSection button span {
-  background: linear-gradient(to right, #F0CAB2 44%, #AC836D 53%);
+  background: linear-gradient(to right, #f0cab2 44%, #ac836d 53%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 14px;
@@ -10511,7 +10520,7 @@ html[lang=ar] #secondaryDetailsPage div.description div.content div.moreSection 
 #secondaryDetailsPage div.listingDetails ul.pInfo li.list div.left h6.label {
   color: var(--light-text-color);
   font-size: 14px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] #secondaryDetailsPage div.listingDetails ul.pInfo li.list div.left h6.label {
   font-size: calc(14px + 1px);
@@ -10551,7 +10560,8 @@ html[lang=ar] #secondaryDetailsPage div.listingDetails ul.pInfo li.list div.righ
 #secondaryDetailsPage div.featuresAndAmenities {
   padding: 35px 0;
 }
-#secondaryDetailsPage div.featuresAndAmenities h1.heading, #secondaryDetailsPage div.featuresAndAmenities h2.heading {
+#secondaryDetailsPage div.featuresAndAmenities h1.heading,
+#secondaryDetailsPage div.featuresAndAmenities h2.heading {
   margin-bottom: 25px;
 }
 #secondaryDetailsPage div.featuresAndAmenities ul.listItems {
@@ -11317,9 +11327,9 @@ html[lang=ar] .sliderArrows .arrow {
   height: 293.962px;
 }
 .noData .we_could_not_find_match {
-  color: #9B9B9B;
+  color: #9b9b9b;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 300;
@@ -11332,9 +11342,9 @@ html[lang=ar] .noData .we_could_not_find_match {
   font-size: calc(30px + 1px);
 }
 .noData .similar_interests {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -11406,7 +11416,7 @@ html[lang=ar] .noData .similar_interests {
   margin-bottom: 3rem;
 }
 .developers .top .title {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: var(--audrey-font-family);
   font-size: 30px;
@@ -11422,9 +11432,9 @@ html[lang=ar] .developers .top .title {
   font-size: calc(30px + 1px);
 }
 .developers .top .subtitle {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 20px;
   font-style: normal;
   font-weight: 300;
@@ -11572,8 +11582,8 @@ html[lang=ar] .developers .top .subtitle {
   margin-top: 3rem;
 }
 ._developerCard ._right ._content ._title {
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 19px;
   font-weight: 400;
   letter-spacing: 1.92px;
@@ -11592,8 +11602,8 @@ html[lang=ar] ._developerCard ._right ._content ._title {
 }
 ._developerCard ._right ._content ._projects {
   margin-bottom: 1.2rem;
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 1.6px;
@@ -11614,9 +11624,9 @@ html[lang=ar] ._developerCard ._right ._content ._projects {
   margin-right: 0.5rem;
 }
 ._developerCard ._right ._content ._description {
-  color: #FFF;
+  color: #fff;
   margin-top: 1rem;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 14.4px;
   font-weight: 300;
   text-transform: uppercase;
@@ -11636,9 +11646,9 @@ html[lang=ar] ._developerCard ._right ._content ._description {
   }
 }
 ._developerCard ._right ._view_more ._view_all_projects {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 12.4px;
   font-style: normal;
   font-weight: 400;
@@ -11706,7 +11716,7 @@ html[lang=ar] ._developerCard ._right ._view_more ._view_all_projects {
 }
 ._developerCardHeader ._right ._content ._title {
   display: block;
-  color: #FFF;
+  color: #fff;
   font-family: var(--audrey-font-family);
   font-size: 28px;
   font-style: normal;
@@ -11718,8 +11728,8 @@ html[lang=ar] ._developerCardHeader ._right ._content ._title {
   font-size: calc(28px + 1px);
 }
 ._developerCardHeader ._right ._content ._description {
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -11767,8 +11777,8 @@ html[lang=ar] ._developerCardHeader ._right ._content ._description {
     margin-top: 1.5rem;
   }
   ._developerCardHeader ._right ._content ._title {
-    color: #FFF;
-    font-family: var(--lato-font-family);
+    color: #fff;
+    font-family: var(--lara-font-family);
     font-size: 16.463px;
     font-weight: 400;
     letter-spacing: 1.92px;
@@ -11780,9 +11790,9 @@ html[lang=ar] ._developerCardHeader ._right ._content ._description {
     font-size: calc(16.463px + 1px);
   }
   ._developerCardHeader ._right ._content ._description {
-    color: #FFF;
+    color: #fff;
     margin-top: 0.8rem;
-    font-family: var(--lato-font-family);
+    font-family: var(--lara-font-family);
     font-size: 10.975px;
     font-weight: 300;
     text-transform: uppercase;
@@ -11861,7 +11871,7 @@ html[lang=ar] #tags .buttonContainer a {
   margin-bottom: 3rem;
 }
 .areasAndCommunities .top .title {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: var(--audrey-font-family);
   font-size: 30px;
@@ -11876,9 +11886,9 @@ html[lang=ar] .areasAndCommunities .top .title {
   font-size: calc(30px + 1px);
 }
 .areasAndCommunities .top .subtitle {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 20px;
   font-style: normal;
   font-weight: 300;
@@ -11986,7 +11996,7 @@ html[lang=ar] .community ._title {
   background-size: 100%;
 }
 ._imageContainer .__title {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: var(--audrey-font-family);
   font-size: 30px;
@@ -12015,9 +12025,9 @@ html[lang=ar] ._imageContainer .__title {
 }
 
 .__subtitle {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -12170,8 +12180,8 @@ html[lang=ar] .similarPropertyComponentSubheading {
   margin-top: 3rem;
 }
 .communitiesAndAreasCard ._bottom ._content ._title {
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 19px;
   font-weight: 400;
   letter-spacing: 1.92px;
@@ -12188,8 +12198,8 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._content ._title {
 }
 .communitiesAndAreasCard ._bottom ._content ._projects {
   margin-bottom: 1.2rem;
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 1.6px;
@@ -12209,9 +12219,9 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._content ._projects {
   margin-left: 0.5rem;
 }
 .communitiesAndAreasCard ._bottom ._content ._description {
-  color: #FFF;
+  color: #fff;
   margin-top: 1rem;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 14.4px;
   font-weight: 300;
   text-transform: uppercase;
@@ -12226,9 +12236,9 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._content ._description {
   margin-bottom: 2rem;
 }
 .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 12.4px;
   font-style: normal;
   font-weight: 400;
@@ -12264,8 +12274,8 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects 
     margin-top: 1.5rem;
   }
   .communitiesAndAreasCard ._bottom ._content ._title {
-    color: #FFF;
-    font-family: var(--lato-font-family);
+    color: #fff;
+    font-family: var(--lara-font-family);
     font-size: 16.463px;
     font-weight: 400;
     letter-spacing: 1.92px;
@@ -12278,8 +12288,8 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects 
   }
   .communitiesAndAreasCard ._bottom ._content ._projects {
     margin-bottom: 0.5rem;
-    color: #FFF;
-    font-family: var(--lato-font-family);
+    color: #fff;
+    font-family: var(--lara-font-family);
     font-size: 13.719px;
     font-weight: 300;
     letter-spacing: 1.6px;
@@ -12295,9 +12305,9 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects 
     margin-right: 0.4rem;
   }
   .communitiesAndAreasCard ._bottom ._content ._description {
-    color: #FFF;
+    color: #fff;
     margin-top: 0.8rem;
-    font-family: var(--lato-font-family);
+    font-family: var(--lara-font-family);
     font-size: 10.975px;
     font-weight: 300;
     text-transform: uppercase;
@@ -12312,9 +12322,9 @@ html[lang=ar] .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects 
     margin-bottom: 1rem;
   }
   .communitiesAndAreasCard ._bottom ._view_more ._view_all_projects {
-    color: #FFF;
+    color: #fff;
     text-align: center;
-    font-family: var(--lato-font-family);
+    font-family: var(--lara-font-family);
     font-size: 11.52px;
     font-style: normal;
     font-weight: 400;
@@ -12357,7 +12367,7 @@ html[lang=ar] #cta .heading {
 }
 #cta .subheading {
   font-size: 1.1rem;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   font-weight: 300;
@@ -12701,7 +12711,7 @@ html[lang=ar] .copyButton {
   margin-bottom: 3rem;
   color: white;
   font-size: 18px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-weight: 300;
   line-height: 1.5rem;
   text-align: center;
@@ -13192,13 +13202,13 @@ div.contactAgentForm div.rightContainer div.form form div.inputFields input::-mo
   letter-spacing: 1.6px;
   font-size: 14px;
   text-transform: uppercase;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 div.contactAgentForm div.rightContainer div.form form div.inputFields input::placeholder {
   letter-spacing: 1.6px;
   font-size: 14px;
   text-transform: uppercase;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.contactAgentForm div.rightContainer div.form form div.inputFields input::-moz-placeholder {
   font-size: calc(14px + 1px);
@@ -13407,7 +13417,7 @@ html[lang=ar] #offplanInfoPage div.investSection div.wrapper .parent h2.mainHead
   }
 }
 #offplanInfoPage div.investSection div.wrapper .parent .investSection_title {
-  color: #FFF;
+  color: #fff;
   font-family: var(--audrey-font-family);
   font-size: 24px;
   font-style: normal;
@@ -13420,7 +13430,7 @@ html[lang=ar] #offplanInfoPage div.investSection div.wrapper .parent .investSect
   font-size: calc(24px + 1px);
 }
 #offplanInfoPage div.investSection div.wrapper .parent .investSection_description {
-  color: #FFF;
+  color: #fff;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 31.768px; /* 158.839% */
@@ -13436,8 +13446,8 @@ html[lang=ar] #offplanInfoPage div.investSection div.wrapper .parent .investSect
 }
 #offplanInfoPage div.investSection div.wrapper .parent ul li {
   list-style-type: disc;
-  color: #FFF;
-  font-family: var(--lato-font-family);
+  color: #fff;
+  font-family: var(--lara-font-family);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 300;
@@ -14317,9 +14327,9 @@ html[lang=ar] #formComponent .input-wrapper textarea.error:focus::after {
 .langCurrSwitcher .container .dropdown-button {
   cursor: pointer;
   padding: 0px 20px;
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -14327,7 +14337,7 @@ html[lang=ar] #formComponent .input-wrapper textarea.error:focus::after {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   background-color: #111823;
-  border: 1px solid #CFAF9B;
+  border: 1px solid #cfaf9b;
 }
 html[lang=ar] .langCurrSwitcher .container .dropdown-button {
   font-size: calc(15px + 1px);
@@ -14389,7 +14399,7 @@ html[lang=ar] .langCurrSwitcher .container .dropdown-button {
 .langCurrSwitcher .container .dropDown {
   background-color: #111823;
   color: white;
-  border: 1px solid #CFAF9B;
+  border: 1px solid #cfaf9b;
 }
 .langCurrSwitcher .container .dropDown.show {
   display: flex;
@@ -14416,7 +14426,7 @@ html[lang=ar] .langCurrSwitcher .container .dropdown-button {
 }
 .langCurrSwitcher .container .dropDown .listDropdownitemsParent .listDropdownitems .dropdown-item .text {
   cursor: pointer;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -14450,7 +14460,7 @@ html[lang=ar] .langCurrSwitcher .container .dropDown .listDropdownitemsParent .l
   align-items: center;
   gap: 10px;
   margin: 0.5rem auto;
-  border: 1px solid #CFAF9B;
+  border: 1px solid #cfaf9b;
   padding: 0.25rem;
   border-radius: 4px;
   width: -moz-fit-content;
@@ -14464,11 +14474,11 @@ html[lang=ar] .langCurrSwitcher .container .dropDown .listDropdownitemsParent .l
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 4px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 
 .areaUnitButton.active {
-  background-color: #CFAF9B;
+  background-color: #cfaf9b;
   color: #111823;
 }
 
@@ -14653,7 +14663,7 @@ html[lang=ar] .language-switcher .switcher-button .text {
   border-right: 1px solid transparent;
   border-bottom: 1px solid var(--border-color);
   font-size: 14px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   cursor: pointer;
   color: var(--light-text-color);
   display: block;
@@ -14726,7 +14736,7 @@ html[lang=ar] .language-switcher .switcher-dropdown .switcher-option {
   text-align: center;
   font-size: 12px;
   padding: 1rem 1.5rem;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   cursor: pointer;
   color: var(--text-color);
   display: block;
@@ -14960,10 +14970,10 @@ html[lang=ar] .developer .___title {
 .developer .__top .seperator {
   height: 1px;
   margin-top: 1rem;
-  border: 1px solid #4D5462;
+  border: 1px solid #4d5462;
 }
 .developer .__top .__title {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: var(--audrey-font-family);
   font-size: 30px;
@@ -14978,9 +14988,9 @@ html[lang=ar] .developer .__top .__title {
   font-size: calc(30px + 1px);
 }
 .developer .__top .__subtitle {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 20px;
   font-style: normal;
   font-weight: 300;
@@ -15279,7 +15289,7 @@ body ::-webkit-scrollbar-thumb {
   text-align: center;
   padding: 0.5rem;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-size: 16px;
   z-index: 1000;
   display: flex;
@@ -15305,22 +15315,22 @@ html[lang=ar] .offplan-sticky-footer {
   padding: 0.5rem;
 }
 .offplan-sticky-footer .offplan-sticky-footer-text {
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-style: normal;
   font-weight: 400;
   color: rgb(255, 255, 255);
   font-size: 14px;
   line-height: 17px;
-  color: #141C26;
+  color: #141c26;
 }
 html[lang=ar] .offplan-sticky-footer .offplan-sticky-footer-text {
   font-size: calc(14px + 1px);
 }
 .offplan-sticky-footer .offplan-register-button {
-  background: #FFFFFF;
-  color: #002E31;
+  background: #ffffff;
+  color: #002e31;
   font-size: 1.2384rem;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
   font-weight: 400;
   font-style: normal;
   height: 3.625rem;
@@ -15331,7 +15341,7 @@ html[lang=ar] .offplan-sticky-footer .offplan-sticky-footer-text {
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  background-color: #141C26;
+  background-color: #141c26;
   color: white;
 }
 html[lang=ar] .offplan-sticky-footer .offplan-register-button {

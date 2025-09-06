@@ -18,7 +18,7 @@
     width: 150px;
   }
 
-  .isMobile{
+  .isMobile {
     display: none;
   }
 
@@ -57,11 +57,11 @@
     .seperator {
       height: 1px;
       margin-top: 1rem;
-      border: 1px solid #4D5462;
+      border: 1px solid #4d5462;
     }
 
     .__title {
-      color: #FFF;
+      color: #fff;
       text-align: center;
       font-family: var(--audrey-font-family);
       @include adjust-font(30px, false);
@@ -74,9 +74,9 @@
     }
 
     .__subtitle {
-      color: #FFF;
+      color: #fff;
       text-align: center;
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       @include adjust-font(20px, false);
       font-style: normal;
       font-weight: 300;
@@ -116,9 +116,8 @@
         align-self: flex-start;
         height: calc(100vh - 100px);
       }
-
     }
-    
+
     .ctaBtnParent {
       display: flex;
       justify-content: center;
@@ -141,7 +140,7 @@
     .isDesktop {
       display: none;
     }
-    .isMobile{
+    .isMobile {
       display: grid;
     }
     .__top {
@@ -171,7 +170,7 @@
 }
 
 @media (max-width: 768px) {
-  .developer {  
+  .developer {
     .__top {
       .__title {
         // display: contents;

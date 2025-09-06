@@ -3,15 +3,15 @@
   border-bottom: 1px solid var(--border-color);
   @media all and (max-width: 980px) {
     border: 1px solid transparent; /* Set the border width and make it transparent */
-  border-image: radial-gradient(
-    circle,
-    rgba(255, 236, 224, 1) 0%,
-    rgba(240, 202, 178, 1) 35%,
-    rgba(172, 131, 109, 1) 100%
-  );
-  border-image-slice: 1;
-  padding: 20px;
-}
+    border-image: radial-gradient(
+      circle,
+      rgba(255, 236, 224, 1) 0%,
+      rgba(240, 202, 178, 1) 35%,
+      rgba(172, 131, 109, 1) 100%
+    );
+    border-image-slice: 1;
+    padding: 20px;
+  }
   div.mainContainer {
     display: flex;
     justify-content: space-between;
@@ -20,8 +20,8 @@
       justify-content: flex-end;
     }
     @media all and (max-width: 1200px) {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
     div.formContainer {
       width: 80%;
@@ -35,12 +35,11 @@
       }
       @media all and (max-width: 1200px) {
         flex-wrap: wrap;
-        
       }
       @media all and (max-width: 980px) {
         flex-direction: column;
-       width: 100%;
-    }
+        width: 100%;
+      }
       div.inputContainer {
         width: 36%;
         margin-right: 10px;
@@ -52,12 +51,12 @@
         cursor: pointer;
         position: relative;
         @media all and (max-width: 1400px) {
-         width: 39%;
-         margin-right: 0;
+          width: 39%;
+          margin-right: 0;
         }
         @media all and (max-width: 1200px) {
-           width: 100%;
-           margin-bottom: 20px;
+          width: 100%;
+          margin-bottom: 20px;
         }
         input {
           width: 100%;
@@ -69,14 +68,14 @@
           &::placeholder {
             letter-spacing: 1.6px;
             @include adjust-font(13px, false);
-            font-family: var(--lato-font-family);
-            @media all and (max-width: 576px){
+            font-family: var(--lara-font-family);
+            @media all and (max-width: 576px) {
               @include adjust-font(12px, false);
             }
-            @media all and (max-width: 425px){
+            @media all and (max-width: 425px) {
               @include adjust-font(11px, false);
             }
-            @media all and (max-width: 375px){
+            @media all and (max-width: 375px) {
               @include adjust-font(10px, false);
             }
           }
@@ -123,17 +122,17 @@
         width: 60%;
         @media all and (max-width: 1200px) {
           width: 100%;
-       }
+        }
         @media all and (max-width: 980px) {
-            width: 100%;
-            flex-direction: column;
-         }
+          width: 100%;
+          flex-direction: column;
+        }
         div.field {
           padding: 10px 12px;
           border: 1px solid var(--border-color);
           margin-right: 10px;
           &.ar {
-            @media all and (max-width: 980px){
+            @media all and (max-width: 980px) {
               margin-right: unset;
             }
           }
@@ -152,8 +151,9 @@
           @media all and (max-width: 980px) {
             width: 100%;
             margin-bottom: 20px;
-         }
-          &:nth-child(3),&:nth-child(4) {
+          }
+          &:nth-child(3),
+          &:nth-child(4) {
             div.dropDown {
               width: 15rem;
               // display: flex;
@@ -212,21 +212,21 @@
             margin-right: 0;
             margin-bottom: 0;
           }
-          &:nth-child(2n)
-           {
+          &:nth-child(2n) {
             width: 25%;
             @media all and (max-width: 1200px) {
               width: 23%;
             }
             @media all and (max-width: 980px) {
-                width: 100%;
-             }
+              width: 100%;
+            }
           }
-          &:nth-child(3),&:nth-child(4){
+          &:nth-child(3),
+          &:nth-child(4) {
             width: 30%;
             @media all and (max-width: 980px) {
               width: 100%;
-           }
+            }
           }
           span.text {
             color: var(--text-color);
@@ -258,13 +258,13 @@ div.buttonContainer {
 
   &.resetButton {
     &.ar {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
     margin-right: 1rem;
   }
 
   @media all and (max-width: 1400px) {
-   margin-top: 30px;
+    margin-top: 30px;
   }
   @media all and (max-width: 1200px) {
     width: 21%;
@@ -274,7 +274,7 @@ div.buttonContainer {
   }
   @media all and (max-width: 980px) {
     width: 100%;
- }
+  }
   button {
     width: 100%;
     background-color: transparent;
@@ -285,8 +285,8 @@ div.buttonContainer {
     transition: 0.3s ease-in-out;
     padding: 12px 10px;
     @media all and (max-width: 980px) {
-       padding: 12px 10px;
-       background: linear-gradient(
+      padding: 12px 10px;
+      background: linear-gradient(
         262deg,
         rgba(172, 131, 109, 1) 28%,
         rgba(240, 202, 178, 1) 70%
@@ -299,7 +299,7 @@ div.buttonContainer {
           stroke: #000;
         }
       }
-     }
+    }
     &:hover {
       background: linear-gradient(
         262deg,
@@ -320,7 +320,7 @@ div.buttonContainer {
       color: var(--text-color);
       letter-spacing: 1.6px;
       @include adjust-font(11px, false);
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       // transition: 0.3s ease-in-out;
     }
 
@@ -349,7 +349,7 @@ div.buttonContainer {
   width: calc(30% - 1rem) !important;
   padding-top: 1rem !important;
   margin: 0 0 0 auto !important;
-  
+
   &.ar {
     margin-left: 0 !important;
     margin-right: auto !important;
@@ -396,7 +396,10 @@ div.buttonContainer {
   }
 
   input:checked + .slider {
-    background: var(--gradient, linear-gradient(91deg, #FFECE0 17.28%, #F0CAB2 47.14%, #AC836D 76.39%));
+    background: var(
+      --gradient,
+      linear-gradient(91deg, #ffece0 17.28%, #f0cab2 47.14%, #ac836d 76.39%)
+    );
   }
 
   .slider:before {
@@ -406,7 +409,7 @@ div.buttonContainer {
     width: 14px;
     left: 3px;
     bottom: 3px;
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     transition: 0.4s;
     border-radius: 50%;
   }
@@ -416,7 +419,6 @@ div.buttonContainer {
     @media all and (max-width: 1200px) {
       transform: translateX(12px);
     }
-    
   }
 }
 

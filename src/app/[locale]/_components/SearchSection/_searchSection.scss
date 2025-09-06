@@ -83,7 +83,7 @@
       .text {
         color: var(--text-color);
         @include adjust-font(14px, false);
-        font-family: var(--lato-font-family);
+        font-family: var(--lara-font-family);
       }
     }
   }
@@ -139,7 +139,7 @@
         }
       }
       span {
-        font-family: var(--lato-font-family) !important;
+        font-family: var(--lara-font-family) !important;
       }
     }
   }
@@ -318,7 +318,7 @@
           span {
             @include adjust-font(14px, false);
             color: var(--btn-text-color);
-            font-family: var(--lato-font-family);
+            font-family: var(--lara-font-family);
             font-weight: 400;
             letter-spacing: 1.6px;
             &.details {
@@ -409,7 +409,7 @@
       color: var(--placeholder-color);
       text-transform: uppercase;
       letter-spacing: 1.6px;
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       @include adjust-font(15px, false);
     }
     &.ar {

@@ -11,9 +11,9 @@
       @media all and (max-width: 1200px) {
         height: 1200px;
       }
-      @media all and (max-width:640px){
-      height: 950px;
-     }
+      @media all and (max-width: 640px) {
+        height: 950px;
+      }
       img {
         object-fit: cover;
         z-index: -1;
@@ -77,10 +77,10 @@
                 @media all and (max-width: 1200px) {
                   margin: 0 auto;
                 }
-                @media all and (max-width:640px){
-                 width: 400px;
-                 height: 400px;
-              }
+                @media all and (max-width: 640px) {
+                  width: 400px;
+                  height: 400px;
+                }
                 .title {
                   // background: radial-gradient(
                   //   circle,
@@ -96,9 +96,9 @@
                   @media all and (max-width: 1400px) {
                     @include adjust-font(20px, false);
                   }
-                  @media all and (max-width:640px){
+                  @media all and (max-width: 640px) {
                     @include adjust-font(16px, false);
-                     }
+                  }
                 }
                 span {
                   // background: radial-gradient(
@@ -117,9 +117,9 @@
                   @media all and (max-width: 1400px) {
                     @include adjust-font(11px, false);
                   }
-                  @media all and (max-width:640px){
-                      @include adjust-font(10px, false);
-                     }
+                  @media all and (max-width: 640px) {
+                    @include adjust-font(10px, false);
+                  }
                 }
                 div.texts {
                   position: absolute;
@@ -149,10 +149,10 @@
                     width: 390px;
                     height: 390px;
                   }
-                  @media all and (max-width:640px){
+                  @media all and (max-width: 640px) {
                     width: 300px;
                     height: 300px;
-                 }
+                  }
                   div.texts {
                     // background: radial-gradient(
                     //   circle,
@@ -176,10 +176,10 @@
                     @media all and (max-width: 1400px) {
                       width: 230px;
                       height: 230px;
-                      @media all and (max-width:640px){
+                      @media all and (max-width: 640px) {
                         width: 190px;
                         height: 190px;
-                     }
+                      }
                     }
                     div.texts {
                       background: transparent;
@@ -250,7 +250,6 @@
                 text-align: center;
                 max-width: 100%;
               }
-             
             }
             div.buttonContainer {
               width: 13rem;
@@ -260,7 +259,7 @@
               font-size: 14px;
               cursor: pointer;
               text-transform: uppercase;
-              font-family: var(--lato-font-family);
+              font-family: var(--lara-font-family);
               @media all and (max-width: 1200px) {
                 margin: 0 auto;
               }
@@ -373,8 +372,8 @@
             min-height: 430px;
           }
           @media all and (max-width: 480px) {
-           margin: 0 0;
-           width: 100%;
+            margin: 0 0;
+            width: 100%;
           }
           div.left {
             width: 50%;

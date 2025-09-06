@@ -12,7 +12,7 @@
     margin-bottom: 3rem;
 
     .title {
-      color: #FFF;
+      color: #fff;
       text-align: center;
       font-family: var(--audrey-font-family);
       @include adjust-font(30px, false);
@@ -26,9 +26,9 @@
     }
 
     .subtitle {
-      color: #FFF;
+      color: #fff;
       text-align: center;
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       @include adjust-font(20px, false);
       font-style: normal;
       font-weight: 300;
@@ -58,7 +58,7 @@
       margin-top: 3.5rem;
     }
 
-    .contentContainer{
+    .contentContainer {
       margin-top: 7rem;
     }
   }
@@ -70,7 +70,7 @@
 }
 
 @media (max-width: 1350px) {
-  .developers {  
+  .developers {
     .top {
       .title {
         @include adjust-font(18px, false);
@@ -93,7 +93,7 @@
 }
 
 @media (max-width: 768px) {
-  .developers {  
+  .developers {
     .top {
       .title {
         @include adjust-font(18px, false);

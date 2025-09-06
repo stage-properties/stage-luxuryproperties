@@ -1,68 +1,67 @@
 .offplan-sticky-footer {
-    position: fixed; /* Sticks to the viewport */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    padding: .5rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    font-family: var(--lato-font-family);
-    @include adjust-font(16px, false);
-    z-index: 1000;
+  position: fixed; /* Sticks to the viewport */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 0.5rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  font-family: var(--lara-font-family);
+  @include adjust-font(16px, false);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+  z-index: 9999999;
+
+  &.ar {
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    flex-direction: row-reverse;
+  }
+
+  .offplan-sticky-footer-image {
+    width: 75px;
+    height: auto;
+  }
+
+  .offplan-sticky-footer-logos {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .offplan-sticky-footer-text {
+    font-family: var(--lara-font-family);
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    @include adjust-font(14px, false);
+    line-height: 17px;
+
+    color: #141c26;
+  }
+  .offplan-register-button {
+    background: #ffffff;
+    color: #002e31;
+    @include adjust-font(1.2384rem, false);
+    font-family: var(--lara-font-family);
+    font-weight: 400;
+    font-style: normal;
+    height: 3.625rem;
+    width: 13.1875rem;
+    border-radius: 3px;
+    display: flex;
     align-items: center;
-    z-index: 9999999;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
 
-    &.ar {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-
-    .offplan-sticky-footer-image {
-        width: 75px;
-        height: auto;
-    }
-
-    .offplan-sticky-footer-logos {
-        display: flex;
-        flex-direction: column;
-        padding: 0.5rem; 
-    }
-
-    .offplan-sticky-footer-text {
-        font-family: var(--lato-font-family);
-        font-style: normal;
-        font-weight: 400;
-        color: rgb(255, 255, 255);
-        @include adjust-font(14px, false);
-        line-height: 17px;
-
-        color: #141C26;
-    }
-    .offplan-register-button {
-
-        background: #FFFFFF;
-        color: #002E31;
-        @include adjust-font(1.2384rem, false);
-        font-family: var(--lato-font-family);
-        font-weight: 400;
-        font-style: normal;
-        height: 3.625rem;
-        width: 13.1875rem;
-        border-radius: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        text-decoration: none;
-
-        background-color: #141C26;
-        color: white;
-    }
-    @media all and (max-width: 992px) {
-        display: none !important;
-    }
+    background-color: #141c26;
+    color: white;
+  }
+  @media all and (max-width: 992px) {
+    display: none !important;
+  }
 }

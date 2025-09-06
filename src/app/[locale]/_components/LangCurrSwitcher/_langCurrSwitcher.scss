@@ -9,7 +9,7 @@
     right: unset;
     left: 1rem;
   }
-  @media all and (max-width: 992px){
+  @media all and (max-width: 992px) {
     left: unset;
     &.ar {
       right: unset;
@@ -19,9 +19,9 @@
     .dropdown-button {
       cursor: pointer;
       padding: 0px 20px;
-      color: #FFF;
+      color: #fff;
       text-align: center;
-      font-family: var(--lato-font-family);
+      font-family: var(--lara-font-family);
       @include adjust-font(15px, false);
       font-style: normal;
       font-weight: 400;
@@ -29,22 +29,22 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
       background-color: #111823;
-      border: 1px solid #CFAF9B;
-      @media all and (max-width: 992px){
+      border: 1px solid #cfaf9b;
+      @media all and (max-width: 992px) {
         border-radius: 150px 0px 0px 150px;
-        padding: 10px 10px 10px 10px; 
+        padding: 10px 10px 10px 10px;
         border-right: unset;
         &.ar {
           border-radius: 0px 150px 150px 0px;
-          padding: 10px 10px 10px 10px; 
+          padding: 10px 10px 10px 10px;
           border-left: unset;
         }
       }
       .icon {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         &.ar {
           margin-left: unset;
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
         @media all and (max-width: 992px) {
           display: none;
@@ -59,17 +59,17 @@
           display: none;
         }
         .flag {
-          margin-right: .5rem;
+          margin-right: 0.5rem;
           &.ar {
             margin-right: unset;
-            margin-left: .5rem;
+            margin-left: 0.5rem;
           }
         }
       }
 
       .flagMobile {
         display: none;
-        @media all and (max-width: 992px){
+        @media all and (max-width: 992px) {
           display: inline;
           margin-left: 15px;
           &.ar {
@@ -82,12 +82,12 @@
     .dropDown {
       background-color: #111823;
       color: white;
-      border: 1px solid #CFAF9B;
+      border: 1px solid #cfaf9b;
       &.show {
         display: flex;
         flex-direction: column;
       }
-      .listDropdownitemsParent{
+      .listDropdownitemsParent {
         display: flex;
         @media all and (max-width: 992px) and (orientation: landscape) {
           height: calc(100vh - 10rem);
@@ -105,14 +105,14 @@
             }
             .text {
               cursor: pointer;
-              font-family: var(--lato-font-family);
+              font-family: var(--lara-font-family);
               @include adjust-font(16px, false);
               font-style: normal;
               font-weight: 300;
               line-height: 300%; /* 41.92px */
               letter-spacing: 1.6px;
               .ar {
-                font-family: 'Cairo';
+                font-family: "Cairo";
                 letter-spacing: normal;
                 font-size: 17px;
               }
@@ -126,7 +126,7 @@
   .separator {
     width: 1px;
     height: 107px;
-    background-color: rgba(207, 175, 155, .2);
+    background-color: rgba(207, 175, 155, 0.2);
     margin: 1rem 0;
   }
 
@@ -144,8 +144,8 @@
   align-items: center;
   gap: 10px; // Adjust spacing between buttons as needed
   margin: 0.5rem auto;
-  border: 1px solid #CFAF9B;
-  padding: .25rem;
+  border: 1px solid #cfaf9b;
+  padding: 0.25rem;
   border-radius: 4px;
   width: fit-content;
 }
@@ -158,10 +158,10 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 4px;
-  font-family: var(--lato-font-family);
+  font-family: var(--lara-font-family);
 }
 
 .areaUnitButton.active {
-  background-color: #CFAF9B;
+  background-color: #cfaf9b;
   color: #111823;
 }

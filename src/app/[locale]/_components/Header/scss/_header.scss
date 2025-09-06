@@ -34,7 +34,7 @@
       font-weight: 500;
       font-family: var(--audrey-font-family);
       position: relative;
-      
+
       // commenting to prevent hovering on responsive (tablet & mobile)
       // &.dropDownExist {
       //   &:hover {
@@ -62,10 +62,14 @@
           border-bottom: 1px solid var(--border-color);
           @include adjust-font(14px, false);
           text-transform: capitalize;
-          font-family: var(--lato-font-family);
+          font-family: var(--lara-font-family);
 
           &:hover {
-            background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+            background: linear-gradient(
+              262deg,
+              rgb(172, 131, 109) 28%,
+              rgb(240, 202, 178) 70%
+            );
             border-left: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
             a {
@@ -127,7 +131,7 @@
               padding: 6px 0;
 
               a {
-                font-family: var(--lato-font-family);
+                font-family: var(--lara-font-family);
                 color: var(--secondary-bg-color);
                 letter-spacing: 1px;
                 @include adjust-font(16px, false);
@@ -145,7 +149,7 @@
     height: 100%;
     overflow: hidden;
     &.ar {
-      order: 2
+      order: 2;
     }
 
     .stage-logo {
@@ -170,7 +174,7 @@
     display: flex;
     align-items: center;
     &.ar {
-      order: 1
+      order: 1;
     }
 
     div.menuIcon {
@@ -262,7 +266,7 @@
         // &.dropDownExist {
         //   &:hover {
         //     ul.subLinks {
-              // display: block;
+        // display: block;
         //     }
         //   }
         // }
@@ -295,11 +299,11 @@
 
   .icon {
   }
-  
+
   .icon.closed {
     transform: rotate(0deg); /* Arrow in default (closed) state */
   }
-  
+
   .icon.open {
     transform: rotate(180deg); /* Arrow flipped (open) state */
   }
