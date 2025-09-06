@@ -349,10 +349,10 @@ html[lang=ar] #header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.l
   top: 44%;
   left: 50%;
   transform: translate(-50%, -40%);
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0 auto;
   text-align: center;
-  text-transform: uppercase;
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -363,17 +363,15 @@ html[lang=ar] #header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.l
   }
 }
 #homePage div.videoContainer h1.headline {
-  font-size: 37px;
+  font-size: 278.04px;
+  font-family: var(--migratory-font-family, cursive);
+  line-height: 129.609px; /* 46.615% */
   z-index: 9;
-  color: #fff;
-  font-weight: 600;
-  font-size: 3vw;
+  color: #ffde9b;
+  font-weight: 400;
 }
 html[lang=ar] #homePage div.videoContainer h1.headline {
-  font-size: calc(37px + 1px);
-}
-html[lang=ar] #homePage div.videoContainer h1.headline {
-  font-size: calc(3vw + 1px);
+  font-size: calc(278.04px + 1px);
 }
 @media all and (max-width: 1400px) {
   #homePage div.videoContainer h1.headline {
@@ -411,11 +409,12 @@ html[lang=ar] #homePage div.videoContainer h1.headline {
   }
 }
 #homePage div.videoContainer span.subheadline {
+  text-align: left;
+  line-height: 0; /* 46.615% */
   font-size: 30px;
   z-index: 9;
   color: #fff;
   font-weight: 300;
-  font-style: italic;
   font-size: 2.4vw;
 }
 html[lang=ar] #homePage div.videoContainer span.subheadline {
@@ -15911,6 +15910,7 @@ div.ldr .adImage {
   padding: 40px 20px 64px; /* a bit tighter */
   text-align: center;
   margin-bottom: 8rem;
+  margin-top: 8rem;
 }
 
 /* Header */

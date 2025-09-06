@@ -103,14 +103,10 @@ export default async function Home({ params: { locale } }) {
               sizes="(max-width:980px 100vw)"
             />
             <div className="headlineParent wrapper">
-              {/* <h1 className="headline">
-                <span className="part-1">{t("Leading Property")} </span>
-                <span>{t("Broker in Dubai")}</span>
-              </h1>
+              <h1 className="headline">{t("luxury")}</h1>
               <span className="subheadline">
-                <span className="part-1">{t("Smart Investments")}</span>
-                <span> {t("Start Here")}</span>
-              </span> */}
+                <span className="part-1">{t("defined_by_stage")}</span>
+              </span>
             </div>
           </div>
           <div className="searchComponent">

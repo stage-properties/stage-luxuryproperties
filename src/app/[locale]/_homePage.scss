@@ -1,26 +1,26 @@
 #lc_widgetTooltip-close {
   scale: 1.3;
-  margin-top: .2rem;
-  margin-right: .2rem;
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 @media all and (max-width: 576px) {
   .lc_button_tooltip--container {
-   width: 270px !important;
+    width: 270px !important;
   }
-  
+
   #lc_widgetTooltip-text {
     @include adjust-font(12px, true);
   }
-  
+
   .lc_button_tooltip {
     padding: 12px 15px !important;
   }
-  
+
   .lc_button_tooltip--container.lc_button_tooltip--right {
     right: -270px !important;
   }
-  
+
   .lc_button_tooltip--container {
     width: 262px !important;
   }
@@ -29,22 +29,22 @@
 @media all and (max-width: 320px) {
   #lc_widgetTooltip-close {
     scale: 1.3;
-    margin-top: .2rem;
-    margin-right: .2rem;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
   }
-  
+
   #lc_widgetTooltip-text {
     @include adjust-font(11px, true);
   }
-  
+
   .lc_button_tooltip {
     padding: 10px 15px !important;
   }
-  
+
   .lc_button_tooltip--container.lc_button_tooltip--right {
     right: -225px !important;
   }
-  
+
   .lc_button_tooltip--container {
     width: 202px !important;
   }
@@ -55,7 +55,11 @@
     z-index: -1;
     position: relative;
     width: 100%;
-    background-color:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,.3));
+    background-color: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.3)
+    );
     height: 100vh;
     @media all and (max-width: 1200px) {
       height: 85vh;
@@ -64,7 +68,11 @@
       position: absolute;
       width: 100%;
       mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 50%,
+        transparent 100%
+      );
       object-fit: cover;
       @media all and (max-width: 980px) {
         width: 100%;
@@ -76,11 +84,10 @@
       top: 44%;
       left: 50%;
       transform: translate(-50%, -40%);
-      width: 100%;
+      width: fit-content;
       margin: 0 auto;
       text-align: center;
-      text-transform: uppercase;
-      gap: .5rem;
+      gap: 0.5rem;
       display: flex;
       flex-direction: column;
       @media all and (max-width: 640px) {
@@ -89,33 +96,35 @@
     }
 
     h1.headline {
-      @include adjust-font(37px, false);
+      @include adjust-font(278.04px, false);
+      font-family: var(--migratory-font-family, cursive);
+      line-height: 129.609px; /* 46.615% */
       z-index: 9;
-      color: #fff;
-      font-weight: 600;
-      @include adjust-font(3vw, false);
-      @media all and (max-width: 1400px){
+      color: #ffde9b;
+      font-weight: 400;
+      @media all and (max-width: 1400px) {
         @include adjust-font(3.5vw, false);
       }
-      @media all and (max-width: 992px){
+      @media all and (max-width: 992px) {
         @include adjust-font(4vw, false);
       }
-      @media all and (max-width: 768px){
+      @media all and (max-width: 768px) {
         @include adjust-font(4.5vw, false);
       }
       @media all and (max-width: 576px) {
         @include adjust-font(8vw, false);
         .part-1 {
-          display: block
+          display: block;
         }
       }
     }
     span.subheadline {
+      text-align: left;
+      line-height: 0; /* 46.615% */
       @include adjust-font(30px, false); // base size: 80% of 37px
       z-index: 9;
       color: #fff;
       font-weight: 300;
-      font-style: italic;
       @include adjust-font(2.4vw, false); // 80% of headline’s 3vw
       @media all and (max-width: 1400px) {
         @include adjust-font(2.8vw, false); // 80% of headline’s 3.5vw
@@ -140,10 +149,15 @@
       position: absolute;
       position: absolute;
       width: 100%;
-      background: linear-gradient(360deg, rgb(18, 24, 35) 0%, rgba(18, 24, 35, 0.01) 40%),linear-gradient(0deg,rgba(0,0,0,.1),rgba(0,0,0,.1));
+      background: linear-gradient(
+          360deg,
+          rgb(18, 24, 35) 0%,
+          rgba(18, 24, 35, 0.01) 40%
+        ),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
       height: 100%;
       bottom: 0;
-      @media all and (max-width:1980px){
+      @media all and (max-width: 1980px) {
         display: block;
       }
       @media all and (min-width: 2400px) {
