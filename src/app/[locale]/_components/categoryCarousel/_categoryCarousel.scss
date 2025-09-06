@@ -28,7 +28,6 @@
         padding-right: 30px;
       }
       @media all and (max-width: 360px) {
-       
         padding-right: 10px;
       }
     }
@@ -67,13 +66,13 @@
       }
     }
     div.propertyItem {
-        @media all and (max-width: 1200px) {
-           width: 19rem !important;
-          }
-          @media all and (max-width: 1050px) {
-           width: 100% !important;
-           }
+      @media all and (max-width: 1200px) {
+        width: 19rem !important;
       }
+      @media all and (max-width: 1050px) {
+        width: 100% !important;
+      }
+    }
     div.slick-center {
       &.slick-slide {
         filter: none !important;

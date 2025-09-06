@@ -5,6 +5,7 @@ import HomePageLazyLoad from "./_homepageComponents/homePageLazyLoad/HomePageLaz
 import Breadcrumb from "./_components/Breadcrumb/Breadcrumb";
 import SearchSection from "./_components/SearchSection/SearchSection";
 import { serverPathname } from "@/app/[locale]/_utils/serverPathname";
+import SignatureCollections from "./_components/SignatureCollection/SignatureCollection";
 
 export async function generateMetadata({ params }) {
   const { origin } = serverPathname();
@@ -95,27 +96,33 @@ export default async function Home({ params: { locale } }) {
             <Image
               className="hero"
               priority={true}
-              src="/1704292151466_compressed.webp"
+              src="/hero.jpg"
               fill
               alt="Dubai skyscrapers"
               quality={60}
               sizes="(max-width:980px 100vw)"
             />
             <div className="headlineParent wrapper">
-              <h1 className="headline">
+              {/* <h1 className="headline">
                 <span className="part-1">{t("Leading Property")} </span>
                 <span>{t("Broker in Dubai")}</span>
               </h1>
               <span className="subheadline">
                 <span className="part-1">{t("Smart Investments")}</span>
                 <span> {t("Start Here")}</span>
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="searchComponent">
             <div className="wrapper">
-              <h2 className="mainHeading gradientText title">{cta_title}</h2>
               <span className="downArrow" />
+              <SignatureCollections
+                items={[
+                  { src: "/communities1.jpg", label: "Signature building" },
+                  { src: "/communities2.jpg", label: "Signature building" },
+                  { src: "/communities3.jpg", label: "Signature building" },
+                ]}
+              />
               <SearchSection bgColor={false} />
             </div>
           </div>

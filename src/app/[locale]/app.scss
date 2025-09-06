@@ -1,20 +1,20 @@
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @mixin adjust-font($size, $important: false) {
-    @if $important {
-        font-size: $size !important;
-        html[lang="ar"] & {
-            font-size: calc(#{$size} + 1px) !important;
-        }
-    } @else {
-        font-size: $size;
-        html[lang="ar"] & {
-            font-size: calc(#{$size} + 1px);
-        }
+  @if $important {
+    font-size: $size !important;
+    html[lang="ar"] & {
+      font-size: calc(#{$size} + 1px) !important;
     }
+  } @else {
+    font-size: $size;
+    html[lang="ar"] & {
+      font-size: calc(#{$size} + 1px);
+    }
+  }
 }
 
 @import "./_components/Header/scss/header";
@@ -89,40 +89,44 @@
 @import "./(secondary)/_components/GallerySectionSecondary/galleryResponsiveSlider";
 @import "./_components/ImageLoader/imageLoader";
 @import "./_components/CommonCarousel/commonCarousel";
-@import './mortgage-calculator/scss/mortgageCalculator';
-@import './_components/Review/review';
-@import './_components/Breadcrumb/breadcrumb';
-@import './_components/NoData/noData';
-@import './developers/developers';
-@import './_components/DeveloperCard/developerCard';
-@import './_components/DeveloperCardHeader/developerCardHeader';
-@import './_components/Tags/tags';
-@import './areas-and-communities/areasAndCommunities';
-@import './areas-and-communities/[slug]/community';
-@import './_components/CommunityAndAreasCard/communityAndAreasCard';
-@import './_components/CTA/cta';
-@import './_components/Chatbot/chatbot';
-@import './blog/[blogId]/_components/BlogContent/scss/blogContent.scss';
-@import './(dubai)/[offeringType]/_component/mainpage';
-@import './offplan/[emirateParam]/[cityParam]/property/[id]/_components/FloorPlans/floorPlans';
-@import './offplan/[emirateParam]/[cityParam]/property/[id]/_components/PropertyPrice/propertyPrice';
-@import './_components/ContactAgentForm/contactAgentForm';
-@import './offplan/[emirateParam]/[cityParam]/property/[id]/_components/AboutDeveloper/aboutDeveloper';
-@import './offplan/[emirateParam]/[cityParam]/property/[id]/_components/InvestSection/investSection';
-@import './notFound';
-@import './landing/[slug]/landing';
-@import './_components/formComponent/formComponent';
-@import './_components/LangCurrSwitcher/langCurrSwitcher';
-@import './landing/_components/AboutDeveloper/aboutDeveloper';
-@import './_components/LanguageSwitcher/LanguageSwitcher';
-@import './_components/LanguageSwitcher/LanguageSwitcherMobile/LanguageSwitcherMobile';
-@import './_components/secondaryCommonPage/components/SortBy/sortBy';
-@import './developers/[slug]/developer';
-@import './offplan/[emirateParam]/_components/SortBy/sortBy';
-@import './_components/GlobalPopup/globalPopup';
-@import './offplan/[emirateParam]/[cityParam]/property/[id]/_components/StickyFooter/stickyFooter';
-@import './_components/Banner/HP/hp';
-@import './_components/Banner/MPU/mpu';
-@import './blog/[blogId]/_components/BlogContent/scss/blogContent';
-@import './_components/Banner/LDR/ldr';
-@import './_components/PopularSearches/component/popularSearches'
+@import "./mortgage-calculator/scss/mortgageCalculator";
+@import "./_components/Review/review";
+@import "./_components/Breadcrumb/breadcrumb";
+@import "./_components/NoData/noData";
+@import "./developers/developers";
+@import "./_components/DeveloperCard/developerCard";
+@import "./_components/DeveloperCardHeader/developerCardHeader";
+@import "./_components/Tags/tags";
+@import "./areas-and-communities/areasAndCommunities";
+@import "./areas-and-communities/[slug]/community";
+@import "./_components/CommunityAndAreasCard/communityAndAreasCard";
+@import "./_components/CTA/cta";
+@import "./_components/Chatbot/chatbot";
+@import "./blog/[blogId]/_components/BlogContent/scss/blogContent.scss";
+@import "./(dubai)/[offeringType]/_component/mainpage";
+@import "./offplan/[emirateParam]/[cityParam]/property/[id]/_components/FloorPlans/floorPlans";
+@import "./offplan/[emirateParam]/[cityParam]/property/[id]/_components/PropertyPrice/propertyPrice";
+@import "./_components/ContactAgentForm/contactAgentForm";
+@import "./offplan/[emirateParam]/[cityParam]/property/[id]/_components/AboutDeveloper/aboutDeveloper";
+@import "./offplan/[emirateParam]/[cityParam]/property/[id]/_components/InvestSection/investSection";
+@import "./notFound";
+@import "./landing/[slug]/landing";
+@import "./_components/formComponent/formComponent";
+@import "./_components/LangCurrSwitcher/langCurrSwitcher";
+@import "./landing/_components/AboutDeveloper/aboutDeveloper";
+@import "./_components/LanguageSwitcher/LanguageSwitcher";
+@import "./_components/LanguageSwitcher/LanguageSwitcherMobile/LanguageSwitcherMobile";
+@import "./_components/secondaryCommonPage/components/SortBy/sortBy";
+@import "./developers/[slug]/developer";
+@import "./offplan/[emirateParam]/_components/SortBy/sortBy";
+@import "./_components/GlobalPopup/globalPopup";
+@import "./offplan/[emirateParam]/[cityParam]/property/[id]/_components/StickyFooter/stickyFooter";
+@import "./_components/Banner/HP/hp";
+@import "./_components/Banner/MPU/mpu";
+@import "./blog/[blogId]/_components/BlogContent/scss/blogContent";
+@import "./_components/Banner/LDR/ldr";
+@import "./_components/PopularSearches/component/popularSearches";
+@import "./_components/ImageAccordion/scss/imageAccordion";
+@import "./_homepageComponents/AccordionSection/accordionSection";
+@import "./_components/DifferentTabs/scss/differentTabs";
+@import "./_components/SignatureCollection/signatureCollection";

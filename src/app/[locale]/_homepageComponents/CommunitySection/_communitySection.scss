@@ -14,7 +14,7 @@
     }
     h3.mainHeading {
       margin-top: 10px;
-      -webkit-text-fill-color: #FDFDFD;
+      -webkit-text-fill-color: #fdfdfd;
       @include adjust-font(17px, false);
       margin-bottom: 40px;
       @media all and (max-width: 480px) {
@@ -30,50 +30,53 @@
     }
     div.slick-slide {
       @media all and (min-width: 1200px) {
-        transform: scale(0.7) !important;
+        transform: scale(0.9) !important;
       }
-      @media all and (min-width: 1050px) and (max-width: 1200px) {
-        transform: scale(0.6) !important; 
+      @media all and (min-width: 768px) and (max-width: 1200px) {
+        transform: scale(0.95) !important;
+      }
+      @media all and (max-width: 768px) {
+        transform: scale(0.95);
       }
       @media all and (min-width: 768px) {
-        :nth-child(odd){
+        :nth-child(odd) {
           .communityCard {
-              margin-right: 10px;
+            margin-right: 10px;
           }
         }
-        transform: scale(1);
         filter: none;
       }
     }
     div.arrow-left {
-        scale: 1.2;
-        position: absolute;
-        right: calc(40% - 10px);
-        left: calc(40% - 10px);
-        top: 105%;
-        @media all and (min-width: 1050px) {
-          right: calc(17% - 10px);
-          left: calc(17% - 10px);
-          top: 100%;
-        }
+      scale: 1.2;
+      position: absolute;
+      right: calc(40% - 10px);
+      left: calc(40% - 10px);
+      top: 105%;
+      @media all and (min-width: 1050px) {
+        right: calc(17% - 10px);
+        left: calc(17% - 10px);
+        top: 100%;
+      }
     }
     div.arrow-right {
-        scale: 1.2;
-        position: absolute;
-        right: 55%;
-        left: 55%;
-        top: 105%;
-        @media all and (min-width: 1050px) {
-          right: 80%;
-          left: 80%;
-          top: 100%;
-        }
+      scale: 1.2;
+      position: absolute;
+      right: 55%;
+      left: 55%;
+      top: 105%;
+      @media all and (min-width: 1050px) {
+        right: 80%;
+        left: 80%;
+        top: 100%;
+      }
     }
     div.slick-center {
       &.slick-slide {
         filter: none !important;
-        transform: scale(1) !important;
+        // transform: scale(1) !important;
         transition: 0.4s ease-in;
+        width: unset !important;
       }
       div.propertyItem {
         z-index: 999;
@@ -87,6 +90,9 @@
           filter: none;
         }
       }
+    }
+    .margin {
+      margin-top: 40px !important;
     }
   }
   ._buttonContainer {

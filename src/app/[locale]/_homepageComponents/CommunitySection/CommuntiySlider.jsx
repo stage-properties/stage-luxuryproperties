@@ -1,41 +1,46 @@
 "use client";
 
-import CarouselLeftArrow from "@/app/[locale]/_components/categoryCarousel/CarouselLeftArrow";
-import CarouselRightArrow from "@/app/[locale]/_components/categoryCarousel/CarouselRightArrow";
 import React from "react";
-import Slider from 'react-slick'
+import Slider from "react-slick";
 import CommunityCard from "@/app/[locale]/_components/CommunityCard/CommunityCard";
 
 const CommuntiySlider = ({ featuredCityData }) => {
   const settings = {
     className: "center",
-    centerMode: true,
     dots: false,
     infinite: true,
     speed: 200,
-    slidesToShow: 3,
+    slidesToShow: 4.5,
     slidesToScroll: 1,
+    arrows: false,
+    initialSlide: 0.5,
     lazyLoad: false,
-    nextArrow: <CarouselRightArrow />,
-    prevArrow: <CarouselLeftArrow />,
     responsive: [
       {
-        breakpoint: 1050,
+        breakpoint: 1400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3.5,
           slidesToScroll: 1,
-          centerMode:false
-        }
+          centerMode: false,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          centerMode: false,
+        },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
-          centerMode:false
-        }
+          centerMode: false,
+        },
       },
-    ]
+    ],
   };
   return (
     <Slider className="communityListingContainer" {...settings}>

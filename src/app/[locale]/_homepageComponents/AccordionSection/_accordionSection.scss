@@ -1,0 +1,29 @@
+.accordionSection {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  margin: 60px auto;
+  border-radius: 44.081px;
+  border: 1px solid #ffdb9f;
+
+  .accordionHeader {
+    margin-bottom: 30px;
+
+    .title1 {
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
+    }
+
+    .title2 {
+      font-size: 36px;
+      font-family: var(--audrey-font-family, cursive);
+      font-weight: 400;
+      color: var(--Gold-lux, #ffde9b);
+      margin: 10px 0 0;
+    }
+  }
+}

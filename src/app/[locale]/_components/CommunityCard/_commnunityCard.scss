@@ -1,59 +1,63 @@
-div.communityCard { 
-    text-align: center;
-    cursor: pointer;
-	div.imageContainer { 
-        position: relative;
-        height: 500px;
-        width: 100%;
-        margin-bottom: 15px;
-        @media all and (max-width:768px){
-           height: 700px;
-           }
-		img { 
-            object-fit: cover;
-		}
-	}
-
-	h3.name { 
-        @include adjust-font(15px, false);
-        font-weight: 300;
-        color: var(--text-color);
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        line-height: 0;
-	}
-
-	span.guide { 
-        @include adjust-font(14px, false);
-        font-weight: 600;
-        color: var(--text-color);
-        margin-bottom: 10px;
-        display: inline-block;
-        text-transform: uppercase;
-
-	}
-
-    div.contactInfo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        a{
-            padding: 0 10px;
-            border-right: 1px solid #fff;
-            cursor: pointer;
-            &:first-child{
-                padding-left: 0;
-            }
-            &:last-child{
-                border-right: none;
-            }
-        }
-        span.icon{
-            cursor: pointer;
-            svg{
-                width: 13px !important;
-                height: 13px !important;
-            }
-        }
+div.communityCard {
+  text-align: center !important;
+  cursor: pointer;
+  div.imageContainer {
+    position: relative;
+    height: 525.281px;
+    margin-bottom: 15px;
+    padding: 10px !important;
+    border-radius: 40.622px;
+    border: 0.922px solid #ffdb9f;
+    @media all and (max-width: 768px) {
+      height: 700px;
     }
+    img {
+      border-radius: 40.622px !important;
+      object-fit: cover;
+      position: relative !important;
+    }
+  }
+
+  h3.name {
+    @include adjust-font(15px, false);
+    font-weight: 300;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    line-height: 0;
+    margin-top: 1.5rem;
+  }
+
+  span.guide {
+    @include adjust-font(14px, false);
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  div.contactInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      padding: 0 10px;
+      border-right: 1px solid #fff;
+      cursor: pointer;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+    span.icon {
+      cursor: pointer;
+      svg {
+        width: 13px !important;
+        height: 13px !important;
+      }
+    }
+  }
 }

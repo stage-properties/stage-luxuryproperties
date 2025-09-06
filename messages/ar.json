@@ -1,5 +1,6 @@
 {
   "common": {
+    "a_comprehensive_collection_of_investments_expertise_and_insights": "مجموعة شاملة من الخبرات والرؤى في مجال الاستثمارات",
     "Popular Searches": "البحثات الشائعة",
     "Leading Property": "الوسيط العقاري",
     "Broker in Dubai": "الرائد في دبي",
@@ -63,6 +64,9 @@
     "meet_our_team": "تعرف على فريقنا",
     "get_to_know_our_team_of_passionate_real_estate_professionals_who": "تعرف على فريقنا من خبراء العقارات المتحمسين الذين يلتزمون بقيمنا الأساسية وهي الخدمة والثقة والمسؤولية والامتنان والتميز - لضمان أن تكون مغامرتك العقارية سلسة ومرضية قدر الإمكان.",
     "discover_upcoming_projects_in_dubai_s_vibrant_communities": "اكتشف المشاريع القادمة في مجتمعات دبي النابضة بالحياة",
+    "coveted_enclaves": "الأحياء المرموقة",
+    "explore_the_neighborhoods_where_luxury_is_not_just_a_standard_but_a_lifestyle": "اكتشف الأحياء التي تكون فيها الفخامة ليست مجرد معيار، بل أسلوب حياة.",
+    "dubai_s_most": "الأفضل في دبي",
     "properties_for_sale": "عقارات للبيع",
     "properties_for_rent": "عقارات للإيجار",
     "dubai_real_estate_market_overview": "نظرة عامة على سوق العقارات في دبي",
@@ -124,7 +128,7 @@
     "duplex-for-rent": "دوبلكس للإيجار",
     "properties-for-sale": "عقارات للبيع",
     "apartment-for-sale": "شقق للبيع",
-    
+
     "commercial-properties-for-sale": "عقارات تجارية للبيع",
     "commercial-properties-for-rent": "عقارات تجارية للإيجار",
     "residential-properties-for-sale": "عقارات سكنية للبيع",
@@ -148,7 +152,7 @@
     "office-space-for-sale": "مساحات مكتبية للبيع",
     "view_more_images": "عرض المزيد من الصور",
     "Show All": "عرض المزيد",
-    "Off Plan Projects & Communities" : "مشاريع ومجتمعات قيد التخطيط",
+    "Off Plan Projects & Communities": "مشاريع ومجتمعات قيد التخطيط",
     "Off Plan Projects": "مشاريع قيد التخطيط",
     "Stage Properties | Dubai's leading property broker": "ستيدج للعقارات | الرائد في الوساطة العقارية في دبي",
     "Discover prime investment opportunities with Stage Properties in dubai": "اكتشف فرص استثمارية مميزة مع ستيدج للعقارات، الرائد في الوساطة العقارية في دبي. بوابتك لشراء العقارات في دبي.",
@@ -214,7 +218,7 @@
     "aed": "د.إ",
     "gbp": "ج.إ",
     "inr": "ر.ه",
-    "not_available" : "غير متوفر",
+    "not_available": "غير متوفر",
     "studio": "ستوديو",
     "ft²": "قدم²",
     "m²": "م²",
@@ -287,7 +291,7 @@
     "email": "البريد الإلكتروني",
     "phone": "الهاتف",
     "send_message": "أرسل الرسالة",
-    "not_available" : "غير متوفر",
+    "not_available": "غير متوفر",
     "for": "لل",
     "in": "في",
     "bedroom": "من غرفة نوم",
@@ -348,7 +352,7 @@
     "in": "في",
     "Register Interest": "سجل اهتمامك",
     "Starting from": "يبدأ من",
-    "Payment Plan":"خطة دفع",
+    "Payment Plan": "خطة دفع",
     "Flexible": "مرنة",
     "Attractive": "جذابة"
   },
@@ -535,10 +539,10 @@
     "Hindko": "هيندكو"
   },
   "blog_card": {
-      "READ MORE": "اقرأ المزيد"
+    "READ MORE": "اقرأ المزيد"
   },
   "blog": {
-    "Talk to an agent" : "تحدث إلى وكيل",
+    "Talk to an agent": "تحدث إلى وكيل",
     "You May Also Like": "قد يعجبك أيضًا"
   },
   "our_team": {
@@ -588,16 +592,16 @@
     "Determine your affordability and look into bank loan choices": "حدد مدى قدرتك المالية واستكشف خيارات القروض البنكية! يتم عرض دفعتك الشهرية وقدرتك على الاقتراض عبر حاسبة الرهن العقاري المجانية الخاصة بنا. خطط لمنزلك المثالي الآن!"
   },
   "contact_us": {
-      "contact_us": "تواصل معنا",
-      "CONTACT US": "تواصل معنا",
-      "We'd love to hear from you!": "!نودّ أن نسمع منك",
-      "Toll free within UAE": "مجاني داخل الإمارات",
-      "Calls from outside UAE": "المكالمات من خارج الإمارات",
-      "800-207-8243": "٨٠٠-٢٠٧-٨٢٤٣",
-      "+971 45 866 200": "٠٠٩٧١٤٥٨٦٦٢٠٠",
-      "Office 106, Building 3, Dubai Hills": "المكتب ١٠٦، المبنى ٣، دبي هيلز",
-      "Business Park, Dubai Hills Estate": "مدينة دبي هيلز للأعمال",
-      "or leave your contact information and we will get back to you at the earliest": "أو اترك معلومات الاتصال الخاصة بك وسنتواصل معك في أقرب وقت",
-      "+971 522 081 705": "٠٠٩٧١٥٢٢٠٨١٧٠٥"
+    "contact_us": "تواصل معنا",
+    "CONTACT US": "تواصل معنا",
+    "We'd love to hear from you!": "!نودّ أن نسمع منك",
+    "Toll free within UAE": "مجاني داخل الإمارات",
+    "Calls from outside UAE": "المكالمات من خارج الإمارات",
+    "800-207-8243": "٨٠٠-٢٠٧-٨٢٤٣",
+    "+971 45 866 200": "٠٠٩٧١٤٥٨٦٦٢٠٠",
+    "Office 106, Building 3, Dubai Hills": "المكتب ١٠٦، المبنى ٣، دبي هيلز",
+    "Business Park, Dubai Hills Estate": "مدينة دبي هيلز للأعمال",
+    "or leave your contact information and we will get back to you at the earliest": "أو اترك معلومات الاتصال الخاصة بك وسنتواصل معك في أقرب وقت",
+    "+971 522 081 705": "٠٠٩٧١٥٢٢٠٨١٧٠٥"
   }
 }

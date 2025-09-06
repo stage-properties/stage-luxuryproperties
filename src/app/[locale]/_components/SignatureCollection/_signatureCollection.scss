@@ -1,0 +1,94 @@
+.signatureSection {
+  --gold: var(--Gold-lux, #ffde9b);
+  --chip-size: 104px;
+  --chip-radius: 44.081px;
+  position: relative;
+  padding: 40px 20px 64px; /* a bit tighter */
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+/* Header */
+.signatureSection .sig-header {
+  margin-bottom: 18px;
+}
+.signatureSection .ds-title {
+  margin: 0 0 8px;
+  line-height: 1.1;
+  color: #fff;
+  font-weight: 400;
+}
+.signatureSection .sig-title1 {
+  font-family: var(--audrey-font-family, cursive);
+  color: var(--gold);
+  font-size: clamp(28px, 4.6vw, 56px);
+}
+.signatureSection .sig-title2 {
+  font-size: clamp(20px, 2.2vw, 30px);
+  color: #eaeaea;
+  font-weight: 400;
+}
+.signatureSection .sig-blurb {
+  margin: 0 auto;
+  max-width: 760px;
+  color: #d1d1d1;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* Stage */
+.signatureSection .sig-stage {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 150px; /* slightly shorter to reduce top space */
+}
+.signatureSection .sig-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Chips */
+.signatureSection .sig-chip {
+  position: absolute;
+  width: var(--chip-size);
+  text-align: center;
+  color: var(--gold);
+  transition: transform 0.25s ease;
+}
+.signatureSection .sig-chip .sig-thumb {
+  border: 1px solid rgba(255, 219, 159, 0.2);
+  position: relative;
+  border-radius: var(--chip-radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  height: 166.247px;
+  width: 166.247px;
+  padding: 6.927px 7.557px 7.557px 6.927px;
+}
+.signatureSection .sig-chip .sig-thumb img {
+  object-fit: cover;
+}
+
+.signatureSection .sig-chip figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--gold);
+  opacity: 0.95;
+}
+
+.signatureSection .sig-chip:hover {
+  transform: translate(-50%, calc(-100% - 12px));
+}
+
+.signatureSection .sig-chip.is-center {
+  --chip-size: 120px;
+  --chip-radius: 22px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .signatureSection .sig-stage {
+    height: 300px;
+  }
+}

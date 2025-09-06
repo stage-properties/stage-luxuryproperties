@@ -1,8 +1,9 @@
 #searchSection {
+  margin-bottom: 5rem;
   &.bgColor {
     background-color: var(--primary-bg-color);
   }
-  div.buttonDropDown{
+  div.buttonDropDown {
     display: none;
     margin-bottom: 20px;
     width: 13rem;
@@ -39,15 +40,15 @@
           align-items: center;
           justify-content: center;
           border-bottom: 1px solid var(--border-color);
-          span.text{
+          span.text {
             color: var(--text-color);
             @include adjust-font(14px, false);
           }
           &:hover {
             background-color: var(--secondary-bg-color);
             color: var(--text-color);
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
+            border-left: 1px solid #ffde9b;
+            border-right: 1px solid #ffde9b;
           }
           &:last-child {
             margin-bottom: 0;
@@ -55,7 +56,7 @@
         }
       }
     }
-    button{
+    button {
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -75,11 +76,11 @@
       @include adjust-font(14px, false);
       cursor: pointer;
       transition: 0.3s ease-in-out;
-      span.icon{
+      span.icon {
         display: block;
         margin-left: 6px;
       }
-      .text{
+      .text {
         color: var(--text-color);
         @include adjust-font(14px, false);
         font-family: var(--lato-font-family);
@@ -96,26 +97,22 @@
       width: 80%;
     }
     @media all and (max-width: 768px) {
-    display: none;
-    // &.active{
-    //   display: block;
-    // }
+      display: none;
+      // &.active{
+      //   display: block;
+      // }
     }
-    
+
     button.button {
       width: 13rem;
       padding: 18px 15px;
       background-color: transparent;
       color: var(--btn-text-color);
       letter-spacing: 1.6px;
-      border: 1px solid transparent; /* Set the border width and make it transparent */
-      border-image: radial-gradient(
-        circle,
-        rgba(255, 236, 224, 1) 0%,
-        rgba(240, 202, 178, 1) 35%,
-        rgba(172, 131, 109, 1) 100%
-      );
-      border-image-slice: 1;
+      border-radius: 44.081px;
+      border: 1px solid rgba(255, 219, 159, 0.4);
+      background: rgba(0, 0, 0, 0);
+
       @include adjust-font(14px, false);
       margin-right: 20px;
       cursor: pointer;
@@ -123,39 +120,34 @@
       @media all and (max-width: 768px) {
         margin-bottom: 10px;
       }
-      &.active{
-        background: linear-gradient(
-          262deg,
-          rgb(172, 131, 109) 28%,
-          rgb(240, 202, 178) 70%
+      &.active {
+        background: var(
+          --Gold-lux,
+          linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
         );
         span {
           color: #000;
         }
       }
       &:hover {
-        background: var(--tertiary-color);
+        background: var(
+          --Gold-lux,
+          linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
+        );
         span {
           color: #000;
         }
       }
       span {
-      transition: 0.3s ease-in-out;
-
         font-family: var(--lato-font-family) !important;
       }
     }
   }
   div.searchContainer {
     background-color: rgba(18, 24, 35, 0.7);
-    border: 1px solid transparent; /* Set the border width and make it transparent */
-    border-image: radial-gradient(
-      circle,
-      rgba(255, 236, 224, 1) 0%,
-      rgba(240, 202, 178, 1) 35%,
-      rgba(172, 131, 109, 1) 100%
-    );
-    border-image-slice: 1;
+    border-radius: 44.081px;
+    border: 1px solid rgba(255, 219, 159, 0.4);
+
     width: 85%;
     margin: 30px auto 0;
     padding: 22px 30px;
@@ -178,16 +170,16 @@
       // align-items: center;
       line-height: 0;
       @media all and (max-width: 768px) {
-        display: flex;       /* ensures children can wrap */
-        flex-wrap: wrap;     /* allow wrapping */
+        display: flex; /* ensures children can wrap */
+        flex-wrap: wrap; /* allow wrapping */
       }
       /* Specifically target the .searchInput on small screens */
       input.searchInput {
         @media all and (max-width: 768px) {
           border: 1px solid var(--border-color);
           padding: 15px 20px;
-          width: 100%;       /* take full width */
-          display: block;    /* ensures it sits on its own line */
+          width: 100%; /* take full width */
+          display: block; /* ensures it sits on its own line */
           margin-bottom: 1rem;
         }
       }
@@ -196,7 +188,7 @@
       // }
       div.search-common {
         margin-right: 30px;
-        border-right: 1px solid #fff;
+        border-right: 1px solid #ffde9b;
         padding: 5px 30px 5px 0;
         position: relative;
         cursor: pointer;
@@ -212,7 +204,7 @@
         @media all and (max-width: 768px) {
           width: 100%;
           border: 1px solid var(--border-color);
-          border-right: 1px solid var(--border-color) !important;
+          border-right: 1px solid #ffde9b !important;
           padding: 20px 15px;
           margin-right: 0;
           margin-bottom: 15px;
@@ -242,7 +234,7 @@
             }
           }
         }
-                /*
+        /*
           AREA DROPDOWN STYLES
           (Make it exactly like PRICE)
         */
@@ -301,8 +293,8 @@
               &:hover {
                 background-color: var(--secondary-bg-color);
                 color: var(--text-color);
-                border-left: 1px solid var(--border-color);
-                border-right: 1px solid var(--border-color);
+                border-left: 1px solid #ffde9b;
+                border-right: 1px solid #ffde9b;
               }
               &:last-child {
                 margin-bottom: 0;
@@ -321,8 +313,8 @@
           }
         }
         div.list {
-            display: flex;
-            justify-content: space-between;
+          display: flex;
+          justify-content: space-between;
           span {
             @include adjust-font(14px, false);
             color: var(--btn-text-color);
@@ -331,7 +323,7 @@
             letter-spacing: 1.6px;
             &.details {
               // &.ar {
-                width: 100px;
+              width: 100px;
               // }
               @media all and (max-width: 480px) {
                 // display: flex;
@@ -355,13 +347,13 @@
     }
     div.right {
       width: 4.5%;
-      border-left: 1px solid #fff;
+      border-left: 1px solid #ffde9b;
       padding-left: 20px;
       display: flex;
       align-items: center;
-      &.ar{
+      &.ar {
         border-left: unset;
-        border-right: 1px solid #fff;
+        border-right: 1px solid #ffde9b;
         padding-left: unset;
         padding-right: 20px;
       }
@@ -386,7 +378,11 @@
         @media all and (max-width: 768px) {
           display: block;
           color: #000;
-          background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+          background: linear-gradient(
+            262deg,
+            rgb(172, 131, 109) 28%,
+            rgb(240, 202, 178) 70%
+          );
         }
       }
       svg {
@@ -401,7 +397,7 @@
   }
   .searchInput {
     padding-left: 30px;
-    width: 100%;  
+    width: 100%;
     padding: 6px;
     padding-left: unset;
     background-color: transparent;
@@ -425,10 +421,10 @@
   }
   .areaInputs {
     display: flex;
-      .minArea {
-      }
-      .maxArea {
-      }
+    .minArea {
+    }
+    .maxArea {
+    }
   }
   .price-dropdowns {
     width: 100%;

@@ -1,0 +1,151 @@
+.imageAccordion.withInfo {
+  text-align: left;
+  /* your existing variables */
+  --h: 360px;
+  --collapsed: 10.5%;
+  --expanded: 46%;
+  --info: 29.5%;
+
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  height: var(--h);
+  overflow: hidden;
+
+  /* PANE */
+  .pane {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    border-radius: 18px;
+    overflow: hidden;
+    box-sizing: border-box;
+    align-self: stretch;
+
+    /* default slim */
+    flex: 0 0 var(--collapsed);
+    max-width: var(--collapsed);
+
+    /* 👉 slide & width only */
+    transition: flex-basis 320ms ease, max-width 320ms ease,
+      transform 320ms ease;
+
+    /* subtle vignette reveal */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        80% 70% at 50% 50%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.25) 100%
+      );
+      opacity: 0.28;
+      transition: opacity 320ms ease;
+    }
+
+    .imgRel {
+      position: absolute;
+      inset: 0;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &.is-active {
+      flex-basis: var(--expanded);
+      max-width: var(--expanded);
+      transform: translateX(0); /* reset */
+      &::after {
+        opacity: 0.06;
+      } /* vignette fades away */
+    }
+  }
+
+  /* INFO PANEL slides in horizontally from the active pane */
+  .infoPanel {
+    flex: 0 0 var(--info);
+    max-width: var(--info);
+    height: 100%;
+    border-radius: 18px;
+    padding: 24px 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    backdrop-filter: blur(10px);
+
+    /* slide + fade */
+    opacity: 0;
+    transform: translateX(12px);
+    animation: infoSlideIn 280ms ease forwards;
+
+    .infoSubtitle {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 8px;
+    }
+    .infoTitle {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.3;
+      color: var(--Gold-lux, #ffde9b);
+      font-weight: 600;
+    }
+    .infoText {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+
+  @keyframes infoSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .pane,
+    .infoPanel {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+
+  /* Responsive (unchanged) */
+  @media (max-width: 900px) {
+    --h: 300px;
+    --collapsed: 18%;
+    --expanded: 56%;
+    --info: 100%;
+    flex-wrap: wrap;
+    .infoPanel {
+      order: 2;
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-top: 12px;
+      height: auto;
+    }
+  }
+  @media (max-width: 600px) {
+    --h: 220px;
+    --collapsed: 24%;
+    --expanded: 52%;
+  }
+}

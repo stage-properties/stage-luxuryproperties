@@ -1,172 +1,237 @@
-#homePage{
-    div.blogSection{
-        div.imageContainer {
-              div.contentContainer {
-                position: relative;
-                .wrapper {
-                    padding-top: 80px;
-                    padding-bottom: 80px;
-                h2.mainHeading{
-                    font-family: var(--audrey-font-family);
-                }
-                h3.mainHeading{
-                    -webkit-text-fill-color: #FDFDFD;
-                    margin-bottom: 40px;
-                    margin-top: 10px;
-                    @include adjust-font(17px, false);
-                    font-family: var(--audrey-font-family);
-                    @media all and (max-width: 480px) {
-                        @include adjust-font(14px, false);
-                    }
-                }
-                div.containers{
-                    display: flex;
-                    justify-content: space-between;
-                    @media all and (max-width:768px){
-                        flex-direction: column;
-                    }
-                    div.left{
-                        width: 75%;
-                        @media all and (max-width:768px){
-                            width: 100%;
-                        }
-                        div.imageContainer{
-                            position: relative;
-                            width: 100%;
-                            height: unset;
-                           
-                            img{
-                                position: static !important;
-                                display: block;
-                                width: 100%;
-                                // object-fit: cover;
-    
-                            }
-                        }
-                        div.buttonContainer{
-                            margin-top: 20px;
-                            button{
-                                display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            @media all and (max-width:768px){
-                                display: none;
-                            }
-                            span.icon{
-                                margin-left: 10px;
-                                svg{
-                                    width: 20px !important;
-                                    height: 20px !important;
-                                }
-                            }
-                            }
-                        }
-                    }
-                    div.right{
-                        width: 20%;
-                        @media all and (max-width:768px){
-                         display: flex;
-                         width: 100%;
-                         margin-top: .5rem;
-                        }
-                        @media all and (max-width:768px){
-                          flex-wrap: wrap;
-                          justify-content: space-between;
-                             }
-                        a{
-                            margin-bottom: 30px;
-                            display: block;
-                            &:last-child{
-                                margin-bottom: 0;
-                                @media all and (max-width:768px){
-                                    div.imageContainer{
-                                        margin-right: 0;
-                                    }
-                                }
-                            }
-                           
-                            @media all and (max-width:768px){
-                                &:nth-child(3){
-                                    display: none;
-                                }
-                               width: 49%;
-                                   }
-                        }
-                        div.imageContainer{
-                            position: relative;
-                            width: 100%;
-                            height: unset;
-                            @media all and (max-width:768px){
-                             width: 90%;
-                            }
-                            @media all and (max-width:768px){
-                                width: 100%;
-                                height: 95%;
-                                   }
-                            img{
-                                position: static !important;
-                            object-fit: cover;
-                            display: block;
-                            width: 100%;
-    
-                            }
-                        }
-                        div.buttonContainer{
-                            display: none;
-                            @media all and (max-width:768px){
-                             display: block;
-                             button{
-                                width: 9rem;
-                                @include adjust-font(11px, false);
-                                svg{
-                                    display: none;
-                                }
-                                @media all and (max-width:768px){
-                                   width: 100%;
-                                       }
-                             }
-                            }
-                        }
-                    }
-                }
-            }
-              }
+#homePage {
+  .blogSection {
+    padding: 80px 0;
 
+    .contentContainer {
+      position: relative;
+    }
 
-        }
+    .wrapper {
+      max-width: 85%;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+
+      h2.mainHeading {
+        font-family: var(--audrey-font-family, inherit);
+      }
+      h3.mainHeading {
+        margin-top: 10px;
+        margin-bottom: 40px;
+        -webkit-text-fill-color: #fdfdfd;
+        font-family: var(--audrey-font-family, inherit);
+      }
     }
-    .desktop-only {
-        display: block;
-        @media all and (max-width: 768px) {
-            display: none;
+
+    /* ---------- Slider ---------- */
+    .blogsSliderContainer {
+      position: relative;
+
+      .slick-slider {
+        overflow: visible;
+      }
+
+      /* dots under the card */
+      .slick-dots {
+        bottom: -32px;
+
+        li button:before {
+          opacity: 0.4;
+          font-size: 10px;
+          color: #fff;
         }
-    }
-    .mobile-only {
-        display: none;
-        @media all and (max-width: 768px) {
-            display: block;
+        li.slick-active button:before {
+          opacity: 1;
+          color: var(--Gold-lux, #ffde9b);
         }
+      }
     }
-    .blog_title {
-        padding-top: 0.4rem;
+
+    /* ---------- Slide Card ---------- */
+    .blogSlide {
+      padding: 12px; /* breathing room around the card */
+    }
+
+    .slideCard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.02);
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+
+      /* glassy blur + soft shadow to mimic your mock */
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+      /* smooth hover */
+      transition: transform 250ms ease, box-shadow 250ms ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 48px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    /* Gradient border ring (fat & soft) */
+    .gradientBorder-xl {
+      position: relative;
+      overflow: hidden; // keep the blur within the rounded card
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -10%; // slightly larger to avoid blur edges
+        background-image: var(--bg-url);
+        background-size: cover;
+        background-position: center;
+        filter: blur(2px) saturate(115%);
+        opacity: 0.35;
+        transform: scale(1.08); // helps hide blur border
+        z-index: 0;
+      }
+      // subtle gradient overlay for readability
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.25) 45%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        z-index: 0;
+      }
+      // keep actual content above background layers
+      > * {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    // keep your current image + content styles
+    .slideImageWrap .imgRel img {
+      object-fit: cover;
+    }
+
+    .slideImageWrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .imgRel {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        border-radius: 18px;
+        overflow: hidden;
+
+        @media (min-width: 1024px) {
+          height: 260px;
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .slideContent {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .slideTitle {
+        font-size: 22px;
+        line-height: 1.3;
+        margin: 8px 0 10px;
+        color: #f7f7f7;
+
+        @media (min-width: 1024px) {
+          font-size: 24px;
+        }
+      }
+
+      .slideExcerpt {
+        color: var(--light-text-color, #cfcfcf);
+        font-size: 14px;
+        line-height: 1.6;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         overflow: hidden;
         text-overflow: ellipsis;
 
-        &.flexible_front {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-bottom: 3rem;
-            font-size: 22px;
-            @media all and (max-width: 768px) {
-                font-size: 17px;
-                padding-bottom: unset;
-            }
+        @media (min-width: 1024px) {
+          -webkit-line-clamp: 4;
         }
+      }
+
+      .slideFooter {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 10px;
+
+        .slideDate {
+          font-size: 12px;
+          color: #d7d7d7;
+          opacity: 0.9;
+        }
+
+        .slideCta {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 60px;
+          height: 63px;
+          border-radius: 10px;
+          background: var(--Black-Main, #111);
+          color: var(--Gold-lux, #ffde9b);
+          transition: transform 200ms ease, background 200ms ease;
+
+          svg {
+            display: block;
+          }
+
+          &:hover {
+            transform: translateX(2px);
+            background: rgba(255, 222, 155, 0.22);
+          }
+        }
+      }
     }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      padding: 60px 0;
+
+      .slideCard {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .slideContent .slideTitle {
+        font-size: 20px;
+      }
+      .slideContent .slideExcerpt {
+        -webkit-line-clamp: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 0;
+
+      .slideImageWrap .imgRel {
+        height: 200px;
+      }
+      .blogsSliderContainer .slick-dots {
+        bottom: -24px;
+      }
+    }
+  }
 }

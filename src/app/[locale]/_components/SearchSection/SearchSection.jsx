@@ -1,31 +1,44 @@
 "use client";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations, useLocale } from "next-intl";
 import { fetchSearchSuggestions } from "./service";
-import { useRouter } from '@/i18n/routing';
-import { bedrooms, bedrooms_ar, price, price_ar, areaOptions } from '@/app/[locale]/_utils/contants';
-import { fetchMinMaxAreas, fetchMinMaxPrices } from '@/app/[locale]/(dubai)/[offeringType]/service';
+import { useRouter } from "@/i18n/routing";
+import {
+  bedrooms,
+  bedrooms_ar,
+  price,
+  price_ar,
+  areaOptions,
+} from "@/app/[locale]/_utils/contants";
+import {
+  fetchMinMaxAreas,
+  fetchMinMaxPrices,
+} from "@/app/[locale]/(dubai)/[offeringType]/service";
 import {
   convertMyCurrency,
   convertMyCurrencyReturnRate,
   formatNumberToArabic,
-  numberFormat
-} from '../../_utils/utils';
+  numberFormat,
+} from "../../_utils/utils";
 import { useSelector } from "react-redux";
 
-const SearchIcon = dynamic(() => import("../../../../../assets/Icons/searchIcon.svg"));
+const SearchIcon = dynamic(() =>
+  import("../../../../../assets/Icons/searchIcon.svg")
+);
 const Select = dynamic(() => import("react-select"));
-const DropDownArrow = dynamic(() => import("../../../../../assets/Icons/dropdownArrow.svg"));
+const DropDownArrow = dynamic(() =>
+  import("../../../../../assets/Icons/dropdownArrow.svg")
+);
 
 const SearchSection = ({ bgColor }) => {
-  const t = useTranslations('common');
+  const t = useTranslations("common");
   const currency = useSelector((state) => state.currency.value);
   const areaUnit = useSelector((state) => state.areaUnit.value);
 
   const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const isRTL = locale === "ar";
 
   const router = useRouter();
 
@@ -105,7 +118,9 @@ const SearchSection = ({ bgColor }) => {
   // Fetch search suggestions
   const getSearchSuggestion = async () => {
     try {
-      const query = `locale=${locale}&text=${inputValues?.text}&searchType=scndry&ctg=${category.toLowerCase()}&oft=${
+      const query = `locale=${locale}&text=${
+        inputValues?.text
+      }&searchType=scndry&ctg=${category.toLowerCase()}&oft=${
         inputValues?.offer === "BUY" ? "BY" : "RT"
       }`;
       const response = await fetchSearchSuggestions(query);
@@ -153,8 +168,7 @@ const SearchSection = ({ bgColor }) => {
 
   // Price dropdown changes
   const minPriceHandleChange = (option) => {
-
-    console.log('option', option)
+    console.log("option", option);
 
     setSelectedMinPrice(option);
     if (option) {
@@ -211,43 +225,47 @@ const SearchSection = ({ bgColor }) => {
 
     // bed
     if (inputValues?.bed) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
       url += `bedroom=${inputValues?.bed}`;
       containsQuery = true;
     }
 
     // area
     if (inputValues?.minArea) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
       url += `minArea=${inputValues?.minArea}`;
       containsQuery = true;
     }
     if (inputValues?.maxArea) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
       url += `maxArea=${inputValues?.maxArea}`;
       containsQuery = true;
     }
 
     // price
     if (inputValues?.minPrice) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
       url += `minPrice=${inputValues?.minPrice}`;
       containsQuery = true;
     }
     if (inputValues?.maxPrice) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
       url += `maxPrice=${inputValues?.maxPrice}`;
       containsQuery = true;
     }
 
     // keywords / text
     if (inputValues?.text) {
-      url += containsQuery ? '&' : '?';
+      url += containsQuery ? "&" : "?";
 
       if (selectedKeywords && selectedKeywords.result_type === "community") {
-        const replacedValue = selectedKeywords.item_name.replace(/ /g, "-").toLowerCase();
+        const replacedValue = selectedKeywords.item_name
+          .replace(/ /g, "-")
+          .toLowerCase();
         url += `keywords=${replacedValue}`;
-        const emiratesReplacedValue = selectedKeywords.emirate.replace(/ /g, "-").toLowerCase();
+        const emiratesReplacedValue = selectedKeywords.emirate
+          .replace(/ /g, "-")
+          .toLowerCase();
         emirate = emiratesReplacedValue;
       } else {
         const replacedValue = inputValues.text.replace(/ /g, "-").toLowerCase();
@@ -272,30 +290,33 @@ const SearchSection = ({ bgColor }) => {
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isDisabled
-        ? 'gray'
+        ? "gray"
         : state.isSelected
-        ? '#2684FF'
+        ? "#2684FF"
         : state.isFocused
-        ? '#B2D4FF'
-        : 'white',
-      color: state.isDisabled ? 'lightgray' : 'black',
-      cursor: state.isDisabled ? 'not-allowed' : 'default',
+        ? "#B2D4FF"
+        : "white",
+      color: state.isDisabled ? "lightgray" : "black",
+      cursor: state.isDisabled ? "not-allowed" : "default",
     }),
     control: (provided) => ({
       ...provided,
-      minHeight: '40px',
+      minHeight: "40px",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: 'black',
+      color: "black",
     }),
   };
 
   // Fetch min/max price from the backend
   useEffect(() => {
     const _fetchMinMaxPrices = async () => {
-      const offer = inputValues?.offer === 'BUY' ? 'Sale' : 'Rent';
-      const minMaxPrices = await fetchMinMaxPrices({ offeringType: offer, categoryName: category });
+      const offer = inputValues?.offer === "BUY" ? "Sale" : "Rent";
+      const minMaxPrices = await fetchMinMaxPrices({
+        offeringType: offer,
+        categoryName: category,
+      });
       const configuration = minMaxPrices?.configuration?.data?.attributes;
       if (!configuration) return;
 
@@ -304,11 +325,15 @@ const SearchSection = ({ bgColor }) => {
         aed_to_eur_exchange_rate,
         aed_to_gbp_exchange_rate,
         aed_to_inr_exchange_rate,
-        aed_to_rub_exchange_rate
+        aed_to_rub_exchange_rate,
       } = configuration;
 
       const _prices = price
-        ?.filter((item) => parseFloat(item?.value) > minMaxPrices?.minPrice && parseFloat(item?.value) < minMaxPrices?.maxPrice)
+        ?.filter(
+          (item) =>
+            parseFloat(item?.value) > minMaxPrices?.minPrice &&
+            parseFloat(item?.value) < minMaxPrices?.maxPrice
+        )
         ?.map((item) => {
           const value = convertMyCurrency({
             aed_to_eur_exchange_rate,
@@ -317,7 +342,7 @@ const SearchSection = ({ bgColor }) => {
             aed_to_rub_exchange_rate,
             aed_to_usd_exchange_rate,
             currency,
-            value: item?.value
+            value: item?.value,
           });
 
           const { rate } = convertMyCurrencyReturnRate({
@@ -327,10 +352,12 @@ const SearchSection = ({ bgColor }) => {
             aed_to_rub_exchange_rate,
             aed_to_usd_exchange_rate,
             currency,
-            value: item?.value
+            value: item?.value,
           });
 
-          const label = `${locale === 'ar' ? formatNumberToArabic(value) : numberFormat(value)} ${t(currency.toLowerCase())}`
+          const label = `${
+            locale === "ar" ? formatNumberToArabic(value) : numberFormat(value)
+          } ${t(currency.toLowerCase())}`;
           return { ...item, value, label, rate };
         });
       setPrices(_prices);
@@ -341,8 +368,10 @@ const SearchSection = ({ bgColor }) => {
 
   const findAreaAndRest = (arr, minNumber, maxNumber) => {
     // Ensure the array is sorted in ascending order by the numeric value
-    const sortedArr = arr.slice().sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
-    
+    const sortedArr = arr
+      .slice()
+      .sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
+
     // Find the starting index: the last index where the value is ≤ minNumber.
     let startIndex = -1;
     for (let i = 0; i < sortedArr.length; i++) {
@@ -356,7 +385,7 @@ const SearchSection = ({ bgColor }) => {
     if (startIndex === -1) {
       startIndex = 0;
     }
-    
+
     // Find the ending index: the first index where the value is > maxNumber.
     let endIndex = sortedArr.length;
     for (let i = 0; i < sortedArr.length; i++) {
@@ -365,7 +394,7 @@ const SearchSection = ({ bgColor }) => {
         break;
       }
     }
-    
+
     // Return the slice from startIndex up to (but not including) endIndex.
     return sortedArr.slice(startIndex, endIndex + 1);
   };
@@ -373,15 +402,26 @@ const SearchSection = ({ bgColor }) => {
   // Fetch min/max area from the backend
   useEffect(() => {
     const _fetchMinMaxAreas = async () => {
-      const offer = inputValues?.offer === 'BUY' ? 'Sale' : 'Rent';
-      const minMaxAreas = await fetchMinMaxAreas({ offeringType: offer, categoryName: category });
-      const _areas = findAreaAndRest(areaOptions, minMaxAreas.minUnitArea, minMaxAreas.maxUnitArea)?.map((item) => {
-        const ratio = areaUnit === 'ft²' ? 1 : 0.092903
-        const value = item?.value * ratio
-        const label = isRTL ? `${formatNumberToArabic(Math.floor(value), true)} ${t(areaUnit.toUpperCase())}` : `${numberFormat(Math.floor(value))} ${t(areaUnit.toUpperCase())}`;
+      const offer = inputValues?.offer === "BUY" ? "Sale" : "Rent";
+      const minMaxAreas = await fetchMinMaxAreas({
+        offeringType: offer,
+        categoryName: category,
+      });
+      const _areas = findAreaAndRest(
+        areaOptions,
+        minMaxAreas.minUnitArea,
+        minMaxAreas.maxUnitArea
+      )?.map((item) => {
+        const ratio = areaUnit === "ft²" ? 1 : 0.092903;
+        const value = item?.value * ratio;
+        const label = isRTL
+          ? `${formatNumberToArabic(Math.floor(value), true)} ${t(
+              areaUnit.toUpperCase()
+            )}`
+          : `${numberFormat(Math.floor(value))} ${t(areaUnit.toUpperCase())}`;
         return { value: item?.value, label };
       });
-        setAreas(_areas);
+      setAreas(_areas);
     };
 
     _fetchMinMaxAreas();
@@ -397,7 +437,7 @@ const SearchSection = ({ bgColor }) => {
       maxPrice: "",
     }));
   }, [category]);
-  
+
   useEffect(() => {
     // Reset selected price values when currency changes
     setSelectedMinPrice(null);
@@ -413,9 +453,12 @@ const SearchSection = ({ bgColor }) => {
     <div id="searchSection" className={bgColor ? `bgColor` : ``}>
       {/* CATEGORY DROPDOWN (MOBILE) */}
       <div className="buttonDropDown">
-        <button onClick={() => setDropDownBtn(!dropDownBtn)} ref={dropDownBtnRef}>
+        <button
+          onClick={() => setDropDownBtn(!dropDownBtn)}
+          ref={dropDownBtnRef}
+        >
           <span className="text">{t(category.toLowerCase())}</span>
-          <span className={`icon ${isRTL ? 'ar' : ''}`}>
+          <span className={`icon ${isRTL ? "ar" : ""}`}>
             <DropDownArrow />
           </span>
         </button>
@@ -423,13 +466,13 @@ const SearchSection = ({ bgColor }) => {
           <div className="dropDown">
             <ul className="listDropdownitems gradientBorder">
               <li onClick={() => categoryBtnHandler("RESIDENTIAL")}>
-                <span className="text">{t('residential')}</span>
+                <span className="text">{t("residential")}</span>
               </li>
               <li onClick={() => categoryBtnHandler("COMMERCIAL")}>
-                <span className="text">{t('commercial')}</span>
+                <span className="text">{t("commercial")}</span>
               </li>
               <li onClick={() => categoryBtnHandler("OFFPLAN")}>
-                <span className="text">{t('offplan')}</span>
+                <span className="text">{t("offplan")}</span>
               </li>
             </ul>
           </div>
@@ -437,22 +480,28 @@ const SearchSection = ({ bgColor }) => {
       </div>
 
       {/* CATEGORY BUTTONS (DESKTOP) */}
-      <div className={dropDownBtn ? "buttonContainer active" : "buttonContainer"}>
+      <div
+        className={dropDownBtn ? "buttonContainer active" : "buttonContainer"}
+      >
         <button
-          className={`button residential ${category === "RESIDENTIAL" ? "active" : ""}`}
+          className={`button residential ${
+            category === "RESIDENTIAL" ? "active" : ""
+          }`}
           data-aos="fade-up"
           data-aos-delay="50"
           onClick={() => categoryBtnHandler("RESIDENTIAL")}
         >
-          <span>{t('residential')}</span>
+          <span>{t("residential")}</span>
         </button>
         <button
-          className={`button commercial ${category === "COMMERCIAL" ? "active" : ""}`}
+          className={`button commercial ${
+            category === "COMMERCIAL" ? "active" : ""
+          }`}
           data-aos="fade-up"
           data-aos-delay="30"
           onClick={() => categoryBtnHandler("COMMERCIAL")}
         >
-          <span>{t('commercial')}</span>
+          <span>{t("commercial")}</span>
         </button>
         <button
           className={`button offPlan ${category === "OFFPLAN" ? "active" : ""}`}
@@ -460,7 +509,7 @@ const SearchSection = ({ bgColor }) => {
           data-aos-delay="70"
           onClick={() => categoryBtnHandler("OFFPLAN")}
         >
-          <span>{t('offplan')}</span>
+          <span>{t("offplan")}</span>
         </button>
       </div>
 
@@ -468,30 +517,30 @@ const SearchSection = ({ bgColor }) => {
         <div className="left">
           {/* OFFER DROPDOWN */}
           <div
-            className={`types search-common ${isRTL ? 'ar' : ''}`}
+            className={`types search-common ${isRTL ? "ar" : ""}`}
             onClick={(e) => {
               e.stopPropagation();
               setActiveDropDown("OFFER");
             }}
           >
             <div className="list">
-              <span className={`details ${isRTL ? 'ar' : ''}`}>
+              <span className={`details ${isRTL ? "ar" : ""}`}>
                 {inputValues.offer
                   ? t(inputValues.offer.toLowerCase()).toUpperCase()
-                  : t('buy').toUpperCase()}
+                  : t("buy").toUpperCase()}
               </span>
-              <span className={`icon ${isRTL ? 'ar' : ''}`}>
+              <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
               </span>
             </div>
             {activeDropDown === "OFFER" && (
-              <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+              <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                 <ul className="listDropdownitems">
                   <li onClick={(e) => offeringDropDownHandler(e, "BUY")}>
-                    <span className="text">{t('buy').toUpperCase()}</span>
+                    <span className="text">{t("buy").toUpperCase()}</span>
                   </li>
                   <li onClick={(e) => offeringDropDownHandler(e, "RENT")}>
-                    <span className="text">{t('rent').toUpperCase()}</span>
+                    <span className="text">{t("rent").toUpperCase()}</span>
                   </li>
                 </ul>
               </div>
@@ -499,42 +548,45 @@ const SearchSection = ({ bgColor }) => {
           </div>
 
           {/* BED DROPDOWN (only for Residential) */}
-          {category === 'RESIDENTIAL' && (
+          {category === "RESIDENTIAL" && (
             <div
               ref={dropDownRefBed}
-              className={`beds search-common ${isRTL ? 'ar' : ''}`}
+              className={`beds search-common ${isRTL ? "ar" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
                 setActiveDropDown("BED");
               }}
             >
               <div className="list">
-                <span className={`details ${isRTL ? 'ar' : ''}`}>
+                <span className={`details ${isRTL ? "ar" : ""}`}>
                   {inputValues.bed
                     ? isRTL
                       ? formatNumberToArabic(inputValues.bed) +
                         (inputValues.bed === 1
-                          ? ` ${t('bed').toUpperCase()}`
+                          ? ` ${t("bed").toUpperCase()}`
                           : inputValues.bed === 7
-                          ? `+ ${t('beds').toUpperCase()}`
-                          : ` ${t('beds').toUpperCase()}`)
+                          ? `+ ${t("beds").toUpperCase()}`
+                          : ` ${t("beds").toUpperCase()}`)
                       : inputValues.bed +
                         (inputValues.bed === 1
-                          ? ` ${t('bed').toUpperCase()}`
+                          ? ` ${t("bed").toUpperCase()}`
                           : inputValues.bed === 7
-                          ? `+ ${t('beds').toUpperCase()}`
-                          : ` ${t('beds').toUpperCase()}`)
-                    : t('beds').toUpperCase()}
+                          ? `+ ${t("beds").toUpperCase()}`
+                          : ` ${t("beds").toUpperCase()}`)
+                    : t("beds").toUpperCase()}
                 </span>
-                <span className={`icon ${isRTL ? 'ar' : ''}`}>
+                <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
               {activeDropDown === "BED" && (
-                <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+                <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
                     {_bedrooms?.map((item) => (
-                      <li key={item.id} onClick={(e) => bedDropDownHandler(e, item.value)}>
+                      <li
+                        key={item.id}
+                        onClick={(e) => bedDropDownHandler(e, item.value)}
+                      >
                         <span className="text">{item.label}</span>
                       </li>
                     ))}
@@ -546,41 +598,51 @@ const SearchSection = ({ bgColor }) => {
 
           {/* PRICE DROPDOWN */}
           <div
-            className={`price search-common ${isRTL ? 'ar' : ''} tablet-desktop-only`}
+            className={`price search-common ${
+              isRTL ? "ar" : ""
+            } tablet-desktop-only`}
             onClick={(e) => {
               e.stopPropagation();
               setActiveDropDown("PRICE");
             }}
           >
             <div className="list">
-              <span className={`details ${isRTL ? "ar" : ''}`}>{t('price').toUpperCase()}</span>
-              <span className={`icon ${isRTL ? 'ar' : ''}`}>
+              <span className={`details ${isRTL ? "ar" : ""}`}>
+                {t("price").toUpperCase()}
+              </span>
+              <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
               </span>
             </div>
             {activeDropDown === "PRICE" && (
-              <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+              <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                 <div className="selectContainer">
                   <Select
-                    placeholder={t('min_price')}
+                    placeholder={t("min_price")}
                     value={selectedMinPrice || ""}
                     isSearchable
                     name="min-price"
                     options={prices}
                     onChange={minPriceHandleChange}
-                    isOptionDisabled={(option) => selectedMaxPrice && parseInt(option.value) >= parseInt(selectedMaxPrice.value)}
+                    isOptionDisabled={(option) =>
+                      selectedMaxPrice &&
+                      parseInt(option.value) >= parseInt(selectedMaxPrice.value)
+                    }
                     styles={customStyles}
                   />
                 </div>
                 <div className="selectContainer">
                   <Select
-                    placeholder={t('max_price')}
+                    placeholder={t("max_price")}
                     value={selectedMaxPrice || ""}
                     isSearchable
                     name="max-price"
                     options={prices}
                     onChange={maxPriceHandleChange}
-                    isOptionDisabled={(option) => selectedMinPrice && parseInt(option.value) <= parseInt(selectedMinPrice.value)}
+                    isOptionDisabled={(option) =>
+                      selectedMinPrice &&
+                      parseInt(option.value) <= parseInt(selectedMinPrice.value)
+                    }
                     styles={customStyles}
                   />
                 </div>
@@ -591,30 +653,35 @@ const SearchSection = ({ bgColor }) => {
           <div className="price-dropdowns mobile-only">
             {/* MIN PRICE DROPDOWN */}
             <div
-              className={`min-price search-common ${isRTL ? 'ar' : ''}`}
+              className={`min-price search-common ${isRTL ? "ar" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
                 setActiveDropDown("MIN_PRICE");
               }}
             >
               <div className="list">
-                <span className={`details ${isRTL ? 'ar' : ''}`}>
-                  {selectedMinPrice ? selectedMinPrice.label : t('min_price').toUpperCase()}
+                <span className={`details ${isRTL ? "ar" : ""}`}>
+                  {selectedMinPrice
+                    ? selectedMinPrice.label
+                    : t("min_price").toUpperCase()}
                 </span>
-                <span className={`icon ${isRTL ? 'ar' : ''}`}>
+                <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
               {activeDropDown === "MIN_PRICE" && (
-                <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+                <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
                     {prices.map((item) => {
                       // Disable items that are not allowed when a max price is selected
-                      const isDisabled = selectedMaxPrice && parseInt(item.value) >= parseInt(selectedMaxPrice.value);
+                      const isDisabled =
+                        selectedMaxPrice &&
+                        parseInt(item.value) >=
+                          parseInt(selectedMaxPrice.value);
                       return (
                         <li
                           key={item.value}
-                          className={isDisabled ? 'disabled' : ''}
+                          className={isDisabled ? "disabled" : ""}
                           onClick={(e) => {
                             e.stopPropagation();
                             if (!isDisabled) {
@@ -634,30 +701,35 @@ const SearchSection = ({ bgColor }) => {
 
             {/* MAX PRICE DROPDOWN */}
             <div
-              className={`max-price search-common ${isRTL ? 'ar' : ''}`}
+              className={`max-price search-common ${isRTL ? "ar" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
                 setActiveDropDown("MAX_PRICE");
               }}
             >
               <div className="list">
-                <span className={`details ${isRTL ? 'ar' : ''}`}>
-                  {selectedMaxPrice ? selectedMaxPrice.label : t('max_price').toUpperCase()}
+                <span className={`details ${isRTL ? "ar" : ""}`}>
+                  {selectedMaxPrice
+                    ? selectedMaxPrice.label
+                    : t("max_price").toUpperCase()}
                 </span>
-                <span className={`icon ${isRTL ? 'ar' : ''}`}>
+                <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
               {activeDropDown === "MAX_PRICE" && (
-                <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+                <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
                     {prices.map((item) => {
                       // Disable items that are not allowed when a min price is selected
-                      const isDisabled = selectedMinPrice && parseInt(item.value) <= parseInt(selectedMinPrice.value);
+                      const isDisabled =
+                        selectedMinPrice &&
+                        parseInt(item.value) <=
+                          parseInt(selectedMinPrice.value);
                       return (
                         <li
                           key={item.value}
-                          className={isDisabled ? 'disabled' : ''}
+                          className={isDisabled ? "disabled" : ""}
                           onClick={(e) => {
                             e.stopPropagation();
                             if (!isDisabled) {
@@ -676,27 +748,27 @@ const SearchSection = ({ bgColor }) => {
             </div>
           </div>
           {/* AREA DROPDOWN (only for COMMERCIAL, as you indicated) */}
-          {category === 'COMMERCIAL' && (
+          {category === "COMMERCIAL" && (
             <div
-              className={`area search-common ${isRTL ? 'ar' : ''}`}
+              className={`area search-common ${isRTL ? "ar" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
                 setActiveDropDown("AREA");
               }}
             >
               <div className="list">
-                <span className={`details ${isRTL ? 'ar' : ''}`}>
-                  {t('area').toUpperCase()} ({t(areaUnit.toUpperCase())})
+                <span className={`details ${isRTL ? "ar" : ""}`}>
+                  {t("area").toUpperCase()} ({t(areaUnit.toUpperCase())})
                 </span>
-                <span className={`icon ${isRTL ? 'ar' : ''}`}>
+                <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
               {activeDropDown === "AREA" && (
-                <div className={`dropDown ${isRTL ? 'ar' : ''}`}>
+                <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <div className="selectContainer">
                     <Select
-                      placeholder={t('min_area')}
+                      placeholder={t("min_area")}
                       value={selectedMinArea || ""}
                       isSearchable
                       name="minArea"
@@ -713,7 +785,7 @@ const SearchSection = ({ bgColor }) => {
                   </div>
                   <div className="selectContainer">
                     <Select
-                      placeholder={t('max_area')}
+                      placeholder={t("max_area")}
                       value={selectedMaxArea || ""}
                       isSearchable
                       name="maxArea"
@@ -735,12 +807,12 @@ const SearchSection = ({ bgColor }) => {
 
           {/* COMMUNITY / PROPERTY SEARCH INPUT */}
           <input
-            dir={isRTL ? 'rtl' : 'ltr'}
-            className={`searchInput ${isRTL ? 'ar' : ''}`}
+            dir={isRTL ? "rtl" : "ltr"}
+            className={`searchInput ${isRTL ? "ar" : ""}`}
             type="text"
             name="text"
             value={inputValues.text || ""}
-            placeholder={t('community_or_property')}
+            placeholder={t("community_or_property")}
             onChange={handleUpdate}
             ref={searchDropDownRefBed}
           />
@@ -764,12 +836,14 @@ const SearchSection = ({ bgColor }) => {
                         setSearchDropDown(false);
                         setSelectedKeywords({
                           result_type: group?.type,
-                          emirate: valueItem?.attributes?.emirate?.data?.attributes?.emirate_name,
+                          emirate:
+                            valueItem?.attributes?.emirate?.data?.attributes
+                              ?.emirate_name,
                           item_name:
                             valueItem?.attributes?.project_name ||
                             valueItem?.attributes?.developer_name ||
                             valueItem?.attributes?.slug ||
-                            valueItem?.attributes?.property_name
+                            valueItem?.attributes?.property_name,
                         });
                       }}
                     >
@@ -787,10 +861,10 @@ const SearchSection = ({ bgColor }) => {
           )}
         </div>
         {/* SEARCH BUTTON */}
-        <div className={`right ${isRTL ? 'ar' : ''}`}>
+        <div className={`right ${isRTL ? "ar" : ""}`}>
           <SearchIcon onClick={searchSubmitHandler} />
           <button className="search globalBtn" onClick={searchSubmitHandler}>
-            {t('search')}
+            {t("search")}
           </button>
         </div>
       </div>
