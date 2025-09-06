@@ -9,10 +9,30 @@ export default function SignatureCollections({
   blurb = "From architectural icons to serene waterfront estates, each property in our portfolio is a work of art. Discover homes crafted by the world’s leading developers and designers.",
   items = [],
 }) {
-  const data = items;
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  // Rotate every 1 second
+  useEffect(() => {
+    if (items.length <= 3) return; // no need to rotate if only 3
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [items.length]);
+
+  // Get the 3 items for current "window"
+  const visibleItems = (() => {
+    if (items.length <= 3) return items;
+    return [
+      items[activeIndex % items.length],
+      items[(activeIndex + 1) % items.length],
+      items[(activeIndex + 2) % items.length],
+    ];
+  })();
+
+  // Positioning along curve
   useEffect(() => {
     const compute = () => {
       const svg = svgRef.current;
@@ -20,25 +40,20 @@ export default function SignatureCollections({
       const path = svg.querySelector("#sig-curve");
       if (!path) return;
 
-      const vb = svg.viewBox.baseVal; // viewBox {width,height}
-      const sx = svg.clientWidth / vb.width; // viewBox -> px
+      const vb = svg.viewBox.baseVal;
+      const sx = svg.clientWidth / vb.width;
       const sy = svg.clientHeight / vb.height;
 
       const total = path.getTotalLength();
-      const n = data.length;
+      const n = visibleItems.length;
 
-      // Use almost full width of the curve (minimal side gaps)
-      const edgePad = 0.18;
-      const start = total * edgePad;
-      const end = total * (1 - edgePad);
+      // use full curve width
+      const start = total * 0.1;
+      const end = total * 0.9;
       const span = end - start;
 
-      // Even distribution
-      const spread = 0.95;
-
       const pts = Array.from({ length: n }).map((_, i) => {
-        const t0 = n === 1 ? 0.5 : i / (n - 1); // 0..1
-        const t = 0.5 + (t0 - 0.5) * spread;
+        const t = n === 1 ? 0.5 : i / (n - 1);
         const l = start + span * t;
         const p = path.getPointAtLength(l);
         return { x: p.x * sx, y: p.y * sy };
@@ -55,7 +70,7 @@ export default function SignatureCollections({
       window.removeEventListener("resize", compute);
       ro.disconnect();
     };
-  }, [data.length]);
+  }, [visibleItems]);
 
   return (
     <section className="signatureSection">
@@ -83,11 +98,9 @@ export default function SignatureCollections({
           </defs>
 
           {(() => {
-            // Move curve UP by lowering the midline Y
-            const MID_Y = 80; // endpoints Y (closer to top)
-            const DEPTH = 220; // dip amount for the smile
+            const MID_Y = 80;
+            const DEPTH = 220;
             const CTRL_Y = MID_Y + DEPTH;
-            // Wider smile so ends show nicely
             const CTRL_X_L = 300;
             const CTRL_X_R = 1617;
 
@@ -105,9 +118,11 @@ export default function SignatureCollections({
           })()}
         </svg>
 
+        {/* Render 3 visible items */}
         {points.map((p, i) => {
-          const item = data[i];
-          const isCenter = i === Math.floor(data.length / 2);
+          const item = visibleItems[i];
+          if (!item) return null;
+          const isCenter = i === 1; // middle one
           return (
             <figure
               key={i}

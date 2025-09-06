@@ -121,6 +121,8 @@ export default async function Home({ params: { locale } }) {
                   { src: "/communities1.jpg", label: "Signature building" },
                   { src: "/communities2.jpg", label: "Signature building" },
                   { src: "/communities3.jpg", label: "Signature building" },
+                  { src: "/communities4.jpg", label: "Signature building" },
+                  { src: "/communities5.jpg", label: "Signature building" },
                 ]}
               />
               <SearchSection bgColor={false} />
