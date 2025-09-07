@@ -15569,20 +15569,19 @@ div.ldr .adImage {
 
 .imageAccordion.withInfo {
   text-align: left;
-  /* your existing variables */
+  /* desktop defaults (tuned) */
   --h: 360px;
-  --collapsed: 10.5%;
-  --expanded: 46%;
-  --info: 29.5%;
+  --collapsed: 12%;
+  --expanded: 30%; /* → smaller active pane */
+  --info: 42%; /* → give text more room */
   display: flex;
   gap: 16px;
   align-items: stretch;
   height: var(--h);
   overflow: hidden;
   /* PANE */
-  /* INFO PANEL slides in horizontally from the active pane */
-  /* Respect reduced motion */
-  /* Responsive (unchanged) */
+  /* INFO PANEL */
+  /* Responsive */
 }
 .imageAccordion.withInfo .pane {
   position: relative;
@@ -15598,9 +15597,7 @@ div.ldr .adImage {
   /* default slim */
   flex: 0 0 var(--collapsed);
   max-width: var(--collapsed);
-  /* 👉 slide & width only */
   transition: flex-basis 320ms ease, max-width 320ms ease, transform 320ms ease;
-  /* subtle vignette reveal */
 }
 .imageAccordion.withInfo .pane::after {
   content: "";
@@ -15627,11 +15624,18 @@ div.ldr .adImage {
 .imageAccordion.withInfo .pane.is-active {
   flex-basis: var(--expanded);
   max-width: var(--expanded);
-  transform: translateX(0); /* reset */
-  /* vignette fades away */
+  transform: translateX(0);
+  /* visual shrink inside the active pane */
 }
 .imageAccordion.withInfo .pane.is-active::after {
   opacity: 0.06;
+}
+.imageAccordion.withInfo .pane.is-active .imgRel {
+  inset: 8px;
+  border-radius: 14px;
+}
+.imageAccordion.withInfo .pane.is-active img {
+  border-radius: 14px;
 }
 .imageAccordion.withInfo .infoPanel {
   flex: 0 0 var(--info);
@@ -15645,7 +15649,6 @@ div.ldr .adImage {
   justify-content: center;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  /* slide + fade */
   opacity: 0;
   transform: translateX(12px);
   animation: infoSlideIn 280ms ease forwards;
@@ -15688,7 +15691,7 @@ div.ldr .adImage {
   .imageAccordion.withInfo {
     --h: 300px;
     --collapsed: 18%;
-    --expanded: 56%;
+    --expanded: 50%; /* was 56% → smaller on tablet */
     --info: 100%;
     flex-wrap: wrap;
   }
@@ -15704,7 +15707,7 @@ div.ldr .adImage {
   .imageAccordion.withInfo {
     --h: 220px;
     --collapsed: 24%;
-    --expanded: 52%;
+    --expanded: 50%; /* was 52% */
   }
 }
 
@@ -15720,7 +15723,7 @@ div.ldr .adImage {
   margin-bottom: 30px;
 }
 .accordionSection .accordionHeader .title1 {
-  font-size: 20px;
+  font-size: 48px;
   font-weight: 400;
   color: #fff;
   text-transform: uppercase;
@@ -15728,11 +15731,10 @@ div.ldr .adImage {
   margin: 0;
 }
 .accordionSection .accordionHeader .title2 {
-  font-size: 36px;
+  font-size: 122px;
   font-family: var(--migratory-font-family, cursive);
   font-weight: 400;
   color: var(--Gold-lux, #ffde9b);
-  margin: 10px 0 0;
 }
 
 .differenceSection {

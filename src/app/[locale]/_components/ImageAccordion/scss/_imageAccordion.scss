@@ -1,10 +1,11 @@
 .imageAccordion.withInfo {
   text-align: left;
-  /* your existing variables */
+
+  /* desktop defaults (tuned) */
   --h: 360px;
-  --collapsed: 10.5%;
-  --expanded: 46%;
-  --info: 29.5%;
+  --collapsed: 12%;
+  --expanded: 30%; /* → smaller active pane */
+  --info: 42%; /* → give text more room */
 
   display: flex;
   gap: 16px;
@@ -29,11 +30,9 @@
     flex: 0 0 var(--collapsed);
     max-width: var(--collapsed);
 
-    /* 👉 slide & width only */
     transition: flex-basis 320ms ease, max-width 320ms ease,
       transform 320ms ease;
 
-    /* subtle vignette reveal */
     &::after {
       content: "";
       position: absolute;
@@ -63,14 +62,22 @@
     &.is-active {
       flex-basis: var(--expanded);
       max-width: var(--expanded);
-      transform: translateX(0); /* reset */
+      transform: translateX(0);
       &::after {
         opacity: 0.06;
-      } /* vignette fades away */
+      }
+      /* visual shrink inside the active pane */
+      .imgRel {
+        inset: 8px;
+        border-radius: 14px;
+      }
+      img {
+        border-radius: 14px;
+      }
     }
   }
 
-  /* INFO PANEL slides in horizontally from the active pane */
+  /* INFO PANEL */
   .infoPanel {
     flex: 0 0 var(--info);
     max-width: var(--info);
@@ -81,10 +88,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     backdrop-filter: blur(10px);
 
-    /* slide + fade */
     opacity: 0;
     transform: translateX(12px);
     animation: infoSlideIn 280ms ease forwards;
@@ -118,7 +123,6 @@
     }
   }
 
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .pane,
     .infoPanel {
@@ -128,13 +132,14 @@
     }
   }
 
-  /* Responsive (unchanged) */
+  /* Responsive */
   @media (max-width: 900px) {
     --h: 300px;
     --collapsed: 18%;
-    --expanded: 56%;
+    --expanded: 50%; /* was 56% → smaller on tablet */
     --info: 100%;
     flex-wrap: wrap;
+
     .infoPanel {
       order: 2;
       flex: 0 0 100%;
@@ -143,9 +148,10 @@
       height: auto;
     }
   }
+
   @media (max-width: 600px) {
     --h: 220px;
     --collapsed: 24%;
-    --expanded: 52%;
+    --expanded: 50%; /* was 52% */
   }
 }
