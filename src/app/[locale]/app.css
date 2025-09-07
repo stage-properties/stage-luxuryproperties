@@ -2,275 +2,263 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+/* MOBILE-FIRST HEADER – used on ALL widths */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-#header {
-  height: 65px;
-  background: rgba(18, 24, 35, 0.7);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  padding: 8px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+#mHeader {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  height: 80px; /* was 64px */
+  padding: 14px 28px; /* was 8px 20px */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left | center | right */
+  align-items: center;
   z-index: 999;
-  transition: 0.5s ease-in-out;
+  /* glass bar */
+  background: rgba(18, 24, 35, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 222, 155, 0.12);
 }
-@media all and (max-width: 640px) {
-  #header {
-    padding: 8px 20px;
-  }
+#mHeader .mH-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
 }
-#header.background {
-  background: rgb(18, 24, 35);
-  transition: 0.5s ease-in-out;
+#mHeader .mH-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 222, 155, 0.45);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fffae8;
+  font: 500 13px/1 var(--lara-font-family, system-ui);
+  letter-spacing: 0.02em;
+  /* make the embedded switcher fit like text */
 }
-@media all and (max-width: 1400px) {
-  #header ul.links {
-    display: none;
-  }
+#mHeader .mH-pill > * {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
-#header ul.links li.link {
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--lara-font-family);
+#mHeader .mH-brand {
   position: relative;
+  justify-self: center;
+  display: inline-block;
 }
-html[lang=ar] #header ul.links li.link {
-  font-size: calc(14px + 1px);
-}
-#header ul.links li.link ul.subLinks {
-  position: absolute;
-  width: 15rem;
-  top: 60px;
-  background-color: var(--primary-bg-color);
-  display: none;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#header ul.links li.link ul.subLinks li {
-  text-align: center;
-  padding: unset;
-  transition: 0.2s ease-in-out;
-  cursor: pointer;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 14px;
-  text-transform: capitalize;
-  font-family: var(--lara-font-family);
-}
-html[lang=ar] #header ul.links li.link ul.subLinks li {
-  font-size: calc(14px + 1px);
-}
-#header ul.links li.link ul.subLinks li:hover {
-  background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-}
-#header ul.links li.link ul.subLinks li:hover a {
-  color: white;
-}
-#header ul.links li.link ul.subLinks li a {
-  color: var(--light-text-color);
+#mHeader .mH-brand .mH-logo {
+  width: 120px;
+  height: auto;
   display: block;
-  width: 100%;
-  padding: 10px 20px;
 }
-#header ul.links li.link a {
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-#header ul.links li.link span {
-  color: white;
+#mHeader .mH-burger {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
-#header ul.links li.link.active a.mainLink {
-  border-bottom: 2px solid #fff;
-  padding-bottom: 4px;
-}
-#header ul.links li.link.menuIcon {
-  position: relative;
-  cursor: pointer;
-}
-#header ul.links li.link.menuIcon div.menuBarlist {
-  position: absolute;
-  top: 70px;
-  width: 15rem;
-  right: -10px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-}
-#header ul.links li.link.menuIcon div.menuBarlist::after {
-  border-color: transparent transparent #fff;
-  border-style: solid;
-  border-width: 0 9px 15px;
-  content: "";
-  right: 10px;
-  position: absolute;
-  top: -8px;
-}
-#header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.link {
-  padding: 6px 0;
-}
-#header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.link a {
-  font-family: var(--lara-font-family);
-  color: var(--secondary-bg-color);
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-html[lang=ar] #header ul.links li.link.menuIcon div.menuBarlist ul.sublinks li.link a {
-  font-size: calc(16px + 1px);
-}
-#header div.left {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  overflow: hidden;
-}
-#header div.left.ar {
-  order: 2;
-}
-#header div.left .stage-logo {
-  width: 93px;
-  height: 39px;
-  margin-right: 30px;
-  margin-top: 3px;
-}
-#header div.left .stage-logo.ar {
-  margin-right: unset;
-}
-#header div.left li.link {
-  border-left: 1px solid #fff;
-  padding: 20px 20px 20px;
-  display: block;
-}
-#header div.right {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-#header div.right.ar {
-  order: 1;
-}
-#header div.right div.menuIcon {
-  display: none;
-}
-@media all and (max-width: 1400px) {
-  #header div.right div.menuIcon {
-    display: block;
-  }
-}
-#header div.right ul.links {
-  display: flex;
-  align-items: center;
-}
-@media all and (max-width: 1400px) {
-  #header div.right ul.links {
-    display: none;
-  }
-}
-#header div.right ul.links li.link {
-  padding: 20px 20px 20px;
-  display: flex;
-  align-items: center;
-}
-#header div.right ul.links li.link span.icon {
-  display: block;
-  margin-left: 10px;
-  padding-bottom: 4px;
-}
-#header div.right ul.links li.link span.icon.ar {
-  padding-top: 10px;
-  padding-right: 10px;
-}
-#header div.right ul.links li.link:first-child {
-  padding: 20px 20px 20px;
-}
-#header div.menuResponsiveContainer {
-  position: absolute;
-  background-color: rgb(18, 23, 33);
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 20rem;
-  height: 100vh;
-  transform: translateX(100%);
-  transition: 0.3s ease-in-out;
-}
-#header div.menuResponsiveContainer div.closeIcon {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-@media all and (max-width: 1400px) {
-  #header div.menuResponsiveContainer.active {
-    right: 0;
-    transform: translateX(0);
-  }
-}
-@media all and (max-width: 640px) {
-  #header div.menuResponsiveContainer.active {
-    width: 100%;
-  }
-}
-#header div.menuResponsiveContainer ul.responsiveLinks {
-  padding-top: 50px;
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li div.linkContainer {
-  display: flex;
-  align-items: center;
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li span.label {
-  padding: 15px 30px;
-  display: block;
-  color: var(--text-color);
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li span.label.ar {
-  padding: 15px 30px 15px 15px;
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li a {
-  padding: 15px 30px;
-  display: block;
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li ul.subLinks {
-  display: none;
-}
-#header div.menuResponsiveContainer ul.responsiveLinks li ul.subLinks.gradientBorder {
-  border-left: none;
-  border-right: none;
-}
-#header .icon.closed {
-  transform: rotate(0deg); /* Arrow in default (closed) state */
-}
-#header .icon.open {
-  transform: rotate(180deg); /* Arrow flipped (open) state */
-}
-#header .language-link {
-  display: flex;
-  align-items: flex-start;
-}
-#header .language-link .flag {
-  margin-right: 8px;
-}
-#header .language-link .flag.ar {
-  margin-left: 8px;
-}
-#header .isDesktop {
-  display: flex;
-}
-@media all and (max-width: 1400px) {
-  #header .isDesktop {
-    display: none;
-  }
+#mHeader .mH-burger svg,
+#mHeader .mH-burger svg * {
+  width: 22px;
+  height: 22px;
+  stroke: #ffde9b; /* if your icon uses stroke */
+  fill: none;
 }
 
+/* Drawer */
+/* Drawer */
+.mDrawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(460px, 92vw);
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  background: rgba(18, 24, 35, 0.98);
+  z-index: 1000;
+  padding: 28px 22px 36px; /* more generous padding */
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.45);
+  border-left: 1px solid rgba(255, 222, 155, 0.12);
+}
+
+.mDrawer.is-open {
+  transform: translateX(0);
+}
+
+.mDrawer-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px; /* bigger tap target */
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 222, 155, 0.18);
+  cursor: pointer;
+}
+
+.mDrawer-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mDrawer-close svg,
+.mDrawer-close svg * {
+  stroke: #ffde9b;
+}
+
+/* NAV LIST – elegant spacing */
+.mDrawer-nav {
+  margin-top: 64px;
+}
+
+.mMenuList {
+  list-style: none;
+  margin: 0;
+  padding: 0 6px; /* slight inset */
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* spacing between primary items */
+}
+
+/* Primary items (works with your ListLink markup) */
+.mDrawer-nav li.link {
+  padding: 0;
+  border: 0;
+}
+
+.mDrawer-nav li.link > .linkContainer,
+.mDrawer-nav li.link > a.mainLink,
+.mDrawer-nav li.link > .label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 155, 0.1);
+  color: #fffae8;
+  font-family: var(--lara-font-family);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Hover/focus for primaries */
+.mDrawer-nav li.link > .linkContainer:hover,
+.mDrawer-nav li.link > a.mainLink:hover,
+.mDrawer-nav li.link > .label:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 222, 155, 0.22);
+}
+
+/* Chevron (if your ListLink renders .icon inside) */
+.mDrawer-nav li.link .icon {
+  margin-inline-start: auto;
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+/* Submenu wrapper from your ListLink (ul.subLinks) */
+.mDrawer-nav ul.subLinks {
+  display: block !important; /* ensure visible when responsive */
+  margin: 8px 0 2px 0;
+  padding: 10px 0 4px 14px;
+  border-left: 1px solid rgba(255, 222, 155, 0.2);
+}
+
+/* Submenu items */
+.mDrawer-nav ul.subLinks li {
+  border: 0;
+  padding: 0;
+}
+
+.mDrawer-nav ul.subLinks li a,
+.mDrawer-nav ul.subLinks li .label {
+  display: block;
+  padding: 10px 8px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--lara-font-family);
+  font-weight: 400;
+  font-size: 15px; /* refined size */
+  letter-spacing: 0.02em;
+  text-transform: none; /* subitems normal case */
+}
+
+.mDrawer-nav ul.subLinks li a:hover,
+.mDrawer-nav ul.subLinks li .label:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* Soft section separators (optional) */
+.mDrawer-nav .mMenuList > li.link:not(:last-child) {
+  position: relative;
+}
+
+.mDrawer-nav .mMenuList > li.link:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -7px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 222, 155, 0), rgba(255, 222, 155, 0.18), rgba(255, 222, 155, 0));
+  pointer-events: none;
+}
+
+/* Backdrop (unchanged, slightly stronger) */
+.mBackdrop.is-open {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Header (keep your previous mobile header) */
+#mHeader {
+  height: 80px;
+  padding: 16px 28px;
+  background: rgba(18, 24, 35, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 222, 155, 0.12);
+}
+
+/* Backdrop */
+.mBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+}
+.mBackdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Optional: slightly larger logo on ≥768px without changing layout */
+@media (min-width: 768px) {
+  #mHeader .mH-brand .mH-logo {
+    width: 136px;
+  }
+}
 #lc_widgetTooltip-close {
   scale: 1.3;
   margin-top: 0.2rem;
