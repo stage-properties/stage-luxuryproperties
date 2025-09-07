@@ -91,7 +91,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    width: 56%;
+    width: unset;
     margin: 0 auto 40px;
     @media all and (max-width: 980px) {
       width: 80%;
