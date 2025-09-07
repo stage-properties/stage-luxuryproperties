@@ -30,7 +30,7 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
-      <link rel="icon preload" href="/favicon.ico" sizes="any" />
+      <link rel="icon preload" href="/lux-logo-mark.svg" sizes="any" />
       {/* <meta name="google-site-verification" content="mhv9v3VuNgVQ3YpO9ijfvRlcUsd29_kGoEOBR3nteRc"></meta> */}
       <head>
         {pathname === "/" && (
