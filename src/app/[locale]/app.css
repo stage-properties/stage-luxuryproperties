@@ -15569,16 +15569,23 @@ div.ldr .adImage {
 
 .imageAccordion.withInfo {
   text-align: left;
-  /* desktop defaults (tuned) */
+  /* desktop defaults */
   --h: 500px;
   --collapsed: 12%;
-  --expanded: 30%; /* → smaller active pane */
-  --info: 42%; /* → give text more room */
+  --expanded: 30%;
+  --info: 42%;
   display: flex;
   gap: 16px;
   align-items: stretch;
   height: var(--h);
   overflow: hidden;
+  /* 🔑 glass background blur */
+  background: rgba(14, 14, 14, 0.35); /* semi-transparent dark layer */
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px); /* adjust intensity */
+  border-radius: 18px;
+  padding: 12px; /* optional inner padding */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   /* PANE */
   /* INFO PANEL */
   /* Responsive */
@@ -15594,7 +15601,6 @@ div.ldr .adImage {
   overflow: hidden;
   box-sizing: border-box;
   align-self: stretch;
-  /* default slim */
   flex: 0 0 var(--collapsed);
   max-width: var(--collapsed);
   transition: flex-basis 320ms ease, max-width 320ms ease, transform 320ms ease;
@@ -15625,7 +15631,6 @@ div.ldr .adImage {
   flex-basis: var(--expanded);
   max-width: var(--expanded);
   transform: translateX(0);
-  /* visual shrink inside the active pane */
 }
 .imageAccordion.withInfo .pane.is-active::after {
   opacity: 0.06;
@@ -15647,8 +15652,10 @@ div.ldr .adImage {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  /* keep blur inside info too */
+  background: rgba(20, 20, 20, 0.45);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
   opacity: 0;
   transform: translateX(12px);
   animation: infoSlideIn 280ms ease forwards;
@@ -15691,7 +15698,7 @@ div.ldr .adImage {
   .imageAccordion.withInfo {
     --h: 300px;
     --collapsed: 18%;
-    --expanded: 50%; /* was 56% → smaller on tablet */
+    --expanded: 50%;
     --info: 100%;
     flex-wrap: wrap;
   }
@@ -15707,17 +15714,39 @@ div.ldr .adImage {
   .imageAccordion.withInfo {
     --h: 220px;
     --collapsed: 24%;
-    --expanded: 50%; /* was 52% */
+    --expanded: 50%;
   }
 }
 
 .accordionSection {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  text-align: center;
-  margin: 60px auto;
+  position: relative;
+  padding: 5rem 0;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  /* replace flat overlay with the same balanced top+bottom fade */
+}
+.accordionSection .accordionBackground {
+  position: absolute;
+  inset: 0;
+  background: url("/accordionBackground.png") center/cover no-repeat;
+  z-index: 0;
+  filter: brightness(0.3) blur(6px); /* ← dark + blur */
+}
+.accordionSection .accordionOverlay {
+  position: absolute;
+  inset: 0;
+  /* balanced vertical gradient (matches different-tabs-parent) */
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.95) 0%, rgba(14, 14, 14, 0.6) 10%, rgba(14, 14, 14, 0) 35%, rgba(14, 14, 14, 0) 70%, rgba(14, 14, 14, 0.6) 90%, rgba(14, 14, 14, 0.95) 100%);
+  z-index: 1;
+  pointer-events: none; /* ensure overlay doesn't block clicks */
+}
+.accordionSection .accordionContent {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 0;
   border-radius: 44.081px;
   border: 1px solid #ffdb9f;
+  text-align: center;
 }
 .accordionSection .accordionHeader {
   margin-bottom: 30px;
@@ -15744,8 +15773,8 @@ div.ldr .adImage {
   position: relative;
   padding: 200px 36px 200px;
   background: rgba(255, 255, 255, 0.03);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   border-radius: 44.081px;
   border: 1px solid #ffdb9f;
@@ -16058,7 +16087,7 @@ div.ldr .adImage {
   padding: 5rem 0;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   overflow: hidden;
-  /* background image */
+  /* background image (darkened) */
   /* balanced top + bottom fade */
 }
 .different-tabs-parent::before {
@@ -16066,6 +16095,8 @@ div.ldr .adImage {
   position: absolute;
   inset: 0;
   background: url("/difference.jpg") center/cover no-repeat;
+  filter: brightness(1); /* ← lowers brightness to 50% */
+  transform: scale(1.02); /* avoids edge artifacts if blur/gradients are used */
   z-index: 0;
 }
 .different-tabs-parent::after {
@@ -16074,8 +16105,9 @@ div.ldr .adImage {
   inset: 0;
   background: linear-gradient(to bottom, rgba(14, 14, 14, 0.95) 0%, rgba(14, 14, 14, 0.6) 10%, rgba(14, 14, 14, 0) 35%, rgba(14, 14, 14, 0) 70%, rgba(14, 14, 14, 0.6) 90%, rgba(14, 14, 14, 0.95) 100%);
   z-index: 1;
+  pointer-events: none;
 }
-.different-tabs-parent > * {
+.different-tabs-parent .accordionContent {
   position: relative;
   z-index: 2;
 }/*# sourceMappingURL=app.css.map */

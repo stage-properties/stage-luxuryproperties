@@ -1,17 +1,24 @@
 .imageAccordion.withInfo {
   text-align: left;
 
-  /* desktop defaults (tuned) */
+  /* desktop defaults */
   --h: 500px;
   --collapsed: 12%;
-  --expanded: 30%; /* → smaller active pane */
-  --info: 42%; /* → give text more room */
+  --expanded: 30%;
+  --info: 42%;
 
   display: flex;
   gap: 16px;
   align-items: stretch;
   height: var(--h);
   overflow: hidden;
+
+  /* 🔑 glass background blur */
+  background: rgba(14, 14, 14, 0.35); /* semi-transparent dark layer */
+  backdrop-filter: blur(12px); /* adjust intensity */
+  border-radius: 18px;
+  padding: 12px; /* optional inner padding */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 
   /* PANE */
   .pane {
@@ -26,7 +33,6 @@
     box-sizing: border-box;
     align-self: stretch;
 
-    /* default slim */
     flex: 0 0 var(--collapsed);
     max-width: var(--collapsed);
 
@@ -66,7 +72,7 @@
       &::after {
         opacity: 0.06;
       }
-      /* visual shrink inside the active pane */
+
       .imgRel {
         inset: 8px;
         border-radius: 14px;
@@ -88,7 +94,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    backdrop-filter: blur(10px);
+
+    /* keep blur inside info too */
+    background: rgba(20, 20, 20, 0.45);
+    backdrop-filter: blur(14px);
 
     opacity: 0;
     transform: translateX(12px);
@@ -136,7 +145,7 @@
   @media (max-width: 900px) {
     --h: 300px;
     --collapsed: 18%;
-    --expanded: 50%; /* was 56% → smaller on tablet */
+    --expanded: 50%;
     --info: 100%;
     flex-wrap: wrap;
 
@@ -152,6 +161,6 @@
   @media (max-width: 600px) {
     --h: 220px;
     --collapsed: 24%;
-    --expanded: 50%; /* was 52% */
+    --expanded: 50%;
   }
 }
