@@ -104,7 +104,7 @@
     }
 
     button.button {
-      width: 13rem;
+      width: 18rem;
       padding: 18px 15px;
       background-color: transparent;
       color: var(--btn-text-color);
@@ -113,7 +113,7 @@
       border: 1px solid rgba(255, 219, 159, 0.4);
       background: rgba(0, 0, 0, 0);
 
-      @include adjust-font(14px, false);
+      @include adjust-font(23px, false);
       margin-right: 20px;
       cursor: pointer;
       transition: 0.3s ease-in-out;

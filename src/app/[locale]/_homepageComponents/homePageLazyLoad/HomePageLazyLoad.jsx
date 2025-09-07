@@ -35,30 +35,32 @@ const HomePageLazyLoad = async ({
 
   return (
     <div className="home-page">
-      <DifferenceTabs
-        titleBig="The Stage Lux"
-        titleSmall="Difference"
-        subtitle="What Sets Stage Lux Apart"
-        items={[
-          {
-            label: "Exclusive Access",
-            text: "Gain privileged entry to Dubai’s most anticipated luxury developments before they reach the open market. Through our developer partnerships and insider connections, Stage Lux ensures you’re always ahead — with first-look opportunities at limited-edition launches and rare investment gems.",
-          },
-          {
-            label: "Tailored Service",
-            text: "Bespoke guidance shaped around your ambitions, handled with absolute discretion and refined taste.",
-          },
-          {
-            label: "Global Network",
-            text: "Direct reach into premier developers, private sellers, and international UHNW buyer pools.",
-          },
-          {
-            label: "Discreet Experience",
-            text: "From private viewings to white-glove closing, every detail is handled quietly and flawlessly.",
-          },
-        ]}
-        initialIndex={0}
-      />
+      <div className="different-tabs-parent">
+        <DifferenceTabs
+          titleBig="The stage lux"
+          titleSmall="Difference"
+          subtitle="What Sets Stage Lux Apart"
+          items={[
+            {
+              label: "Exclusive Access",
+              text: "Gain privileged entry to Dubai’s most anticipated luxury developments before they reach the open market. Through our developer partnerships and insider connections, Stage Lux ensures you’re always ahead — with first-look opportunities at limited-edition launches and rare investment gems.",
+            },
+            {
+              label: "Tailored Service",
+              text: "Bespoke guidance shaped around your ambitions, handled with absolute discretion and refined taste.",
+            },
+            {
+              label: "Global Network",
+              text: "Direct reach into premier developers, private sellers, and international UHNW buyer pools.",
+            },
+            {
+              label: "Discreet Experience",
+              text: "From private viewings to white-glove closing, every detail is handled quietly and flawlessly.",
+            },
+          ]}
+          initialIndex={0}
+        />
+      </div>
       <CommunitySection
         community_subheading={community_subheading}
         locale={locale}

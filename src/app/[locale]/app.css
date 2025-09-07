@@ -611,7 +611,7 @@ html[lang=ar] #searchSection div.buttonDropDown button .text {
   }
 }
 #searchSection div.buttonContainer button.button {
-  width: 13rem;
+  width: 18rem;
   padding: 18px 15px;
   background-color: transparent;
   color: var(--btn-text-color);
@@ -619,13 +619,13 @@ html[lang=ar] #searchSection div.buttonDropDown button .text {
   border-radius: 44.081px;
   border: 1px solid rgba(255, 219, 159, 0.4);
   background: rgba(0, 0, 0, 0);
-  font-size: 14px;
+  font-size: 23px;
   margin-right: 20px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 html[lang=ar] #searchSection div.buttonContainer button.button {
-  font-size: calc(14px + 1px);
+  font-size: calc(23px + 1px);
 }
 @media all and (max-width: 768px) {
   #searchSection div.buttonContainer button.button {
@@ -15721,21 +15721,17 @@ div.ldr .adImage {
 
 .differenceSection {
   /* container card (soft glass + gold border) */
-  --gold: rgba(255, 219, 159, 0.2);
+  --gold: var(--gold-lux, #ffde9b);
   --panel-anim: 1.8s ease; /* ← control how long the text takes to appear */
   position: relative;
-  padding: 100px 36px 100px;
+  padding: 200px 36px 200px;
   background: rgba(255, 255, 255, 0.03);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   border-radius: 44.081px;
   border: 1px solid #ffdb9f;
   overflow: hidden; /* ensure bg + filters stay inside rounded corners */
-  /* background image */
-  background: url("/difference.jpg") center/cover no-repeat;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   /* subtle gold edge and glow, like your mock */
   /* dark overlay filter */
   /* gold edge */
@@ -15768,34 +15764,47 @@ div.ldr .adImage {
 }
 .differenceSection .ds-header {
   text-align: center;
-  margin-bottom: 26px;
+  margin-bottom: 3.75rem;
 }
 .differenceSection .ds-header .ds-title {
-  margin: 0;
-  line-height: 1.12;
+  display: inline-block; /* center the whole block */
+  margin: 0 0 clamp(6px, 1.2vw, 8px);
+  text-align: left; /* lines inside are left-aligned */
+  line-height: 1;
   color: #fff;
-  display: inline-flex;
-  gap: 0.4ch;
-  align-items: baseline;
-  white-space: nowrap;
+  font-weight: 400;
+  /* knobs */
+  --collections-indent: clamp(
+    28px,
+    7.5vw,
+    180px
+  ); /* how far "Collections" shifts right */
+  --stack-gap: clamp(4px, 0.9vw, 14px); /* vertical gap between lines */
   /* script-style main line */
   /* small white word to the right */
 }
 .differenceSection .ds-header .ds-title .ds-title-big {
+  display: block;
   font-family: var(--migratory-font-family, cursive);
-  font-weight: 400;
-  color: #ffdb9f;
-  font-size: clamp(28px, 5vw, 56px);
+  color: var(--gold);
+  font-size: clamp(46px, 6.8vw, 122px);
+  letter-spacing: 0.5px;
+  line-height: 0.92; /* room for descenders */
+  margin-bottom: var(--stack-gap);
 }
 .differenceSection .ds-header .ds-title .ds-title-small {
-  font-size: clamp(18px, 2.2vw, 26px);
+  display: block; /* new line */
+  font-size: clamp(20px, 2.6vw, 48px);
+  color: #eaeaea;
   font-weight: 400;
-  color: #e8e8e8;
+  line-height: 0;
+  text-align: right;
+  margin-right: -2rem;
 }
 .differenceSection .ds-header .ds-subtitle {
-  margin: 14px 0 0;
+  margin: 28px 0 0;
   color: #cfcfcf;
-  font-size: 14px;
+  font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -15810,19 +15819,21 @@ div.ldr .adImage {
   width: 100%;
 }
 .differenceSection .ds-tab {
-  height: 50px;
+  font-family: var(--lara-font-family);
+  height: 95px;
+  font-size: 20px;
+  width: 25%;
+  padding-left: 2rem;
+  padding-right: 2rem;
   position: relative;
   z-index: 1;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   border-radius: 12px;
-  padding: 0px 18px;
-  font-size: 14px;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  width: 25%;
   background: transparent;
   color: #f2f2f2;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
@@ -15843,7 +15854,7 @@ div.ldr .adImage {
   box-shadow: 0 12px 26px rgba(255, 222, 155, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 .differenceSection .ds-panel {
-  margin-top: 18px;
+  margin-top: 2rem;
   text-align: center;
   animation: dsFadeSlide 220ms ease;
   text-align: left;
@@ -15851,13 +15862,14 @@ div.ldr .adImage {
 }
 .differenceSection .ds-panel p {
   margin: 0 auto;
-  max-width: 840px;
+  max-width: 992px;
   color: rgba(255, 255, 255, 0.92);
   /* mock uses an uppercase, letter-spaced paragraph */
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 12.5px;
   line-height: 1.9;
+  font-size: 19px;
 }
 @keyframes dsFadeSlide {
   from {
@@ -15895,8 +15907,7 @@ div.ldr .adImage {
   /* center the whole block */
   margin-left: auto;
   margin-right: auto;
-  max-width: 840px; /* same as panel text */
-  width: 100%;
+  max-width: 992px;
 }
 .ds-parent .ds-panel {
   width: 100%; /* text takes full width of container */
@@ -15904,7 +15915,7 @@ div.ldr .adImage {
 
 .signatureSection {
   /* tokens that scale */
-  --gold: var(--Gold-lux, #ffde9b);
+  --gold: var(--gold-lux, #ffde9b);
   --chip-size: clamp(110px, 14vw, 166px);
   --chip-radius: clamp(18px, 3vw, 44px);
   position: relative;
@@ -15947,11 +15958,11 @@ div.ldr .adImage {
 
 .signatureSection .sig-title2 {
   display: block; /* new line */
-  font-size: clamp(20px, 2.6vw, 38px);
+  font-size: clamp(20px, 2.6vw, 48px);
   color: #eaeaea;
   font-weight: 400;
   line-height: 0;
-  margin-right: -64px;
+  margin-right: -8rem;
   text-align: right;
 }
 
@@ -15959,7 +15970,8 @@ div.ldr .adImage {
   margin: clamp(1.4rem, 3.6vw, 2.75rem) auto clamp(2.4rem, 5.4vw, 5.3rem);
   max-width: clamp(540px, 80vw, 760px);
   color: #d1d1d1;
-  font-size: clamp(13px, 1.2vw, 14.5px);
+  font-size: clamp(13px, 1.2vw, 19px);
+  line-height: 29px; /* 152.632% */
 }
 
 /* Stage */
@@ -15980,7 +15992,7 @@ div.ldr .adImage {
   position: absolute;
   width: var(--chip-size);
   text-align: center;
-  color: var(--gold);
+  color: var(--gold-lux, #ffde9b);
   transition: transform 0.25s ease;
 }
 
@@ -16023,6 +16035,29 @@ div.ldr .adImage {
     --stack-gap: clamp(6px, 2vw, 10px);
   }
 }
-.home-page {
-  margin-top: 10.4rem;
+.different-tabs-parent {
+  position: relative;
+  padding: 5rem 0;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  /* background image */
+  /* balanced top + bottom fade */
+}
+.different-tabs-parent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/difference.jpg") center/cover no-repeat;
+  z-index: 0;
+}
+.different-tabs-parent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.95) 0%, rgba(14, 14, 14, 0.6) 10%, rgba(14, 14, 14, 0) 35%, rgba(14, 14, 14, 0) 70%, rgba(14, 14, 14, 0.6) 90%, rgba(14, 14, 14, 0.95) 100%);
+  z-index: 1;
+}
+.different-tabs-parent > * {
+  position: relative;
+  z-index: 2;
 }/*# sourceMappingURL=app.css.map */

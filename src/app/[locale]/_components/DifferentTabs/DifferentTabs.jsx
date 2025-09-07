@@ -3,7 +3,7 @@
 import React, { useState, useId } from "react";
 
 export default function DifferenceTabs({
-  titleBig = "The Stage Lux",
+  titleBig = "The stage lux",
   titleSmall = "Difference",
   subtitle = "What Sets Stage Lux Apart",
   items = [],
