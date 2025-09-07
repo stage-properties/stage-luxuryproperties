@@ -34,7 +34,7 @@ const HomePageLazyLoad = async ({
   ];
 
   return (
-    <>
+    <div className="home-page">
       <DifferenceTabs
         titleBig="The Stage Lux"
         titleSmall="Difference"
@@ -69,7 +69,7 @@ const HomePageLazyLoad = async ({
         title2="Tailored for the Exceptional"
       />
       <BlogSection locale={locale} blogs_subheading={blogs_subheading} />
-    </>
+    </div>
   );
 };
 

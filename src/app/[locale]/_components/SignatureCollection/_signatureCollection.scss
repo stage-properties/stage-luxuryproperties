@@ -5,7 +5,7 @@
   position: relative;
   padding: 40px 20px 64px; /* a bit tighter */
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 10.6rem;
   margin-top: 8rem;
 }
 
@@ -14,29 +14,37 @@
   margin-bottom: 18px;
 }
 .signatureSection .ds-title {
+  /* make the title group behave like a centered block */
+  display: inline-block;
   margin: 0 0 8px;
-  line-height: 1.1;
+  line-height: 1;
   color: #fff;
   font-weight: 400;
+  text-align: left; /* left-align inside the inline-block */
 }
 .signatureSection .sig-title1 {
+  display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(28px, 4.6vw, 56px);
+  font-size: clamp(34px, 6vw, 122px);
+  letter-spacing: 0.5px;
 }
 .signatureSection .sig-title2 {
-  font-size: clamp(20px, 2.2vw, 30px);
+  display: block; /* new line */
+  text-align: right;
+  font-size: clamp(20px, 2.6vw, 34px);
   color: #eaeaea;
   font-weight: 400;
+  line-height: 0;
+  margin-right: -3vw;
 }
 .signatureSection .sig-blurb {
-  margin: 0 auto;
+  margin: 2.75rem auto 5.3rem;
   max-width: 760px;
   color: #d1d1d1;
   font-size: 14px;
   line-height: 1.85;
 }
-
 /* Stage */
 .signatureSection .sig-stage {
   position: relative;
@@ -91,5 +99,12 @@
 @media (max-width: 900px) {
   .signatureSection .sig-stage {
     height: 300px;
+  }
+}
+
+/* responsive fine-tune for small screens */
+@media (max-width: 680px) {
+  .signatureSection .ds-title {
+    --collections-indent: clamp(16px, 6vw, 40px);
   }
 }

@@ -38,7 +38,7 @@
 #header ul.links li.link {
   font-size: 14px;
   font-weight: 500;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   position: relative;
 }
 html[lang=ar] #header ul.links li.link {
@@ -14637,7 +14637,7 @@ div.landing_aboutDeveloper div.landing_wrapper .landing_parent .generalButton {
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 500;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   text-transform: uppercase;
 }
 html[lang=ar] .language-switcher .switcher-button .text {
@@ -15909,7 +15909,7 @@ div.ldr .adImage {
   position: relative;
   padding: 40px 20px 64px; /* a bit tighter */
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 10.6rem;
   margin-top: 8rem;
 }
 
@@ -15919,26 +15919,35 @@ div.ldr .adImage {
 }
 
 .signatureSection .ds-title {
+  /* make the title group behave like a centered block */
+  display: inline-block;
   margin: 0 0 8px;
-  line-height: 1.1;
+  line-height: 1;
   color: #fff;
   font-weight: 400;
+  text-align: left; /* left-align inside the inline-block */
 }
 
 .signatureSection .sig-title1 {
+  display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(28px, 4.6vw, 56px);
+  font-size: clamp(34px, 6vw, 122px);
+  letter-spacing: 0.5px;
 }
 
 .signatureSection .sig-title2 {
-  font-size: clamp(20px, 2.2vw, 30px);
+  display: block; /* new line */
+  text-align: right;
+  font-size: clamp(20px, 2.6vw, 34px);
   color: #eaeaea;
   font-weight: 400;
+  line-height: 0;
+  margin-right: -3vw;
 }
 
 .signatureSection .sig-blurb {
-  margin: 0 auto;
+  margin: 2.75rem auto 5.3rem;
   max-width: 760px;
   color: #d1d1d1;
   font-size: 14px;
@@ -16004,4 +16013,13 @@ div.ldr .adImage {
   .signatureSection .sig-stage {
     height: 300px;
   }
+}
+/* responsive fine-tune for small screens */
+@media (max-width: 680px) {
+  .signatureSection .ds-title {
+    --collections-indent: clamp(16px, 6vw, 40px);
+  }
+}
+.home-page {
+  margin-top: 10.4rem;
 }/*# sourceMappingURL=app.css.map */

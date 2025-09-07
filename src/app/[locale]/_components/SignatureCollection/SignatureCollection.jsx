@@ -11,43 +11,23 @@ export default function SignatureCollections({
 }) {
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Rotate every 1 second
-  useEffect(() => {
-    if (items.length <= 3) return; // no need to rotate if only 3
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % items.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [items.length]);
+  // Take max 3 items (no rotation)
+  const visibleItems = items.slice(0, 3);
 
-  // Get the 3 items for current "window"
-  const visibleItems = (() => {
-    if (items.length <= 3) return items;
-    return [
-      items[activeIndex % items.length],
-      items[(activeIndex + 1) % items.length],
-      items[(activeIndex + 2) % items.length],
-    ];
-  })();
-
-  // Positioning along curve
+  // Setup observer + resize
   useEffect(() => {
     const compute = () => {
-      const svg = svgRef.current;
-      if (!svg) return;
-      const path = svg.querySelector("#sig-curve");
+      if (!svgRef.current) return;
+      const path = svgRef.current.querySelector("#sig-curve");
       if (!path) return;
 
-      const vb = svg.viewBox.baseVal;
-      const sx = svg.clientWidth / vb.width;
-      const sy = svg.clientHeight / vb.height;
+      const vb = svgRef.current.viewBox.baseVal;
+      const sx = svgRef.current.clientWidth / vb.width;
+      const sy = svgRef.current.clientHeight / vb.height;
 
       const total = path.getTotalLength();
       const n = visibleItems.length;
-
-      // use full curve width
       const start = total * 0.1;
       const end = total * 0.9;
       const span = end - start;
@@ -59,16 +39,23 @@ export default function SignatureCollections({
         return { x: p.x * sx, y: p.y * sy };
       });
 
-      setPoints(pts);
+      setPoints((prev) => {
+        const isSame =
+          prev.length === pts.length &&
+          prev.every((p, i) => p.x === pts[i].x && p.y === pts[i].y);
+        return isSame ? prev : pts;
+      });
     };
 
     compute();
+
     const ro = new ResizeObserver(compute);
-    svgRef.current && ro.observe(svgRef.current);
+    if (svgRef.current) ro.observe(svgRef.current);
     window.addEventListener("resize", compute);
+
     return () => {
-      window.removeEventListener("resize", compute);
       ro.disconnect();
+      window.removeEventListener("resize", compute);
     };
   }, [visibleItems]);
 
@@ -76,7 +63,7 @@ export default function SignatureCollections({
     <section className="signatureSection">
       <header className="sig-header">
         <h2 className="ds-title">
-          <span className="sig-title1">{title1}</span>{" "}
+          <span className="sig-title1">{title1}</span>
           <span className="sig-title2">{title2}</span>
         </h2>
         <p className="sig-blurb">{blurb}</p>
@@ -118,7 +105,7 @@ export default function SignatureCollections({
           })()}
         </svg>
 
-        {/* Render 3 visible items */}
+        {/* Render up to 3 visible items */}
         {points.map((p, i) => {
           const item = visibleItems[i];
           if (!item) return null;

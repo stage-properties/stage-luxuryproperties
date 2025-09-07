@@ -1,30 +1,29 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from '@/i18n/routing';
+import { Link } from "@/i18n/routing";
 import ListLink from "./ListLink";
 import useScrollPosition from "../useScrollPosition/useScrollPosition";
 import { navLinks, navLinks_ar } from "@/app/[locale]/_utils/contants";
 import Script from "next/script";
 import { usePathname } from "@/i18n/routing";
-import {useTranslations, useLocale} from 'next-intl';
+import { useTranslations, useLocale } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
-import LanguageSwitcherMobile from "@/app/[locale]/_components/LanguageSwitcher/LanguageSwitcherMobile/LanguageSwitcherMobile"
-import MenuIcon from '../../../../../assets/Icons/menuIcon.svg'
-import CloseIcon from "../../../../../assets/Icons/closeIcon.svg"
+import LanguageSwitcherMobile from "@/app/[locale]/_components/LanguageSwitcher/LanguageSwitcherMobile/LanguageSwitcherMobile";
+import MenuIcon from "../../../../../assets/Icons/menuIcon.svg";
+import CloseIcon from "../../../../../assets/Icons/closeIcon.svg";
 
 const Header = () => {
-
   const [menuContainer, setMenuContainer] = useState(false);
   const position = useScrollPosition();
   const menuRef = useRef(null);
   const [responsiveMenuIsActive, setResponsiveMenuIsActive] = useState(false);
-  const t = useTranslations('common');
+  const t = useTranslations("common");
 
-  const locale = useLocale()
-  const isRTL = locale === 'ar'
-  const direction = isRTL ? 'rtl' : 'ltr'
+  const locale = useLocale();
+  const isRTL = locale === "ar";
+  const direction = isRTL ? "rtl" : "ltr";
 
-  const _navLinks = locale === 'ar' ? navLinks_ar : navLinks
+  const _navLinks = locale === "ar" ? navLinks_ar : navLinks;
 
   const pathname = usePathname();
 
@@ -35,7 +34,7 @@ const Header = () => {
     "/developers",
     "/areas-and-communities",
     "/contact-us",
-    "/landing"
+    "/landing",
   ];
 
   // Normalize the pathname (remove trailing slashes)
@@ -49,7 +48,8 @@ const Header = () => {
   // Check if current pathname exactly matches any of the paths to exclude
   const shouldExcludeSwitcher =
     normalizedPathsToExclude.includes(normalizedPathname) ||
-    normalizedPathname.startsWith("/blog/") || normalizedPathname.startsWith("/landing/");
+    normalizedPathname.startsWith("/blog/") ||
+    normalizedPathname.startsWith("/landing/");
 
   useEffect(() => {
     const handleOutClick = (e) => {
@@ -94,26 +94,26 @@ const Header = () => {
         className={position > 200 ? "background" : "headerComponent"}
         dir={direction}
       >
-        <div className={`left ${isRTL ? 'ar' : ''}`}>
+        <div className={`left ${isRTL ? "ar" : ""}`}>
           <Link href="/">
             <img
               src="/Stage_Logo_White.png"
               priority={true}
               alt="Stage_logo"
               fill={true}
-              className={`${isRTL ? 'ar' : ''} stage-logo`}
+              className={`${isRTL ? "ar" : ""} stage-logo`}
             />
           </Link>
           <ul className="links">
             <ListLink
-              label={t('home').toUpperCase()}
+              label={t("home").toUpperCase()}
               path="/"
               activeSubmenu={activeSubmenu}
               setActiveSubmenu={setActiveSubmenu}
             />
           </ul>
         </div>
-        <div className={`right ${isRTL ? 'ar' : ''}`}>
+        <div className={`right ${isRTL ? "ar" : ""}`}>
           <ul className="links">
             {_navLinks?.map((item) => (
               <ListLink
@@ -122,32 +122,38 @@ const Header = () => {
                 label={item?.label}
                 path={item?.path}
                 subLink={item?.subLinks}
-                activeSubmenu={activeSubmenu}        // Pass the shared state
-                setActiveSubmenu={setActiveSubmenu}  // Pass the shared state setter
+                activeSubmenu={activeSubmenu} // Pass the shared state
+                setActiveSubmenu={setActiveSubmenu} // Pass the shared state setter
               />
             ))}
           </ul>
-            <div className="menuIcon">
-              <LanguageSwitcherMobile />
-            </div>
+          <div className="menuIcon">
+            <LanguageSwitcherMobile />
+          </div>
           <div className="menuIcon" onClick={() => responsiveMenuHandler(true)}>
             <MenuIcon />
           </div>
-            <div className="isDesktop">
-              <LanguageSwitcher />
-            </div>
+          <div className="isDesktop">
+            <LanguageSwitcher />
+          </div>
           {/* {!shouldExcludeSwitcher && ( */}
-            {/* <LangCurrSwitcher
+          {/* <LangCurrSwitcher
               isOpen={isSwitcherOpen}
               setIsOpen={setIsSwitcherOpen}
               currencies={currencies}
               areaUnits={areaUnits}
             /> */}
           {/* )} */}
-
         </div>
-        <div className={`menuResponsiveContainer ${responsiveMenuIsActive ? 'active': ''}`}>
-          <div className="closeIcon" onClick={() => responsiveMenuHandler(false)}>
+        <div
+          className={`menuResponsiveContainer ${
+            responsiveMenuIsActive ? "active" : ""
+          }`}
+        >
+          <div
+            className="closeIcon"
+            onClick={() => responsiveMenuHandler(false)}
+          >
             <CloseIcon />
           </div>
           <ul
