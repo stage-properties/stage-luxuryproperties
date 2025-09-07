@@ -12,11 +12,10 @@ const BlogSection = async ({ locale, blogs_subheading }) => {
       <section className="blogSection">
         <div className="contentContainer">
           <div className="wrapper">
-            <h2 className="mainHeading gradientText">{t("blogs")}</h2>
-            <h3 className="mainHeading gradientText">
-              {t(
-                "a_comprehensive_collection_of_investments_expertise_and_insights"
-              )}
+            <h2 className="title">{t("blogs")}</h2>
+            <h3 className="subtitle">
+              A Comprehensive Collection of Investments
+              <br /> Expertise and Insights
             </h3>
 
             {/* ✅ Slick carousel (client) */}

@@ -3263,14 +3263,25 @@ div.overviewCard div.bottom span.price {
   padding: 0 20px;
   text-align: center;
 }
-#homePage .blogSection .wrapper h2.mainHeading {
-  font-family: var(--migratory-font-family, inherit);
+#homePage .blogSection .wrapper .title {
+  text-align: center;
+  color: #ffde9b;
+  font-family: var(--migratory-font-family, cursive);
+  font-size: 122.537px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 147.427px; /* 120.312% */
 }
-#homePage .blogSection .wrapper h3.mainHeading {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  -webkit-text-fill-color: #fdfdfd;
-  font-family: var(--migratory-font-family, inherit);
+#homePage .blogSection .wrapper .subtitle {
+  margin-top: 1rem;
+  margin-bottom: 1.8rem;
+  font-family: var(--lara-font-family);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 114.286% */
+  color: var(--Secondary-Honey, #fffae8);
+  text-align: center;
 }
 #homePage .blogSection .blogsSliderContainer {
   position: relative;

@@ -63,9 +63,8 @@ export default function BlogCarousel({ blogs }) {
 
             return (
               <div className="blogSlide" key={item?.id ?? `placeholder-${idx}`}>
-                <Link
+                <div
                   className="slideCard gradientBorder-xl"
-                  href={href}
                   style={{ ["--bg-url"]: `url(${img})` }}
                 >
                   <div className="slideImageWrap">
@@ -86,7 +85,9 @@ export default function BlogCarousel({ blogs }) {
 
                     <div className="slideFooter">
                       {date && <span className="slideDate">{date}</span>}
-                      <span className="slideCta" aria-hidden>
+
+                      {/* Only arrow is clickable */}
+                      <Link className="slideCta" href={href}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="27"
@@ -102,10 +103,10 @@ export default function BlogCarousel({ blogs }) {
                             strokeLinejoin="round"
                           />
                         </svg>
-                      </span>
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               </div>
             );
           }
