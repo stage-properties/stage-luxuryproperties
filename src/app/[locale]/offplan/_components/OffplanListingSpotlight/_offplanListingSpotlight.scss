@@ -41,7 +41,7 @@ div.offplanListingSpotlight {
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 200;
-      font-family: var(--migratory-font-family);
+      font-family: var(--lara-font-family);
       @media all and (min-width: 1980px) {
         @include adjust-font(3em, false);
       }
