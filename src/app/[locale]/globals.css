@@ -138,7 +138,7 @@ h2.mainHeading,
 h3.mainHeading {
   color: var(--main-heading-color);
   font-size: 25px;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;

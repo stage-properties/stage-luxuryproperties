@@ -1802,7 +1802,7 @@ html[lang=ar] #homePage div.ourStorySection div.ourStoryCarouselSection div.caro
 }
 #homePage div.ourStorySection div.ourStoryCarouselSection div.carouselMainContainer div.navController h2 {
   font-size: 20px;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   color: var(--text-color);
   font-weight: 400;
 }
@@ -2690,7 +2690,7 @@ div.meetOurTeamSection div.imageContainerBg div.contentContainer div.wrapper div
 }
 div.meetOurTeamSection div.imageContainerBg div.contentContainer div.wrapper div.rightContainer div.navController h6 {
   font-size: 20px;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   color: var(--text-color);
   font-weight: 400;
   text-transform: uppercase;
@@ -3096,7 +3096,7 @@ html[lang=ar] div.marketOverviewSection div.wrapper span.heading {
   font-size: calc(13px + 1px);
 }
 div.marketOverviewSection div.wrapper span.date {
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 20px;
   text-align: center;
   color: var(--text-color);
@@ -3722,7 +3722,7 @@ html[lang=ar] #faq .container .sectionTitle {
   cursor: pointer;
   margin: 0;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -8452,7 +8452,7 @@ div.offplanListingSpotlight div.imageContainer h1.heroTitle {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 200;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
 }
 html[lang=ar] div.offplanListingSpotlight div.imageContainer h1.heroTitle {
   font-size: calc(37px + 1px);
@@ -11230,7 +11230,7 @@ html[lang=ar] #review-container .title {
   }
   #review-container .title {
     text-align: center;
-    font-family: var(--migratory-font-family);
+    font-family: var(--lara-font-family);
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -11434,7 +11434,7 @@ html[lang=ar] .noData .similar_interests {
 .developers .top .title {
   color: #fff;
   text-align: center;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -11889,7 +11889,7 @@ html[lang=ar] #tags .buttonContainer a {
 .areasAndCommunities .top .title {
   color: #fff;
   text-align: center;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -12014,7 +12014,7 @@ html[lang=ar] .community ._title {
 ._imageContainer .__title {
   color: #fff;
   text-align: center;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -13434,7 +13434,7 @@ html[lang=ar] #offplanInfoPage div.investSection div.wrapper .parent h2.mainHead
 }
 #offplanInfoPage div.investSection div.wrapper .parent .investSection_title {
   color: #fff;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -14740,7 +14740,7 @@ html[lang=ar] .language-switcher .switcher-dropdown .switcher-option {
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 500;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   text-transform: uppercase;
 }
 .language-switcher-mobile .switcher-dropdown {
@@ -14991,7 +14991,7 @@ html[lang=ar] .developer .___title {
 .developer .__top .__title {
   color: #fff;
   text-align: center;
-  font-family: var(--migratory-font-family);
+  font-family: var(--lara-font-family);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
