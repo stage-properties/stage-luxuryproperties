@@ -51,7 +51,7 @@
     display: inline-block;
 
     .mH-logo {
-      width: 120px;
+      width: 282px;
       height: auto;
       display: block;
     }
@@ -71,8 +71,8 @@
 
     svg,
     svg * {
-      width: 22px;
-      height: 22px;
+      width: 36px;
+      height: 36px;
       stroke: #ffde9b; /* if your icon uses stroke */
       fill: none;
     }
@@ -231,7 +231,7 @@
 
 /* Header (keep your previous mobile header) */
 #mHeader {
-  height: 80px;
+  height: fit-content;
   padding: 16px 28px;
   background: rgba(18, 24, 35, 0.5);
   backdrop-filter: blur(10px);
@@ -256,8 +256,8 @@
 }
 
 /* Optional: slightly larger logo on ≥768px without changing layout */
-@media (min-width: 768px) {
-  #mHeader .mH-brand .mH-logo {
-    width: 136px;
-  }
-}
+// @media (min-width: 768px) {
+//   #mHeader .mH-brand .mH-logo {
+//     width: 136px;
+//   }
+// }

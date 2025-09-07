@@ -26,7 +26,7 @@ export default function Header() {
 
         <Link href="/" className="mH-brand" aria-label="Stage Lux – Home">
           <img
-            src="/Stage_Logo_White.png"
+            src="/stage-lux-logo-white.svg"
             alt="Stage Lux"
             className="mH-logo"
           />
