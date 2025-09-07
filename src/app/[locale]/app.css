@@ -2906,16 +2906,16 @@ div.communityCard div.imageContainer img {
   position: relative !important;
 }
 div.communityCard h3.name {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 300;
   color: var(--text-color);
   text-transform: uppercase;
   margin-bottom: 15px;
-  line-height: 0;
+  margin-top: 46px; /* 139.394% */
   margin-top: 1.5rem;
 }
 html[lang=ar] div.communityCard h3.name {
-  font-size: calc(15px + 1px);
+  font-size: calc(22px + 1px);
 }
 div.communityCard span.guide {
   font-size: 14px;
@@ -2966,22 +2966,38 @@ div.communityCard div.contactInfo span.icon svg {
     padding: 10px 0 90px;
   }
 }
-#homePage div.communitySection h3.mainHeading {
-  margin-top: 10px;
-  -webkit-text-fill-color: #fdfdfd;
-  font-size: 17px;
-  margin-bottom: 40px;
+#homePage div.communitySection .title {
+  color: #ffde9b;
+  font-family: var(--migratory-font-family, cursive);
+  font-size: 122px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 147.427px; /* 120.842% */
+  text-align: center;
 }
-html[lang=ar] #homePage div.communitySection h3.mainHeading {
-  font-size: calc(17px + 1px);
+#homePage div.communitySection .subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: var(--lara-font-family);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0; /* 120.833% */
 }
-@media all and (max-width: 480px) {
-  #homePage div.communitySection h3.mainHeading {
-    font-size: 14px;
-  }
-  html[lang=ar] #homePage div.communitySection h3.mainHeading {
-    font-size: calc(14px + 1px);
-  }
+#homePage div.communitySection .text {
+  color: #fffae8;
+  text-align: center;
+  font-family: var(--lara-font-family);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 114.286% */
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  max-width: 780px; /* limit line width */
+  margin-left: auto; /* center block */
+  margin-right: auto;
+  white-space: normal; /* ensure wrapping */
 }
 #homePage div.communitySection p.tagline {
   color: var(--light-text-color);

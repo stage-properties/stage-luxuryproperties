@@ -19,12 +19,12 @@ div.communityCard {
   }
 
   h3.name {
-    @include adjust-font(15px, false);
+    @include adjust-font(22px, false);
     font-weight: 300;
     color: var(--text-color);
     text-transform: uppercase;
     margin-bottom: 15px;
-    line-height: 0;
+    margin-top: 46px; /* 139.394% */
     margin-top: 1.5rem;
   }
 
