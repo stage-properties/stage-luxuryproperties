@@ -15570,7 +15570,7 @@ div.ldr .adImage {
 .imageAccordion.withInfo {
   text-align: left;
   /* desktop defaults (tuned) */
-  --h: 360px;
+  --h: 500px;
   --collapsed: 12%;
   --expanded: 30%; /* → smaller active pane */
   --info: 42%; /* → give text more room */
@@ -15662,7 +15662,7 @@ div.ldr .adImage {
 }
 .imageAccordion.withInfo .infoPanel .infoTitle {
   margin: 0 0 10px;
-  font-size: 24px;
+  font-size: 33px;
   line-height: 1.3;
   color: var(--Gold-lux, #ffde9b);
   font-weight: 600;
@@ -15670,8 +15670,8 @@ div.ldr .adImage {
 .imageAccordion.withInfo .infoPanel .infoText {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 19px;
+  line-height: 1.875rem;
 }
 @keyframes infoSlideIn {
   to {
