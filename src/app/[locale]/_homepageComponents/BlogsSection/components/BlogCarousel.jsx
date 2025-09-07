@@ -58,7 +58,9 @@ export default function BlogCarousel({ blogs }) {
               attrs?.blog_title ||
               "Blog image";
             const title = attrs?.blog_title || "—";
-            const excerpt = attrs?.excerpt || "—";
+            const excerpt =
+              attrs?.excerpt ||
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
             const date = getDate(attrs?.publishedAt);
 
             return (
