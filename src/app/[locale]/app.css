@@ -695,6 +695,12 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     margin-bottom: 1rem;
   }
 }
+#searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
+  font-size: clamp(23px, 1.4vw, 16px);
+}
+#searchSection div.searchContainer div.left input.searchInput::placeholder {
+  font-size: clamp(23px, 1.4vw, 16px);
+}
 #searchSection div.searchContainer div.left div.search-common {
   margin-right: 30px;
   border-right: 1px solid #ffde9b;
@@ -829,14 +835,14 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   justify-content: space-between;
 }
 #searchSection div.searchContainer div.left div.search-common div.list span {
-  font-size: 14px;
+  font-size: 23px;
   color: var(--btn-text-color);
   font-family: var(--lara-font-family);
   font-weight: 400;
   letter-spacing: 1.6px;
 }
 html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.list span {
-  font-size: calc(14px + 1px);
+  font-size: calc(23px + 1px);
 }
 #searchSection div.searchContainer div.left div.search-common div.list span.details {
   width: 100px;
@@ -2953,7 +2959,7 @@ div.communityCard div.contactInfo span.icon svg {
 }
 
 #homePage div.communitySection {
-  padding: 120px 0;
+  padding: 5rem 0;
   background-color: var(--secondary-bg-color);
   border-left: none;
   border-right: none;
@@ -3248,7 +3254,7 @@ div.overviewCard div.bottom span.price {
 }
 
 #homePage .blogSection {
-  padding: 80px 0;
+  padding: 5rem 0 10rem;
   /* ---------- Slider ---------- */
   /* ---------- Slide Card ---------- */
   /* Gradient border ring (fat & soft) */
