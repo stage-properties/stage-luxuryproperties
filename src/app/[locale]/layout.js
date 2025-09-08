@@ -33,15 +33,15 @@ export default async function RootLayout({ children, params: { locale } }) {
       <link rel="icon preload" href="/lux-logo-mark.svg" sizes="any" />
       {/* <meta name="google-site-verification" content="mhv9v3VuNgVQ3YpO9ijfvRlcUsd29_kGoEOBR3nteRc"></meta> */}
       <head>
-        {pathname === "/" && (
+        {/* {pathname === "/" && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: jsonData }}
           />
-        )}
+        )} */}
 
-        <meta name="yandex-verification" content="1bc00c15b3a4cfce" />
-        <meta name="msvalidate.01" content="2F8C1B95FC778023AF724047A0471392" />
+        {/* <meta name="yandex-verification" content="1bc00c15b3a4cfce" /> */}
+        {/* <meta name="msvalidate.01" content="2F8C1B95FC778023AF724047A0471392" /> */}
         {/* <script
         dangerouslySetInnerHTML={{
           __html: `
