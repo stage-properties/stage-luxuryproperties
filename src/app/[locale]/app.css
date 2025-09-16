@@ -3478,7 +3478,7 @@ div.reviewCard div.stars span.icon svg {
 }
 
 #footer {
-  background-color: var(--primary-bg-color);
+  background-color: #111111;
   padding: 70px 0 100px 0;
   border-top: 3px solid transparent;
   -o-border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%);

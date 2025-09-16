@@ -1,5 +1,5 @@
 #footer {
-  background-color: var(--primary-bg-color);
+  background-color: #111111;
   padding: 70px 0 100px 0;
   border-top: 3px solid transparent;
   border-image: radial-gradient(
@@ -36,14 +36,14 @@
     justify-content: space-between;
     position: relative;
     z-index: 2;
-    @media all and (max-width:768px){
+    @media all and (max-width: 768px) {
       flex-direction: column;
     }
     div.left {
-      @media all and (max-width:768px){
+      @media all and (max-width: 768px) {
         width: 100%;
         margin-bottom: 30px;
-    }
+      }
       div.logo {
         position: relative;
         width: 100px;
@@ -105,7 +105,7 @@
           width: fit-content;
         }
         ul {
-          &.subLinks{
+          &.subLinks {
             display: none;
           }
           li.link {
