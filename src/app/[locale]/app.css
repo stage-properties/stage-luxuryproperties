@@ -15633,27 +15633,55 @@ div.ldr .adImage {
     transform: none !important;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .imageAccordion.withInfo {
-    --h: 300px;
-    --collapsed: 18%;
-    --expanded: 50%;
-    --info: 100%;
-    flex-wrap: wrap;
+    --expanded: 100%;
+    flex-direction: column;
+    height: auto;
+    gap: 24px; /* spacing between blocks */
+    /* Each pane takes full width */
+    /* Image wrapper should respect height */
+    /* Active pane can grow taller */
+    /* Info text full width below image */
+  }
+  .imageAccordion.withInfo .pane {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* allow auto sizing */
+    margin: 0;
+  }
+  .imageAccordion.withInfo .pane .imgRel {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    height: auto;
+    min-height: 150px; /* ensure a good visible area */
+  }
+  .imageAccordion.withInfo .pane img {
+    width: 100%;
+    height: auto;
+    max-height: 320px; /* optional limit so it's not too tall */
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 14px;
+  }
+  .imageAccordion.withInfo .pane.is-active .imgRel {
+    min-height: 280px;
   }
   .imageAccordion.withInfo .infoPanel {
-    order: 2;
-    flex: 0 0 100%;
+    flex: none;
+    width: 100%;
     max-width: 100%;
-    margin-top: 12px;
     height: auto;
-  }
-}
-@media (max-width: 600px) {
-  .imageAccordion.withInfo {
-    --h: 220px;
-    --collapsed: 24%;
-    --expanded: 50%;
+    margin-top: 12px;
+    padding: 12px 0;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    transform: none;
+    opacity: 1;
+    animation: none;
   }
 }
 

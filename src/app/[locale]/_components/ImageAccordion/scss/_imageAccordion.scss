@@ -142,25 +142,56 @@
   }
 
   /* Responsive */
-  @media (max-width: 900px) {
-    --h: 300px;
-    --collapsed: 18%;
-    --expanded: 50%;
-    --info: 100%;
-    flex-wrap: wrap;
+  @media (max-width: 1024px) {
+    --expanded: 100%;
+    flex-direction: column;
+    height: auto;
+    gap: 24px; /* spacing between blocks */
 
-    .infoPanel {
-      order: 2;
-      flex: 0 0 100%;
+    /* Each pane takes full width */
+    .pane {
+      flex: none;
+      width: 100%;
       max-width: 100%;
-      margin-top: 12px;
-      height: auto;
+      height: auto; /* allow auto sizing */
+      margin: 0;
     }
-  }
 
-  @media (max-width: 600px) {
-    --h: 220px;
-    --collapsed: 24%;
-    --expanded: 50%;
+    /* Image wrapper should respect height */
+    .pane .imgRel {
+      position: relative;
+      inset: unset;
+      width: 100%;
+      height: auto;
+      min-height: 150px; /* ensure a good visible area */
+    }
+
+    .pane img {
+      width: 100%;
+      height: auto;
+      max-height: 320px; /* optional limit so it's not too tall */
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    /* Active pane can grow taller */
+    .pane.is-active .imgRel {
+      min-height: 280px;
+    }
+
+    /* Info text full width below image */
+    .infoPanel {
+      flex: none;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: 12px;
+      padding: 12px 0;
+      background: transparent;
+      backdrop-filter: none;
+      transform: none;
+      opacity: 1;
+      animation: none;
+    }
   }
 }
