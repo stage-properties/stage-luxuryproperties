@@ -36,7 +36,7 @@
   display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(46px, 6.8vw, 122px);
+  font-size: clamp(46px, 10.8vw, 122px);
   letter-spacing: 0.5px;
   line-height: 0.92; /* room for descenders */
   margin-bottom: var(--stack-gap);
@@ -44,7 +44,7 @@
 
 .signatureSection .sig-title2 {
   display: block; /* new line */
-  font-size: clamp(20px, 2.6vw, 48px);
+  font-size: clamp(32px, 2.6vw, 48px);
   color: #eaeaea;
   font-weight: 400;
   line-height: 0;

@@ -357,90 +357,16 @@
 html[lang=ar] #homePage div.videoContainer h1.headline {
   font-size: calc(278.04px + 1px);
 }
-@media all and (max-width: 1400px) {
-  #homePage div.videoContainer h1.headline {
-    font-size: 3.5vw;
-  }
-  html[lang=ar] #homePage div.videoContainer h1.headline {
-    font-size: calc(3.5vw + 1px);
-  }
-}
-@media all and (max-width: 992px) {
-  #homePage div.videoContainer h1.headline {
-    font-size: 4vw;
-  }
-  html[lang=ar] #homePage div.videoContainer h1.headline {
-    font-size: calc(4vw + 1px);
-  }
-}
-@media all and (max-width: 768px) {
-  #homePage div.videoContainer h1.headline {
-    font-size: 4.5vw;
-  }
-  html[lang=ar] #homePage div.videoContainer h1.headline {
-    font-size: calc(4.5vw + 1px);
-  }
-}
-@media all and (max-width: 576px) {
-  #homePage div.videoContainer h1.headline {
-    font-size: 8vw;
-  }
-  html[lang=ar] #homePage div.videoContainer h1.headline {
-    font-size: calc(8vw + 1px);
-  }
-  #homePage div.videoContainer h1.headline .part-1 {
-    display: block;
-  }
-}
 #homePage div.videoContainer span.subheadline {
   text-align: left;
   line-height: 0; /* 46.615% */
-  font-size: 30px;
   z-index: 9;
   color: #fff;
   font-weight: 300;
-  font-size: 2.4vw;
+  font-size: 45px;
 }
 html[lang=ar] #homePage div.videoContainer span.subheadline {
-  font-size: calc(30px + 1px);
-}
-html[lang=ar] #homePage div.videoContainer span.subheadline {
-  font-size: calc(2.4vw + 1px);
-}
-@media all and (max-width: 1400px) {
-  #homePage div.videoContainer span.subheadline {
-    font-size: 2.8vw;
-  }
-  html[lang=ar] #homePage div.videoContainer span.subheadline {
-    font-size: calc(2.8vw + 1px);
-  }
-}
-@media all and (max-width: 992px) {
-  #homePage div.videoContainer span.subheadline {
-    font-size: 3.2vw;
-  }
-  html[lang=ar] #homePage div.videoContainer span.subheadline {
-    font-size: calc(3.2vw + 1px);
-  }
-}
-@media all and (max-width: 768px) {
-  #homePage div.videoContainer span.subheadline {
-    font-size: 3.6vw;
-  }
-  html[lang=ar] #homePage div.videoContainer span.subheadline {
-    font-size: calc(3.6vw + 1px);
-  }
-}
-@media all and (max-width: 576px) {
-  #homePage div.videoContainer span.subheadline {
-    font-size: 6.4vw;
-  }
-  html[lang=ar] #homePage div.videoContainer span.subheadline {
-    font-size: calc(6.4vw + 1px);
-  }
-  #homePage div.videoContainer span.subheadline .part-1 {
-    display: block;
-  }
+  font-size: calc(45px + 1px);
 }
 #homePage div.videoContainer h1.title {
   line-height: normal;
@@ -490,7 +416,12 @@ html[lang=ar] #homePage div.videoContainer span.subheadline {
   margin: 0 auto 20px;
   position: relative;
 }
-@media all and (max-width: 768px) {
+#searchSection div.buttonDropDown .button {
+  border-radius: 44.081px;
+  border: 1px solid rgba(255, 219, 159, 0.4);
+  background: rgba(0, 0, 0, 0);
+}
+@media all and (max-width: 1024px) {
   #searchSection div.buttonDropDown {
     display: block;
   }
@@ -504,7 +435,7 @@ html[lang=ar] #homePage div.videoContainer span.subheadline {
   border-radius: 6px;
   z-index: 9;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.buttonDropDown div.dropDown {
     width: 100%;
     left: 0;
@@ -583,13 +514,9 @@ html[lang=ar] #searchSection div.buttonDropDown button .text {
   margin-top: 20px;
   width: unset;
   margin: 0 auto 40px;
+  gap: 1rem;
 }
-@media all and (max-width: 980px) {
-  #searchSection div.buttonContainer {
-    width: 80%;
-  }
-}
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.buttonContainer {
     display: none;
   }
@@ -604,14 +531,13 @@ html[lang=ar] #searchSection div.buttonDropDown button .text {
   border: 1px solid rgba(255, 219, 159, 0.4);
   background: rgba(0, 0, 0, 0);
   font-size: 23px;
-  margin-right: 20px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 html[lang=ar] #searchSection div.buttonContainer button.button {
   font-size: calc(23px + 1px);
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.buttonContainer button.button {
     margin-bottom: 10px;
   }
@@ -652,10 +578,10 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     padding: 12px 20px;
   }
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer {
     flex-wrap: wrap;
-    padding: 22px;
+    padding: 32px;
   }
 }
 #searchSection div.searchContainer div.left {
@@ -664,19 +590,19 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   line-height: 0;
   /* Specifically target the .searchInput on small screens */
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left {
     display: flex; /* ensures children can wrap */
     flex-wrap: wrap; /* allow wrapping */
   }
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left input.searchInput {
     border: 1px solid var(--border-color);
-    padding: 15px 20px;
+    padding: 20px 15px;
     width: 100%; /* take full width */
     display: block; /* ensures it sits on its own line */
-    margin-bottom: 1rem;
+    margin-bottom: 1.875rem;
   }
 }
 #searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
@@ -707,14 +633,14 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     padding: 5px 13px 5px 0;
   }
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left div.search-common {
     width: 100%;
-    border: 1px solid var(--border-color);
-    border-right: 1px solid #ffde9b !important;
+    border: 1px solid rgba(255, 219, 159, 0.4);
+    border-radius: 14px;
     padding: 20px 15px;
     margin-right: 0;
-    margin-bottom: 15px;
+    margin-bottom: 1.875rem;
   }
 }
 @media all and (max-width: 480px) {
@@ -726,7 +652,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   width: 20rem;
   padding: 10px;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left div.search-common.price div.dropDown {
     width: 100%;
     left: 0;
@@ -746,7 +672,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   width: 20rem;
   padding: 10px;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left div.search-common.area div.dropDown {
     width: 100%;
     left: 0;
@@ -770,7 +696,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   border-radius: 6px;
   z-index: 9;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.left div.search-common div.dropDown {
     width: 100%;
     left: 0;
@@ -869,7 +795,7 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
     width: 6.5%;
   }
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.right {
     width: 100%;
     border: none;
@@ -883,12 +809,18 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
 #searchSection div.searchContainer div.right button.search {
   display: none;
   width: 100%;
+  font-family: var(--lara-font-family);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  text-transform: uppercase;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.right button.search {
     display: block;
     color: #000;
-    background: linear-gradient(262deg, rgb(172, 131, 109) 28%, rgb(240, 202, 178) 70%);
+    background: var(--Gold-lux, linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%));
   }
 }
 #searchSection div.searchContainer div.right svg {
@@ -896,12 +828,13 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
   height: 30px !important;
   cursor: pointer;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.right svg {
     display: none;
   }
 }
 #searchSection .searchInput {
+  border-radius: 14px;
   padding-left: 30px;
   width: 100%;
   padding: 6px;
@@ -15998,7 +15931,7 @@ div.ldr .adImage {
   display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(46px, 6.8vw, 122px);
+  font-size: clamp(46px, 10.8vw, 122px);
   letter-spacing: 0.5px;
   line-height: 0.92; /* room for descenders */
   margin-bottom: var(--stack-gap);
@@ -16006,7 +15939,7 @@ div.ldr .adImage {
 
 .signatureSection .sig-title2 {
   display: block; /* new line */
-  font-size: clamp(20px, 2.6vw, 48px);
+  font-size: clamp(32px, 2.6vw, 48px);
   color: #eaeaea;
   font-weight: 400;
   line-height: 0;

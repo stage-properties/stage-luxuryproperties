@@ -8,7 +8,14 @@
     margin-bottom: 20px;
     width: 13rem;
     margin: 0 auto 20px;
-    @media all and (max-width: 768px) {
+
+    .button {
+      border-radius: 44.081px;
+      border: 1px solid rgba(255, 219, 159, 0.4);
+      background: rgba(0, 0, 0, 0);
+    }
+
+    @media all and (max-width: 1024px) {
       display: block;
     }
     position: relative;
@@ -20,7 +27,7 @@
       top: 60px;
       border-radius: 6px;
       z-index: 9;
-      @media all and (max-width: 768px) {
+      @media all and (max-width: 1024px) {
         width: 100%;
         left: 0;
       }
@@ -93,10 +100,8 @@
     margin-top: 20px;
     width: unset;
     margin: 0 auto 40px;
-    @media all and (max-width: 980px) {
-      width: 80%;
-    }
-    @media all and (max-width: 768px) {
+    gap: 1rem;
+    @media all and (max-width: 1024px) {
       display: none;
       // &.active{
       //   display: block;
@@ -114,10 +119,10 @@
       background: rgba(0, 0, 0, 0);
 
       @include adjust-font(23px, false);
-      margin-right: 20px;
+      // margin-right: 20px;
       cursor: pointer;
       transition: 0.3s ease-in-out;
-      @media all and (max-width: 768px) {
+      @media all and (max-width: 1024px) {
         margin-bottom: 10px;
       }
       &.active {
@@ -160,27 +165,27 @@
     @media all and (max-width: 980px) {
       padding: 12px 20px;
     }
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 1024px) {
       flex-wrap: wrap;
-      padding: 22px;
+      padding: 32px;
     }
     div.left {
       display: flex;
       width: 100%;
       // align-items: center;
       line-height: 0;
-      @media all and (max-width: 768px) {
+      @media all and (max-width: 1024px) {
         display: flex; /* ensures children can wrap */
         flex-wrap: wrap; /* allow wrapping */
       }
       /* Specifically target the .searchInput on small screens */
       input.searchInput {
-        @media all and (max-width: 768px) {
+        @media all and (max-width: 1024px) {
           border: 1px solid var(--border-color);
-          padding: 15px 20px;
+          padding: 20px 15px;
           width: 100%; /* take full width */
           display: block; /* ensures it sits on its own line */
-          margin-bottom: 1rem;
+          margin-bottom: 1.875rem;
         }
 
         &::placeholder {
@@ -205,13 +210,13 @@
           margin-right: 13px;
           padding: 5px 13px 5px 0;
         }
-        @media all and (max-width: 768px) {
+        @media all and (max-width: 1024px) {
           width: 100%;
-          border: 1px solid var(--border-color);
-          border-right: 1px solid #ffde9b !important;
+          border: 1px solid rgba(255, 219, 159, 0.4);
+          border-radius: 14px;
           padding: 20px 15px;
           margin-right: 0;
-          margin-bottom: 15px;
+          margin-bottom: 1.875rem;
         }
         @media all and (max-width: 480px) {
           width: 100%;
@@ -219,7 +224,7 @@
         &.price {
           div.dropDown {
             width: 20rem;
-            @media all and (max-width: 768px) {
+            @media all and (max-width: 1024px) {
               width: 100%;
               left: 0;
             }
@@ -245,7 +250,7 @@
         &.area {
           div.dropDown {
             width: 20rem;
-            @media all and (max-width: 768px) {
+            @media all and (max-width: 1024px) {
               width: 100%;
               left: 0;
             }
@@ -270,7 +275,7 @@
           top: 60px;
           border-radius: 6px;
           z-index: 9;
-          @media all and (max-width: 768px) {
+          @media all and (max-width: 1024px) {
             width: 100%;
             left: 0;
             &.ar {
@@ -367,7 +372,7 @@
       @media all and (max-width: 980px) {
         width: 6.5%;
       }
-      @media all and (max-width: 768px) {
+      @media all and (max-width: 1024px) {
         width: 100%;
         border: none;
         padding-left: 0;
@@ -379,13 +384,18 @@
       button.search {
         display: none;
         width: 100%;
-        @media all and (max-width: 768px) {
+        font-family: var(--lara-font-family);
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        text-transform: uppercase;
+        @media all and (max-width: 1024px) {
           display: block;
           color: #000;
-          background: linear-gradient(
-            262deg,
-            rgb(172, 131, 109) 28%,
-            rgb(240, 202, 178) 70%
+          background: var(
+            --Gold-lux,
+            linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
           );
         }
       }
@@ -393,13 +403,14 @@
         width: 30px !important;
         height: 30px !important;
         cursor: pointer;
-        @media all and (max-width: 768px) {
+        @media all and (max-width: 1024px) {
           display: none;
         }
       }
     }
   }
   .searchInput {
+    border-radius: 14px;
     padding-left: 30px;
     width: 100%;
     padding: 6px;

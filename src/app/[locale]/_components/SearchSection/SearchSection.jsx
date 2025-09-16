@@ -456,6 +456,7 @@ const SearchSection = ({ bgColor }) => {
         <button
           onClick={() => setDropDownBtn(!dropDownBtn)}
           ref={dropDownBtnRef}
+          className="button"
         >
           <span className="text">{t(category.toLowerCase())}</span>
           <span className={`icon ${isRTL ? "ar" : ""}`}>

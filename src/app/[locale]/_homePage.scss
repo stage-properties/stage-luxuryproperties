@@ -102,45 +102,14 @@
       z-index: 9;
       color: #ffde9b;
       font-weight: 400;
-      @media all and (max-width: 1400px) {
-        @include adjust-font(3.5vw, false);
-      }
-      @media all and (max-width: 992px) {
-        @include adjust-font(4vw, false);
-      }
-      @media all and (max-width: 768px) {
-        @include adjust-font(4.5vw, false);
-      }
-      @media all and (max-width: 576px) {
-        @include adjust-font(8vw, false);
-        .part-1 {
-          display: block;
-        }
-      }
     }
     span.subheadline {
       text-align: left;
       line-height: 0; /* 46.615% */
-      @include adjust-font(30px, false); // base size: 80% of 37px
       z-index: 9;
       color: #fff;
       font-weight: 300;
-      @include adjust-font(2.4vw, false); // 80% of headline’s 3vw
-      @media all and (max-width: 1400px) {
-        @include adjust-font(2.8vw, false); // 80% of headline’s 3.5vw
-      }
-      @media all and (max-width: 992px) {
-        @include adjust-font(3.2vw, false); // 80% of headline’s 4vw
-      }
-      @media all and (max-width: 768px) {
-        @include adjust-font(3.6vw, false); // 80% of headline’s 4.5vw
-      }
-      @media all and (max-width: 576px) {
-        @include adjust-font(6.4vw, false); // 80% of headline’s 8vw
-        .part-1 {
-          display: block;
-        }
-      }
+      @include adjust-font(45px, false);
     }
     h1.title {
       line-height: normal;
