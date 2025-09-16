@@ -3012,7 +3012,7 @@ html[lang=ar] #homePage div.communitySection p.tagline {
   }
 }
 @media all and (max-width: 1024px) {
-  #homePage .text {
+  #homePage div.communitySection .text {
     margin-bottom: 6rem !important;
   }
 }

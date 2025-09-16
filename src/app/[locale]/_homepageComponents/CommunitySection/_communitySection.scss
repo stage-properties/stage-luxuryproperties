@@ -131,8 +131,10 @@
   }
 
   @media all and (max-width: 1024px) {
-    .text {
-      margin-bottom: 6rem !important;
+    div.communitySection {
+      .text {
+        margin-bottom: 6rem !important;
+      }
     }
   }
 }
