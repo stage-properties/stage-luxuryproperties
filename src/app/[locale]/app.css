@@ -15732,6 +15732,13 @@ div.ldr .adImage {
   font-weight: 400;
   color: var(--Gold-lux, #ffde9b);
 }
+@media all and (max-width: 1024px) {
+  .accordionSection .title2 {
+    margin-top: 0.8rem !important;
+    font-size: 80px !important;
+    line-height: 101.911px !important;
+  }
+}
 
 .differenceSection {
   /* container card (soft glass + gold border) */
