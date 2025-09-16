@@ -149,7 +149,7 @@
     }
   }
   div.searchContainer {
-    background-color: rgba(18, 24, 35, 0.7);
+    background-color: #111111;
     border-radius: 44.081px;
     border: 1px solid rgba(255, 219, 159, 0.4);
 
@@ -167,7 +167,7 @@
     }
     @media all and (max-width: 1024px) {
       flex-wrap: wrap;
-      padding: 32px;
+      padding: 42px 32px;
     }
     div.left {
       display: flex;

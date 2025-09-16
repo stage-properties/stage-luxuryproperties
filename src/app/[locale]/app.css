@@ -558,7 +558,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   font-family: var(--lara-font-family) !important;
 }
 #searchSection div.searchContainer {
-  background-color: rgba(18, 24, 35, 0.7);
+  background-color: #111111;
   border-radius: 44.081px;
   border: 1px solid rgba(255, 219, 159, 0.4);
   width: 85%;
@@ -581,7 +581,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
 @media all and (max-width: 1024px) {
   #searchSection div.searchContainer {
     flex-wrap: wrap;
-    padding: 32px;
+    padding: 42px 32px;
   }
 }
 #searchSection div.searchContainer div.left {
