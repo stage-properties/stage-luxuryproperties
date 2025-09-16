@@ -10,7 +10,7 @@ import { Link } from "@/i18n/routing";
 
 export default function BlogCarousel({ blogs }) {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 200,
     slidesToShow: 1.5,

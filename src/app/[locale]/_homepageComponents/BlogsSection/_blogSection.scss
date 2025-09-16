@@ -16,7 +16,7 @@
         text-align: center;
         color: #ffde9b;
         font-family: var(--migratory-font-family, cursive);
-        font-size: 122.537px;
+        font-size: clamp(46px, 10.8vw, 122px);
         font-style: normal;
         font-weight: 400;
         line-height: 147.427px; /* 120.312% */
@@ -243,6 +243,11 @@
       }
       .blogsSliderContainer .slick-dots {
         bottom: -24px;
+      }
+    }
+    @media all and (max-width: 1024px) {
+      .subtitle {
+        margin-top: unset !important;
       }
     }
   }
