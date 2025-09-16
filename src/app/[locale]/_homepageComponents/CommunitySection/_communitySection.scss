@@ -14,7 +14,7 @@
     .title {
       color: #ffde9b;
       font-family: var(--migratory-font-family, cursive);
-      font-size: 122px;
+      font-size: clamp(46px, 10.8vw, 122px);
       font-style: normal;
       font-weight: 400;
       line-height: 147.427px; /* 120.842% */
@@ -127,6 +127,12 @@
     margin-top: 60px;
     @media all and (max-width: 992px) {
       margin-top: 120px;
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    .text {
+      margin-bottom: 6rem !important;
     }
   }
 }

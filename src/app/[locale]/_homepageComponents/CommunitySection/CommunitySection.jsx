@@ -12,8 +12,8 @@ const CommunitySection = async ({ locale }) => {
         <h2 className="title">{t("dubai_s_most")}</h2>
         <h2 className="subtitle">{t("coveted_enclaves")}</h2>
         <h3 className="text">
-          Explore the neighborhoods where luxury is not just a<br /> standard,
-          but a lifestyle.
+          Explore the neighborhoods where luxury is not just a standard, but a
+          lifestyle.
         </h3>
         <CommuntiySlider featuredCityData={featuredCityData?.data} />
       </div>

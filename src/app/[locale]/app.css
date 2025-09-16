@@ -2892,7 +2892,7 @@ div.communityCard div.contactInfo span.icon svg {
 #homePage div.communitySection .title {
   color: #ffde9b;
   font-family: var(--migratory-font-family, cursive);
-  font-size: 122px;
+  font-size: clamp(46px, 10.8vw, 122px);
   font-style: normal;
   font-weight: 400;
   line-height: 147.427px; /* 120.842% */
@@ -3009,6 +3009,11 @@ html[lang=ar] #homePage div.communitySection p.tagline {
 @media all and (max-width: 992px) {
   #homePage ._buttonContainer {
     margin-top: 120px;
+  }
+}
+@media all and (max-width: 1024px) {
+  #homePage .text {
+    margin-bottom: 6rem !important;
   }
 }
 
