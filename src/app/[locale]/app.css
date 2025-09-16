@@ -15720,6 +15720,7 @@ div.ldr .adImage {
   /* ---- Titles ---- */
   /* ---- Tabs rail ---- */
   /* ---- Panel ---- */
+  /* keep this near the top (default desktop behavior) */
   /* ---- Responsive ---- */
 }
 .differenceSection::before, .differenceSection::after {
@@ -15768,14 +15769,14 @@ div.ldr .adImage {
   display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(46px, 6.8vw, 122px);
+  font-size: clamp(46px, 10.8vw, 122px);
   letter-spacing: 0.5px;
   line-height: 0.92; /* room for descenders */
   margin-bottom: var(--stack-gap);
 }
 .differenceSection .ds-header .ds-title .ds-title-small {
   display: block; /* new line */
-  font-size: clamp(20px, 2.6vw, 48px);
+  font-size: clamp(32px, 2.6vw, 48px);
   color: #eaeaea;
   font-weight: 400;
   line-height: 0;
@@ -15817,6 +15818,7 @@ div.ldr .adImage {
   cursor: pointer;
   background: transparent;
   color: #f2f2f2;
+  width: 100%;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
   /* active: gold filled, darker text, soft glow */
 }
@@ -15862,20 +15864,70 @@ div.ldr .adImage {
     transform: translateY(0);
   }
 }
-@media (max-width: 840px) {
+.differenceSection .hideDesktop {
+  display: none;
+}
+.differenceSection .hideMobile {
+  display: block;
+}
+@media (max-width: 1024px) {
   .differenceSection {
-    padding: 32px 18px;
+    padding: 7.5rem 18px;
+    -webkit-backdrop-filter: unset;
+            backdrop-filter: unset;
+    /* show per-tab panels under buttons, hide the shared desktop panel */
+    /* shared panel hidden */
+    /* per-tab panel visible */
+    /* ✅ Fix: ensure hidden panels really stay hidden */
   }
-  .differenceSection .ds-tabs {
-    flex-wrap: wrap;
-    gap: 10px;
+  .differenceSection .ds-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
   }
   .differenceSection .ds-tab {
-    flex: 1 1 auto;
+    border-radius: 11.429px;
+    border: 0.952px solid rgba(255, 219, 159, 0.2);
+    background: rgba(0, 0, 0, 0);
+  }
+  .differenceSection .ds-tabs {
+    flex-direction: column;
+    gap: 10px;
+    border: unset;
+  }
+  .differenceSection .ds-tabs button {
+    width: 100%;
+  }
+  .differenceSection .ds-tabs button span {
     text-align: center;
+    font-family: Lara;
+    font-size: 26.667px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.476px;
+  }
+  .differenceSection .ds-panel {
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .differenceSection .ds-panel p {
     max-width: 92vw;
+  }
+  .differenceSection .hideMobile {
+    display: none !important;
+  }
+  .differenceSection .hideDesktop {
+    display: block !important;
+  }
+  .differenceSection .ds-panel[hidden] {
+    display: none !important;
+  }
+  .differenceSection .ds-subtitle {
+    font-family: var(--lara-font-family);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 114.286% */
+    text-transform: unset !important;
   }
 }
 

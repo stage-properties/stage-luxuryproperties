@@ -66,7 +66,7 @@
         display: block;
         font-family: var(--migratory-font-family, cursive);
         color: var(--gold);
-        font-size: clamp(46px, 6.8vw, 122px);
+        font-size: clamp(46px, 10.8vw, 122px);
         letter-spacing: 0.5px;
         line-height: 0.92; /* room for descenders */
         margin-bottom: var(--stack-gap);
@@ -74,7 +74,7 @@
       /* small white word to the right */
       .ds-title-small {
         display: block; /* new line */
-        font-size: clamp(20px, 2.6vw, 48px);
+        font-size: clamp(32px, 2.6vw, 48px);
         color: #eaeaea;
         font-weight: 400;
         line-height: 0;
@@ -120,6 +120,7 @@
     cursor: pointer;
     background: transparent;
     color: #f2f2f2;
+    width: 100%;
 
     transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
       box-shadow 160ms ease;
@@ -176,19 +177,75 @@
     }
   }
 
+  /* keep this near the top (default desktop behavior) */
+  .hideDesktop {
+    display: none;
+  }
+  .hideMobile {
+    display: block;
+  }
+
   /* ---- Responsive ---- */
-  @media (max-width: 840px) {
-    padding: 32px 18px;
-    .ds-tabs {
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .ds-tab {
-      flex: 1 1 auto;
+  @media (max-width: 1024px) {
+    padding: 7.5rem 18px;
+    backdrop-filter: unset;
+
+    .ds-header {
       text-align: center;
+      margin-bottom: 1.75rem;
     }
+
+    .ds-tab {
+      border-radius: 11.429px;
+      border: 0.952px solid rgba(255, 219, 159, 0.2);
+      background: rgba(0, 0, 0, 0);
+    }
+
+    .ds-tabs {
+      flex-direction: column;
+      gap: 10px;
+      border: unset;
+    }
+    .ds-tabs button {
+      width: 100%;
+    }
+
+    .ds-tabs button span {
+      text-align: center;
+      font-family: Lara;
+      font-size: 26.667px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30.476px;
+    }
+
+    .ds-panel {
+      height: fit-content;
+    }
+
     .ds-panel p {
       max-width: 92vw;
+    }
+    /* show per-tab panels under buttons, hide the shared desktop panel */
+    .hideMobile {
+      display: none !important;
+    } /* shared panel hidden */
+    .hideDesktop {
+      display: block !important;
+    } /* per-tab panel visible */
+
+    /* ✅ Fix: ensure hidden panels really stay hidden */
+    .ds-panel[hidden] {
+      display: none !important;
+    }
+
+    .ds-subtitle {
+      font-family: var(--lara-font-family);
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px; /* 114.286% */
+      text-transform: unset !important;
     }
   }
 }

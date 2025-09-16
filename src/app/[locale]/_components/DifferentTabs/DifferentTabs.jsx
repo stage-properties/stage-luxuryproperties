@@ -49,22 +49,34 @@ export default function DifferenceTabs({
       <div className="ds-parent">
         <div className="ds-tabs" role="tablist" aria-label="Differentiators">
           {safeItems.map((it, i) => (
-            <button
-              key={it.label}
-              role="tab"
-              aria-selected={active === i}
-              aria-controls={`${groupId}-panel-${i}`}
-              id={`${groupId}-tab-${i}`}
-              tabIndex={active === i ? 0 : -1}
-              className={`ds-tab ${active === i ? "is-active" : ""}`}
-              onClick={() => setActive(i)}
-            >
-              {it.label}
-            </button>
+            <div key={it.label} className="ds-tabWrapper">
+              <button
+                role="tab"
+                aria-selected={active === i}
+                aria-controls={`${groupId}-panel-${i}`}
+                id={`${groupId}-tab-${i}`}
+                tabIndex={active === i ? 0 : -1}
+                className={`ds-tab ${active === i ? "is-active" : ""}`}
+                onClick={() => setActive(i)}
+              >
+                <span>{it.label}</span>
+              </button>
+
+              {/* Panel under button (only visible if active) */}
+              <div
+                className="ds-panel hideDesktop"
+                role="tabpanel"
+                id={`${groupId}-panel-${i}`}
+                aria-labelledby={`${groupId}-tab-${i}`}
+                hidden={active !== i}
+              >
+                <p>{it.text}</p>
+              </div>
+            </div>
           ))}
         </div>
         <div
-          className="ds-panel"
+          className="ds-panel hideMobile"
           role="tabpanel"
           id={`${groupId}-panel-${active}`}
           aria-labelledby={`${groupId}-tab-${active}`}
