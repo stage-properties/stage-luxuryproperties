@@ -97,6 +97,8 @@
   width: 0;
   height: 0;
   color: var(--gold);
+  transition: left 400ms ease, top 400ms ease, transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 /* Square frame with circular photo */

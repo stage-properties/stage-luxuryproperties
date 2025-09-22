@@ -11,61 +11,60 @@ export default function SignatureCollections({
 }) {
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
+  const [offset, setOffset] = useState(0); // which position each chip moves to
 
-  // ✅ Memoize so it doesn't become a new array every render
+  // show up to 5 chips
   const visibleItems = useMemo(() => items.slice(0, 5), [items]);
 
-  // Small helper to avoid pointless setState
-  const pointsChanged = (a, b) => {
-    if (a.length !== b.length) return true;
-    for (let i = 0; i < a.length; i++) {
-      if (a[i].x !== b[i].x || a[i].y !== b[i].y) return true;
-    }
-    return false;
-  };
-
+  // rotate positions every 10 seconds
   useEffect(() => {
-    const compute = () => {
-      const svg = svgRef.current;
-      if (!svg) return;
-
-      const path = svg.querySelector("#sig-centerline");
-      if (!path) return;
-
-      const vb = svg.viewBox.baseVal;
-      const sx = svg.clientWidth / vb.width || 1;
-      const sy = svg.clientHeight / vb.height || 1;
-
-      const n = visibleItems.length || 1;
-
-      // Full-width distribution
-      const total = path.getTotalLength();
-      const pts = Array.from({ length: n }).map((_, i) => {
-        const t = n === 1 ? 0.5 : i / (n - 1);
-        const p = path.getPointAtLength(total * t);
-        return { x: p.x * sx, y: p.y * sy };
-      });
-
-      setPoints((prev) => (pointsChanged(prev, pts) ? pts : prev));
-    };
-
-    // initial + on resize or svg size changes
-    compute();
-    const ro = new ResizeObserver(compute);
-    if (svgRef.current) ro.observe(svgRef.current);
-    window.addEventListener("resize", compute);
-
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", compute);
-    };
-    // ✅ depend only on stable values
+    if (visibleItems.length <= 1) return;
+    const id = setInterval(() => {
+      setOffset((o) => (o + 1) % visibleItems.length);
+    }, 5000);
+    return () => clearInterval(id);
   }, [visibleItems.length]);
 
-  // center chip coordinates for spotlight
-  const n = visibleItems.length || 1;
+  // compute fixed positions along the curve
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    const path = svg.querySelector("#sig-centerline");
+    if (!path) return;
+
+    const vb = svg.viewBox.baseVal;
+    const sx = (svg.clientWidth || vb.width) / vb.width || 1;
+    const sy = (svg.clientHeight || vb.height) / vb.height || 1;
+
+    const n = Math.max(1, visibleItems.length);
+    const total = path.getTotalLength();
+    const spacing = n > 1 ? 1 / (n - 1) : 1;
+
+    const pts = Array.from({ length: n }).map((_, i) => {
+      const t = n === 1 ? 0.5 : i * spacing;
+      const p = path.getPointAtLength(total * t);
+      return { x: p.x * sx, y: p.y * sy };
+    });
+
+    setPoints(pts);
+  }, [visibleItems.length]);
+
+  // re-measure on resize
+  useEffect(() => {
+    const recompute = () => setPoints((prev) => [...prev]);
+    const ro = new ResizeObserver(recompute);
+    if (svgRef.current) ro.observe(svgRef.current);
+    window.addEventListener("resize", recompute);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", recompute);
+    };
+  }, []);
+
+  // visual focus based on position index (middle is spotlight)
+  const n = Math.max(1, visibleItems.length);
   const centerIndex = (n - 1) / 2;
-  const centerPt = points.length ? points[Math.round(centerIndex)] : null;
 
   return (
     <section className="signatureSection">
@@ -78,14 +77,11 @@ export default function SignatureCollections({
       </header>
 
       <div className="sig-stage">
-        {/* Spotlight locked to the center item */}
+        {/* spotlight fixed center */}
         <div
           className="sig-spotlight"
           aria-hidden="true"
-          style={{
-            left: centerPt ? `${centerPt.x}px` : "50%",
-            top: centerPt ? `${centerPt.y}px` : "50%",
-          }}
+          style={{ left: "50%", top: "50%" }}
         />
 
         {/* SVG behind chips */}
@@ -109,7 +105,6 @@ export default function SignatureCollections({
               <stop offset="0.761566" stopColor="#FFDB9F" />
               <stop offset="1" stopColor="rgba(17,17,17,0)" />
             </linearGradient>
-
             <filter id="sig-glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b" />
               <feMerge>
@@ -128,7 +123,7 @@ export default function SignatureCollections({
 
           <path
             id="sig-centerline"
-            d={`M 0 70 C 480 430, 1437 430, 1917 70`}
+            d="M 0 70 C 480 430, 1437 430, 1917 70"
             fill="none"
             stroke="transparent"
             strokeWidth="1"
@@ -136,14 +131,17 @@ export default function SignatureCollections({
           />
         </svg>
 
-        {/* Chips */}
-        {points.map((p, i) => {
-          const item = visibleItems[i];
-          if (!item) return null;
+        {/* Chips: each item moves to a new point index based on offset */}
+        {visibleItems.map((item, i) => {
+          if (!points.length) return null;
 
-          const dist = Math.abs(i - centerIndex);
+          // where this item should sit this cycle
+          const posIndex = (i + offset) % n;
+          const p = points[posIndex];
+
+          // opacity/offset based on position, not item index
+          const dist = Math.abs(posIndex - centerIndex);
           const maxDist = Math.max(centerIndex, n - 1 - centerIndex) || 1;
-
           const fadeStrength = 0.78;
           const curve = 1.25;
           const opacityVar = Math.max(
