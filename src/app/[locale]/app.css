@@ -16033,7 +16033,7 @@ div.ldr .adImage {
 
 .signatureSection {
   --gold: #ffde9b;
-  --chip-size: clamp(80px, 10vw, 120px);
+  --chip-size: clamp(140px, 16vw, 180px);
   position: relative;
   padding: clamp(36px, 6vw, 64px) 20px clamp(60px, 8vw, 0px);
   text-align: center;
@@ -16128,6 +16128,7 @@ div.ldr .adImage {
   z-index: 2;
   width: 0;
   height: 0;
+  cursor: pointer;
   color: var(--gold);
   transition: left 400ms ease, top 400ms ease, transform 0.25s ease, opacity 0.25s ease;
 }
