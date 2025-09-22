@@ -19,7 +19,9 @@ const CommunitySection = async ({ locale }) => {
             lifestyle.
           </h3>
         </div>
-        <CommuntiySlider featuredCityData={featuredCityData?.data} />
+        <div className="community-slider">
+          <CommuntiySlider featuredCityData={featuredCityData?.data} />
+        </div>
       </div>
     </div>
   );

@@ -2869,9 +2869,6 @@ div.communityCard div.contactInfo span.icon svg {
   /* Bloom glow behind the text */
   /* Keep text above the glow */
 }
-#homePage .communitySectionParent {
-  margin-left: 7.5%;
-}
 #homePage div.communitySection {
   padding: 5rem 0;
   background-color: var(--secondary-bg-color);
@@ -3019,6 +3016,9 @@ html[lang=ar] #homePage div.communitySection p.tagline {
   justify-content: center;
   align-items: center;
   isolation: isolate; /* ensures z-index separation */
+}
+#homePage .community-slider {
+  margin-left: 7.5%;
 }
 #homePage .community-spotlight {
   position: absolute;

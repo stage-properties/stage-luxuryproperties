@@ -1,8 +1,4 @@
 #homePage {
-  .communitySectionParent {
-    margin-left: 7.5%;
-  }
-
   div.communitySection {
     padding: 5rem 0;
     background-color: var(--secondary-bg-color);
@@ -149,6 +145,10 @@
     justify-content: center;
     align-items: center;
     isolation: isolate; /* ensures z-index separation */
+  }
+
+  .community-slider {
+    margin-left: 7.5%;
   }
 
   /* Bloom glow behind the text */
