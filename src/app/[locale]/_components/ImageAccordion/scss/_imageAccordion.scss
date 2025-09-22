@@ -14,11 +14,11 @@
   overflow: hidden;
 
   /* 🔑 glass background blur */
-  background: rgba(14, 14, 14, 0.35); /* semi-transparent dark layer */
-  backdrop-filter: blur(12px); /* adjust intensity */
+  // background: rgba(14, 14, 14, 0.35); /* semi-transparent dark layer */
+  // backdrop-filter: blur(12px); /* adjust intensity */
   border-radius: 18px;
   padding: 12px; /* optional inner padding */
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  // box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 
   /* PANE */
   .pane {
@@ -96,8 +96,8 @@
     justify-content: center;
 
     /* keep blur inside info too */
-    background: rgba(20, 20, 20, 0.45);
-    backdrop-filter: blur(14px);
+    // background: rgba(20, 20, 20, 0.45);
+    // backdrop-filter: blur(14px);
 
     opacity: 0;
     transform: translateX(12px);

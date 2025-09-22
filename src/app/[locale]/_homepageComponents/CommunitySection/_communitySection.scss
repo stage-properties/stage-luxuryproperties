@@ -1,4 +1,8 @@
 #homePage {
+  .communitySectionParent {
+    margin-left: 7.5%;
+  }
+
   div.communitySection {
     padding: 5rem 0;
     background-color: var(--secondary-bg-color);
@@ -136,5 +140,41 @@
         margin-bottom: 6rem !important;
       }
     }
+  }
+
+  /* Text stage (positions glow behind the paragraph) */
+  .community-textStage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    isolation: isolate; /* ensures z-index separation */
+  }
+
+  /* Bloom glow behind the text */
+  .community-spotlight {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: min(85vw, 850px);
+    height: min(85vw, 850px);
+    border-radius: 50%;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 222, 155, 0.32) 0%,
+      /* ⬅️ stronger center (was 0.25) */ rgba(255, 222, 155, 0.18) 34%,
+      /* ⬅️ more mid glow (was 0.12) */ rgba(0, 0, 0, 0) 75%
+        /* ⬅️ fade a bit sooner (was 78%) */
+    );
+    filter: blur(24px); /* ⬅️ slightly less blur = more intensity */
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Keep text above the glow */
+  .community-textStage .text {
+    position: relative;
+    z-index: 1;
   }
 }

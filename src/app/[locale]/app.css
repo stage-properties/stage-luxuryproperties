@@ -2873,6 +2873,14 @@ div.communityCard div.contactInfo span.icon svg {
   height: 13px !important;
 }
 
+#homePage {
+  /* Text stage (positions glow behind the paragraph) */
+  /* Bloom glow behind the text */
+  /* Keep text above the glow */
+}
+#homePage .communitySectionParent {
+  margin-left: 7.5%;
+}
 #homePage div.communitySection {
   padding: 5rem 0;
   background-color: var(--secondary-bg-color);
@@ -3013,6 +3021,30 @@ html[lang=ar] #homePage div.communitySection p.tagline {
   #homePage div.communitySection .text {
     margin-bottom: 6rem !important;
   }
+}
+#homePage .community-textStage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate; /* ensures z-index separation */
+}
+#homePage .community-spotlight {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(85vw, 850px);
+  height: min(85vw, 850px);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.32) 0%, rgba(255, 222, 155, 0.18) 34%, rgba(0, 0, 0, 0) 75%);
+  filter: blur(24px); /* ⬅️ slightly less blur = more intensity */
+  z-index: 0;
+  pointer-events: none;
+}
+#homePage .community-textStage .text {
+  position: relative;
+  z-index: 1;
 }
 
 div.marketOverviewSection {
@@ -15522,12 +15554,8 @@ div.ldr .adImage {
   height: var(--h);
   overflow: hidden;
   /* 🔑 glass background blur */
-  background: rgba(14, 14, 14, 0.35); /* semi-transparent dark layer */
-  -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px); /* adjust intensity */
   border-radius: 18px;
   padding: 12px; /* optional inner padding */
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   /* PANE */
   /* INFO PANEL */
   /* Responsive */
@@ -15595,9 +15623,6 @@ div.ldr .adImage {
   flex-direction: column;
   justify-content: center;
   /* keep blur inside info too */
-  background: rgba(20, 20, 20, 0.45);
-  -webkit-backdrop-filter: blur(14px);
-          backdrop-filter: blur(14px);
   opacity: 0;
   transform: translateX(12px);
   animation: infoSlideIn 280ms ease forwards;
