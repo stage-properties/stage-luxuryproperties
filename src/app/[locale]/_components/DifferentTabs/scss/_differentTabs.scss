@@ -12,24 +12,17 @@
   border: 1px solid #ffdb9f;
   overflow: hidden; /* ensure bg + filters stay inside rounded corners */
   /* subtle gold edge and glow, like your mock */
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-  }
-  /* dark overlay filter */
   &::before {
-    background: rgba(0, 0, 0, 0.55); /* darken filter */
-    z-index: 0;
+    content: none; /* ⬅️ removed dark overlay */
   }
 
-  /* gold edge */
   &::after {
     border: 1px solid rgba(255, 222, 155, 0.22);
     box-shadow: 0 0 0 1px rgba(255, 222, 155, 0.08) inset;
+    border-radius: inherit;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     z-index: 1;
   }
 
@@ -101,6 +94,10 @@
     border: 1px solid var(--gold);
     overflow: hidden;
     margin-top: 10px;
+    width: 100%;
+  }
+
+  .ds-tabWrapper {
     width: 100%;
   }
 

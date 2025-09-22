@@ -12,7 +12,6 @@ export default function DifferenceTabs({
   const [active, setActive] = useState(initialIndex);
   const groupId = useId();
 
-  // sensible fallback
   const safeItems = items?.length
     ? items
     : [
@@ -62,7 +61,6 @@ export default function DifferenceTabs({
                 <span>{it.label}</span>
               </button>
 
-              {/* Panel under button (only visible if active) */}
               <div
                 className="ds-panel hideDesktop"
                 role="tabpanel"
