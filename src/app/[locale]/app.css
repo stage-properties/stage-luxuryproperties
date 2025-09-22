@@ -560,7 +560,7 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
   font-family: var(--lara-font-family) !important;
 }
 #searchSection div.searchContainer {
-  height: 100px;
+  height: 130px;
   background-color: #111111;
   border-radius: 44.081px;
   border: 1px solid rgba(255, 219, 159, 0.4);
@@ -835,35 +835,21 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
 }
 #searchSection .searchInput {
   border-radius: 14px;
-  padding-left: 30px;
   width: 100%;
-  padding: 6px;
-  padding-left: unset;
   background-color: transparent;
   color: var(--text-color);
-  font-size: 16px;
   text-transform: capitalize;
-}
-html[lang=ar] #searchSection .searchInput {
-  font-size: calc(16px + 1px);
+  font-family: var(--lara-font-family);
+  /* ✨ dynamic font sizing */
+  font-size: clamp(16px, 1.4vw, 28px);
 }
 #searchSection .searchInput::-moz-placeholder {
-  color: var(--placeholder-color);
   letter-spacing: 1.6px;
-  font-family: var(--lara-font-family);
-  font-size: 15px;
+  font-size: clamp(15px, 1.2vw, 19px); /* placeholder scales too */
 }
 #searchSection .searchInput::placeholder {
-  color: var(--placeholder-color);
   letter-spacing: 1.6px;
-  font-family: var(--lara-font-family);
-  font-size: 15px;
-}
-html[lang=ar] #searchSection .searchInput::-moz-placeholder {
-  font-size: calc(15px + 1px);
-}
-html[lang=ar] #searchSection .searchInput::placeholder {
-  font-size: calc(15px + 1px);
+  font-size: clamp(15px, 1.2vw, 19px); /* placeholder scales too */
 }
 #searchSection .searchInput.ar {
   padding-right: 30px;
