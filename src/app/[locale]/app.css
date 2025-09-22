@@ -16189,6 +16189,19 @@ div.ldr .adImage {
     margin-bottom: 0.25rem;
   }
 }
+/* Existing .sig-chip has transitions for left/top/transform/opacity */
+.sig-chip.is-wrapping {
+  /* hide for the instant it teleports from first->last (or last->first) */
+  opacity: 0;
+  /* disable the slide transition for this jump so there’s no visible "jump" */
+  transition: none !important;
+}
+
+.sig-chip.is-wrapping .sig-frame,
+.sig-chip.is-wrapping figcaption {
+  opacity: 0;
+}
+
 .different-tabs-parent {
   position: relative;
   padding: 5rem 0;

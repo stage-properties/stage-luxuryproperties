@@ -12,16 +12,33 @@ export default function SignatureCollections({
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
   const [offset, setOffset] = useState(0); // which position each chip moves to
+  const [wrapping, setWrapping] = useState(new Set()); // indices wrapping this tick
 
   // show up to 5 chips
   const visibleItems = useMemo(() => items.slice(0, 5), [items]);
 
-  // rotate positions every 10 seconds
+  // rotate positions every 10 seconds, right -> left
   useEffect(() => {
-    if (visibleItems.length <= 1) return;
+    const n = Math.max(1, visibleItems.length);
+    if (n <= 1) return;
+
     const id = setInterval(() => {
-      setOffset((o) => (o + 1) % visibleItems.length);
-    }, 5000);
+      setOffset((prev) => {
+        const next = (prev - 1 + n) % n;
+
+        // The one that "wraps" is the item whose previous posIndex was 0.
+        // prevPosIndex(i) = (i + prev) % n → equals 0 when i ≡ -prev (mod n)
+        const wrapIndex = (n - (prev % n)) % n; // index in visibleItems
+
+        // mark it as wrapping just for this frame
+        setWrapping(new Set([wrapIndex]));
+        // clear on next frame so transitions resume for future ticks
+        requestAnimationFrame(() => setWrapping(new Set()));
+
+        return next;
+      });
+    }, 5000); // 10s
+
     return () => clearInterval(id);
   }, [visibleItems.length]);
 
@@ -136,7 +153,7 @@ export default function SignatureCollections({
           if (!points.length) return null;
 
           // where this item should sit this cycle
-          const posIndex = (i + offset) % n;
+          const posIndex = (i + offset + n) % n;
           const p = points[posIndex];
 
           // opacity/offset based on position, not item index
@@ -153,10 +170,12 @@ export default function SignatureCollections({
           const baseOffset = stageH * 0.14;
           const dy = dist === 0 ? 0 : -baseOffset * (dist / maxDist);
 
+          const isWrapping = wrapping.has(i);
+
           return (
             <figure
               key={i}
-              className="sig-chip"
+              className={`sig-chip ${isWrapping ? "is-wrapping" : ""}`}
               style={{
                 left: `${p.x}px`,
                 top: `${p.y}px`,
