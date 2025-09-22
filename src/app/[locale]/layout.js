@@ -29,7 +29,7 @@ export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} style={{ overflowX: "hidden" }}>
       <link rel="icon preload" href="/lux-logo-mark.svg" sizes="any" />
       {/* <meta name="google-site-verification" content="mhv9v3VuNgVQ3YpO9ijfvRlcUsd29_kGoEOBR3nteRc"></meta> */}
       <head>

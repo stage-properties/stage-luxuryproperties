@@ -485,6 +485,14 @@ const SearchSection = ({ bgColor }) => {
         className={dropDownBtn ? "buttonContainer active" : "buttonContainer"}
       >
         <button
+          className={`button offPlan ${category === "OFFPLAN" ? "active" : ""}`}
+          data-aos="fade-up"
+          data-aos-delay="70"
+          onClick={() => categoryBtnHandler("OFFPLAN")}
+        >
+          <span>{t("offplan")}</span>
+        </button>
+        <button
           className={`button residential ${
             category === "RESIDENTIAL" ? "active" : ""
           }`}
@@ -504,14 +512,6 @@ const SearchSection = ({ bgColor }) => {
         >
           <span>{t("commercial")}</span>
         </button>
-        <button
-          className={`button offPlan ${category === "OFFPLAN" ? "active" : ""}`}
-          data-aos="fade-up"
-          data-aos-delay="70"
-          onClick={() => categoryBtnHandler("OFFPLAN")}
-        >
-          <span>{t("offplan")}</span>
-        </button>
       </div>
 
       <div className="searchContainer">
@@ -527,8 +527,8 @@ const SearchSection = ({ bgColor }) => {
             <div className="list">
               <span className={`details ${isRTL ? "ar" : ""}`}>
                 {inputValues.offer
-                  ? t(inputValues.offer.toLowerCase()).toUpperCase()
-                  : t("buy").toUpperCase()}
+                  ? t(inputValues.offer.toLowerCase())
+                  : t("buy")}
               </span>
               <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
@@ -538,10 +538,10 @@ const SearchSection = ({ bgColor }) => {
               <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                 <ul className="listDropdownitems">
                   <li onClick={(e) => offeringDropDownHandler(e, "BUY")}>
-                    <span className="text">{t("buy").toUpperCase()}</span>
+                    <span className="text">{t("buy")}</span>
                   </li>
                   <li onClick={(e) => offeringDropDownHandler(e, "RENT")}>
-                    <span className="text">{t("rent").toUpperCase()}</span>
+                    <span className="text">{t("rent")}</span>
                   </li>
                 </ul>
               </div>
@@ -564,17 +564,17 @@ const SearchSection = ({ bgColor }) => {
                     ? isRTL
                       ? formatNumberToArabic(inputValues.bed) +
                         (inputValues.bed === 1
-                          ? ` ${t("bed").toUpperCase()}`
+                          ? ` ${t("bed")}`
                           : inputValues.bed === 7
-                          ? `+ ${t("beds").toUpperCase()}`
-                          : ` ${t("beds").toUpperCase()}`)
+                          ? `+ ${t("beds")}`
+                          : ` ${t("beds")}`)
                       : inputValues.bed +
                         (inputValues.bed === 1
-                          ? ` ${t("bed").toUpperCase()}`
+                          ? ` ${t("bed")}`
                           : inputValues.bed === 7
-                          ? `+ ${t("beds").toUpperCase()}`
-                          : ` ${t("beds").toUpperCase()}`)
-                    : t("beds").toUpperCase()}
+                          ? `+ ${t("beds")}`
+                          : ` ${t("beds")}`)
+                    : t("beds")}
                 </span>
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
@@ -609,7 +609,7 @@ const SearchSection = ({ bgColor }) => {
           >
             <div className="list">
               <span className={`details ${isRTL ? "ar" : ""}`}>
-                {t("price").toUpperCase()}
+                {t("price")}
               </span>
               <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
@@ -759,7 +759,7 @@ const SearchSection = ({ bgColor }) => {
             >
               <div className="list">
                 <span className={`details ${isRTL ? "ar" : ""}`}>
-                  {t("area").toUpperCase()} ({t(areaUnit.toUpperCase())})
+                  {t("area")} ({t(areaUnit)})
                 </span>
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
@@ -813,7 +813,7 @@ const SearchSection = ({ bgColor }) => {
             type="text"
             name="text"
             value={inputValues.text || ""}
-            placeholder={t("community_or_property")}
+            placeholder={"community, project or building"}
             onChange={handleUpdate}
             ref={searchDropDownRefBed}
           />

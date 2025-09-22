@@ -126,6 +126,7 @@
         margin-bottom: 10px;
       }
       &.active {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
         background: var(
           --Gold-lux,
           linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
@@ -135,6 +136,7 @@
         }
       }
       &:hover {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
         background: var(
           --Gold-lux,
           linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
@@ -149,6 +151,7 @@
     }
   }
   div.searchContainer {
+    height: 100px;
     background-color: #111111;
     border-radius: 44.081px;
     border: 1px solid rgba(255, 219, 159, 0.4);
@@ -190,6 +193,7 @@
 
         &::placeholder {
           font-size: clamp(23px, 1.4vw, 16px); // ← change size here
+          text-align: center;
         }
       }
       // @media all and (max-width: 480px) {
@@ -197,7 +201,7 @@
       // }
       div.search-common {
         margin-right: 30px;
-        border-right: 1px solid #ffde9b;
+        border-right: 1px solid white;
         padding: 5px 30px 5px 0;
         position: relative;
         cursor: pointer;
@@ -302,8 +306,8 @@
               &:hover {
                 background-color: var(--secondary-bg-color);
                 color: var(--text-color);
-                border-left: 1px solid #ffde9b;
-                border-right: 1px solid #ffde9b;
+                border-left: 1px solid white;
+                border-right: 1px solid white;
               }
               &:last-child {
                 margin-bottom: 0;
@@ -332,13 +336,13 @@
             letter-spacing: 1.6px;
             &.details {
               // &.ar {
-              width: 100px;
+              // width: 100px;
               // }
-              @media all and (max-width: 480px) {
-                // display: flex;
-                // justify-content: space-between;
-                width: unset;
-              }
+              // @media all and (max-width: 480px) {
+              // display: flex;
+              // justify-content: space-between;
+              width: unset;
+              // }
             }
           }
           span.icon {
@@ -422,7 +426,7 @@
 
     &::placeholder {
       color: var(--placeholder-color);
-      text-transform: uppercase;
+      // text-transform: uppercase;
       letter-spacing: 1.6px;
       font-family: var(--lara-font-family);
       @include adjust-font(15px, false);
