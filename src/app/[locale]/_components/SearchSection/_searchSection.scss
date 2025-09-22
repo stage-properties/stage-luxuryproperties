@@ -335,14 +335,9 @@
             font-weight: 400;
             letter-spacing: 1.6px;
             &.details {
-              // &.ar {
-              // width: 100px;
-              // }
-              // @media all and (max-width: 480px) {
-              // display: flex;
-              // justify-content: space-between;
-              width: unset;
-              // }
+              white-space: nowrap;
+              display: inline-flex;
+              align-items: center;
             }
           }
           span.icon {

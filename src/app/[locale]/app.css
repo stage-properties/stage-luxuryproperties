@@ -765,7 +765,9 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
   font-size: calc(23px + 1px);
 }
 #searchSection div.searchContainer div.left div.search-common div.list span.details {
-  width: unset;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 #searchSection div.searchContainer div.left div.search-common div.list span.icon {
   margin-left: 10px;
