@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 
@@ -12,16 +12,37 @@ import { navLinks, navLinks_ar } from "@/app/[locale]/_utils/contants";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null); // ← add this
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+
   const locale = useLocale();
   const isRTL = locale === "ar";
   const pathname = usePathname();
-
   const links = isRTL ? navLinks_ar : navLinks;
+
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled((window.scrollY || document.documentElement.scrollTop) > 8);
+        ticking = false;
+      });
+    };
+    onScroll(); // set initial state
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <header id="mHeader" dir={isRTL ? "rtl" : "ltr"} aria-label="Site header">
+      <header
+        id="mHeader"
+        dir={isRTL ? "rtl" : "ltr"}
+        aria-label="Site header"
+        className={scrolled ? "scrolled" : ""}
+      >
         <div className="mH-left">{/* <LanguageSwitcherMobile /> */}</div>
 
         <Link href="/" className="mH-brand" aria-label="Stage Lux – Home">
@@ -66,7 +87,7 @@ export default function Header() {
                 responsive
                 path={item?.path}
                 subLink={item?.subLinks}
-                onNavigate={() => setOpen(false)} // ✅ close drawer only after navigation
+                onNavigate={() => setOpen(false)}
               />
             ))}
           </ul>
