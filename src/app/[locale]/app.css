@@ -3205,6 +3205,35 @@ div.overviewCard div.bottom span.price {
   color: var(--text-color);
 }
 
+#homePage {
+  /* Subtitle stage positions glow behind text */
+  /* Bloom glow behind subtitle */
+  /* Keep subtitle above glow */
+}
+#homePage .blog-subtitleStage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate; /* ensures glow stays behind text */
+}
+#homePage .blog-spotlight {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(80vw, 800px);
+  height: min(80vw, 800px);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.28) 0%, rgba(255, 222, 155, 0.14) 36%, rgba(0, 0, 0, 0) 78%);
+  filter: blur(26px);
+  z-index: 0;
+  pointer-events: none;
+}
+#homePage .blog-subtitleStage .subtitle {
+  position: relative;
+  z-index: 1;
+}
 #homePage .blogSection {
   padding: 5rem 0 10rem;
   /* ---------- Slider ---------- */

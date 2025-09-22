@@ -13,10 +13,15 @@ const BlogSection = async ({ locale, blogs_subheading }) => {
         <div className="contentContainer">
           <div className="wrapper">
             <h2 className="title">{t("blogs")}</h2>
-            <h3 className="subtitle">
-              A Comprehensive Collection of Investments
-              <br /> Expertise and Insights
-            </h3>
+
+            {/* 🌟 subtitle + spotlight */}
+            <div className="blog-subtitleStage">
+              <div className="blog-spotlight" aria-hidden="true" />
+              <h3 className="subtitle">
+                A Comprehensive Collection of Investments
+                <br /> Expertise and Insights
+              </h3>
+            </div>
 
             {/* ✅ Slick carousel (client) */}
             <BlogCarousel blogs={blogs ?? []} />
