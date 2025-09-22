@@ -110,17 +110,17 @@ export default async function Home({ params: { locale } }) {
             </div>
           </div>
           <div className="searchComponent">
+            <span className="downArrow" />
+            <SignatureCollections
+              items={[
+                { src: "/communities1.jpg", label: "Signature building" },
+                { src: "/communities2.jpg", label: "Signature building" },
+                { src: "/communities3.jpg", label: "Signature building" },
+                { src: "/communities4.jpg", label: "Signature building" },
+                { src: "/communities5.jpg", label: "Signature building" },
+              ]}
+            />
             <div className="wrapper">
-              <span className="downArrow" />
-              <SignatureCollections
-                items={[
-                  { src: "/communities1.jpg", label: "Signature building" },
-                  { src: "/communities2.jpg", label: "Signature building" },
-                  { src: "/communities3.jpg", label: "Signature building" },
-                  { src: "/communities4.jpg", label: "Signature building" },
-                  { src: "/communities5.jpg", label: "Signature building" },
-                ]}
-              />
               <SearchSection bgColor={false} />
             </div>
           </div>

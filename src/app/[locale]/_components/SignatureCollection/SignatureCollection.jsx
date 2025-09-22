@@ -12,24 +12,23 @@ export default function SignatureCollections({
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
 
-  // Take max 3 items (no rotation)
-  const visibleItems = items.slice(0, 3);
+  const visibleItems = items.slice(0, 5);
 
-  // Setup observer + resize
   useEffect(() => {
     const compute = () => {
       if (!svgRef.current) return;
-      const path = svgRef.current.querySelector("#sig-curve");
+      const path = svgRef.current.querySelector("#sig-centerline");
       if (!path) return;
 
       const vb = svgRef.current.viewBox.baseVal;
       const sx = svgRef.current.clientWidth / vb.width;
       const sy = svgRef.current.clientHeight / vb.height;
+      const n = visibleItems.length || 1;
 
+      // Full-width distribution
       const total = path.getTotalLength();
-      const n = visibleItems.length;
-      const start = total * 0.1;
-      const end = total * 0.9;
+      const start = 0;
+      const end = total;
       const span = end - start;
 
       const pts = Array.from({ length: n }).map((_, i) => {
@@ -39,96 +38,134 @@ export default function SignatureCollections({
         return { x: p.x * sx, y: p.y * sy };
       });
 
-      setPoints((prev) => {
-        const isSame =
-          prev.length === pts.length &&
-          prev.every((p, i) => p.x === pts[i].x && p.y === pts[i].y);
-        return isSame ? prev : pts;
-      });
+      setPoints(pts);
     };
 
     compute();
-
     const ro = new ResizeObserver(compute);
     if (svgRef.current) ro.observe(svgRef.current);
     window.addEventListener("resize", compute);
-
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", compute);
     };
   }, [visibleItems]);
 
+  // center chip coordinates for spotlight
+  const n = visibleItems.length || 1;
+  const centerIndex = (n - 1) / 2;
+  const centerPt = points.length ? points[Math.round(centerIndex)] : null;
+
   return (
     <section className="signatureSection">
       <header className="sig-header">
-        <h2 className="ds-title">
+        <div className="sig-titleRow">
           <span className="sig-title1">{title1}</span>
           <span className="sig-title2">{title2}</span>
-        </h2>
+        </div>
         <p className="sig-blurb">{blurb}</p>
       </header>
 
       <div className="sig-stage">
+        {/* Spotlight locked to the center item */}
+        <div
+          className="sig-spotlight"
+          aria-hidden="true"
+          style={{
+            left: centerPt ? `${centerPt.x}px` : "50%",
+            top: centerPt ? `${centerPt.y}px` : "50%",
+          }}
+        />
+
+        {/* SVG behind chips */}
         <svg
           ref={svgRef}
           className="sig-svg"
-          viewBox="0 0 1917 300"
+          viewBox="0 0 1917 336"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <defs>
-            <linearGradient id="sig-gold-stroke" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="rgba(255,222,155,.7)" />
-              <stop offset="100%" stopColor="rgba(255,222,155,.35)" />
+            <linearGradient
+              id="sig-ribbon-grad"
+              x1="1989.5"
+              y1="-13.5"
+              x2="1292.57"
+              y2="951.466"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="rgba(17,17,17,0)" />
+              <stop offset="0.761566" stopColor="#FFDB9F" />
+              <stop offset="1" stopColor="rgba(17,17,17,0)" />
             </linearGradient>
+
+            <filter id="sig-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
 
-          {(() => {
-            const MID_Y = 80;
-            const DEPTH = 220;
-            const CTRL_Y = MID_Y + DEPTH;
-            const CTRL_X_L = 300;
-            const CTRL_X_R = 1617;
+          <path
+            id="sig-ribbon"
+            d="M1916.5 0.5C1916.5 0.833333 1916.5 1.16667 1916.5 1.5C1890.73 21.7325 1860.64 40.4429 1831.67 58.2442C1574.14 210.695 1285.59 328.106 983.833 331.998C983.222 331.999 982.611 332 982 332C664.482 330.418 357.294 216.619 85.5979 56.1361C56.3576 38.5314 27.2789 20.2577 -0.706596 0.595137C-0.902199 0.865046 -1.0978 1.13495 -1.2934 1.40486C26.633 21.2647 55.6162 39.6966 84.7928 57.4692C355.849 219.459 663.416 334.4 982 336C982.613 336 983.227 335.999 983.84 335.998C1286.83 332.064 1575.59 213.532 1832.49 59.5945C1861.2 41.023 1892.08 24.7209 1916.5 0.5Z"
+            fill="url(#sig-ribbon-grad)"
+            opacity="0.85"
+          />
 
-            return (
-              <path
-                id="sig-curve"
-                d={`M 0 ${MID_Y} C ${CTRL_X_L} ${CTRL_Y}, ${CTRL_X_R} ${CTRL_Y}, 1917 ${MID_Y}`}
-                fill="none"
-                stroke="url(#sig-gold-stroke)"
-                strokeWidth={3}
-                opacity="0.85"
-                pointerEvents="none"
-              />
-            );
-          })()}
+          <path
+            id="sig-centerline"
+            d={`M 0 70 C 480 430, 1437 430, 1917 70`}
+            fill="none"
+            stroke="transparent"
+            strokeWidth="1"
+            filter="url(#sig-glow)"
+          />
         </svg>
 
-        {/* Render up to 3 visible items */}
+        {/* Chips */}
         {points.map((p, i) => {
           const item = visibleItems[i];
           if (!item) return null;
-          const isCenter = i === 1; // middle one
+
+          const dist = Math.abs(i - centerIndex);
+          const maxDist = Math.max(centerIndex, n - 1 - centerIndex) || 1;
+
+          const fadeStrength = 0.78;
+          const curve = 1.25;
+          const opacityVar = Math.max(
+            0.2,
+            1 - Math.pow(dist / maxDist, curve) * fadeStrength
+          );
+
+          const stageH = svgRef.current ? svgRef.current.clientHeight : 0;
+          const baseOffset = stageH * 0.14;
+          const dy = dist === 0 ? 0 : -baseOffset * (dist / maxDist);
+
           return (
             <figure
               key={i}
-              className={`sig-chip ${isCenter ? "is-center" : ""}`}
+              className="sig-chip"
               style={{
                 left: `${p.x}px`,
                 top: `${p.y}px`,
-                transform: `translate(-50%, calc(-40%))`,
-                width: "auto",
+                "--chip-scale": 1,
+                "--chip-opacity": opacityVar,
+                "--chip-dy": `${dy}px`,
               }}
             >
-              <div className="sig-thumb">
-                <Image
-                  style={{ padding: "1rem", borderRadius: "120.592px" }}
-                  src={item?.src || "/ourStoryBG.jpeg"}
-                  alt={item?.label || "Signature"}
-                  fill
-                  sizes="(max-width: 1200px) 22vw, 260px"
-                />
+              {/* Square frame + circular image */}
+              <div className="sig-frame">
+                <div className="sig-circle">
+                  <Image
+                    src={item?.src || "/ourStoryBG.jpeg"}
+                    alt={item?.label || "Signature"}
+                    fill
+                    sizes="(max-width: 1200px) 26vw, 260px"
+                  />
+                </div>
               </div>
               {item?.label && <figcaption>{item.label}</figcaption>}
             </figure>
