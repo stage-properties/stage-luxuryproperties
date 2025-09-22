@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function SignatureCollections({
@@ -12,44 +12,55 @@ export default function SignatureCollections({
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
 
-  const visibleItems = items.slice(0, 5);
+  // ✅ Memoize so it doesn't become a new array every render
+  const visibleItems = useMemo(() => items.slice(0, 5), [items]);
+
+  // Small helper to avoid pointless setState
+  const pointsChanged = (a, b) => {
+    if (a.length !== b.length) return true;
+    for (let i = 0; i < a.length; i++) {
+      if (a[i].x !== b[i].x || a[i].y !== b[i].y) return true;
+    }
+    return false;
+  };
 
   useEffect(() => {
     const compute = () => {
-      if (!svgRef.current) return;
-      const path = svgRef.current.querySelector("#sig-centerline");
+      const svg = svgRef.current;
+      if (!svg) return;
+
+      const path = svg.querySelector("#sig-centerline");
       if (!path) return;
 
-      const vb = svgRef.current.viewBox.baseVal;
-      const sx = svgRef.current.clientWidth / vb.width;
-      const sy = svgRef.current.clientHeight / vb.height;
+      const vb = svg.viewBox.baseVal;
+      const sx = svg.clientWidth / vb.width || 1;
+      const sy = svg.clientHeight / vb.height || 1;
+
       const n = visibleItems.length || 1;
 
       // Full-width distribution
       const total = path.getTotalLength();
-      const start = 0;
-      const end = total;
-      const span = end - start;
-
       const pts = Array.from({ length: n }).map((_, i) => {
         const t = n === 1 ? 0.5 : i / (n - 1);
-        const l = start + span * t;
-        const p = path.getPointAtLength(l);
+        const p = path.getPointAtLength(total * t);
         return { x: p.x * sx, y: p.y * sy };
       });
 
-      setPoints(pts);
+      setPoints((prev) => (pointsChanged(prev, pts) ? pts : prev));
     };
 
+    // initial + on resize or svg size changes
     compute();
     const ro = new ResizeObserver(compute);
     if (svgRef.current) ro.observe(svgRef.current);
     window.addEventListener("resize", compute);
+
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", compute);
     };
-  }, [visibleItems]);
+    // ✅ depend only on stable values
+  }, [visibleItems.length]);
 
   // center chip coordinates for spotlight
   const n = visibleItems.length || 1;
@@ -156,7 +167,6 @@ export default function SignatureCollections({
                 "--chip-dy": `${dy}px`,
               }}
             >
-              {/* Square frame + circular image */}
               <div className="sig-frame">
                 <div className="sig-circle">
                   <Image
