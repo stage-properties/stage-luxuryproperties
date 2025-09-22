@@ -16042,28 +16042,39 @@ div.ldr .adImage {
 }
 
 .sig-titleRow {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: clamp(12px, 3vw, 28px);
-  max-width: min(980px, 90vw);
-  margin: 0 auto;
+  display: inline-block; /* center the whole block */
+  margin: 0 0 clamp(6px, 1.2vw, 8px);
+  text-align: left; /* lines inside are left-aligned */
+  line-height: 1;
+  color: #fff;
+  font-weight: 400;
+  /* knobs */
+  --collections-indent: clamp(
+    28px,
+    7.5vw,
+    180px
+  ); /* how far "Collections" shifts right */
+  --stack-gap: clamp(4px, 0.9vw, 14px); /* vertical gap between lines */
 }
 
 .sig-title1 {
-  justify-self: start;
-  font-family: var(--migratory-font-family, "Great Vibes", cursive);
+  display: block;
+  font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
-  font-size: clamp(46px, 10.5vw, 120px);
-  line-height: 0.9;
+  font-size: clamp(46px, 10.8vw, 122px);
+  letter-spacing: 0.5px;
+  line-height: 0.92; /* room for descenders */
+  margin-bottom: var(--stack-gap);
 }
 
 .sig-title2 {
-  justify-self: end;
-  color: #ececec;
+  display: block; /* new line */
+  font-size: clamp(32px, 2.6vw, 48px);
+  color: #eaeaea;
   font-weight: 400;
-  font-size: clamp(26px, 2.6vw, 46px);
-  margin-bottom: clamp(6px, 0.7vw, 10px);
+  line-height: 0;
+  text-align: right;
+  margin-right: -8rem;
 }
 
 .sig-blurb {
@@ -16072,6 +16083,7 @@ div.ldr .adImage {
   color: #d1d1d1;
   font-size: clamp(13px, 1.1vw, 18px);
   line-height: 1.6;
+  text-transform: unset;
 }
 
 /* Stage */
