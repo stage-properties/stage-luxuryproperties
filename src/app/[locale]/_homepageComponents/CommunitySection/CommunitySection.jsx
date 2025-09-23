@@ -9,10 +9,10 @@ const CommunitySection = async ({ locale }) => {
   return (
     <div className="communitySection">
       <div className="communitySectionParent">
-        <h2 className="title">{t("dubai_s_most")}</h2>
-        <h2 className="subtitle">{t("coveted_enclaves")}</h2>
+        <h2 className="wrapper title">{t("dubai_s_most")}</h2>
+        <h2 className="wrapper subtitle">{t("coveted_enclaves")}</h2>
         {/* 🌟 Wrap the text + glow in a stage */}
-        <div className="community-textStage">
+        <div className="wrapper community-textStage">
           <div className="community-spotlight" aria-hidden="true" />
           <h3 className="text">
             Explore the neighborhoods where luxury is not just a standard, but a

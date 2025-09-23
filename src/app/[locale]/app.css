@@ -16271,6 +16271,11 @@ div.ldr .adImage {
   opacity: 0;
 }
 
+@media all and (max-width: 1024px) {
+  .signatureSection {
+    margin-bottom: unset;
+  }
+}
 .different-tabs-parent {
   position: relative;
   padding: 5rem 0;

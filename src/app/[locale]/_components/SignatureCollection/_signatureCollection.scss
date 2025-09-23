@@ -177,3 +177,9 @@
 .sig-chip.is-wrapping figcaption {
   opacity: 0;
 }
+
+@media all and (max-width: 1024px) {
+  .signatureSection {
+    margin-bottom: unset;
+  }
+}
