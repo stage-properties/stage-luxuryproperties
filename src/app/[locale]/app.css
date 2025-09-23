@@ -15791,9 +15791,8 @@ div.ldr .adImage {
 }
 
 .differenceSection {
-  /* container card (soft glass + gold border) */
   --gold: var(--gold-lux, #ffde9b);
-  --panel-anim: 1.8s ease; /* ← control how long the text takes to appear */
+  --panel-anim: 1000ms cubic-bezier(0.22, 0.61, 0.36, 1); /* smoother desktop panels */
   position: relative;
   padding: 200px 36px 200px;
   background: rgba(255, 255, 255, 0.03);
@@ -15802,19 +15801,11 @@ div.ldr .adImage {
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
   border-radius: 44.081px;
   border: 1px solid #ffdb9f;
-  overflow: hidden; /* ensure bg + filters stay inside rounded corners */
-  /* subtle gold edge and glow, like your mock */
-  /* make sure content is above overlays */
-  /* ---- Titles ---- */
-  /* ---- Tabs rail ---- */
-  /* ---- Panel ---- */
-  /* keep this near the top (default desktop behavior) */
-  /* ---- Responsive ---- */
+  overflow: hidden;
 }
-.differenceSection::before {
-  content: none; /* ⬅️ removed dark overlay */
-}
+
 .differenceSection::after {
+  content: "";
   border: 1px solid rgba(255, 222, 155, 0.22);
   box-shadow: 0 0 0 1px rgba(255, 222, 155, 0.08) inset;
   border-radius: inherit;
@@ -15823,43 +15814,40 @@ div.ldr .adImage {
   pointer-events: none;
   z-index: 1;
 }
+
 .differenceSection .ds-header,
 .differenceSection .ds-parent {
   position: relative;
   z-index: 2;
 }
+
+/* ---- Titles ---- */
 .differenceSection .ds-header {
   text-align: center;
   margin-bottom: 3.75rem;
 }
-.differenceSection .ds-header .ds-title {
-  display: inline-block; /* center the whole block */
+
+.differenceSection .ds-title {
+  display: inline-block;
   margin: 0 0 clamp(6px, 1.2vw, 8px);
-  text-align: left; /* lines inside are left-aligned */
+  text-align: left;
   line-height: 1;
   color: #fff;
   font-weight: 400;
-  /* knobs */
-  --collections-indent: clamp(
-    28px,
-    7.5vw,
-    180px
-  ); /* how far "Collections" shifts right */
-  --stack-gap: clamp(4px, 0.9vw, 14px); /* vertical gap between lines */
-  /* script-style main line */
-  /* small white word to the right */
 }
-.differenceSection .ds-header .ds-title .ds-title-big {
+
+.differenceSection .ds-title-big {
   display: block;
   font-family: var(--migratory-font-family, cursive);
   color: var(--gold);
   font-size: clamp(46px, 10.8vw, 122px);
   letter-spacing: 0.5px;
-  line-height: 0.92; /* room for descenders */
-  margin-bottom: var(--stack-gap);
+  line-height: 0.92;
+  margin-bottom: clamp(4px, 0.9vw, 14px);
 }
-.differenceSection .ds-header .ds-title .ds-title-small {
-  display: block; /* new line */
+
+.differenceSection .ds-title-small {
+  display: block;
   font-size: clamp(32px, 2.6vw, 48px);
   color: #eaeaea;
   font-weight: 400;
@@ -15867,35 +15855,49 @@ div.ldr .adImage {
   text-align: right;
   margin-right: -2rem;
 }
-.differenceSection .ds-header .ds-subtitle {
+
+.differenceSection .ds-subtitle {
   margin: 28px 0 0;
   color: #cfcfcf;
   font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* ---- Tabs rail ---- */
 .differenceSection .ds-tabs {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   gap: 12px;
   border-radius: 12px;
   border: 1px solid var(--gold);
-  overflow: hidden;
+  background: transparent;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   margin-top: 10px;
   width: 100%;
 }
-.differenceSection .ds-tabWrapper {
-  width: 100%;
+
+.differenceSection .ds-tabs::-webkit-scrollbar {
+  display: none;
 }
+
+.differenceSection .ds-tabWrapper {
+  flex: 1 0 auto;
+  min-width: 0;
+}
+
 .differenceSection .ds-tab {
   font-family: var(--lara-font-family);
   height: 95px;
   font-size: 20px;
-  width: 25%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 2rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -15906,41 +15908,64 @@ div.ldr .adImage {
   background: transparent;
   color: #f2f2f2;
   width: 100%;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
-  /* active: gold filled, darker text, soft glow */
+  border: 0;
+  transition: color 800ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 800ms cubic-bezier(0.22, 0.61, 0.36, 1), background 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.differenceSection .ds-tab:hover {
-  background: rgba(255, 255, 255, 0.07);
-}
+
 .differenceSection .ds-tab:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
+
 .differenceSection .ds-tab.is-active {
-  border: 1px solid rgba(255, 222, 155, 0.16);
-  background: rgba(255, 222, 155, 0.95);
   color: #111;
-  border-color: rgba(255, 222, 155, 0.95);
-  box-shadow: 0 12px 26px rgba(255, 222, 155, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
-.differenceSection .ds-panel {
+
+/* ---- GOLD SLIDING BACKGROUND ---- */
+.differenceSection .ds-indicator {
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  bottom: 1px;
+  height: auto;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255, 222, 155, 0.85), rgb(255, 222, 155));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 26px rgba(255, 222, 155, 0.35);
+  transition: transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1), width 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform, width;
+  pointer-events: none;
+}
+
+/* ---- Desktop sliding panels ---- */
+.differenceSection .ds-panels {
   margin-top: 2rem;
-  text-align: center;
-  animation: dsFadeSlide 220ms ease;
-  text-align: left;
-  height: 50px;
+  overflow: hidden;
 }
-.differenceSection .ds-panel p {
+
+.differenceSection .ds-panelsTrack {
+  display: flex;
+  width: 100%;
+  transition: transform var(--panel-anim);
+  will-change: transform;
+}
+
+.differenceSection .ds-panelSlide {
+  flex: 0 0 100%;
+  padding: 0;
+  text-align: left;
+}
+
+.differenceSection .ds-panelSlide p {
   margin: 0 auto;
   max-width: 992px;
   color: rgba(255, 255, 255, 0.92);
-  /* mock uses an uppercase, letter-spaced paragraph */
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 12.5px;
-  line-height: 1.9;
   font-size: 19px;
+  line-height: 1.9;
+  animation: dsFadeSlide 600ms ease;
 }
+
 @keyframes dsFadeSlide {
   from {
     opacity: 0;
@@ -15951,53 +15976,41 @@ div.ldr .adImage {
     transform: translateY(0);
   }
 }
+/* helpers */
 .differenceSection .hideDesktop {
   display: none;
 }
+
 .differenceSection .hideMobile {
   display: block;
 }
+
+/* ---- Mobile: vertical sliding accordion panels ---- */
 @media (max-width: 1024px) {
   .differenceSection {
     padding: 7.5rem 18px;
     -webkit-backdrop-filter: unset;
             backdrop-filter: unset;
-    /* show per-tab panels under buttons, hide the shared desktop panel */
-    /* shared panel hidden */
-    /* per-tab panel visible */
-    /* ✅ Fix: ensure hidden panels really stay hidden */
   }
   .differenceSection .ds-header {
-    text-align: center;
     margin-bottom: 1.75rem;
+  }
+  .differenceSection .ds-tabs {
+    gap: 10px;
+    border: unset;
   }
   .differenceSection .ds-tab {
     border-radius: 11.429px;
     border: 0.952px solid rgba(255, 219, 159, 0.2);
     background: rgba(0, 0, 0, 0);
-  }
-  .differenceSection .ds-tabs {
-    flex-direction: column;
-    gap: 10px;
-    border: unset;
-  }
-  .differenceSection .ds-tabs button {
-    width: 100%;
+    height: 72px;
   }
   .differenceSection .ds-tabs button span {
     text-align: center;
-    font-family: Lara;
+    font-family: var(--lara-font-family, Lara);
     font-size: 26.667px;
-    font-style: normal;
     font-weight: 400;
     line-height: 30.476px;
-  }
-  .differenceSection .ds-panel {
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .differenceSection .ds-panel p {
-    max-width: 92vw;
   }
   .differenceSection .hideMobile {
     display: none !important;
@@ -16005,32 +16018,51 @@ div.ldr .adImage {
   .differenceSection .hideDesktop {
     display: block !important;
   }
-  .differenceSection .ds-panel[hidden] {
-    display: none !important;
+  .differenceSection .ds-panel.ds-panelMobile {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height 1000ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 800ms ease, transform 1000ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: max-height, opacity, transform;
   }
-  .differenceSection .ds-subtitle {
-    font-family: var(--lara-font-family);
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 32px; /* 114.286% */
+  .differenceSection .ds-panel.ds-panelMobile[data-open=true] {
+    max-height: var(--open-h, 600px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .differenceSection .ds-panelMobile-inner {
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+  .differenceSection .ds-panel[hidden] {
+    display: block !important;
+  }
+  .differenceSection .ds-panel p {
+    max-width: 92vw;
     text-transform: unset !important;
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+    font-size: 18px;
+  }
+  .differenceSection .ds-indicator {
+    display: none;
   }
 }
-
+/* ---- Container ---- */
 .ds-parent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* text + panel left aligned */
+  align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
-  /* center the whole block */
   margin-left: auto;
   margin-right: auto;
   max-width: 992px;
 }
+
 .ds-parent .ds-panel {
-  width: 100%; /* text takes full width of container */
+  width: 100%;
 }
 
 .signatureSection {
