@@ -10,8 +10,7 @@
 }
 
 .sig-header {
-  // margin-bottom: clamp(10px, 2vw, 22px);
-  margin-bottom: 15vw;
+  margin-bottom: clamp(10px, 2vw, 22px);
 }
 .sig-titleRow {
   display: inline-block; /* center the whole block */
@@ -181,5 +180,8 @@
 @media all and (max-width: 1024px) {
   .signatureSection {
     margin-bottom: unset;
+  }
+  .sig-header {
+    margin-bottom: 15vw;
   }
 }
