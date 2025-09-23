@@ -34,7 +34,7 @@ export default function DifferenceTabs({
         },
       ];
 
-  // --- Refs for indicator math
+  // --- Refs
   const tabsRef = useRef(null);
   const btnRefs = useRef([]);
   const indicatorRef = useRef(null);
@@ -59,44 +59,59 @@ export default function DifferenceTabs({
     };
   }, [safeItems.length]);
 
-  // Indicator geometry (left + width)
+  // --- Indicator geometry
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
   const recalcIndicator = () => {
     const btn = btnRefs.current[active];
     const rail = tabsRef.current;
     if (!btn || !rail) return;
-    const btnRect = btn.getBoundingClientRect();
-    const railRect = rail.getBoundingClientRect();
-    const left = btnRect.left - railRect.left + rail.scrollLeft;
-    const width = btnRect.width;
+
+    // Use offsets for stability with flex gaps and while scrolling
+    const left = btn.offsetLeft - rail.scrollLeft;
+    const width = btn.offsetWidth;
+
     setIndicator({ left, width });
   };
 
   useLayoutEffect(() => {
+    // initial measure
     recalcIndicator();
-    // rail-only scroll centering (prevents page jump)
+
+    // center active tab within the rail without scrolling the page
     const btn = btnRefs.current[active];
     const rail = tabsRef.current;
     if (rail && btn) {
       const targetLeft =
         btn.offsetLeft - (rail.clientWidth - btn.offsetWidth) / 2;
       rail.scrollTo({ left: Math.max(0, targetLeft), behavior: "smooth" });
+
+      // ensure we measure after the browser applies the scroll position
+      const raf1 = requestAnimationFrame(recalcIndicator);
+      const raf2 = requestAnimationFrame(recalcIndicator);
+      return () => {
+        cancelAnimationFrame(raf1);
+        cancelAnimationFrame(raf2);
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, safeItems.length]);
 
   useEffect(() => {
-    if (!tabsRef.current) return;
+    const rail = tabsRef.current;
+    if (!rail) return;
+
     const ro = new ResizeObserver(() => recalcIndicator());
-    ro.observe(tabsRef.current);
+    ro.observe(rail);
     btnRefs.current.forEach((el) => el && ro.observe(el));
+
     const onScroll = () => recalcIndicator();
-    tabsRef.current.addEventListener("scroll", onScroll, { passive: true });
+    rail.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", recalcIndicator);
+
     return () => {
       window.removeEventListener("resize", recalcIndicator);
-      tabsRef.current?.removeEventListener("scroll", onScroll);
+      rail.removeEventListener("scroll", onScroll);
       ro.disconnect();
     };
   }, []);
@@ -150,7 +165,7 @@ export default function DifferenceTabs({
             </div>
           ))}
 
-          {/* Sliding indicator */}
+          {/* Sliding indicator (gold background) */}
           <div
             aria-hidden="true"
             ref={indicatorRef}
@@ -196,7 +211,7 @@ export default function DifferenceTabs({
             ref={(el) => (panelRefs.current[i] = el)}
             style={
               panelHeights[i] != null
-                ? { ["--open-h"]: `${panelHeights[i]}px` }
+                ? { "--open-h": `${panelHeights[i]}px` }
                 : undefined
             }
           >
