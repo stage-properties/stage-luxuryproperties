@@ -96,7 +96,7 @@ export default async function Home({ params: { locale } }) {
             <Image
               className="hero"
               priority={true}
-              src="/hero.jpg"
+              src="/hero-and-logo.jpg"
               fill
               alt="Dubai skyscrapers"
               quality={60}
