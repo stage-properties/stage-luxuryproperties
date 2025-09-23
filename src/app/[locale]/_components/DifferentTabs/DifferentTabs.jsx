@@ -198,28 +198,40 @@ export default function DifferenceTabs({
           </div>
         </div>
 
-        {/* Mobile: vertical sliding under each button (accordion) */}
-        {safeItems.map((it, i) => (
-          <div
-            key={`${it.label}-m`}
-            className="ds-panel hideDesktop ds-panelMobile"
-            role="tabpanel"
-            id={`panel-${i}-m`}
-            aria-labelledby={`tab-${i}`}
-            aria-hidden={active !== i}
-            data-open={active === i}
-            ref={(el) => (panelRefs.current[i] = el)}
-            style={
-              panelHeights[i] != null
-                ? { "--open-h": `${panelHeights[i]}px` }
-                : undefined
-            }
-          >
-            <div className="ds-panelMobile-inner">
-              <p>{it.text}</p>
+        {/* Mobile: accordion (≤1024px) */}
+        <div className="ds-accordion hideDesktop">
+          {safeItems.map((it, i) => (
+            <div key={`${it.label}-acc`} className="ds-accItem">
+              <button
+                className={`ds-accHeader ${active === i ? "is-open" : ""}`}
+                aria-expanded={active === i}
+                aria-controls={`acc-panel-${i}`}
+                id={`acc-header-${i}`}
+                onClick={() => setActive(i)}
+              >
+                <span>{it.label}</span>
+              </button>
+
+              <div
+                id={`acc-panel-${i}`}
+                role="region"
+                aria-labelledby={`acc-header-${i}`}
+                className="ds-accPanel"
+                data-open={active === i}
+                ref={(el) => (panelRefs.current[i] = el)}
+                style={
+                  panelHeights[i] != null
+                    ? { "--open-h": `${panelHeights[i]}px` }
+                    : undefined
+                }
+              >
+                <div className="ds-accInner">
+                  <p>{it.text}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

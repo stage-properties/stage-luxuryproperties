@@ -72,7 +72,7 @@
   text-transform: uppercase;
 }
 
-/* ---- Tabs rail ---- */
+/* ---- Tabs rail (desktop) ---- */
 .differenceSection .ds-tabs {
   position: relative;
   display: flex;
@@ -193,7 +193,12 @@
   display: block;
 }
 
-/* ---- Mobile: vertical sliding accordion panels ---- */
+/* Base: accordion hidden on desktop */
+.ds-accordion {
+  display: none;
+}
+
+/* ---- Tablet & below (≤1024px): use accordion, hide desktop UI ---- */
 @media (max-width: 1024px) {
   .differenceSection {
     padding: 7.5rem 18px;
@@ -203,24 +208,18 @@
     margin-bottom: 1.75rem;
   }
 
+  /* Hide desktop/tab UI completely */
   .differenceSection .ds-tabs {
-    gap: 10px;
-    border: unset;
+    display: none !important;
   }
-  .differenceSection .ds-tab {
-    border-radius: 11.429px;
-    border: 0.952px solid rgba(255, 219, 159, 0.2);
-    background: rgba(0, 0, 0, 0);
-    height: 72px;
+  .differenceSection .ds-panels {
+    display: none !important;
   }
-  .differenceSection .ds-tabs button span {
-    text-align: center;
-    font-family: var(--lara-font-family, Lara);
-    font-size: 26.667px;
-    font-weight: 400;
-    line-height: 30.476px;
+  .differenceSection .ds-indicator {
+    display: none !important;
   }
 
+  /* Toggle helpers */
   .differenceSection .hideMobile {
     display: none !important;
   }
@@ -228,39 +227,71 @@
     display: block !important;
   }
 
-  .differenceSection .ds-panel.ds-panelMobile {
+  /* Show & style accordion */
+  .ds-accordion {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .ds-accItem {
+    border: 0.95px solid rgba(255, 219, 159, 0.2);
+    border-radius: 11.5px;
+    background: rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    overflow: hidden; /* rounds panel corners when open */
+  }
+
+  .ds-accHeader {
+    width: 100%;
+    height: 72px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--lara-font-family, Lara);
+    font-size: 26.667px;
+    font-weight: 400;
+    line-height: 30.476px;
+    color: #f2f2f2;
+    background: transparent;
+    border: 0.952px solid rgba(255, 219, 159, 0.2);
+    border-radius: 11.429px;
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  .ds-accHeader.is-open {
+    background: linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%);
+    color: black;
+  }
+  .ds-accPanel {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-6px);
-    transition: max-height 1000ms cubic-bezier(0.22, 0.61, 0.36, 1),
-      opacity 800ms ease, transform 1000ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: max-height 500ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      opacity 800ms ease, transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
     will-change: max-height, opacity, transform;
   }
-  .differenceSection .ds-panel.ds-panelMobile[data-open="true"] {
+
+  .ds-accPanel[data-open="true"] {
     max-height: var(--open-h, 600px);
     opacity: 1;
     transform: translateY(0);
   }
-  .differenceSection .ds-panelMobile-inner {
-    padding-top: 12px;
-    padding-bottom: 8px;
+
+  .ds-accInner {
+    padding: 12px 14px 8px 14px;
   }
 
-  .differenceSection .ds-panel[hidden] {
-    display: block !important;
-  }
-
-  .differenceSection .ds-panel p {
+  .ds-accInner p {
     max-width: 92vw;
     text-transform: unset !important;
     letter-spacing: 0.02em;
     line-height: 1.7;
     font-size: 18px;
-  }
-
-  .differenceSection .ds-indicator {
-    display: none;
+    color: rgba(255, 255, 255, 0.92);
   }
 }
 
