@@ -3027,11 +3027,11 @@ html[lang=ar] #homePage div.communitySection p.tagline {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  width: min(85vw, 850px);
-  height: min(85vw, 850px);
+  width: min(78vw, 760px); /* a bit larger */
+  height: min(78vw, 760px);
   border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.32) 0%, rgba(255, 222, 155, 0.18) 34%, rgba(0, 0, 0, 0) 75%);
-  filter: blur(24px); /* ⬅️ slightly less blur = more intensity */
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.26) 0%, rgba(255, 222, 155, 0.14) 32%, rgba(0, 0, 0, 0) 72%);
+  filter: blur(28px); /* ↓ was 36px (crisper = brighter) */
   z-index: 0;
   pointer-events: none;
 }

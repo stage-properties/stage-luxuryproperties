@@ -157,17 +157,16 @@
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    width: min(85vw, 850px);
-    height: min(85vw, 850px);
+    width: min(78vw, 760px); /* a bit larger */
+    height: min(78vw, 760px);
     border-radius: 50%;
     background: radial-gradient(
       50% 50% at 50% 50%,
-      rgba(255, 222, 155, 0.32) 0%,
-      /* ⬅️ stronger center (was 0.25) */ rgba(255, 222, 155, 0.18) 34%,
-      /* ⬅️ more mid glow (was 0.12) */ rgba(0, 0, 0, 0) 75%
-        /* ⬅️ fade a bit sooner (was 78%) */
+      rgba(255, 222, 155, 0.26) 0%,
+      /* ↑ was 0.18 */ rgba(255, 222, 155, 0.14) 32%,
+      /* ↑ was 0.08 */ rgba(0, 0, 0, 0) 72% /* extends a touch further */
     );
-    filter: blur(24px); /* ⬅️ slightly less blur = more intensity */
+    filter: blur(28px); /* ↓ was 36px (crisper = brighter) */
     z-index: 0;
     pointer-events: none;
   }
