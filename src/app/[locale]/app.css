@@ -840,6 +840,11 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
     display: none;
   }
 }
+@media all and (max-width: 1024px) {
+  #searchSection div.searchContainer {
+    height: 100%;
+  }
+}
 #searchSection .searchInput {
   border-radius: 14px;
   width: 100%;
@@ -16077,7 +16082,7 @@ div.ldr .adImage {
 }
 
 .sig-header {
-  margin-bottom: clamp(10px, 2vw, 22px);
+  margin-bottom: 15vw;
 }
 
 .sig-titleRow {

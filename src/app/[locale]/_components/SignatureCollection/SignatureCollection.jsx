@@ -11,34 +11,44 @@ export default function SignatureCollections({
 }) {
   const svgRef = useRef(null);
   const [points, setPoints] = useState([]);
-  const [offset, setOffset] = useState(0); // which position each chip moves to
-  const [wrapping, setWrapping] = useState(new Set()); // indices wrapping this tick
+  const [offset, setOffset] = useState(0);
+  const [wrapping, setWrapping] = useState(new Set());
 
-  // show up to 5 chips
-  const visibleItems = useMemo(() => items.slice(0, 5), [items]);
+  // responsive chip count: 3 on tablet/≤1024px, else 5
+  const [maxChips, setMaxChips] = useState(5);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 1024px)");
+    const apply = () => setMaxChips(mq.matches ? 3 : 5);
+    apply();
+    // support both modern and older browsers
+    if (mq.addEventListener) mq.addEventListener("change", apply);
+    else mq.addListener(apply);
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", apply);
+      else mq.removeListener(apply);
+    };
+  }, []);
+
+  // show up to maxChips
+  const visibleItems = useMemo(
+    () => items.slice(0, maxChips),
+    [items, maxChips]
+  );
 
   // rotate positions every 3 seconds, right -> left
   useEffect(() => {
     const n = Math.max(1, visibleItems.length);
     if (n <= 1) return;
-
     const id = setInterval(() => {
       setOffset((prev) => {
         const next = (prev - 1 + n) % n;
-
-        // The one that "wraps" is the item whose previous posIndex was 0.
-        // prevPosIndex(i) = (i + prev) % n → equals 0 when i ≡ -prev (mod n)
-        const wrapIndex = (n - (prev % n)) % n; // index in visibleItems
-
-        // mark it as wrapping just for this frame
+        const wrapIndex = (n - (prev % n)) % n;
         setWrapping(new Set([wrapIndex]));
-        // clear on next frame so transitions resume for future ticks
         requestAnimationFrame(() => setWrapping(new Set()));
-
         return next;
       });
-    }, 3000); // 3s
-
+    }, 3000);
     return () => clearInterval(id);
   }, [visibleItems.length]);
 
@@ -46,7 +56,6 @@ export default function SignatureCollections({
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
-
     const path = svg.querySelector("#sig-centerline");
     if (!path) return;
 
@@ -63,11 +72,10 @@ export default function SignatureCollections({
       const p = path.getPointAtLength(total * t);
       return { x: p.x * sx, y: p.y * sy };
     });
-
     setPoints(pts);
   }, [visibleItems.length]);
 
-  // re-measure on resize (keeps spotlight/chips aligned with current SVG size)
+  // re-measure on resize
   useEffect(() => {
     const recompute = () => setPoints((prev) => [...prev]);
     const ro = new ResizeObserver(recompute);
@@ -163,15 +171,12 @@ export default function SignatureCollections({
           />
         </svg>
 
-        {/* Chips: each item moves to a new point index based on offset */}
+        {/* Chips */}
         {visibleItems.map((item, i) => {
           if (!points.length) return null;
-
-          // where this item should sit this cycle
           const posIndex = (i + offset + n) % n;
           const p = points[posIndex];
 
-          // opacity/offset based on position, not item index
           const dist = Math.abs(posIndex - centerIndex);
           const maxDist = Math.max(centerIndex, n - 1 - centerIndex) || 1;
           const fadeStrength = 0.78;
@@ -192,8 +197,8 @@ export default function SignatureCollections({
               key={i}
               className={`sig-chip ${isWrapping ? "is-wrapping" : ""}`}
               style={{
-                left: `${p.x}px`,
-                top: `${p.y}px`,
+                left: `${p?.x}px`,
+                top: `${p?.y}px`,
                 "--chip-scale": 1,
                 "--chip-opacity": opacityVar,
                 "--chip-dy": `${dy}px`,
