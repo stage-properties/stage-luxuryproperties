@@ -10,7 +10,7 @@ import { Link } from "@/i18n/routing";
 
 export default function BlogCarousel({ blogs }) {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 200,
     slidesToShow: 1.5,
@@ -84,6 +84,7 @@ export default function BlogCarousel({ blogs }) {
                   <div className="slideContent">
                     <h4 className="slideTitle">{title}</h4>
                     <p className="slideExcerpt">{excerpt}</p>
+                    <p className="slideDate">27 Apr 2025</p>
 
                     <div className="slideFooter">
                       {date && <span className="slideDate">{date}</span>}
@@ -92,8 +93,8 @@ export default function BlogCarousel({ blogs }) {
                       <Link className="slideCta" href={href}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="27"
-                          height="27"
+                          width="25"
+                          height="25"
                           viewBox="0 0 27 27"
                           fill="none"
                         >

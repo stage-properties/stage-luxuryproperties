@@ -108,6 +108,7 @@
     }
 
     .slideCard {
+      border: 1px solid #ffdb9f;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
@@ -225,6 +226,14 @@
           -webkit-line-clamp: 4;
         }
       }
+      .slideDate {
+        color: #fff;
+        font-family: var(--rhd-font-family);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+      }
 
       .slideFooter {
         display: flex;
@@ -242,8 +251,8 @@
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 60px;
-          height: 63px;
+          width: 48px;
+          height: 50.4px;
           border-radius: 10px;
           background: var(--Black-Main, #111);
           color: var(--Gold-lux, #ffde9b);
