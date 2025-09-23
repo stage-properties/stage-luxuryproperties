@@ -16165,7 +16165,7 @@ div.ldr .adImage {
   height: 0;
   cursor: pointer;
   color: var(--gold);
-  transition: left 400ms ease, top 400ms ease, transform 0.25s ease, opacity 0.25s ease;
+  transition: left 1000ms ease, top 1000ms ease, transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* Square frame with circular photo */
