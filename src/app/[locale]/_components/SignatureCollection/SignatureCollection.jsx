@@ -17,7 +17,7 @@ export default function SignatureCollections({
   // show up to 5 chips
   const visibleItems = useMemo(() => items.slice(0, 5), [items]);
 
-  // rotate positions every 10 seconds, right -> left
+  // rotate positions every 3 seconds, right -> left
   useEffect(() => {
     const n = Math.max(1, visibleItems.length);
     if (n <= 1) return;
@@ -37,7 +37,7 @@ export default function SignatureCollections({
 
         return next;
       });
-    }, 5000); // 10s
+    }, 3000); // 3s
 
     return () => clearInterval(id);
   }, [visibleItems.length]);
