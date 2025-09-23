@@ -67,7 +67,7 @@ export default function SignatureCollections({
     setPoints(pts);
   }, [visibleItems.length]);
 
-  // re-measure on resize
+  // re-measure on resize (keeps spotlight/chips aligned with current SVG size)
   useEffect(() => {
     const recompute = () => setPoints((prev) => [...prev]);
     const ro = new ResizeObserver(recompute);
@@ -83,6 +83,18 @@ export default function SignatureCollections({
   const n = Math.max(1, visibleItems.length);
   const centerIndex = (n - 1) / 2;
 
+  // where the spotlight should be (center of the arc)
+  const midPoint = useMemo(() => {
+    if (!points.length) return null;
+    if (Number.isInteger(centerIndex)) return points[centerIndex];
+    const i1 = Math.floor(centerIndex);
+    const i2 = Math.ceil(centerIndex);
+    return {
+      x: (points[i1].x + points[i2].x) / 2,
+      y: (points[i1].y + points[i2].y) / 2,
+    };
+  }, [points, centerIndex]);
+
   return (
     <section className="signatureSection">
       <header className="sig-header">
@@ -94,11 +106,14 @@ export default function SignatureCollections({
       </header>
 
       <div className="sig-stage">
-        {/* spotlight fixed center */}
+        {/* spotlight follows the center chip */}
         <div
           className="sig-spotlight"
           aria-hidden="true"
-          style={{ left: "50%", top: "50%" }}
+          style={{
+            left: midPoint ? `${midPoint.x}px` : "50%",
+            top: midPoint ? `${midPoint.y}px` : "50%",
+          }}
         />
 
         {/* SVG behind chips */}

@@ -86,8 +86,10 @@
     rgba(0, 0, 0, 0) 80%
   );
   filter: blur(26px);
-  z-index: 0;
   pointer-events: none;
+
+  /* Put it above the SVG (z:0) and below the chips (z:2) */
+  z-index: 1;
 }
 
 /* Chips */

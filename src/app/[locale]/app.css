@@ -16152,8 +16152,9 @@ div.ldr .adImage {
   border-radius: 50%;
   background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.32) 0%, rgba(255, 222, 155, 0.16) 40%, rgba(0, 0, 0, 0) 80%);
   filter: blur(26px);
-  z-index: 0;
   pointer-events: none;
+  /* Put it above the SVG (z:0) and below the chips (z:2) */
+  z-index: 1;
 }
 
 /* Chips */
