@@ -51,7 +51,6 @@ export default function SignatureCollections({
     };
 
     const startRotation = () => {
-      // don’t run if not visible or already running
       if (document.visibilityState === "hidden") return;
       if (!document.hasFocus()) return;
       if (intervalRef.current || nRef.current <= 1) return;
@@ -68,7 +67,6 @@ export default function SignatureCollections({
       }, 3000);
     };
 
-    // Visibility/focus handlers
     const onVisibility = () => {
       if (document.visibilityState === "hidden") stopRotation();
       else if (document.hasFocus()) startRotation();
@@ -78,7 +76,6 @@ export default function SignatureCollections({
       if (document.visibilityState === "visible") startRotation();
     };
 
-    // (Re)start based on current state
     stopRotation();
     startRotation();
 
@@ -94,8 +91,8 @@ export default function SignatureCollections({
     };
   }, [visibleItems.length]);
 
-  // compute fixed positions along the curve
-  useEffect(() => {
+  // --- Compute points along the curve (call on mount, chip count change, and resize) ---
+  const computePoints = React.useCallback(() => {
     const svg = svgRef.current;
     if (!svg) return;
     const path = svg.querySelector("#sig-centerline");
@@ -117,17 +114,41 @@ export default function SignatureCollections({
     setPoints(pts);
   }, [visibleItems.length]);
 
-  // re-measure on resize
+  // Recompute whenever chip count changes
   useEffect(() => {
-    const recompute = () => setPoints((prev) => [...prev]);
-    const ro = new ResizeObserver(recompute);
+    computePoints();
+  }, [computePoints]);
+
+  // Actively watch width changes (ResizeObserver + window resize)
+  const [isResizing, setIsResizing] = useState(false);
+  const resizeTimerRef = useRef(null);
+
+  useEffect(() => {
+    const onAnyResize = () => {
+      setIsResizing(true);
+      computePoints(); // recompute positions immediately
+      // debounce end-of-resize to restore transitions
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
+      resizeTimerRef.current = setTimeout(() => setIsResizing(false), 120);
+    };
+
+    // Observe SVG box size changes
+    const ro = new ResizeObserver(onAnyResize);
     if (svgRef.current) ro.observe(svgRef.current);
-    window.addEventListener("resize", recompute);
+
+    // Fallback/window size changes
+    window.addEventListener("resize", onAnyResize, { passive: true });
+    window.addEventListener("orientationchange", onAnyResize, {
+      passive: true,
+    });
+
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", recompute);
+      window.removeEventListener("resize", onAnyResize);
+      window.removeEventListener("orientationchange", onAnyResize);
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
     };
-  }, []);
+  }, [computePoints]);
 
   // visual focus based on position index (middle is spotlight)
   const n = Math.max(1, visibleItems.length);
@@ -155,7 +176,7 @@ export default function SignatureCollections({
         <p className="sig-blurb">{blurb}</p>
       </header>
 
-      <div className="sig-stage">
+      <div className={`sig-stage ${isResizing ? "is-resizing" : ""}`}>
         {/* spotlight follows the center chip */}
         <div
           className="sig-spotlight"
