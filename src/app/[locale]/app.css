@@ -3032,11 +3032,11 @@ html[lang=ar] #homePage div.communitySection p.tagline {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  width: min(80vw, 820px);
-  height: min(80vw, 820px);
+  width: min(94vw, 1100px); /* was 80vw / 820px */
+  height: min(94vw, 1100px);
   border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.18) 0%, rgba(255, 222, 155, 0.08) 30%, rgba(0, 0, 0, 0) 72%), radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.02) 0%, rgba(255, 222, 155, 0.012) 54%, rgba(0, 0, 0, 0) 88%);
-  filter: blur(26px); /* unchanged to keep spread the same */
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.18) 0%, rgba(255, 222, 155, 0.08) 36%, rgba(0, 0, 0, 0) 82%), radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.02) 0%, rgba(255, 222, 155, 0.012) 60%, rgba(0, 0, 0, 0) 94%);
+  filter: blur(30px); /* was 26px */
   z-index: 0;
   pointer-events: none;
 }
@@ -3220,11 +3220,11 @@ div.overviewCard div.bottom span.price {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  width: min(80vw, 820px);
-  height: min(80vw, 820px);
+  width: min(94vw, 1100px); /* was 80vw / 820px */
+  height: min(94vw, 1100px);
   border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.18) 0%, rgba(255, 222, 155, 0.08) 30%, rgba(0, 0, 0, 0) 72%), radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.02) 0%, rgba(255, 222, 155, 0.012) 54%, rgba(0, 0, 0, 0) 88%);
-  filter: blur(26px);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.18) 0%, rgba(255, 222, 155, 0.08) 36%, rgba(0, 0, 0, 0) 82%), radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.02) 0%, rgba(255, 222, 155, 0.012) 60%, rgba(0, 0, 0, 0) 94%);
+  filter: blur(30px); /* was 26px */
   z-index: 0;
   pointer-events: none;
 }
@@ -16180,14 +16180,13 @@ div.ldr .adImage {
 .sig-spotlight {
   position: absolute;
   translate: -50% -50%;
-  width: min(70vw, 900px);
-  height: min(70vw, 900px);
+  width: min(92vw, 1200px);
+  height: min(92vw, 1200px);
   border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.32) 0%, rgba(255, 222, 155, 0.16) 40%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 222, 155, 0.32) 0%, rgba(255, 222, 155, 0.16) 42%, rgba(0, 0, 0, 0) 88%);
   filter: blur(26px);
   pointer-events: none;
-  /* Put it above the SVG (z:0) and below the chips (z:2) */
-  z-index: 1;
+  z-index: 1; /* above SVG, below chips */
 }
 
 /* Chips */

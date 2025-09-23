@@ -157,24 +157,24 @@
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    width: min(80vw, 820px);
-    height: min(80vw, 820px);
+    width: min(94vw, 1100px); /* was 80vw / 820px */
+    height: min(94vw, 1100px);
     border-radius: 50%;
     background:
     /* inner core */ radial-gradient(
         50% 50% at 50% 50%,
         rgba(255, 222, 155, 0.18) 0%,
-        /* ↓ was 0.26 */ rgba(255, 222, 155, 0.08) 30%,
-        /* ↓ was 0.14 */ rgba(0, 0, 0, 0) 72%
+        rgba(255, 222, 155, 0.08) 36%,
+        /* was 30% */ rgba(0, 0, 0, 0) 82% /* was 72% */
       ),
       /* outer halo */
         radial-gradient(
           50% 50% at 50% 50%,
           rgba(255, 222, 155, 0.02) 0%,
-          /* ↓ was 0.06 */ rgba(255, 222, 155, 0.012) 54%,
-          /* ↓ was 0.03 */ rgba(0, 0, 0, 0) 88%
+          rgba(255, 222, 155, 0.012) 60%,
+          /* was 54% */ rgba(0, 0, 0, 0) 94% /* was 88% */
         );
-    filter: blur(26px); /* unchanged to keep spread the same */
+    filter: blur(30px); /* was 26px */
     z-index: 0;
     pointer-events: none;
   }
