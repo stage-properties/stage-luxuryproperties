@@ -21,7 +21,6 @@ export default function SignatureCollections({
     const mq = window.matchMedia("(max-width: 1024px)");
     const apply = () => setMaxChips(mq.matches ? 3 : 5);
     apply();
-    // support both modern and older browsers
     if (mq.addEventListener) mq.addEventListener("change", apply);
     else mq.addListener(apply);
     return () => {
@@ -36,20 +35,63 @@ export default function SignatureCollections({
     [items, maxChips]
   );
 
-  // rotate positions every 3 seconds, right -> left
+  // --- Rotation control (pauses when tab/window loses focus) ---
+  const intervalRef = useRef(null);
+  const nRef = useRef(0);
+
   useEffect(() => {
     const n = Math.max(1, visibleItems.length);
-    if (n <= 1) return;
-    const id = setInterval(() => {
-      setOffset((prev) => {
-        const next = (prev - 1 + n) % n;
-        const wrapIndex = (n - (prev % n)) % n;
-        setWrapping(new Set([wrapIndex]));
-        requestAnimationFrame(() => setWrapping(new Set()));
-        return next;
-      });
-    }, 3000);
-    return () => clearInterval(id);
+    nRef.current = n;
+
+    const stopRotation = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+
+    const startRotation = () => {
+      // don’t run if not visible or already running
+      if (document.visibilityState === "hidden") return;
+      if (!document.hasFocus()) return;
+      if (intervalRef.current || nRef.current <= 1) return;
+
+      intervalRef.current = setInterval(() => {
+        setOffset((prev) => {
+          const nLocal = nRef.current;
+          const next = (prev - 1 + nLocal) % nLocal;
+          const wrapIndex = (nLocal - (prev % nLocal)) % nLocal;
+          setWrapping(new Set([wrapIndex]));
+          requestAnimationFrame(() => setWrapping(new Set()));
+          return next;
+        });
+      }, 3000);
+    };
+
+    // Visibility/focus handlers
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") stopRotation();
+      else if (document.hasFocus()) startRotation();
+    };
+    const onBlur = () => stopRotation();
+    const onFocus = () => {
+      if (document.visibilityState === "visible") startRotation();
+    };
+
+    // (Re)start based on current state
+    stopRotation();
+    startRotation();
+
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("blur", onBlur);
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("blur", onBlur);
+      window.removeEventListener("focus", onFocus);
+      stopRotation();
+    };
   }, [visibleItems.length]);
 
   // compute fixed positions along the curve
