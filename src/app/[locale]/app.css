@@ -2811,7 +2811,7 @@ div.communityCard div.imageContainer {
   margin-bottom: 15px;
   padding: 10px !important;
   border-radius: 40.622px;
-  border: 0.922px solid #ffdb9f;
+  border: 1px solid rgba(255, 219, 159, 0.4);
 }
 @media all and (max-width: 768px) {
   div.communityCard div.imageContainer {
@@ -3291,7 +3291,7 @@ div.overviewCard div.bottom span.price {
   padding: 12px; /* breathing room around the card */
 }
 #homePage .blogSection .slideCard {
-  border: 1px solid #ffdb9f;
+  border: 1px solid rgba(255, 219, 159, 0.4);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -15776,7 +15776,7 @@ div.ldr .adImage {
   z-index: 2;
   padding: 5rem 0;
   border-radius: 44.081px;
-  border: 1px solid #ffdb9f;
+  border: 1px solid rgba(255, 219, 159, 0.4);
   text-align: center;
 }
 .accordionSection .accordionHeader {
