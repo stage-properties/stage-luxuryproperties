@@ -15863,6 +15863,12 @@ div.ldr .adImage {
     animation: none;
   }
 }
+@media all and (max-width: 576px) {
+  .imageAccordion.withInfo {
+    width: 100%;
+    padding: unset;
+  }
+}
 
 .accordionSection {
   position: relative;
@@ -15894,6 +15900,12 @@ div.ldr .adImage {
   border: 1px solid rgba(255, 219, 159, 0.4);
   text-align: center;
 }
+@media all and (max-width: 576px) {
+  .accordionSection .accordionContent {
+    border: unset;
+    padding: unset;
+  }
+}
 .accordionSection .accordionHeader {
   margin-bottom: 30px;
 }
@@ -15905,17 +15917,37 @@ div.ldr .adImage {
   letter-spacing: 0.08em;
   margin: 0;
 }
+@media all and (max-width: 576px) {
+  .accordionSection .accordionHeader .title1 {
+    font-size: 24px;
+    letter-spacing: unset;
+  }
+}
 .accordionSection .accordionHeader .title2 {
   font-size: 122px;
   font-family: var(--migratory-font-family, cursive);
   font-weight: 400;
   color: var(--Gold-lux, #ffde9b);
 }
+@media all and (max-width: 576px) {
+  .accordionSection .accordionHeader {
+    margin-bottom: 15px;
+  }
+}
 @media all and (max-width: 1024px) {
   .accordionSection .title2 {
     margin-top: 0.8rem !important;
     font-size: 80px !important;
     line-height: 101.911px !important;
+  }
+}
+@media all and (max-width: 576px) {
+  .accordionSection {
+    padding: 3rem 0;
+  }
+  .accordionSection .title2 {
+    font-size: 32px !important;
+    line-height: 70px !important;
   }
 }
 
