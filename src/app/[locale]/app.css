@@ -976,6 +976,11 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
     display: none;
   }
 }
+@media all and (max-width: 576px) {
+  #searchSection {
+    margin-bottom: 3rem;
+  }
+}
 #searchSection .offPlan {
   background: unset;
 }
@@ -16383,6 +16388,11 @@ div.ldr .adImage {
   /* background image (darkened) */
   /* balanced top + bottom fade */
 }
+@media all and (max-width: 576px) {
+  .different-tabs-parent {
+    padding: 3rem 0;
+  }
+}
 .different-tabs-parent::before {
   content: "";
   position: absolute;
@@ -16399,6 +16409,11 @@ div.ldr .adImage {
   background: linear-gradient(to bottom, rgba(14, 14, 14, 0.95) 0%, rgba(14, 14, 14, 0.6) 10%, rgba(14, 14, 14, 0) 35%, rgba(14, 14, 14, 0) 70%, rgba(14, 14, 14, 0.6) 90%, rgba(14, 14, 14, 0.95) 100%);
   z-index: 1;
   pointer-events: none;
+}
+@media all and (max-width: 576px) {
+  .different-tabs-parent::after {
+    background: linear-gradient(to bottom, rgba(14, 14, 14, 0.75) 0%, rgba(14, 14, 14, 0.45) 12%, rgba(14, 14, 14, 0.15) 32%, rgba(14, 14, 14, 0) 55%, rgba(14, 14, 14, 0.25) 75%, rgba(14, 14, 14, 0.6) 90%, rgba(14, 14, 14, 0.85) 100%);
+  }
 }
 .different-tabs-parent .accordionContent {
   position: relative;
