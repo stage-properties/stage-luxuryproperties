@@ -16108,9 +16108,10 @@ div.ldr .adImage {
 /* ---- Tablet & below (≤1024px): use accordion, hide desktop UI ---- */
 @media (max-width: 1024px) {
   .differenceSection {
-    padding: 7.5rem 18px;
+    padding: 3rem 18px;
     -webkit-backdrop-filter: unset;
             backdrop-filter: unset;
+    border-radius: 22.3px;
   }
   .differenceSection .ds-header {
     margin-bottom: 1.75rem;
