@@ -374,6 +374,15 @@
 html[lang=ar] #homePage div.videoContainer h1.headline {
   font-size: calc(278.04px + 1px);
 }
+@media all and (max-width: 576px) {
+  #homePage div.videoContainer h1.headline {
+    line-height: 50px; /* 46.615% */
+    font-size: 113.998px;
+  }
+  html[lang=ar] #homePage div.videoContainer h1.headline {
+    font-size: calc(113.998px + 1px);
+  }
+}
 #homePage div.videoContainer span.subheadline {
   text-align: left;
   line-height: 0; /* 46.615% */
@@ -384,6 +393,16 @@ html[lang=ar] #homePage div.videoContainer h1.headline {
 }
 html[lang=ar] #homePage div.videoContainer span.subheadline {
   font-size: calc(45px + 1px);
+}
+@media all and (max-width: 576px) {
+  #homePage div.videoContainer span.subheadline {
+    font-size: 18.514px;
+    position: relative;
+    left: -10px;
+  }
+  html[lang=ar] #homePage div.videoContainer span.subheadline {
+    font-size: calc(18.514px + 1px);
+  }
 }
 #homePage div.videoContainer h1.title {
   line-height: normal;
@@ -16186,6 +16205,7 @@ div.ldr .adImage {
   height: clamp(200px, 24vw, 320px);
   isolation: isolate;
   top: -8rem;
+  overflow-x: clip;
 }
 
 .sig-svg {

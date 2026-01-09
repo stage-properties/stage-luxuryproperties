@@ -102,6 +102,10 @@
       z-index: 9;
       color: #ffde9b;
       font-weight: 400;
+      @media all and (max-width: 576px) {
+        line-height: 50px; /* 46.615% */
+        @include adjust-font(113.998px, false);
+      }
     }
     span.subheadline {
       text-align: left;
@@ -110,6 +114,11 @@
       color: #fff;
       font-weight: 300;
       @include adjust-font(45px, false);
+      @media all and (max-width: 576px) {
+        @include adjust-font(18.514px, false);
+        position: relative;
+        left: -10px;
+      }
     }
     h1.title {
       line-height: normal;

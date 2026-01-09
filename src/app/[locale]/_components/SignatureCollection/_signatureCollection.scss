@@ -62,6 +62,7 @@
   height: clamp(200px, 24vw, 320px);
   isolation: isolate;
   top: -8rem;
+  overflow-x: clip;
 }
 .sig-svg {
   position: absolute;
