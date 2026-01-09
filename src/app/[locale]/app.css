@@ -623,6 +623,12 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     padding: 42px 32px;
   }
 }
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer {
+    padding: 24.28px 17.71px;
+    border-radius: 22.3px;
+  }
+}
 #searchSection div.searchContainer div.left {
   display: flex;
   width: 100%;
@@ -644,6 +650,11 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     margin-bottom: 1.875rem;
   }
 }
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer div.left input.searchInput {
+    padding: 9.612px 15.683px 8.295px 10.118px;
+  }
+}
 #searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
   font-size: clamp(23px, 1.4vw, 16px);
   text-align: center;
@@ -651,6 +662,14 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
 #searchSection div.searchContainer div.left input.searchInput::placeholder {
   font-size: clamp(23px, 1.4vw, 16px);
   text-align: center;
+}
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
+    font-size: 16px;
+  }
+  #searchSection div.searchContainer div.left input.searchInput::placeholder {
+    font-size: 16px;
+  }
 }
 #searchSection div.searchContainer div.left div.search-common {
   margin-right: 30px;
@@ -682,6 +701,12 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
     padding: 20px 15px;
     margin-right: 0;
     margin-bottom: 1.875rem;
+  }
+}
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer div.left div.search-common {
+    margin-bottom: 15.18px;
+    padding: 9.612px 15.683px 8.295px 10.118px;
   }
 }
 @media all and (max-width: 480px) {
@@ -799,6 +824,14 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+}
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer div.left div.search-common div.list span {
+    font-size: 14px;
+  }
+  html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.list span {
+    font-size: calc(14px + 1px);
+  }
 }
 #searchSection div.searchContainer div.left div.search-common div.list span.icon {
   margin-left: 10px;

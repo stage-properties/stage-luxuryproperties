@@ -172,6 +172,10 @@
       flex-wrap: wrap;
       padding: 42px 32px;
     }
+    @media all and (max-width: 576px) {
+      padding: 24.28px 17.71px;
+      border-radius: 22.3px;
+    }
     div.left {
       display: flex;
       width: 100%;
@@ -190,10 +194,16 @@
           display: block; /* ensures it sits on its own line */
           margin-bottom: 1.875rem;
         }
+        @media all and (max-width: 576px) {
+          padding: 9.612px 15.683px 8.295px 10.118px;
+        }
 
         &::placeholder {
           font-size: clamp(23px, 1.4vw, 16px); // ← change size here
           text-align: center;
+          @media all and (max-width: 576px) {
+            font-size: 16px;
+          }
         }
       }
       // @media all and (max-width: 480px) {
@@ -221,6 +231,10 @@
           padding: 20px 15px;
           margin-right: 0;
           margin-bottom: 1.875rem;
+        }
+        @media all and (max-width: 576px) {
+          margin-bottom: 15.18px;
+          padding: 9.612px 15.683px 8.295px 10.118px;
         }
         @media all and (max-width: 480px) {
           width: 100%;
@@ -338,6 +352,9 @@
               white-space: nowrap;
               display: inline-flex;
               align-items: center;
+            }
+            @media all and (max-width: 576px) {
+              @include adjust-font(14px, false);
             }
           }
           span.icon {
