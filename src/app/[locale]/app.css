@@ -15760,6 +15760,11 @@ div.ldr .adImage {
   inset: 8px;
   border-radius: 14px;
 }
+@media all and (max-width: 576px) {
+  .imageAccordion.withInfo .pane.is-active .imgRel {
+    inset: unset;
+  }
+}
 .imageAccordion.withInfo .pane.is-active img {
   border-radius: 14px;
 }
@@ -15792,11 +15797,22 @@ div.ldr .adImage {
   color: var(--Gold-lux, #ffde9b);
   font-weight: 600;
 }
+@media all and (max-width: 576px) {
+  .imageAccordion.withInfo .infoPanel .infoTitle {
+    font-size: 14px;
+  }
+}
 .imageAccordion.withInfo .infoPanel .infoText {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: 19px;
   line-height: 1.875rem;
+}
+@media all and (max-width: 576px) {
+  .imageAccordion.withInfo .infoPanel .infoText {
+    font-size: 11px;
+    line-height: 15.168px;
+  }
 }
 @keyframes infoSlideIn {
   to {
@@ -15865,6 +15881,7 @@ div.ldr .adImage {
 }
 @media all and (max-width: 576px) {
   .imageAccordion.withInfo {
+    gap: 12px;
     width: 100%;
     padding: unset;
   }
