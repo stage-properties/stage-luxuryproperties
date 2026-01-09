@@ -484,7 +484,7 @@ html[lang=ar] #homePage div.videoContainer span.subheadline {
   }
 }
 #searchSection div.buttonDropDown div.dropDown ul.listDropdownitems {
-  background-color: var(--primary-bg-color);
+  background-color: var(--secondary-bg-color);
 }
 #searchSection div.buttonDropDown div.dropDown ul.listDropdownitems li {
   text-align: center;
@@ -657,11 +657,11 @@ html[lang=ar] #searchSection div.buttonContainer button.button {
 }
 #searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
   font-size: clamp(23px, 1.4vw, 16px);
-  text-align: center;
+  text-align: left;
 }
 #searchSection div.searchContainer div.left input.searchInput::placeholder {
   font-size: clamp(23px, 1.4vw, 16px);
-  text-align: center;
+  text-align: left;
 }
 @media all and (max-width: 576px) {
   #searchSection div.searchContainer div.left input.searchInput::-moz-placeholder {
@@ -889,9 +889,19 @@ html[lang=ar] #searchSection div.searchContainer div.left div.search-common div.
 }
 @media all and (max-width: 1024px) {
   #searchSection div.searchContainer div.right button.search {
+    -o-border-image: unset;
+       border-image: unset;
     display: block;
     color: #000;
+    border-radius: 7.083px;
     background: var(--Gold-lux, linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%));
+  }
+}
+@media all and (max-width: 576px) {
+  #searchSection div.searchContainer div.right button.search {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 11.13px 99.79px;
   }
 }
 #searchSection div.searchContainer div.right svg {

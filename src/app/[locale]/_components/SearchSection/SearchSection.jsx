@@ -40,6 +40,16 @@ const SearchSection = ({ bgColor }) => {
   const locale = useLocale();
   const isRTL = locale === "ar";
 
+  // ✅ Title Case helper (English only; do nothing for Arabic/RTL)
+  const capWords = (str) => {
+    if (!str || isRTL) return str;
+    return String(str)
+      .trim()
+      .split(/\s+/)
+      .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+      .join(" ");
+  };
+
   const router = useRouter();
 
   // Track which dropdown is open (OFFER, BED, PRICE, AREA)
@@ -72,8 +82,6 @@ const SearchSection = ({ bgColor }) => {
     offer: "BUY",
     minPrice: "",
     maxPrice: "",
-    // We will STILL store raw numeric values for area in here
-    // after the user picks from the dropdown.
     minArea: "",
     maxArea: "",
   });
@@ -84,7 +92,6 @@ const SearchSection = ({ bgColor }) => {
   // List of possible areas from back-end
   const [areas, setAreas] = useState([]);
 
-  // Prefetch offplan route (optional)
   useEffect(() => {
     router.prefetch("/offplan");
   }, [router]);
@@ -108,14 +115,12 @@ const SearchSection = ({ bgColor }) => {
     };
   }, []);
 
-  // If user types something in the main text input, fetch suggestions
   useEffect(() => {
     if (inputValues?.text && searchDropDown) {
       getSearchSuggestion();
     }
   }, [inputValues, searchDropDown]);
 
-  // Fetch search suggestions
   const getSearchSuggestion = async () => {
     try {
       const query = `locale=${locale}&text=${
@@ -134,16 +139,13 @@ const SearchSection = ({ bgColor }) => {
     }
   };
 
-  // Basic handleChange function for the text input
   const handleChange = (name, value) => {
-    // If user changes 'text', clear any previous selection
     if (name === "text" && selectedKeywords?.result_type) {
       setSelectedKeywords(null);
     }
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  // MAIN TEXT or ANY input onChange
   const handleUpdate = (e) => {
     const { name, value } = e.target;
     if (name === "text") {
@@ -168,11 +170,8 @@ const SearchSection = ({ bgColor }) => {
 
   // Price dropdown changes
   const minPriceHandleChange = (option) => {
-    console.log("option", option);
-
     setSelectedMinPrice(option);
     if (option) {
-      // Convert from user currency back to base numeric
       const valueWithRate = option.value / option.rate;
       handleChange("minPrice", valueWithRate);
     } else {
@@ -189,10 +188,9 @@ const SearchSection = ({ bgColor }) => {
     }
   };
 
-  // ** AREA DROPDOWN changes
+  // AREA DROPDOWN changes
   const minAreaHandleChange = (option) => {
     setSelectedMinArea(option);
-    // const ratio = areaUnit === 'ft²' ? 1 : 0.3048
     if (option) {
       handleChange("minArea", option.value);
     } else {
@@ -217,20 +215,17 @@ const SearchSection = ({ bgColor }) => {
     }
   };
 
-  // Build the final query and push to router
   const searchSubmitHandler = () => {
     let url = "";
     let emirate = "allemirates";
     let containsQuery = false;
 
-    // bed
     if (inputValues?.bed) {
       url += containsQuery ? "&" : "?";
       url += `bedroom=${inputValues?.bed}`;
       containsQuery = true;
     }
 
-    // area
     if (inputValues?.minArea) {
       url += containsQuery ? "&" : "?";
       url += `minArea=${inputValues?.minArea}`;
@@ -242,7 +237,6 @@ const SearchSection = ({ bgColor }) => {
       containsQuery = true;
     }
 
-    // price
     if (inputValues?.minPrice) {
       url += containsQuery ? "&" : "?";
       url += `minPrice=${inputValues?.minPrice}`;
@@ -254,7 +248,6 @@ const SearchSection = ({ bgColor }) => {
       containsQuery = true;
     }
 
-    // keywords / text
     if (inputValues?.text) {
       url += containsQuery ? "&" : "?";
 
@@ -282,10 +275,8 @@ const SearchSection = ({ bgColor }) => {
     );
   };
 
-  // Fill the dropdown for bedroom counts
   const _bedrooms = isRTL ? bedrooms_ar : bedrooms;
 
-  // Custom styles for react-select
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -360,6 +351,7 @@ const SearchSection = ({ bgColor }) => {
           } ${t(currency.toLowerCase())}`;
           return { ...item, value, label, rate };
         });
+
       setPrices(_prices);
     };
 
@@ -367,26 +359,20 @@ const SearchSection = ({ bgColor }) => {
   }, [inputValues?.offer, category, currency]);
 
   const findAreaAndRest = (arr, minNumber, maxNumber) => {
-    // Ensure the array is sorted in ascending order by the numeric value
     const sortedArr = arr
       .slice()
       .sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
 
-    // Find the starting index: the last index where the value is ≤ minNumber.
     let startIndex = -1;
     for (let i = 0; i < sortedArr.length; i++) {
       if (parseFloat(sortedArr[i].value) <= parseFloat(minNumber)) {
         startIndex = i;
       } else {
-        break; // no need to continue since array is sorted
+        break;
       }
     }
-    // If no element is ≤ minNumber, start at the beginning of the array.
-    if (startIndex === -1) {
-      startIndex = 0;
-    }
+    if (startIndex === -1) startIndex = 0;
 
-    // Find the ending index: the first index where the value is > maxNumber.
     let endIndex = sortedArr.length;
     for (let i = 0; i < sortedArr.length; i++) {
       if (parseFloat(sortedArr[i].value) > parseFloat(maxNumber)) {
@@ -395,7 +381,6 @@ const SearchSection = ({ bgColor }) => {
       }
     }
 
-    // Return the slice from startIndex up to (but not including) endIndex.
     return sortedArr.slice(startIndex, endIndex + 1);
   };
 
@@ -407,6 +392,7 @@ const SearchSection = ({ bgColor }) => {
         offeringType: offer,
         categoryName: category,
       });
+
       const _areas = findAreaAndRest(
         areaOptions,
         minMaxAreas.minUnitArea,
@@ -414,13 +400,18 @@ const SearchSection = ({ bgColor }) => {
       )?.map((item) => {
         const ratio = areaUnit === "ft²" ? 1 : 0.092903;
         const value = item?.value * ratio;
+
         const label = isRTL
           ? `${formatNumberToArabic(Math.floor(value), true)} ${t(
               areaUnit.toUpperCase()
             )}`
-          : `${numberFormat(Math.floor(value))} ${t(areaUnit.toUpperCase())}`;
+          : `${numberFormat(Math.floor(value))} ${capWords(
+              t(areaUnit.toUpperCase())
+            )}`;
+
         return { value: item?.value, label };
       });
+
       setAreas(_areas);
     };
 
@@ -428,7 +419,6 @@ const SearchSection = ({ bgColor }) => {
   }, [inputValues?.offer, category, areaUnit]);
 
   useEffect(() => {
-    // Reset price filters when the category changes.
     setSelectedMinPrice(null);
     setSelectedMaxPrice(null);
     setInputValues((prev) => ({
@@ -439,7 +429,6 @@ const SearchSection = ({ bgColor }) => {
   }, [category]);
 
   useEffect(() => {
-    // Reset selected price values when currency changes
     setSelectedMinPrice(null);
     setSelectedMaxPrice(null);
     setInputValues((prev) => ({
@@ -451,7 +440,7 @@ const SearchSection = ({ bgColor }) => {
 
   return (
     <div id="searchSection" className={bgColor ? `bgColor` : ``}>
-      {/* CATEGORY DROPDOWN (MOBILE) */}
+      {/* CATEGORY DROPDOWN (MOBILE) — ❌ DO NOT Title-Case this one (as requested) */}
       <div className="buttonDropDown">
         <button
           onClick={() => setDropDownBtn(!dropDownBtn)}
@@ -463,17 +452,19 @@ const SearchSection = ({ bgColor }) => {
             <DropDownArrow />
           </span>
         </button>
+
         {dropDownBtn && (
           <div className="dropDown">
             <ul className="listDropdownitems gradientBorder">
+              {/* List items can be Title-Cased (this is not the top button text) */}
               <li onClick={() => categoryBtnHandler("RESIDENTIAL")}>
-                <span className="text">{t("residential")}</span>
+                <span className="text">{capWords(t("residential"))}</span>
               </li>
               <li onClick={() => categoryBtnHandler("COMMERCIAL")}>
-                <span className="text">{t("commercial")}</span>
+                <span className="text">{capWords(t("commercial"))}</span>
               </li>
               <li onClick={() => categoryBtnHandler("OFFPLAN")}>
-                <span className="text">{t("offplan")}</span>
+                <span className="text">{capWords(t("offplan"))}</span>
               </li>
             </ul>
           </div>
@@ -490,7 +481,7 @@ const SearchSection = ({ bgColor }) => {
           data-aos-delay="70"
           onClick={() => categoryBtnHandler("OFFPLAN")}
         >
-          <span>{t("offplan")}</span>
+          <span>{capWords(t("offplan"))}</span>
         </button>
         <button
           className={`button residential ${
@@ -500,7 +491,7 @@ const SearchSection = ({ bgColor }) => {
           data-aos-delay="50"
           onClick={() => categoryBtnHandler("RESIDENTIAL")}
         >
-          <span>{t("residential")}</span>
+          <span>{capWords(t("residential"))}</span>
         </button>
         <button
           className={`button commercial ${
@@ -510,7 +501,7 @@ const SearchSection = ({ bgColor }) => {
           data-aos-delay="30"
           onClick={() => categoryBtnHandler("COMMERCIAL")}
         >
-          <span>{t("commercial")}</span>
+          <span>{capWords(t("commercial"))}</span>
         </button>
       </div>
 
@@ -527,21 +518,22 @@ const SearchSection = ({ bgColor }) => {
             <div className="list">
               <span className={`details ${isRTL ? "ar" : ""}`}>
                 {inputValues.offer
-                  ? t(inputValues.offer.toLowerCase())
-                  : t("buy")}
+                  ? capWords(t(inputValues.offer.toLowerCase()))
+                  : capWords(t("buy"))}
               </span>
               <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
               </span>
             </div>
+
             {activeDropDown === "OFFER" && (
               <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                 <ul className="listDropdownitems">
                   <li onClick={(e) => offeringDropDownHandler(e, "BUY")}>
-                    <span className="text">{t("buy")}</span>
+                    <span className="text">{capWords(t("buy"))}</span>
                   </li>
                   <li onClick={(e) => offeringDropDownHandler(e, "RENT")}>
-                    <span className="text">{t("rent")}</span>
+                    <span className="text">{capWords(t("rent"))}</span>
                   </li>
                 </ul>
               </div>
@@ -570,16 +562,18 @@ const SearchSection = ({ bgColor }) => {
                           : ` ${t("beds")}`)
                       : inputValues.bed +
                         (inputValues.bed === 1
-                          ? ` ${t("bed")}`
+                          ? ` ${capWords(t("bed"))}`
                           : inputValues.bed === 7
-                          ? `+ ${t("beds")}`
-                          : ` ${t("beds")}`)
-                    : t("beds")}
+                          ? `+ ${capWords(t("beds"))}`
+                          : ` ${capWords(t("beds"))}`)
+                    : capWords(t("beds"))}
                 </span>
+
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
+
               {activeDropDown === "BED" && (
                 <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
@@ -588,7 +582,8 @@ const SearchSection = ({ bgColor }) => {
                         key={item.id}
                         onClick={(e) => bedDropDownHandler(e, item.value)}
                       >
-                        <span className="text">{item.label}</span>
+                        {/* Title-case bedroom labels (EN only) */}
+                        <span className="text">{capWords(item.label)}</span>
                       </li>
                     ))}
                   </ul>
@@ -609,17 +604,18 @@ const SearchSection = ({ bgColor }) => {
           >
             <div className="list">
               <span className={`details ${isRTL ? "ar" : ""}`}>
-                {t("price")}
+                {capWords(t("price"))}
               </span>
               <span className={`icon ${isRTL ? "ar" : ""}`}>
                 <DropDownArrow />
               </span>
             </div>
+
             {activeDropDown === "PRICE" && (
               <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                 <div className="selectContainer">
                   <Select
-                    placeholder={t("min_price")}
+                    placeholder={capWords(t("min_price"))}
                     value={selectedMinPrice || ""}
                     isSearchable
                     name="min-price"
@@ -632,9 +628,10 @@ const SearchSection = ({ bgColor }) => {
                     styles={customStyles}
                   />
                 </div>
+
                 <div className="selectContainer">
                   <Select
-                    placeholder={t("max_price")}
+                    placeholder={capWords(t("max_price"))}
                     value={selectedMaxPrice || ""}
                     isSearchable
                     name="max-price"
@@ -650,7 +647,8 @@ const SearchSection = ({ bgColor }) => {
               </div>
             )}
           </div>
-          {/* PRICE DROPDOWNS */}
+
+          {/* PRICE DROPDOWNS (MOBILE) */}
           <div className="price-dropdowns mobile-only">
             {/* MIN PRICE DROPDOWN */}
             <div
@@ -664,17 +662,17 @@ const SearchSection = ({ bgColor }) => {
                 <span className={`details ${isRTL ? "ar" : ""}`}>
                   {selectedMinPrice
                     ? selectedMinPrice.label
-                    : t("min_price").toUpperCase()}
+                    : capWords(t("min_price"))}
                 </span>
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
+
               {activeDropDown === "MIN_PRICE" && (
                 <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
                     {prices.map((item) => {
-                      // Disable items that are not allowed when a max price is selected
                       const isDisabled =
                         selectedMaxPrice &&
                         parseInt(item.value) >=
@@ -712,17 +710,17 @@ const SearchSection = ({ bgColor }) => {
                 <span className={`details ${isRTL ? "ar" : ""}`}>
                   {selectedMaxPrice
                     ? selectedMaxPrice.label
-                    : t("max_price").toUpperCase()}
+                    : capWords(t("max_price"))}
                 </span>
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
+
               {activeDropDown === "MAX_PRICE" && (
                 <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <ul className="listDropdownitems">
                     {prices.map((item) => {
-                      // Disable items that are not allowed when a min price is selected
                       const isDisabled =
                         selectedMinPrice &&
                         parseInt(item.value) <=
@@ -748,7 +746,8 @@ const SearchSection = ({ bgColor }) => {
               )}
             </div>
           </div>
-          {/* AREA DROPDOWN (only for COMMERCIAL, as you indicated) */}
+
+          {/* AREA DROPDOWN (only for COMMERCIAL) */}
           {category === "COMMERCIAL" && (
             <div
               className={`area search-common ${isRTL ? "ar" : ""}`}
@@ -759,24 +758,24 @@ const SearchSection = ({ bgColor }) => {
             >
               <div className="list">
                 <span className={`details ${isRTL ? "ar" : ""}`}>
-                  {t("area")} ({t(areaUnit)})
+                  {capWords(t("area"))} ({capWords(t(areaUnit))})
                 </span>
                 <span className={`icon ${isRTL ? "ar" : ""}`}>
                   <DropDownArrow />
                 </span>
               </div>
+
               {activeDropDown === "AREA" && (
                 <div className={`dropDown ${isRTL ? "ar" : ""}`}>
                   <div className="selectContainer">
                     <Select
-                      placeholder={t("min_area")}
+                      placeholder={capWords(t("min_area"))}
                       value={selectedMinArea || ""}
                       isSearchable
                       name="minArea"
                       options={areas}
                       onChange={minAreaHandleChange}
                       isOptionDisabled={(option) =>
-                        // disable if option.value >= selectedMaxArea?.value
                         selectedMaxArea?.value
                           ? option.value >= selectedMaxArea.value
                           : false
@@ -784,16 +783,16 @@ const SearchSection = ({ bgColor }) => {
                       styles={customStyles}
                     />
                   </div>
+
                   <div className="selectContainer">
                     <Select
-                      placeholder={t("max_area")}
+                      placeholder={capWords(t("max_area"))}
                       value={selectedMaxArea || ""}
                       isSearchable
                       name="maxArea"
                       options={areas}
                       onChange={maxAreaHandleChange}
                       isOptionDisabled={(option) =>
-                        // disable if option.value <= selectedMinArea?.value
                         selectedMinArea?.value
                           ? option.value <= selectedMinArea.value
                           : false
@@ -813,7 +812,7 @@ const SearchSection = ({ bgColor }) => {
             type="text"
             name="text"
             value={inputValues.text || ""}
-            placeholder={"community, project or building"}
+            placeholder={capWords("community Or project")}
             onChange={handleUpdate}
             ref={searchDropDownRefBed}
           />
@@ -848,6 +847,7 @@ const SearchSection = ({ bgColor }) => {
                         });
                       }}
                     >
+                      {/* Suggestions are actual names; leave them as-is (no forced Title Case) */}
                       <span className="text">
                         {valueItem?.attributes?.project_name ||
                           valueItem?.attributes?.property_name ||
@@ -861,11 +861,12 @@ const SearchSection = ({ bgColor }) => {
             </div>
           )}
         </div>
+
         {/* SEARCH BUTTON */}
         <div className={`right ${isRTL ? "ar" : ""}`}>
           <SearchIcon onClick={searchSubmitHandler} />
           <button className="search globalBtn" onClick={searchSubmitHandler}>
-            {t("search")}
+            {capWords(t("search"))}
           </button>
         </div>
       </div>

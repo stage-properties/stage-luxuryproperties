@@ -37,7 +37,7 @@
       }
 
       ul.listDropdownitems {
-        background-color: var(--primary-bg-color);
+        background-color: var(--secondary-bg-color);
         li {
           text-align: center;
           padding: 15px 20px;
@@ -200,7 +200,7 @@
 
         &::placeholder {
           font-size: clamp(23px, 1.4vw, 16px); // ← change size here
-          text-align: center;
+          text-align: left;
           @media all and (max-width: 576px) {
             font-size: 16px;
           }
@@ -407,12 +407,19 @@
         line-height: 32px;
         text-transform: uppercase;
         @media all and (max-width: 1024px) {
+          border-image: unset;
           display: block;
           color: #000;
+          border-radius: 7.083px;
           background: var(
             --Gold-lux,
             linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%)
           );
+        }
+        @media all and (max-width: 576px) {
+          font-size: 14px;
+          line-height: 16px;
+          padding: 11.13px 99.79px;
         }
       }
       svg {
