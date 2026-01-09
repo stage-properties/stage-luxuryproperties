@@ -16178,6 +16178,13 @@ div.ldr .adImage {
   line-height: 0.92; /* room for descenders */
   margin-bottom: var(--stack-gap);
 }
+@media all and (max-width: 576px) {
+  .sig-title1 {
+    font-size: clamp(40px, 10.8vw, 122px);
+    position: relative;
+    left: -35px;
+  }
+}
 
 .sig-title2 {
   display: block; /* new line */
@@ -16187,6 +16194,12 @@ div.ldr .adImage {
   line-height: 0;
   text-align: right;
   margin-right: -8rem;
+}
+@media all and (max-width: 576px) {
+  .sig-title2 {
+    font-size: clamp(24px, 2.6vw, 48px);
+    letter-spacing: 0.05rem;
+  }
 }
 
 .sig-blurb {
