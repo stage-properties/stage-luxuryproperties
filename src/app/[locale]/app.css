@@ -2940,7 +2940,7 @@ div.communityCard div.contactInfo span.icon svg {
   line-height: 0; /* 120.833% */
 }
 #homePage div.communitySection .text {
-  color: #fffae8;
+  color: var(--Secondary-Honey);
   text-align: center;
   font-family: var(--lara-font-family);
   font-size: 28px;
@@ -15903,7 +15903,7 @@ div.ldr .adImage {
 
 .differenceSection .ds-subtitle {
   margin: 28px 0 0;
-  color: #cfcfcf;
+  color: var(--Secondary-Honey);
   font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -16192,7 +16192,7 @@ div.ldr .adImage {
 .sig-blurb {
   margin: clamp(1.2rem, 3.4vw, 2.6rem) auto clamp(2.2rem, 0vw, 5rem);
   max-width: clamp(540px, 72vw, 992px);
-  color: #d1d1d1;
+  color: var(--Secondary-Honey);
   font-size: clamp(13px, 1.1vw, 18px);
   line-height: 1.6;
   text-transform: unset;

@@ -66,7 +66,8 @@
 
 .differenceSection .ds-subtitle {
   margin: 28px 0 0;
-  color: #cfcfcf;
+  // color: #cfcfcf;
+  color: var(--Secondary-Honey);
   font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -49,7 +49,7 @@
 .sig-blurb {
   margin: clamp(1.2rem, 3.4vw, 2.6rem) auto clamp(2.2rem, 0vw, 5rem);
   max-width: clamp(540px, 72vw, 992px);
-  color: #d1d1d1;
+  color: var(--Secondary-Honey);
   font-size: clamp(13px, 1.1vw, 18px);
   line-height: 1.6;
   text-transform: unset;
