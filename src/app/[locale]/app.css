@@ -77,6 +77,18 @@
   stroke: #ffde9b; /* if your icon uses stroke */
   fill: none;
 }
+@media all and (max-width: 576px) {
+  #mHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+  #mHeader .mH-left {
+    display: none;
+  }
+  #mHeader .mH-brand .mH-logo {
+    width: 150px;
+  }
+}
 
 /* 🔥 turns on when you scroll */
 #mHeader.scrolled {

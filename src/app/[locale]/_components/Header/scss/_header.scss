@@ -80,6 +80,21 @@
       fill: none;
     }
   }
+
+  @media all and (max-width: 576px) {
+    display: flex;
+    justify-content: space-between;
+
+    .mH-left {
+      display: none;
+    }
+
+    .mH-brand {
+      .mH-logo {
+        width: 150px;
+      }
+    }
+  }
 }
 
 /* 🔥 turns on when you scroll */
