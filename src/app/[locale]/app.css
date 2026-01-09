@@ -15937,6 +15937,14 @@ div.ldr .adImage {
   letter-spacing: 0.5px;
   line-height: 0.92;
   margin-bottom: clamp(4px, 0.9vw, 14px);
+  letter-spacing: 1px;
+}
+@media all and (max-width: 576px) {
+  .differenceSection .ds-title-big {
+    position: relative;
+    right: 38px;
+    font-size: 40px;
+  }
 }
 
 .differenceSection .ds-title-small {
@@ -15947,6 +15955,12 @@ div.ldr .adImage {
   line-height: 0;
   text-align: right;
   margin-right: -2rem;
+  letter-spacing: 1px;
+}
+@media all and (max-width: 576px) {
+  .differenceSection .ds-title-small {
+    font-size: 24px;
+  }
 }
 
 .differenceSection .ds-subtitle {
@@ -15955,6 +15969,14 @@ div.ldr .adImage {
   font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+@media all and (max-width: 576px) {
+  .differenceSection .ds-subtitle {
+    font-size: 18px;
+    text-transform: unset;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
 }
 
 /* ---- Tabs rail (desktop) ---- */
@@ -16141,6 +16163,14 @@ div.ldr .adImage {
     cursor: pointer;
     justify-content: center;
   }
+}
+@media (max-width: 1024px) and (max-width: 576px) {
+  .ds-accHeader {
+    height: 45.78px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1024px) {
   .ds-accHeader.is-open {
     background: linear-gradient(227deg, #ffde9b -45.03%, #ffd8a2 106.52%);
     color: black;
@@ -16168,6 +16198,11 @@ div.ldr .adImage {
     line-height: 1.7;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.92);
+  }
+}
+@media (max-width: 1024px) and (max-width: 576px) {
+  .ds-accInner p {
+    font-size: 11px;
   }
 }
 /* ---- Container ---- */

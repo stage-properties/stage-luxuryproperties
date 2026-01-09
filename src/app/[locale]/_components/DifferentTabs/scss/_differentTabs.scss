@@ -52,6 +52,12 @@
   letter-spacing: 0.5px;
   line-height: 0.92;
   margin-bottom: clamp(4px, 0.9vw, 14px);
+  letter-spacing: 1px;
+  @media all and (max-width: 576px) {
+    position: relative;
+    right: 38px;
+    font-size: 40px;
+  }
 }
 
 .differenceSection .ds-title-small {
@@ -62,6 +68,10 @@
   line-height: 0;
   text-align: right;
   margin-right: -2rem;
+  letter-spacing: 1px;
+  @media all and (max-width: 576px) {
+    font-size: 24px;
+  }
 }
 
 .differenceSection .ds-subtitle {
@@ -71,6 +81,12 @@
   font-size: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  @media all and (max-width: 576px) {
+    font-size: 18px;
+    text-transform: unset;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
 }
 
 /* ---- Tabs rail (desktop) ---- */
@@ -260,6 +276,10 @@
     border-radius: 11.429px;
     cursor: pointer;
     justify-content: center;
+    @media all and (max-width: 576px) {
+      height: 45.78px;
+      font-size: 14px;
+    }
   }
 
   .ds-accHeader.is-open {
@@ -293,6 +313,9 @@
     line-height: 1.7;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.92);
+    @media all and (max-width: 576px) {
+      font-size: 11px;
+    }
   }
 }
 
