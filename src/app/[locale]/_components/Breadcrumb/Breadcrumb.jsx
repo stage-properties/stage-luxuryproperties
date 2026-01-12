@@ -3,15 +3,27 @@
 import { Breadcrumb as AntBreadcrumb } from "antd";
 import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
+import { usePathname } from "@/i18n/routing";
 
 const Breadcrumb = ({ home = true, items, scriptJSON }) => {
   const locale = useLocale();
   const isRTL = locale === "ar";
   const direction = isRTL ? "rtl" : "ltr";
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const SCROLL_THRESHOLD = 80; // match header feel; avoid blur at top
+  const SCROLL_THRESHOLD = 80;
+  const isHome =
+    pathname === "/" ||
+    pathname === "" ||
+    pathname === `/${locale}` ||
+    pathname === `/${locale}/`;
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -25,7 +37,7 @@ const Breadcrumb = ({ home = true, items, scriptJSON }) => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   const homeItem = home
     ? {

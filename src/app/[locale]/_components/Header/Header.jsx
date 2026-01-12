@@ -19,8 +19,18 @@ export default function Header() {
   const isRTL = locale === "ar";
   const pathname = usePathname();
   const links = isRTL ? navLinks_ar : navLinks;
+  const isHome =
+    pathname === "/" ||
+    pathname === "" ||
+    pathname === `/${locale}` ||
+    pathname === `/${locale}/`;
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -30,10 +40,10 @@ export default function Header() {
         ticking = false;
       });
     };
-    onScroll(); // set initial state
+    onScroll(); // set initial state for home
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <>
