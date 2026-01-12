@@ -1,25 +1,39 @@
 .breadcrumb-container {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
-    color: white;
-    background-color: rgba(18, 24, 35, 0.7);
-    backdrop-filter: blur(10px);
-    z-index: 998;
-    padding: 10px 50px;
-    white-space: nowrap;
-    @media all and (max-width: 980px) {
-      padding: 10px 20px;
-      overflow-y: scroll;
-    }
+  position: fixed;
+  top: 113px;
+  left: 0;
+  right: 0;
+  color: white;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease,
+    box-shadow 200ms ease, border-color 200ms ease,
+    -webkit-backdrop-filter 200ms ease;
+  z-index: 998;
+  padding: 10px 50px;
+  white-space: nowrap;
+  @media all and (max-width: 980px) {
+    padding: 10px 20px;
+    overflow-y: scroll;
   }
+
+  &.is-scrolled {
+    background-color: rgba(17, 17, 17, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 222, 155, 0.12);
+  }
+}
 
 ol {
   @media all and (max-width: 980px) {
     flex-wrap: unset !important;
     overflow-y: scroll !important;
-    padding-bottom: .2rem !important;
+    padding-bottom: 0.2rem !important;
     overflow-y: hidden !important;
     // scrollbar-width: none;
   }

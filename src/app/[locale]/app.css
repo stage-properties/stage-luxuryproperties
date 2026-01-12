@@ -1029,7 +1029,7 @@ div#propertyCard {
   -o-border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%);
      border-image: radial-gradient(circle, rgb(255, 236, 224) 0%, rgb(240, 202, 178) 35%, rgb(172, 131, 109) 100%);
   border-image-slice: 1;
-  background-color: var(--primary-bg-color);
+  background-color: var(--secondary-bg-color);
   cursor: pointer;
 }
 div#propertyCard:hover div.imageContainer img {
@@ -5528,7 +5528,7 @@ div.contactBtns div.bottom div.buttonContainer button span.text {
 }
 
 #searchPage {
-  padding: 130px 0;
+  padding: 150px 0;
   background-color: var(--primary-bg-color);
 }
 
@@ -5798,7 +5798,6 @@ html[lang=ar] #categoryCarousel div.slick-slider div.arrow-right {
 }
 #offplanInfoPage div.spotlight div.imageContainer {
   position: relative;
-  width: 80%;
   margin: 0 auto;
   height: 900px;
   z-index: 2;
@@ -5824,7 +5823,8 @@ html[lang=ar] #categoryCarousel div.slick-slider div.arrow-right {
   background: linear-gradient(to left, var(--secondary-bg-color) 0%, rgba(18, 24, 35, 0) 100%);
 }
 @media all and (max-width: 1200px) {
-  #offplanInfoPage div.spotlight div.imageContainer div.gradient-right, #offplanInfoPage div.spotlight div.imageContainer div.gradient-left {
+  #offplanInfoPage div.spotlight div.imageContainer div.gradient-right,
+  #offplanInfoPage div.spotlight div.imageContainer div.gradient-left {
     display: none;
   }
 }
@@ -7625,7 +7625,7 @@ div#offplanPropertyCard div.imageContainer .specsContainer .handover .handoverTe
 }
 div#offplanPropertyCard div.detailsContainer {
   padding: 20px 20px 20px;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
 }
 div#offplanPropertyCard div.detailsContainer.primaryBg {
   background-color: var(--primary-bg-color);
@@ -9048,7 +9048,7 @@ div.offplanListingSpotlight div.imageContainer div.info div.wrapper h1.mainHeadi
 }
 
 #privacyPolicy {
-  padding: 130px 0;
+  padding: 150px 0;
 }
 #privacyPolicy p {
   text-transform: none;
@@ -10118,7 +10118,7 @@ div.secondarySearchFields .filterPills {
 }
 
 div.secondaryMainPage {
-  padding: 130px 0;
+  padding: 150px 0;
 }
 div.secondaryMainPage h1.mainHeading {
   margin-bottom: 20px;
@@ -10348,7 +10348,7 @@ html[lang=ar] #secondaryDetailsPage div.gallerySectionSecondary div.right div.im
 }
 
 #secondaryDetailsPage {
-  padding: 100px 0;
+  padding: 150px 0;
 }
 @media all and (max-width: 480px) {
   #secondaryDetailsPage {
@@ -11450,13 +11450,16 @@ html[lang=ar] #review-container .title {
 }
 .breadcrumb-container {
   position: fixed;
-  top: 65px;
+  top: 113px;
   left: 0;
   right: 0;
   color: white;
-  background-color: rgba(18, 24, 35, 0.7);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+  transition: background-color 200ms ease, backdrop-filter 200ms ease, box-shadow 200ms ease, border-color 200ms ease, -webkit-backdrop-filter 200ms ease;
   z-index: 998;
   padding: 10px 50px;
   white-space: nowrap;
@@ -11466,6 +11469,13 @@ html[lang=ar] #review-container .title {
     padding: 10px 20px;
     overflow-y: scroll;
   }
+}
+.breadcrumb-container.is-scrolled {
+  background-color: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 222, 155, 0.12);
 }
 
 @media all and (max-width: 980px) {
@@ -13230,7 +13240,7 @@ div.contactAgentForm {
   padding: 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
 }
 @media all and (max-width: 1200px) {
   div.contactAgentForm {
