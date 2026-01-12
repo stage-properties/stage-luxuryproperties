@@ -3,7 +3,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
@@ -11,16 +11,25 @@ import { Link } from "@/i18n/routing";
 export default function BlogCarousel({ blogs }) {
   const slideCount = blogs?.length ?? 0;
   const hasMultiple = slideCount > 1;
+  const sliderRef = useRef(null);
+
+  const trimToWords = (text, maxWords = 9) => {
+    if (!text) return "—";
+    const words = text.trim().split(/\s+/);
+    if (words.length <= maxWords) return text;
+    return `${words.slice(0, maxWords).join(" ")}…`;
+  };
 
   const settings = {
     dots: true, // desktop only; turned off below
-    infinite: slideCount > 2,
+    infinite: false,
     speed: 260,
     slidesToShow: hasMultiple ? 1.6 : 1,
     slidesToScroll: 1,
     arrows: false,
-    centerMode: hasMultiple,
-    centerPadding: hasMultiple ? "48px" : "0px",
+    centerMode: false,
+    centerPadding: "0px",
+    initialSlide: 0,
     lazyLoad: false,
     responsive: hasMultiple
       ? [
@@ -28,7 +37,8 @@ export default function BlogCarousel({ blogs }) {
             breakpoint: 1280,
             settings: {
               slidesToShow: 1.4,
-              centerPadding: "40px",
+              centerMode: false,
+              centerPadding: "0px",
               dots: false,
             },
           },
@@ -36,7 +46,8 @@ export default function BlogCarousel({ blogs }) {
             breakpoint: 1024,
             settings: {
               slidesToShow: 1.2,
-              centerPadding: "32px",
+              centerMode: false,
+              centerPadding: "0px",
               dots: false,
             },
           },
@@ -44,7 +55,8 @@ export default function BlogCarousel({ blogs }) {
             breakpoint: 900,
             settings: {
               slidesToShow: 1.1,
-              centerPadding: "26px",
+              centerMode: false,
+              centerPadding: "0px",
               dots: false,
             },
           },
@@ -53,16 +65,16 @@ export default function BlogCarousel({ blogs }) {
             settings: {
               slidesToShow: 1,
               dots: false,
-              centerMode: true,
-              centerPadding: "18px",
+              centerMode: false,
+              centerPadding: "0px",
             },
           },
           {
             breakpoint: 600,
             settings: {
               slidesToShow: 1,
-              centerMode: true,
-              centerPadding: "12px",
+              centerMode: false,
+              centerPadding: "0px",
               dots: false,
             },
           },
@@ -70,7 +82,6 @@ export default function BlogCarousel({ blogs }) {
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
-              centerMode: true,
               centerPadding: "0px",
               dots: false,
             },
@@ -78,6 +89,12 @@ export default function BlogCarousel({ blogs }) {
         ]
       : [],
   };
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(0, true);
+    }
+  }, [slideCount]);
 
   const getDate = (d) => {
     if (!d) return null;
@@ -94,22 +111,23 @@ export default function BlogCarousel({ blogs }) {
 
   return (
     <div className="blogsSliderContainer">
-      <Slider {...settings}>
+      <Slider key={slideCount} ref={sliderRef} {...settings}>
         {(blogs?.length ? blogs : Array.from({ length: 1 })).map(
-          (item, idx) => {
-            const attrs = item?.attributes || {};
-            const href = attrs?.slug ? `/blog/${attrs.slug}` : "#";
-            const img =
-              attrs?.featured_image?.data?.attributes?.url ||
-              "/ourStoryBG.jpeg";
-            const alt =
-              attrs?.featured_image?.data?.attributes?.alternativeText ||
-              attrs?.blog_title ||
-              "Blog image";
-            const title = attrs?.blog_title || "—";
-            const excerpt =
-              attrs?.excerpt ||
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            (item, idx) => {
+              const attrs = item?.attributes || {};
+              const rawTitle = attrs?.blog_title;
+              const title = trimToWords(rawTitle, 9);
+              const href = attrs?.slug ? `/blog/${attrs.slug}` : "#";
+              const img =
+                attrs?.featured_image?.data?.attributes?.url ||
+                "/ourStoryBG.jpeg";
+              const alt =
+                attrs?.featured_image?.data?.attributes?.alternativeText ||
+                (rawTitle ? title : null) ||
+                "Blog image";
+              const excerpt =
+                attrs?.excerpt ||
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
             const date = getDate(attrs?.publishedAt);
 
             return (
