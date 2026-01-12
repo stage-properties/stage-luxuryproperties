@@ -18,7 +18,7 @@
     h2.mainHeading {
       margin-top: 80px;
       margin-bottom: 10px;
-      &.ar{
+      &.ar {
         text-align: right;
       }
       @media all and (max-width: 980px) {
@@ -27,17 +27,17 @@
       }
     }
     h3.mainHeading {
-      -webkit-text-fill-color: #FDFDFD;
+      -webkit-text-fill-color: #fdfdfd;
       margin-bottom: 20px;
       margin-bottom: 70px;
       @include adjust-font(17px, false);
-      &.ar{
+      &.ar {
         text-align: right;
       }
       @media all and (max-width: 980px) {
         margin-bottom: 30px;
       }
-      @media all and (max-width:768px){
+      @media all and (max-width: 768px) {
         @include adjust-font(14px, false);
       }
     }
@@ -129,7 +129,7 @@
             margin-right: unset;
             margin-left: 70px;
           }
-          &:nth-child(3n){
+          &:nth-child(3n) {
             margin-right: 0;
             &.ar {
               margin-right: unset;
@@ -145,7 +145,7 @@
               margin-bottom: 64px;
             }
 
-            &:nth-child(3n){
+            &:nth-child(3n) {
               &.ar {
                 margin-right: unset;
                 margin-left: unset;
@@ -159,7 +159,7 @@
             width: 263px;
             margin-right: 10px;
             margin-bottom: 0;
-            &:nth-child(3n){
+            &:nth-child(3n) {
               &.ar {
                 margin-right: unset;
                 margin-left: 30px;
@@ -232,9 +232,9 @@
           width: 100%;
         }
         @media all and (max-width: 980px) {
-            flex-direction: column;
-            background-color: var(--dark-blue);
-            padding: 30px 30px 30px;
+          flex-direction: column;
+          background-color: var(--primary-bg-color);
+          padding: 30px 30px 30px;
         }
         input {
           width: 23%;
@@ -248,7 +248,7 @@
           @media all and (max-width: 980px) {
             width: 100%;
             margin-bottom: 30px;
-        }
+          }
           &::placeholder {
             letter-spacing: 1.6px;
             @include adjust-font(14px, false);
@@ -262,7 +262,7 @@
         }
       }
     }
-    .mortgageCalculator{
+    .mortgageCalculator {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -287,16 +287,16 @@ button.showMoreBtn {
   background-color: transparent;
   color: var(--text-color);
   transition: 0.3s ease-in-out;
-  &:hover{
-      background-color: var(--tertiary-color);
-      color: #000;
+  &:hover {
+    background-color: var(--tertiary-color);
+    color: #000;
   }
-  @media all and (max-width:768px){
+  @media all and (max-width: 768px) {
     @include adjust-font(14px, false);
     padding: 12px 10px;
     margin-bottom: 20px;
   }
-  @media all and (max-width:640px){
+  @media all and (max-width: 640px) {
     width: 8rem;
     padding: 10px 10px;
     @include adjust-font(13px, false);

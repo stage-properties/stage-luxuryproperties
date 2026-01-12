@@ -17,7 +17,7 @@ div.mortgageCalculator {
     display: flex;
     justify-content: space-between;
     padding: 30px;
-    background-color: var(--dark-blue);
+    background-color: var(--primary-bg-color);
     @media all and (max-width: 980px) {
       flex-direction: column;
     }
@@ -48,10 +48,10 @@ div.mortgageCalculator {
           align-items: center;
           position: relative;
           width: 40%;
-          @media all and (max-width:768px){
+          @media all and (max-width: 768px) {
             width: 100%;
           }
-          div.react-tooltip{
+          div.react-tooltip {
             z-index: 9;
           }
           label {
@@ -149,9 +149,9 @@ div.mortgageCalculator {
             }
           }
         }
-        span.error{
-            @include adjust-font(12px, false);
-            color: var(--error-color);
+        span.error {
+          @include adjust-font(12px, false);
+          color: var(--error-color);
         }
       }
       div.rangeContainer {
@@ -214,8 +214,8 @@ div.mortgageCalculator {
             justify-content: space-between;
             margin-bottom: 20px;
             @media all and (max-width: 480px) {
-                flex-wrap: wrap;
-              }
+              flex-wrap: wrap;
+            }
             span {
               color: var(--light-text-color);
               font-weight: 300;
@@ -232,11 +232,11 @@ div.mortgageCalculator {
 
           div.buttonContainer {
             button.globalBtn {
-                @media all and (max-width: 480px) {
-                 width: 100%;
-                 padding: 10px 15px;
+              @media all and (max-width: 480px) {
+                width: 100%;
+                padding: 10px 15px;
                 @include adjust-font(13px, false);
-                  }
+              }
             }
           }
         }
@@ -259,18 +259,18 @@ div.mortgageCalculator {
   h1 {
     margin-bottom: 4rem;
     @include adjust-font(40px, false);
-    @media all and (max-width:768px){
+    @media all and (max-width: 768px) {
       margin-bottom: 2rem;
       @include adjust-font(30px, false);
     }
   }
 
   h2 {
-    @media all and (max-width:768px){
+    @media all and (max-width: 768px) {
       text-align: left;
       margin-left: 20px;
       margin-right: 20px;
-      margin-bottom: .3rem;
+      margin-bottom: 0.3rem;
       &.ar {
         text-align: right;
       }
@@ -279,7 +279,7 @@ div.mortgageCalculator {
 
   h3 {
     @include adjust-font(16.53px, false);
-    @media all and (max-width:768px){
+    @media all and (max-width: 768px) {
       text-align: left;
       margin-left: 20px;
       margin-right: 20px;
@@ -289,11 +289,11 @@ div.mortgageCalculator {
     }
   }
 
-  .paragraphContainer{
+  .paragraphContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    @media all and (max-width:768px){
+    @media all and (max-width: 768px) {
       width: 100%;
       p {
         &.ar {
@@ -301,13 +301,13 @@ div.mortgageCalculator {
         }
       }
     }
-    
+
     div {
       margin: 1rem 0rem 1.2rem 0rem;
       text-align: center;
-      line-height: 1.3rem; 
+      line-height: 1.3rem;
       width: 50%;
-      @media all and (max-width:768px){
+      @media all and (max-width: 768px) {
         width: 100%;
         text-align: left;
         margin-right: 20px;

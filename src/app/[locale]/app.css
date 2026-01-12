@@ -1870,7 +1870,7 @@ html[lang=ar] #homePage div.ourStorySection div.ourStoryCarouselSection div.caro
   }
 }
 #homePage div.ourServicesSection h3.mainHeading {
-  -webkit-text-fill-color: #FDFDFD;
+  -webkit-text-fill-color: #fdfdfd;
   margin-bottom: 20px;
   margin-bottom: 70px;
   font-size: 17px;
@@ -2108,7 +2108,7 @@ html[lang=ar] #homePage div.ourServicesSection div.mortgageCalculatorFormContain
 @media all and (max-width: 980px) {
   #homePage div.ourServicesSection div.mortgageCalculatorFormContainer div.calculatorForm {
     flex-direction: column;
-    background-color: var(--dark-blue);
+    background-color: var(--primary-bg-color);
     padding: 30px 30px 30px;
   }
 }
@@ -2215,7 +2215,7 @@ button.showMoreBtn:hover {
 div.ourServicesCard {
   padding: 10px 20px;
   min-height: 220px;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
 }
 @media all and (max-width: 1200px) {
   div.ourServicesCard {
@@ -6777,7 +6777,7 @@ html[lang=ar] #offplanInfoPage div.currencyAndPlan div.wrapper ul.currencies li.
   display: flex;
   align-items: center;
   padding: 25px 20px;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
   margin-bottom: 60px;
 }
 #offplanInfoPage div.currencyAndPlan div.wrapper div.crypto div.icons {
@@ -6897,7 +6897,7 @@ html[lang=ar] #offplanInfoPage div.currencyAndPlan div.wrapper div.paymentPlan d
   text-transform: uppercase;
   color: var(--light-text-color);
   font-weight: 300;
-  color: #FFF;
+  color: #fff;
   letter-spacing: 1.92px;
 }
 html[lang=ar] #offplanInfoPage div.currencyAndPlan div.wrapper div.paymentPlan div.payment ul.listPlans li.item span.label {
@@ -7191,7 +7191,7 @@ div.propertyContactForm {
   padding: 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
 }
 @media all and (max-width: 1200px) {
   div.propertyContactForm {
@@ -7832,7 +7832,7 @@ div#offplanPropertyCard div.detailsContainer div.extraInfo div.bottom div.contac
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
   width: 50%;
   margin: 0 auto;
   padding: 60px 60px 60px;
@@ -9109,7 +9109,7 @@ div.mortgageCalculator div.calculatorContainer {
   display: flex;
   justify-content: space-between;
   padding: 30px;
-  background-color: var(--dark-blue);
+  background-color: var(--primary-bg-color);
 }
 @media all and (max-width: 980px) {
   div.mortgageCalculator div.calculatorContainer {
@@ -11458,7 +11458,7 @@ html[lang=ar] #review-container .title {
 }
 .breadcrumb-container {
   position: fixed;
-  top: 113px;
+  top: 105px;
   left: 0;
   right: 0;
   color: white;
