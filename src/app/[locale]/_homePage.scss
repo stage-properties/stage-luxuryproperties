@@ -51,6 +51,7 @@
 }
 
 #homePage {
+  overflow-x: clip;
   div.videoContainer {
     z-index: -1;
     position: relative;

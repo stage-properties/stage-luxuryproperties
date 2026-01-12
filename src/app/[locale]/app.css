@@ -328,6 +328,9 @@
     width: 202px !important;
   }
 }
+#homePage {
+  overflow-x: clip;
+}
 #homePage div.videoContainer {
   z-index: -1;
   position: relative;
@@ -6505,7 +6508,7 @@ html[lang=ar] div.arrow-right {
 }
 #offplanInfoPage div.propertyInfo div.bgImageContainer div.gradient {
   position: absolute;
-  background: linear-gradient(360deg, rgb(20, 27, 39) 15%, rgba(20, 27, 39, 0.8758096989) 100%);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.92) 97.83%);
   left: 0;
   top: 0;
   right: 0;
@@ -16382,7 +16385,7 @@ div.ldr .adImage {
 }
 @media (max-width: 1024px) and (max-width: 576px) {
   .ds-accInner p {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 /* ---- Container ---- */
