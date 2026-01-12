@@ -9,25 +9,74 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
 export default function BlogCarousel({ blogs }) {
+  const slideCount = blogs?.length ?? 0;
+  const hasMultiple = slideCount > 1;
+
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 200,
-    slidesToShow: 1.5,
+    dots: true, // desktop only; turned off below
+    infinite: slideCount > 2,
+    speed: 260,
+    slidesToShow: hasMultiple ? 1.6 : 1,
     slidesToScroll: 1,
     arrows: false,
-    initialSlide: 0.5,
+    centerMode: hasMultiple,
+    centerPadding: hasMultiple ? "48px" : "0px",
     lazyLoad: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          dots: true,
-          centerMode: true,
-          centerPadding: "0px",
-        },
-      },
-    ],
+    responsive: hasMultiple
+      ? [
+          {
+            breakpoint: 1280,
+            settings: {
+              slidesToShow: 1.4,
+              centerPadding: "40px",
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1.2,
+              centerPadding: "32px",
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 900,
+            settings: {
+              slidesToShow: 1.1,
+              centerPadding: "26px",
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              dots: false,
+              centerMode: true,
+              centerPadding: "18px",
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              centerMode: true,
+              centerPadding: "12px",
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              centerMode: true,
+              centerPadding: "0px",
+              dots: false,
+            },
+          },
+        ]
+      : [],
   };
 
   const getDate = (d) => {
@@ -76,7 +125,7 @@ export default function BlogCarousel({ blogs }) {
                         alt={alt}
                         fill
                         priority
-                        sizes="(min-width: 1024px) 40vw, 90vw"
+                        sizes="(min-width: 1280px) 32vw, (min-width: 1024px) 40vw, (min-width: 768px) 60vw, 90vw"
                       />
                     </div>
                   </div>

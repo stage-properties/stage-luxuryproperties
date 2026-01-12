@@ -3402,10 +3402,26 @@ div.overviewCard div.bottom span.price {
 }
 #homePage .blogSection .blogsSliderContainer {
   position: relative;
+  padding: 0 12px;
   /* dots under the card */
 }
 #homePage .blogSection .blogsSliderContainer .slick-slider {
   overflow: visible;
+}
+#homePage .blogSection .blogsSliderContainer .slick-list {
+  overflow: visible;
+}
+#homePage .blogSection .blogsSliderContainer .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+#homePage .blogSection .blogsSliderContainer .slick-slide {
+  height: auto;
+  display: flex;
+}
+#homePage .blogSection .blogsSliderContainer .slick-slide > div {
+  height: 100%;
+  display: flex;
 }
 #homePage .blogSection .blogsSliderContainer .slick-dots {
   bottom: -32px;
@@ -3421,6 +3437,8 @@ div.overviewCard div.bottom span.price {
 }
 #homePage .blogSection .blogSlide {
   padding: 12px; /* breathing room around the card */
+  height: 100%;
+  display: flex;
 }
 #homePage .blogSection .slideCard {
   border: 1px solid rgba(255, 219, 159, 0.4);
@@ -3433,6 +3451,7 @@ div.overviewCard div.bottom span.price {
   position: relative;
   text-decoration: none;
   color: inherit;
+  height: 100%;
   /* glassy blur + soft shadow to mimic your mock */
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -3501,12 +3520,20 @@ div.overviewCard div.bottom span.price {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+  gap: 12px;
 }
 #homePage .blogSection .slideContent .slideTitle {
   font-size: 22px;
   line-height: 1.3;
   margin: 8px 0 10px;
   color: #f7f7f7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.6em;
 }
 @media (min-width: 1024px) {
   #homePage .blogSection .slideContent .slideTitle {
@@ -3522,6 +3549,7 @@ div.overviewCard div.bottom span.price {
   color: var(--light-text-color, #cfcfcf);
   font-size: 14px;
   line-height: 1.6;
+  min-height: 68px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -3555,7 +3583,7 @@ div.overviewCard div.bottom span.price {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 10px;
+  margin-top: auto;
 }
 #homePage .blogSection .slideContent .slideFooter .slideDate {
   font-size: 12px;
@@ -3580,6 +3608,20 @@ div.overviewCard div.bottom span.price {
   transform: translateX(2px);
   background: rgba(255, 222, 155, 0.22);
 }
+@media (max-width: 1200px) {
+  #homePage .blogSection .slideCard {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  #homePage .blogSection .slideImageWrap .imgRel {
+    height: 240px;
+  }
+}
+@media (max-width: 1280px) {
+  #homePage .blogSection .slideCard {
+    min-height: 420px;
+  }
+}
 @media (max-width: 992px) {
   #homePage .blogSection {
     padding: 60px 0;
@@ -3587,6 +3629,7 @@ div.overviewCard div.bottom span.price {
   #homePage .blogSection .slideCard {
     grid-template-columns: 1fr;
     gap: 14px;
+    min-height: auto;
   }
   #homePage .blogSection .slideContent .slideTitle {
     font-size: 20px;

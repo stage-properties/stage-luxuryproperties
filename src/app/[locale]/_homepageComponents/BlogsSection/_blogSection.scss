@@ -92,9 +92,29 @@
     /* ---------- Slider ---------- */
     .blogsSliderContainer {
       position: relative;
+      padding: 0 12px;
 
       .slick-slider {
         overflow: visible;
+      }
+
+      .slick-list {
+        overflow: visible;
+      }
+
+      .slick-track {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .slick-slide {
+        height: auto;
+        display: flex;
+      }
+
+      .slick-slide > div {
+        height: 100%;
+        display: flex;
       }
 
       /* dots under the card */
@@ -116,6 +136,8 @@
     /* ---------- Slide Card ---------- */
     .blogSlide {
       padding: 12px; /* breathing room around the card */
+      height: 100%;
+      display: flex;
     }
 
     .slideCard {
@@ -129,6 +151,7 @@
       position: relative;
       text-decoration: none;
       color: inherit;
+      height: 100%;
 
       /* glassy blur + soft shadow to mimic your mock */
       backdrop-filter: blur(10px);
@@ -211,12 +234,20 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
+      gap: 12px;
 
       .slideTitle {
         font-size: 22px;
         line-height: 1.3;
         margin: 8px 0 10px;
         color: #f7f7f7;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-height: 2.6em;
 
         @media (min-width: 1024px) {
           font-size: 24px;
@@ -230,6 +261,7 @@
         color: var(--light-text-color, #cfcfcf);
         font-size: 14px;
         line-height: 1.6;
+        min-height: 68px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
@@ -261,7 +293,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        margin-top: 10px;
+        margin-top: auto;
 
         .slideDate {
           font-size: 12px;
@@ -293,12 +325,30 @@
     }
 
     /* ---------- Responsive ---------- */
+    @media (max-width: 1200px) {
+      .slideCard {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .slideImageWrap .imgRel {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .slideCard {
+        min-height: 420px;
+      }
+    }
+
     @media (max-width: 992px) {
       padding: 60px 0;
 
       .slideCard {
         grid-template-columns: 1fr;
         gap: 14px;
+        min-height: auto;
       }
 
       .slideContent .slideTitle {
