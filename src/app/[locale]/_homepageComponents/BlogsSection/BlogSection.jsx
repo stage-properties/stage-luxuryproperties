@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { fetchBlogs } from "@/app/[locale]/_commonService/network";
 import BlogCarousel from "./components/BlogCarousel";

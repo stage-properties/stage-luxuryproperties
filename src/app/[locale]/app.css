@@ -3372,6 +3372,11 @@ div.overviewCard div.bottom span.price {
   font-weight: 400;
   line-height: 147.427px; /* 120.312% */
 }
+@media all and (max-width: 576px) {
+  #homePage .blogSection .wrapper .title {
+    line-height: 101.911px;
+  }
+}
 #homePage .blogSection .wrapper .subtitle {
   margin-top: 1rem;
   margin-bottom: 1.8rem;
@@ -3382,6 +3387,18 @@ div.overviewCard div.bottom span.price {
   line-height: 32px; /* 114.286% */
   color: var(--Secondary-Honey, #fffae8);
   text-align: center;
+}
+@media all and (max-width: 576px) {
+  #homePage .blogSection .wrapper .subtitle {
+    font-size: 16px;
+    line-height: unset;
+  }
+}
+@media all and (max-width: 576px) {
+  #homePage .blogSection .wrapper {
+    padding: unset;
+    line-height: 17.36px;
+  }
 }
 #homePage .blogSection .blogsSliderContainer {
   position: relative;
@@ -3496,6 +3513,11 @@ div.overviewCard div.bottom span.price {
     font-size: 24px;
   }
 }
+@media all and (max-width: 576px) {
+  #homePage .blogSection .slideContent .slideTitle {
+    font-size: 16px !important;
+  }
+}
 #homePage .blogSection .slideContent .slideExcerpt {
   color: var(--light-text-color, #cfcfcf);
   font-size: 14px;
@@ -3511,6 +3533,11 @@ div.overviewCard div.bottom span.price {
     -webkit-line-clamp: 4;
   }
 }
+@media all and (max-width: 576px) {
+  #homePage .blogSection .slideContent .slideExcerpt {
+    font-size: 11px !important;
+  }
+}
 #homePage .blogSection .slideContent .slideDate {
   color: #fff;
   font-family: var(--rhd-font-family);
@@ -3518,6 +3545,11 @@ div.overviewCard div.bottom span.price {
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
+}
+@media all and (max-width: 576px) {
+  #homePage .blogSection .slideContent .slideDate {
+    font-size: 9px !important;
+  }
 }
 #homePage .blogSection .slideContent .slideFooter {
   display: flex;
