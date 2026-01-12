@@ -3115,7 +3115,7 @@ html[lang=ar] #homePage div.communitySection p.tagline {
 #homePage ._buttonContainer {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 @media all and (max-width: 992px) {
   #homePage ._buttonContainer {
@@ -5528,7 +5528,7 @@ div.contactBtns div.bottom div.buttonContainer button span.text {
 }
 
 #searchPage {
-  padding: 150px 0;
+  padding: 180px 0;
   background-color: var(--primary-bg-color);
 }
 
@@ -8057,7 +8057,7 @@ div.swal2-container {
   margin-bottom: 30px;
 }
 #blogsListing div.wrapper {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 @media all and (max-width: 1200px) {
   #blogsListing div.wrapper .mainHeading {
@@ -8930,7 +8930,7 @@ div.offplanListingSpotlight div.imageContainer div.info div.wrapper h1.mainHeadi
 }
 
 #contactUsPage div.contactInfo {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 #contactUsPage div.contactInfo div.wrapper div.infoContainer {
   display: flex;
@@ -9048,7 +9048,7 @@ div.offplanListingSpotlight div.imageContainer div.info div.wrapper h1.mainHeadi
 }
 
 #privacyPolicy {
-  padding: 150px 0;
+  padding: 180px 0;
 }
 #privacyPolicy p {
   text-transform: none;
@@ -10118,7 +10118,7 @@ div.secondarySearchFields .filterPills {
 }
 
 div.secondaryMainPage {
-  padding: 150px 0;
+  padding: 180px 0;
 }
 div.secondaryMainPage h1.mainHeading {
   margin-bottom: 20px;
@@ -10348,7 +10348,7 @@ html[lang=ar] #secondaryDetailsPage div.gallerySectionSecondary div.right div.im
 }
 
 #secondaryDetailsPage {
-  padding: 150px 0;
+  padding: 180px 0;
 }
 @media all and (max-width: 480px) {
   #secondaryDetailsPage {
@@ -11468,6 +11468,7 @@ html[lang=ar] #review-container .title {
   .breadcrumb-container {
     padding: 10px 20px;
     overflow-y: scroll;
+    top: 76px;
   }
 }
 .breadcrumb-container.is-scrolled {
