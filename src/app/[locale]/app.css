@@ -12,9 +12,10 @@
   right: 0;
   height: 80px; /* was 64px */
   padding: 14px 28px; /* was 8px 20px */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* left | center | right */
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
+  gap: 12px;
   z-index: 999;
   /* start transparent */
   background: transparent;
@@ -28,6 +29,7 @@
   align-items: center;
   gap: 8px;
   justify-content: flex-start;
+  flex: 0 0 auto;
 }
 #mHeader .mH-pill {
   display: inline-flex;
@@ -50,16 +52,18 @@
 }
 #mHeader .mH-brand {
   position: relative;
-  justify-self: center;
+  flex: 0 0 auto;
   display: inline-block;
+  margin: 0; /* sit on the left */
 }
 #mHeader .mH-brand .mH-logo {
-  width: 282px;
+  width: 253.8px;
   height: auto;
   display: block;
 }
 #mHeader .mH-burger {
-  justify-self: end;
+  flex: 0 0 auto;
+  margin-left: auto; /* keep burger on the far right */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,10 +84,14 @@
 @media all and (max-width: 576px) {
   #mHeader {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 12px;
   }
   #mHeader .mH-left {
     display: none;
+  }
+  #mHeader .mH-brand {
+    margin-right: auto;
   }
   #mHeader .mH-brand .mH-logo {
     width: 150px;
