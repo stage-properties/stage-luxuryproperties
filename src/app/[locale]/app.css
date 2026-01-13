@@ -3002,7 +3002,7 @@ div.communityCard div.contactInfo span.icon svg {
 @media all and (max-width: 576px) {
   #homePage div.communitySection .title {
     font-size: 40px;
-    line-height: unset;
+    line-height: 90.427px;
   }
 }
 #homePage div.communitySection .subtitle {
