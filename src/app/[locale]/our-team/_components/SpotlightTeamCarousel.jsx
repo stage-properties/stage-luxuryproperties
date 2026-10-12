@@ -1,14 +1,14 @@
 "use client";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
 import React, { useEffect, useState } from "react";
-dynamic(() => import ('slick-carousel/slick/slick.css'))
-dynamic(() => import ('slick-carousel/slick/slick-theme.css'))
+dynamic(() => import("slick-carousel/slick/slick.css"));
+dynamic(() => import("slick-carousel/slick/slick-theme.css"));
 // import Slider from "react-slick";
 import Image from "next/image";
-const Slider = dynamic(() => import ('react-slick'),{
-  ssr:true
-})
+const Slider = dynamic(() => import("react-slick"), {
+  ssr: true,
+});
 const SpotlightTeamCarousel = ({ teamDataResponse }) => {
   const [teamData, setTeamData] = useState([]);
   // const [teamDataAPIinfo, setTeamDataAPIinfo] = useState();
@@ -25,7 +25,7 @@ const SpotlightTeamCarousel = ({ teamDataResponse }) => {
     infinite: true,
     centerMode: false,
     slidesToShow: 5,
-    slidesToScroll:1,
+    slidesToScroll: 1,
     variableWidth: true,
     // lazyLoad: true,
     // afterChange: async () => await fetchTeamsbyLazy(),
@@ -84,7 +84,7 @@ const SpotlightTeamCarousel = ({ teamDataResponse }) => {
               <div className="item" key={item?.id} style={{ width: 300 }}>
                 <div className="imageContainer ">
                   <Image
-                    quality={100}
+                    quality={75}
                     src={item?.attributes?.image?.data?.attributes?.url}
                     sizes="100vw"
                     fill

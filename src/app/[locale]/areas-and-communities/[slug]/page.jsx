@@ -27,7 +27,7 @@ export const generateMetadata = async ({ params }) => {
 
   const getCommunityInfo = await fetchAPI(
     `communities/single/${slug}?locale=${locale}`,
-    "noCache"
+    "noCache",
   );
 
   const communityName = getCommunityInfo?.attributes?.community_name;
@@ -45,7 +45,7 @@ export const generateMetadata = async ({ params }) => {
   const headerList = headers();
   const fullURL = headerList.get("x-current-url").replace("ar/", "");
   const title = `${t(
-    "Off Plan Projects & Ready Properties in"
+    "Off Plan Projects & Ready Properties in",
   )} ${communityName}`;
 
   return {
@@ -92,20 +92,20 @@ const Community = async ({ params }) => {
 
   const offplanProjects = await fetchAPI(
     `offplan/list/communities/${slug}?locale=${locale}`,
-    "noCache"
+    "noCache",
   );
   const secondaryPropertiesSale = await fetchAPI(
     `secondary/communities/${slug}?offeringType=Sale&locale=${locale}`,
-    "noCache"
+    "noCache",
   );
   const secondaryPropertiesRent = await fetchAPI(
     `secondary/communities/${slug}?offeringType=Rent&locale=${locale}`,
-    "noCache"
+    "noCache",
   );
 
   const getCommunityInfo = await fetchAPI(
     `communities/single/${params?.slug}?locale=${locale}`,
-    "noCache"
+    "noCache",
   );
 
   const communityName = getCommunityInfo?.attributes?.community_name;
@@ -164,7 +164,7 @@ const Community = async ({ params }) => {
           alt={alternativeText || communityName}
           layout="fill"
           objectFit="cover"
-          quality={100}
+          quality={75}
         />
         <div className="_titleContainer">
           <h1 className={`__title ${isRTL ? "ar" : ""}`}>{communityName}</h1>
@@ -228,7 +228,7 @@ const Community = async ({ params }) => {
                   >
                     {communityName}{" "}
                     {t_areas_and_communities(
-                      "Discover ready properties for sale in"
+                      "Discover ready properties for sale in",
                     )}
                   </p>
                 ) : (
@@ -238,7 +238,7 @@ const Community = async ({ params }) => {
                     }`}
                   >
                     {t_areas_and_communities(
-                      "Discover ready properties for sale in"
+                      "Discover ready properties for sale in",
                     )}{" "}
                     {communityName}
                   </p>
@@ -280,7 +280,7 @@ const Community = async ({ params }) => {
                   >
                     {communityName}{" "}
                     {t_areas_and_communities(
-                      "Discover ready properties for Rent in"
+                      "Discover ready properties for Rent in",
                     )}
                   </p>
                 ) : (
@@ -290,7 +290,7 @@ const Community = async ({ params }) => {
                     }`}
                   >
                     {t_areas_and_communities(
-                      "Discover ready properties for Rent in"
+                      "Discover ready properties for Rent in",
                     )}{" "}
                     {communityName}
                   </p>

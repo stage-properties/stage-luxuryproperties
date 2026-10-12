@@ -8,11 +8,10 @@ import CollageImageComponent from "./CollageImageComponent";
 import { useTranslations } from "next-intl";
 
 const GallerySectionSecondary = ({ galleryImages, alternativeText }) => {
-
-  const t = useTranslations('common')
+  const t = useTranslations("common");
   const [galleryModal, setGalleryModal] = useState(false);
   const [isImageLoad, setIsImageLoad] = useState(false);
-  const [startIndex, setStartIndex] = useState(0)
+  const [startIndex, setStartIndex] = useState(0);
 
   let windowWidth = useWindowSize();
   const onLoadHandler = () => {
@@ -22,8 +21,8 @@ const GallerySectionSecondary = ({ galleryImages, alternativeText }) => {
     setGalleryModal(value);
   };
   const setStartIndexHandler = (value) => {
-    setStartIndex(value)
-  }
+    setStartIndex(value);
+  };
 
   return (
     <div className="gallerySectionSecondary">
@@ -36,11 +35,11 @@ const GallerySectionSecondary = ({ galleryImages, alternativeText }) => {
         />
       )}
       {windowWidth?.width < 481 ? (
-        <GalleryResponsiveSlider 
-          galleryData={galleryImages} 
-          alternativeText={alternativeText} 
+        <GalleryResponsiveSlider
+          galleryData={galleryImages}
+          alternativeText={alternativeText}
           setStartIndexHandler={setStartIndexHandler}
-          onClick={() => galleryModalHandler(true)} 
+          onClick={() => galleryModalHandler(true)}
         />
       ) : (
         <>
@@ -53,12 +52,12 @@ const GallerySectionSecondary = ({ galleryImages, alternativeText }) => {
                   alt={item?.attributes?.alternativeText || alternativeText}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   onLoad={onLoadHandler}
-                  quality={100}
+                  quality={75}
                   onClick={() => {
-                    setStartIndexHandler(0)
-                    galleryModalHandler(true)
+                    setStartIndexHandler(0);
+                    galleryModalHandler(true);
                   }}
-                  style={{cursor: 'pointer'}}
+                  style={{ cursor: "pointer" }}
                 />
                 {!isImageLoad && (
                   <div className="loadingImage gradientBorder">
@@ -77,12 +76,14 @@ const GallerySectionSecondary = ({ galleryImages, alternativeText }) => {
           <div className="right">
             {galleryImages?.slice(1, 5)?.map((item, index) => (
               <CollageImageComponent
-              key={item?.id}
+                key={item?.id}
                 data={item}
                 index={index}
                 galleryModalHandler={galleryModalHandler}
                 setStartIndexHandler={setStartIndexHandler}
-                alternativeText={item?.attributes?.alternativeText || alternativeText}
+                alternativeText={
+                  item?.attributes?.alternativeText || alternativeText
+                }
                 isFourthImage={index === 3} // Pass a prop to identify the 4th image
               />
             ))}

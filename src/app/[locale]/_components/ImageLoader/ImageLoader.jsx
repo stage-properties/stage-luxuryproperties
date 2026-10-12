@@ -28,8 +28,7 @@ const ImageLoader = ({ imageSRC, alternativeText, onClick }) => {
         fill={true}
         alt={alternativeText}
         onLoad={onLoadHandler}
-        quality={100}
-
+        quality={75}
       />
     </div>
   );

@@ -7,7 +7,10 @@ import Image from "next/image";
 
 const GalleryCarousel = ({ galleryData, startIndex = 0, alternativeText }) => {
   const sliderRef = useRef(null);
-  const validatedStartIndex = Math.min(Math.max(startIndex, 0), galleryData.length - 1);
+  const validatedStartIndex = Math.min(
+    Math.max(startIndex, 0),
+    galleryData.length - 1,
+  );
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -37,7 +40,7 @@ const GalleryCarousel = ({ galleryData, startIndex = 0, alternativeText }) => {
                   fill
                   alt={item?.attributes?.alternativeText || alternativeText}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  quality={100}
+                  quality={75}
                 />
               </div>
             </div>
